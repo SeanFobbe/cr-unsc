@@ -67,7 +67,39 @@ data.table(reslist, recordlinks.url)[sample(50, 5)]
 
 
 
+url <- "https://digitallibrary.un.org/record/111952" # res 37
+
 html <- read_html(url)
+
+extract_download_undl <- function(html){
+
+    # sample link:  "/record/111952/files/S_RES_37%281947%29-ES.pdf"
+    
+    links <- html_nodes(html, "a") %>% html_attr('href')
+
+    pdf.relative <- unique(grep("/record/[0-9]+/files", links, value = TRUE))
+
+    pdf.absolute <- paste0("https://digitallibrary.un.org",
+                                pdf.relative)
+
+    pdf.ar <- grep("AR\\.pdf", pdf.absolute, value = TRUE)
+    pdf.en <- grep("EN\\.pdf", pdf.absolute, value = TRUE)
+    pdf.es <- grep("ES\\.pdf", pdf.absolute, value = TRUE)
+    pdf.fr <- grep("FR\\.pdf", pdf.absolute, value = TRUE)
+    pdf.ru <- grep("RU\\.pdf", pdf.absolute, value = TRUE)
+    pdf.zh <- grep("ZH\\.pdf", pdf.absolute, value = TRUE)
+
+
+    value <- data.table(pdf.ar,
+                        pdf.en,
+                        pdf.es,
+                        pdf.fr,
+                        pdf.ru,
+                        pdf.zh)
+    
+    return(value)
+    
+    }
 
 
 extract_meta_undl <- function(html){
@@ -81,27 +113,19 @@ extract_meta_undl <- function(html){
 
     value <- data.table(title, content)
     value <- transpose(value, make.names = "title")
+
+    pdf <- extract_download_undl(html)
+    
+    value <- cbind(value, pdf)
+    
     return(value)
     
     }
 
-extract_download_undl <- function(html){
 
-    # sample link:  "/record/111952/files/S_RES_37%281947%29-ES.pdf"
-    
-    links <- html_nodes(html, "a") %>% html_attr('href')
-
-    download.relative <- unique(grep("/record/[0-9]+/files", links, value = TRUE))
-
-    download.absolute <- paste0("https://digitallibrary.un.org",
-                                download.relative)
-    
-    return(download.absolute)
-    
-    }
 
 extract_meta_undl(html)
-extract_download_undl(html)
+
 
 fwrite(value, "test.csv")
 
