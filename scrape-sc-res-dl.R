@@ -71,6 +71,8 @@ url <- "https://digitallibrary.un.org/record/111952" # res 37
 
 html <- read_html(url)
 
+# add: lik to draft res and meeting record
+
 extract_download_undl <- function(html){
 
     # sample link:  "/record/111952/files/S_RES_37%281947%29-ES.pdf"
