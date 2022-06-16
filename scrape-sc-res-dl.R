@@ -21,8 +21,9 @@ f.linkextract <- function(URL){
 library(rvest)
 
 
-resno <- 55
+resno <- 2600
 
+# example query
 "https://digitallibrary.un.org/search?ln=en&as=1&m1=p&p1=S%2FRES%2F55(&f1=documentsymbol&op1=a&m2=a&p2=&f2=&op2=a&m3=a&p3=&f3=&dt=&d1d=&d1m=&d1y=&d2d=&d2m=&d2y=&rm=&ln=en&sf=&so=d&rg=50&c=United%20Nations%20Digital%20Library%20System&of=hb&fti=0&fti=0&fct__1=Resolutions%20and%20Decisions"
 
 
@@ -37,13 +38,26 @@ extract_metalink <- function(resno){
 
     if(length(record) == 0){
         
-        sleeptime <- runif(1, 300, 360)
+    query <-     paste0("https://digitallibrary.un.org/search?ln=en&as=1&m1=p&p1=S%2FRES%2F",
+                        resno,
+                        "+(&f1=documentsymbol&op1=a&m2=a&p2=&f2=&op2=a&m3=a&p3=&f3=&dt=&d1d=&d1m=&d1y=&d2d=&d2m=&d2y=&rm=&ln=en&sf=&so=d&rg=50&c=United%20Nations%20Digital%20Library%20System&of=hb&fti=0&fti=0&fct__1=Resolutions%20and%20Decisions")
 
-        message(paste("Empty response, sleeping until", Sys.time() + sleeptime))
+    links <- f.linkextract(query)
+    record <- unique(grep("/record/[0-9]+$", links, value = TRUE))
         
-        Sys.sleepSys.sleep()
+    }
+
+    if(length(record) == 0){
+
+        message(paste("Empty Response for", resno))
         
-        }
+    ##     sleeptime <- runif(1, 300, 360)
+
+    ##     message(paste("Empty response, sleeping until", Sys.time() + sleeptime))
+        
+    ##     Sys.sleepSys.sleep()
+        
+     }
 
     Sys.sleep(runif(1, 1, 2))
     message(resno)
@@ -52,6 +66,11 @@ extract_metalink <- function(resno){
     
     
 }
+
+"https://digitallibrary.un.org/search?ln=en&as=1&m1=p&p1=S%2FRES%2F2600(&f1=documentsymbol&op1=a&m2=a&p2=&f2=&op2=a&m3=a&p3=&f3=&dt=&d1d=&d1m=&d1y=&d2d=&d2m=&d2y=&rm=&ln=en&sf=&so=d&rg=50&c=United%20Nations%20Digital%20Library%20System&of=hb&fti=0&fti=0&fct__1=Resolutions%20and%20Decisions"
+
+"https://digitallibrary.un.org/search?ln=en&as=1&m1=p&p1=S%2FRES%2F2600%28&f1=documentsymbol&op1=a&m2=a&p2=&f2=&op2=a&m3=a&p3=&f3=&dt=&d1d=&d1m=&d1y=&d2d=&d2m=&d2y=&rm=&ln=en&action_search=Search&sf=&so=d&rg=50&c=United+Nations+Digital+Library+System&of=hb&fti=0&fti=0"
+
 
 
 
@@ -85,11 +104,20 @@ download.table <- data.table(res_nos, recordlinks_url)
 download.table.content <- download.table[!is.na(recordlinks_url)]
 
 
-download.table.result <- rbind(maintable.nona, download.table.content)[order(res_nos)]
+download.table.result <- rbind(maintable, download.table.content)[order(res_nos)]
 
 
 
 fwrite(download.table.result, "UNSC_Record-Pages_automatic.csv", na = "NA")
+
+
+
+
+
+
+
+
+
 
 
 data.table(res_nos, recordlinks_url)[sample(50, 5)]
