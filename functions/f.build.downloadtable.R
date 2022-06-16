@@ -18,9 +18,19 @@ f.build.downloadtable <- function(x,
     if (length(res_nos_work) != 0){
 
         ## Longest Part of Function, ca. 1.5 sec per resolution
-        recordlinks <- lapply(res_nos, f.extract_metalink)
+        recordlinks <- lapply(res_nos_work, f.extract_metalink)
+
+        recordlinks2 <- lapply(recordlinks, f.list.empty.NA)
+
+        recordlinks.vec <- unlist(recordlinks2)
+
+        download.table <- data.table(res_nos_work, recordlinks.vec)
+
+        download.table.content <- download.table[!is.na(recordlinks_url)]
 
 
+
+        download.table.result <- rbind(x, download.table.content)[order(res_nos)]
 
     }else{
 
@@ -28,31 +38,5 @@ f.build.downloadtable <- function(x,
         
         }
 
-    ## Replace NA with 
-    recordlinks2 <- lapply(recordlinks, f.list.empty.NA)
-
-recordlinks.vec <- unlist(recordlinks2)
-
-
-recordlinks_url[grepl("NA", recordlinks_url)] <- NA
-download.table <- data.table(res_nos, recordlinks_url)
-
-
-download.table.content <- download.table[!is.na(recordlinks_url)]
-
-
-download.table.result <- rbind(x, download.table.content)[order(res_nos)]
-
-
-
-fwrite(download.table.result, "UNSC_Record-Pages_automatic.csv", na = "NA")
-
-
-
-
-
     
-
-
-    
-    }
+}
