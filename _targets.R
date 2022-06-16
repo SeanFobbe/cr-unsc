@@ -72,8 +72,10 @@ tar_option_set(packages = c("fs",           # Improved File Handling
 ## End this file with a list of target objects.
 
 
-list(tar_target(table.download.raw,
-                fread("data/UNSC_Record-Pages_2636.csv"),
+list(tar_target(table.download.raw.file, "data/UNSC_Record-Pages_2636.csv"),
+
+     tar_target(table.download.raw,
+                fread(table.download.raw.file),
                 format = "file")
-)
+     )
 
