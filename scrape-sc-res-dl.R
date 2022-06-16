@@ -35,7 +35,7 @@ extract_metalink <- function(resno){
     links <- f.linkextract(query)
     record <- unique(grep("/record/[0-9]+$", links, value = TRUE))
 
-    Sys.sleep(runif(1, 1, 3))
+    Sys.sleep(runif(1, 1, 2))
     message(resno)
 
     return(record)
@@ -45,9 +45,9 @@ extract_metalink <- function(resno){
 
 
 tictoc::tic()
-reslist <- 1:50
+res_nos <- 1:2636
 
-recordlinks <- lapply(reslist, extract_metalink)
+recordlinks <- lapply(res_nos, extract_metalink)
 
 
 tictoc::toc()
@@ -57,12 +57,16 @@ library(data.table)
 
 recordlinks.vec <- unlist(recordlinks)
 
-recordlinks.url <- paste0("https://digitallibrary.un.org",
+recordlinks_url <- paste0("https://digitallibrary.un.org",
                           recordlinks.vec)
 
 
+download.table <- data.table(res_nos, recordlinks_url)
 
-data.table(reslist, recordlinks.url)[sample(50, 5)]
+fwrite(download.table, "UNSC_Record-Pages.csv"
+
+
+data.table(res_nos, recordlinks_url)[sample(50, 5)]
 
 
 
