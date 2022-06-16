@@ -6,6 +6,8 @@
 #' @return The final updated download table with all resolutions up to the specified one.
 
 
+## needs more work
+
 f.build.downloadtable <- function(x,
                                   limit){
 
