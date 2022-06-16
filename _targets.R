@@ -76,6 +76,10 @@ list(tar_target(table.download.raw.file,
                 "data/UNSC_Record-Pages_2636.csv",
                 format = "file"),
      tar_target(table.download.raw,
-                fread(table.download.raw.file))
+                fread(table.download.raw.file)),
+
+     tar_target(table.download.final,
+                f.build.downloadtable(table.download.raw,
+                                      limit = 2636))
      )
 
