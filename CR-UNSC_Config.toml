@@ -1,0 +1,53 @@
+# Project
+
+project.fullname = "Corpus of Resolutions: UN Security Council"
+project.shortname = "CR-UNSC"
+project.author = "Seán Fobbe"
+
+
+
+# License
+
+license.data = "Creative Commons Zero 1.0 Universal"
+license.code = "MIT-0"
+
+
+
+# Digital Object Identifier (DOI)
+
+doi.data.concept = "???"
+doi.data.version = "???" 
+
+doi.software.concept = "???"
+doi.software.version = "???" 
+
+
+
+
+# Parallelization
+
+cores.max = true  
+cores.number = 8 # only used if cores.max = false
+
+
+parallel.extractPDF = true
+parallel.lingsummarize = true
+parallel.multihashes = true
+
+
+
+# Download
+download.timeout = 600			# Timeout for Downloads
+
+
+
+# Quanteda
+quanteda.tokens_locale = "en_US"
+
+
+
+# Knitr
+
+fig.format = [ "pdf", "png" ] 	# Output format of figures
+fig.dpi = 300     	 	# Resolution of figures
+fig.align = "center"    	# Alignment of figures
