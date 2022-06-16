@@ -1,3 +1,12 @@
+# Project specific files
+
+output/
+temp/
+analysis/
+pdf/
+txt/
+
+
 # History files
 .Rhistory
 .Rapp.history
