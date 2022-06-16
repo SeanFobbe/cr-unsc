@@ -55,15 +55,23 @@ tictoc::toc()
 
 library(data.table)
 
-recordlinks.vec <- unlist(recordlinks)
+f.list.empty.NA <- function(x) if (length(x) == 0) NA_character_ else paste(x, collapse = " ")
+
+
+recordlinks2 <- lapply(recordlinks, f.list.empty.NA)
+
+
+recordlinks.vec <- unlist(recordlinks2)
 
 recordlinks_url <- paste0("https://digitallibrary.un.org",
                           recordlinks.vec)
 
+recordlinks_url[grepl("NA", recordlinks_url)] <- NA
+
 
 download.table <- data.table(res_nos, recordlinks_url)
 
-fwrite(download.table, "UNSC_Record-Pages.csv"
+fwrite(download.table, "UNSC_Record-Pages.csv")
 
 
 data.table(res_nos, recordlinks_url)[sample(50, 5)]
