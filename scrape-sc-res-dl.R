@@ -35,6 +35,16 @@ extract_metalink <- function(resno){
     links <- f.linkextract(query)
     record <- unique(grep("/record/[0-9]+$", links, value = TRUE))
 
+    if(length(record) == 0){
+        
+        sleeptime <- runif(1, 300, 360)
+
+        message(paste("Empty response, sleeping until", Sys.time() + sleeptime))
+        
+        Sys.sleepSys.sleep()
+        
+        }
+
     Sys.sleep(runif(1, 1, 2))
     message(resno)
 
@@ -44,22 +54,24 @@ extract_metalink <- function(resno){
 }
 
 
-tictoc::tic()
-res_nos <- 1:2636
-
-recordlinks <- lapply(res_nos, extract_metalink)
-
-
-tictoc::toc()
-
 
 library(data.table)
 
+res_nos_full <- 1:2636
+
+maintable <- fread("data/UNSC_Record-Pages_2022-06-16.csv")
+
+res_nos_work <- setdiff(res_nos_full, maintable$res_nos)
+
+
+tictoc::tic()
+
+recordlinks <- lapply(res_nos, extract_metalink)
+
+tictoc::toc()
+
 f.list.empty.NA <- function(x) if (length(x) == 0) NA_character_ else paste(x, collapse = " ")
-
-
 recordlinks2 <- lapply(recordlinks, f.list.empty.NA)
-
 
 recordlinks.vec <- unlist(recordlinks2)
 
@@ -67,11 +79,17 @@ recordlinks_url <- paste0("https://digitallibrary.un.org",
                           recordlinks.vec)
 
 recordlinks_url[grepl("NA", recordlinks_url)] <- NA
-
-
 download.table <- data.table(res_nos, recordlinks_url)
 
-fwrite(download.table, "UNSC_Record-Pages.csv")
+
+download.table.content <- download.table[!is.na(recordlinks_url)]
+
+
+download.table.result <- rbind(maintable.nona, download.table.content)[order(res_nos)]
+
+
+
+fwrite(download.table.result, "UNSC_Record-Pages_automatic.csv", na = "NA")
 
 
 data.table(res_nos, recordlinks_url)[sample(50, 5)]
