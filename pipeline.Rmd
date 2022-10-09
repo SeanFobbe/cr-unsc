@@ -196,6 +196,21 @@ lapply(list.files("functions", pattern = "\\.R$", full.names = TRUE), source)
 
 
 
+## Define Metadata for TXT Files
+
+```{targets global-txtvars, tar_globals = TRUE}
+
+docvarnames <- c("body",
+                 "doctype",
+                 "res_no",
+                 "year",
+                 "language")
+
+```
+
+
+
+
 ## Define Source Files
 
 ```{targets global-sourcefiles, tar_globals = TRUE}
@@ -332,9 +347,10 @@ list(tar_target(files.txt.en,
                                   cores = fullCores),
                 format = "file"),
      tar_target(dt.unsc.text.en,
-                f.readtext(x = files.txt.en))
+                f.readtext(x = files.txt.en,
+                           docvarnames = docvarnames))
      )
-					
+
 ```					
 
 
