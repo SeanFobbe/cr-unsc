@@ -32,6 +32,7 @@ f.record_metadata <- function(html){
     subjects <- gsub("\n", "", subjects)
     subjects <- trimws(subjects)
     subjects <- gsub(" {2,}", " > ", subjects)
+    subjects <- paste0(subjects, collapse = "|")
 
     ## Create table
     dt.meta <- data.table(varname, content)
@@ -64,21 +65,43 @@ f.record_extract_url <- function(html){
     pdf.absolute <- paste0("https://digitallibrary.un.org",
                            pdf.relative)
 
-    pdf.ar <- grep("AR\\.pdf", pdf.absolute, value = TRUE)
-    pdf.en <- grep("EN\\.pdf", pdf.absolute, value = TRUE)
-    pdf.es <- grep("ES\\.pdf", pdf.absolute, value = TRUE)
-    pdf.fr <- grep("FR\\.pdf", pdf.absolute, value = TRUE)
-    pdf.ru <- grep("RU\\.pdf", pdf.absolute, value = TRUE)
-    pdf.zh <- grep("ZH\\.pdf", pdf.absolute, value = TRUE)
+    pdf.ar <- f.grep.NA("AR\\.pdf", pdf.absolute)    
+    pdf.en <- f.grep.NA("EN\\.pdf", pdf.absolute)
+    pdf.es <- f.grep.NA("ES\\.pdf", pdf.absolute)
+    pdf.fr <- f.grep.NA("FR\\.pdf", pdf.absolute)
+    pdf.ru <- f.grep.NA("RU\\.pdf", pdf.absolute)
+    pdf.zh <- f.grep.NA("ZH\\.pdf", pdf.absolute)
 
 
-    value <- data.table(pdf.ar,
-                        pdf.en,
-                        pdf.es,
-                        pdf.fr,
-                        pdf.ru,
-                        pdf.zh)
+    dt.final <- data.table(pdf.ar,
+                           pdf.en,
+                           pdf.es,
+                           pdf.fr,
+                           pdf.ru,
+                           pdf.zh)
     
+    return(dt.final)
+    
+}
+
+
+
+
+#' f.grep.NA
+#'
+#' Search for string, return value. If no value is found, return NA. Arguments as with classic grep.
+
+
+f.grep.NA <- function(pattern, x){
+
+    value <- grep(pattern = pattern, x = x, value = TRUE)
+
+    if (length(value) == 0){
+
+        value <- NA_character_
+        
+    }
+
     return(value)
-    
+
 }
