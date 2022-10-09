@@ -261,12 +261,25 @@ list(
 ## Download
 
 
+
+### Build Final Table of Record Pages
+
+
 ```{targets tar.download1}
 tar_target(record.table.final,
            f.record_table(recordtable.stable = record.table.stable,
                                  limit = 2640))
 ```
 
+### Build Download Table
+
+```{targets tar.download1}
+tar_target(f.download.table,
+           f.download_table_create(record.table = record.table.final,
+                                   sleep = runif(1, 1, 2),
+                                   debug = TRUE,
+                                   debug.sample = sample(2500, 50))
+```
 
 
 
