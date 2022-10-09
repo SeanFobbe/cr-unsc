@@ -267,7 +267,7 @@ list(
 
 
 ```{targets tar.download1}
-tar_target(record.table.final,
+tar_target(dt.record.final,
            f.record_table(recordtable.stable = record.table.stable,
                                  limit = 2640))
 ```
@@ -275,8 +275,8 @@ tar_target(record.table.final,
 ### Build Download Table
 
 ```{targets tar.download2}
-tar_target(f.download.table,
-           f.download_table_create(record.table = record.table.final,
+tar_target(dt.download,
+           f.download_table_create(record.table = dt.record.final,
                                    sleep = runif(1, 1, 2),
                                    debug = TRUE,
                                    debug.sample = sample(2500, 50))
@@ -289,8 +289,8 @@ tar_target(f.download.table,
 
 ```{targets tar.download.text.en}
 tar_target(files.pdf.text.en,
-                f.download(url = dt.download.table$url_text_en,
-                           filename = paste0(dt.download.table$doc_id, "_EN.pdf"),
+                f.download(url = dt.download$url_text_en,
+                           filename = paste0(dt.download$doc_id, "_EN.pdf"),
                            dir = "pdf_en",
                            sleep.min = 0.3,
                            sleep.max = 1,
