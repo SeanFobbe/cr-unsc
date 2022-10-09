@@ -348,7 +348,7 @@ list(tar_target(files.txt.en,
                 format = "file"),
      tar_target(dt.unsc.text.en,
                 f.readtext(x = files.txt.en,
-                           docvarnames = docvarnames))
+                           docvarnames = NULL))
      )
 
 ```					
