@@ -263,7 +263,7 @@ list(
 
 ```{targets tar.download1}
 tar_target(record.table.final,
-           f.build.downloadtable(record.table = record.table.raw,
+           f.record_table(record.table = record.table.raw,
                                  limit = 2640))
 ```
 
