@@ -6,29 +6,32 @@
 
 url <- "https://digitallibrary.un.org/record/111952" # res 37
 
-html <- read_html(url)
+
 
 # add: lik to draft res and meeting record
 
 
 
-f.record_metadata <- function(html){
+f.record_metadata <- function(url){
 
+    ## Read HTML
+    html <- rvest::read_html(url)
+    
     ## Nodes
-    nodes <- html_nodes(html, "[class='metadata-row']")
+    nodes <- rvest::html_nodes(html, "[class='metadata-row']")
 
     ## Variable names
-    varname <- html_nodes(html, "[class='title col-xs-12 col-sm-3 col-md-2']") %>% html_text()
+    varname <- rvest::html_nodes(html, "[class='title col-xs-12 col-sm-3 col-md-2']") %>% html_text()
     varname <- trimws(varname)
     varname <- gsub(" ", "_", varname)
     varname <- tolower(varname)
 
     ## Variable content
-    content <- html_nodes(html, "[class='value col-xs-12 col-sm-9 col-md-10']") %>% html_text()
+    content <- rvest::html_nodes(html, "[class='value col-xs-12 col-sm-9 col-md-10']") %>% html_text()
     content <- trimws(content)
 
     ## Subjects
-    subjects <- html_nodes(html, "[class='metadata-row rs-list-row-inner']") %>% html_text()
+    subjects <- rvest::html_nodes(html, "[class='metadata-row rs-list-row-inner']") %>% html_text()
     subjects <- gsub("\n", "", subjects)
     subjects <- trimws(subjects)
     subjects <- gsub(" {2,}", " > ", subjects)
@@ -58,27 +61,27 @@ f.record_extract_url <- function(html){
 
     ## sample link:  "/record/111952/files/S_RES_37%281947%29-ES.pdf"
     
-    links <- html_nodes(html, "a") %>% html_attr('href')
+    links <- rvest::html_nodes(html, "a") %>% html_attr('href')
 
     pdf.relative <- unique(grep("/record/[0-9]+/files", links, value = TRUE))
 
     pdf.absolute <- paste0("https://digitallibrary.un.org",
                            pdf.relative)
 
-    pdf.ar <- f.grep.NA("AR\\.pdf", pdf.absolute)    
-    pdf.en <- f.grep.NA("EN\\.pdf", pdf.absolute)
-    pdf.es <- f.grep.NA("ES\\.pdf", pdf.absolute)
-    pdf.fr <- f.grep.NA("FR\\.pdf", pdf.absolute)
-    pdf.ru <- f.grep.NA("RU\\.pdf", pdf.absolute)
-    pdf.zh <- f.grep.NA("ZH\\.pdf", pdf.absolute)
+    url_text_ar <- f.grep.NA("AR\\.pdf", pdf.absolute)    
+    url_text_en <- f.grep.NA("EN\\.pdf", pdf.absolute)
+    url_text_es <- f.grep.NA("ES\\.pdf", pdf.absolute)
+    url_text_fr <- f.grep.NA("FR\\.pdf", pdf.absolute)
+    url_text_ru <- f.grep.NA("RU\\.pdf", pdf.absolute)
+    url_text_zh <- f.grep.NA("ZH\\.pdf", pdf.absolute)
 
 
-    dt.final <- data.table(pdf.ar,
-                           pdf.en,
-                           pdf.es,
-                           pdf.fr,
-                           pdf.ru,
-                           pdf.zh)
+    dt.final <- data.table(url_text_ar,
+                           url_text_en,
+                           url_text_es,
+                           url_text_fr,
+                           url_text_ru,
+                           url_text_zh)
     
     return(dt.final)
     
