@@ -2,8 +2,9 @@
 #'
 #' Extract all relevant metadata from a UN Digital Library record page.
 #'
-#' @param url A valid URL for a UN Digital Library record page.
-#' @param sleep The time in seconds to sleep between requests. Defaults to random number between 1 and 2.
+#' @param url String. A valid URL for a UN Digital Library record page.
+#' @param sleep Numeric. The time in seconds to sleep between requests. Defaults to random number between 1 and 2.
+#' @param verbose Logical.
 #'
 #' @return A data.table containing all relevant metadata for a single record page.
 
