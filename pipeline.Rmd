@@ -250,7 +250,7 @@ tar_target(changelog,
 ```{targets tar.file3}
 list(
     tar_target(record.table.file,
-               "data/UNSC_Record-Pages_2636.csv",
+               "data/UNSC_Record-Table_2636.csv",
                format = "file"),
     tar_target(record.table.raw,
                fread(record.table.file))
