@@ -13,8 +13,16 @@
 
 
 f.record_metadata <- function(url,
-                              sleep = rnorm(1, 1, 2)){
+                              sleep = rnorm(1, 1, 2),
+                              verbose = FALSE){
 
+    if (verbose == TRUE){
+
+        message(url)
+        
+        }
+
+    
     ## Read HTML
     html <- rvest::read_html(url)
     
