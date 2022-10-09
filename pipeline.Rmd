@@ -302,6 +302,28 @@ tar_target(latexdefs,
 
 
 
+## ZIP Targets
+
+
+### Create ZIP: Source Code
+
+
+```{targets tar.zip1}
+tar_target(zip.source,
+                f.tar_zip(files.source,
+                              filename = paste0(prefix.files,
+                                                "_Source_Code.zip"),
+                              dir = "output",
+                              mode = "mirror"),
+                format = "file")
+```
+
+
+
+
+
+
+
 
 # Pipeline: Compilation
 
