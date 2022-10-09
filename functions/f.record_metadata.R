@@ -106,6 +106,9 @@ f.record_metadata <- function(url,
 
     ## Finalize
     dt.final <- cbind(dt.meta, dt.pdf)
+
+    ## Sleep
+    Sys.sleep(sleep)
     
     return(dt.final)
     
