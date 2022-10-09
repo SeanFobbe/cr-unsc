@@ -273,7 +273,7 @@ tar_target(record.table.final,
 
 ### Build Download Table
 
-```{targets tar.download1}
+```{targets tar.download2}
 tar_target(f.download.table,
            f.download_table_create(record.table = record.table.final,
                                    sleep = runif(1, 1, 2),
