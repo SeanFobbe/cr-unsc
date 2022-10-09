@@ -11,16 +11,14 @@
 f.download_table_create <- function(record.table,
                                     sleep = runif(1, 1, 2),
                                     debug = FALSE,
-                                    debug.sample = sample(2640, 50)){
+                                    debug.sample = sample(2500, 50)){
 
 
     if(debug == TRUE){
 
-        record.table <- record.table[sort(debug.sample)]
+        record.table <- record.table[res_no %in% sort(debug.sample)]
 
     }
-
-
     
     metadata.list <- lapply(X = record.table$url_record,
                             FUN = f.record_metadata,                       
