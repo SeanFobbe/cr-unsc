@@ -284,7 +284,7 @@ tar_target(dt.download,
 ```
 
 
-## Download Texts
+### Download Texts
 
 
 ```{targets tar.download.text.en}
@@ -305,11 +305,35 @@ tar_target(files.pdf.text.en,
 ```
 
 
-## Download Drafts
+### Download Drafts
 
 
 
-## Download Meeting Records
+### Download Meeting Records
+
+
+
+
+## Convert Targets
+
+
+
+### Convert to TXT and ingest into R
+
+
+```{targets tar.convert1}
+
+list(tar_target(files.txt.en,
+                f.tar_pdf_extract(x = files.pdf.text.en,
+                                  outputdir = "text.txt.en",
+								  multicore = config$parallel$extractPDF,
+                                  cores = fullCores),
+                format = "file"),
+     tar_target(dt.unsc.text.en,
+                f.readtext(x = files.txt))
+     )
+					
+```					
 
 
 
