@@ -29,7 +29,7 @@ f.record_metadata <- function(url,
 
     ## Variable content
     content.nodes <- rvest::html_nodes(html, "[class='value col-xs-12 col-sm-9 col-md-10']")
-    content.text <- html_text(content.nodes)
+    content.text <- html_text2(content.nodes)
     content.text <- trimws(content.text)
 
     ## Draft
