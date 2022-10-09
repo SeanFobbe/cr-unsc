@@ -34,11 +34,39 @@ f.record_metadata <- function(url,
 
     ## Draft
     draft.pos <- grep("draft", varname, ignore.case = TRUE)
-    url_record_draft <- html_nodes(content.nodes[[draft.pos]], "a") %>% html_attr("href")
 
+    if(length(draft.pos) == 1){
+
+        url_record_draft <- html_nodes(content.nodes[[draft.pos]], "a") %>% html_attr("href")
+
+    }else if(length(draft.pos) == 0){
+
+        url_record_draft <- NA_character_
+
+    }else{
+
+        url_record_draft <- "Error: More than one draft record found!"
+
+    }
+
+    
     ## Meeting Record
-    mr.pos <- grep("meeting", varname, ignore.case = TRUE)
-    url_record_meeting <- html_nodes(content.nodes[[draft.pos]], "a") %>% html_attr("href")
+    meeting.pos <- grep("meeting", varname, ignore.case = TRUE)
+
+
+    if(length(meeting.pos) == 1){
+
+        url_record_meeting <- html_nodes(content.nodes[[meeting.pos]], "a") %>% html_attr("href")
+
+    }else if(length(meeting.pos) == 0){
+
+        url_record_meeting <- NA_character_
+
+    }else{
+
+        url_record_meeting <- "Error: More than one meeting record found!"
+
+    }
 
     
     ## Subjects
