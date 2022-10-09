@@ -1,52 +1,68 @@
-# Project
+[project]
 
-project.fullname = "Corpus of Resolutions: UN Security Council"
-project.shortname = "CR-UNSC"
-project.author = "Seán Fobbe, Niccolò Ridi and Lorenzo Gasbarri"
-
-
-
-# License
-
-license.data = "Creative Commons Zero 1.0 Universal"
-license.code = "MIT-0"
+fullname = "Corpus of Resolutions: UN Security Council"
+shortname = "CR-UNSC"
+author = "Seán Fobbe, Niccolò Ridi and Lorenzo Gasbarri"
 
 
 
-# Digital Object Identifier (DOI)
+[license]
 
-doi.data.concept = "???"
-doi.data.version = "???" 
-
-doi.software.concept = "???"
-doi.software.version = "???" 
+data = "Creative Commons Zero 1.0 Universal"
+code = "MIT-0"
 
 
 
+[doi] # Digital Object Identifier
 
-# Parallelization
+data.concept = "???"
+data.version = "???" 
 
-cores.max = true  
-cores.number = 8 # only used if cores.max = false
-
-
-parallel.extractPDF = true
-parallel.lingsummarize = true
-parallel.multihashes = true
+software.concept = "???"
+software.version = "???" 
 
 
 
-# Download
-download.timeout = 600			# Timeout for Downloads
+[debug]
+
+downloadtable.toggle = false
+
+download.toggle = false
+download.files = 500
 
 
 
-# Quanteda
-quanteda.tokens_locale = "en_US"
+toggle = true
 
 
 
-# Knitr
+[cores] # Parallelization
+
+max = true  
+number = 8 # only used if max = false
+
+
+[parallel] # Parallelization
+
+extractPDF = true
+lingsummarize = true
+multihashes = true
+
+
+
+[download]
+
+timeout = 600	# Timeout for Downloads
+
+
+
+[quanteda]
+
+tokens_locale = "en_US"
+
+
+
+[fig] # Knitr
 
 fig.format = [ "pdf", "png" ] 	# Output format of figures
 fig.dpi = 300     	 	# Resolution of figures
