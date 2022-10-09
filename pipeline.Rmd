@@ -332,7 +332,7 @@ list(tar_target(files.txt.en,
                                   cores = fullCores),
                 format = "file"),
      tar_target(dt.unsc.text.en,
-                f.readtext(x = files.txt))
+                f.readtext(x = files.txt.en))
      )
 					
 ```					
