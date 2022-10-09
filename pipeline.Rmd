@@ -223,6 +223,52 @@ Defines targets that track and read input data files. Source files are not read 
 
 
 
+### Source Code
+
+```{targets tar.file1}
+tar_target(files.source,
+           files.source.raw,
+           format = "file")
+
+```
+
+
+### Changelog
+
+```{targets tar.file2}
+tar_target(changelog,
+           "CHANGELOG.md",
+           format = "file")
+```
+
+
+
+### Read UNSC Record Pages
+
+
+
+```{targets tar.file3}
+list(
+    tar_target(table.download.raw.file,
+               "data/UNSC_Record-Pages_2636.csv",
+               format = "file"),
+    tar_target(table.download.raw,
+               fread(table.download.raw.file))
+)
+```
+
+
+## Download
+
+
+```{targets tar.file2}
+tar_target(table.download.final,
+           f.build.downloadtable(table.download.raw,
+                                 limit = 2636))
+```
+
+
+
 
 
 
