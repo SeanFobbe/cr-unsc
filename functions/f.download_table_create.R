@@ -14,7 +14,7 @@ f.download_table_create <- function(record.table,
                                     debug.sample = sample(2640, 50)){
 
 
-    if(debug = TRUE){
+    if(debug == TRUE){
 
         record.table <- record.table[sort(debug.sample)]
 
