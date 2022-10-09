@@ -1,0 +1,435 @@
+---
+title: "Compilation Report | Corpus of Resolutions: UN Security Council"
+author: Seán Fobbe
+geometry: margin=3cm
+fontsize: 11pt
+papersize: a4
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    pandoc_args: --listings
+    includes:
+      in_header: tex/Preamble_EN.tex
+      before_body: [temp/Definitions.tex, tex/Titlepage_Compilation.tex]
+bibliography: temp/packages.bib
+nocite: '@*'
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = TRUE,
+                      message = TRUE,
+                      collapse = TRUE,
+                      comment = "#>")
+```
+
+
+```{r, results = "asis", echo = FALSE}
+cat(readLines("README.md"),
+    sep = "\n")
+```
+
+
+# Load Packages
+
+
+```{r}
+
+library(targets)
+library(tarchetypes)
+library(RcppTOML)
+library(future)
+library(data.table)
+library(quanteda)
+library(knitr)
+library(kableExtra)
+library(igraph)
+library(ggraph)
+
+tar_unscript()
+```
+
+
+# Preamble
+
+## Definitions
+
+```{r}
+
+## Datestamp
+datestamp <- Sys.Date()
+print(datestamp)
+
+## Date and Time (Begin)
+begin.script <- Sys.time()
+
+## Read Configuration
+config <- RcppTOML::parseTOML("config.toml")
+print(config)
+
+
+# Define Analysis Folder
+dir.analysis <- paste0(getwd(),
+                       "/analysis")
+
+
+```
+
+
+
+## Create Folders
+
+
+```{r}
+
+dirs <- c("output",
+          "temp")
+
+dir.create(dir.analysis, showWarnings = FALSE)
+
+lapply(dirs, dir.create, showWarnings = FALSE)
+
+```
+
+
+
+
+
+## Write Package Citations
+
+```{r}
+knitr::write_bib(renv::dependencies()$Package,
+                 "temp/packages.bib")
+```
+
+
+
+# Global Variables
+
+
+## Define Packages
+
+```{targets global-packages, tar_globals = TRUE}
+
+tar_option_set(packages = c("tarchetypes",  # Additional targets functions
+                            "RcppTOML",     # Read and write TOML files
+                            "zip",          # Enhanced ZIP handling
+                            "knitr",        # Scientific reporting
+                            "kableExtra",   # Enhanced kable tables
+                            "ggplot2",      # Advanced data vizualization
+							"ggraph",       # Graph visualization
+                            "scales",       # Scaling of figures
+                            "viridis",      # Viridis palette
+                            "RColorBrewer", # ColorBrewer palette
+                            "quanteda",     # Advanced computer linguistics
+                            "quanteda.textstats", # Text statistics
+                            "quanteda.textplots", # Text visualizations
+                            "future",       # Parellel computing
+                            "future.apply", # Higher-order functions for future
+                            "data.table"    # Advanced tabular data processing
+                            )
+               )
+
+
+tar_option_set(workspace_on_error = TRUE) # Save Workspace on Error
+tar_option_set(format = "qs")
+
+```
+
+
+
+## Configuration
+
+
+```{targets global-config, tar_globals = TRUE}
+
+datestamp <- Sys.Date()
+
+config <- RcppTOML::parseTOML("config.toml")
+
+
+dir.analysis <- paste0(getwd(),
+                       "/analysis")
+
+## Caption for diagrams
+caption <- paste("Fobbe/Ridi/Gasbarri | DOI:",
+                 config$doi$data$version)
+
+
+## Prefix for figure titles
+prefix.figuretitle <- paste(config$project$shortname,
+                            "| Version",
+                            datestamp)
+
+## File prefix
+prefix.files <- paste0(config$project$shortname,
+                       "_",
+                       datestamp)
+
+
+if (config$cores$max == TRUE){
+    fullCores <- parallel::detectCores()
+}
+
+
+if (config$cores$max == FALSE){
+    fullCores <- as.integer(config$cores$number)
+}
+
+```
+
+
+
+## Define Functions
+
+```{targets global-functions, tar_globals = TRUE}
+
+lapply(list.files("functions", pattern = "\\.R$", full.names = TRUE), source)
+
+```
+
+
+
+## Define Source Files
+
+```{targets global-sourcefiles, tar_globals = TRUE}
+
+files.source.raw <-  c(list.files(pattern = "\\.R$|\\.toml$|\\.md$|\\.Rmd$"),
+					   "reports",
+                       "data",
+                       "functions",
+                       "tex",
+                       "gpg",
+                       "buttons",
+                       list.files(pattern = "renv\\.lock|\\.Rprofile",
+                                  all.files = TRUE),
+                       list.files("renv",
+                                  pattern = "activate\\.R",
+                                  full.names = TRUE))
+
+```
+
+# Pipeline: Construction
+
+
+
+
+## File Read Targets
+
+Defines targets that track and read input data files. Source files are not read into R, but tracked to serve as a trigger for rebuilding the relevant ZIP archive.
+
+
+
+
+
+
+
+## Report Targets
+
+
+### Write \LaTeX Definitions
+
+
+```{targets tar.report1}
+tar_target(latexdefs,
+           f.latexdefs(config,
+                       dir = "temp",
+                       version = datestamp),
+	       format = "file")
+
+```
+
+
+
+
+
+## Write Targets
+
+
+
+
+
+
+
+
+
+
+# Pipeline: Compilation
+
+
+
+## Run Pipeline
+
+```{r pipeline-run, results = "hide"}
+tar_make()
+```
+
+
+
+## Visualization
+
+```{r, pipeline-graph, width = 9, height = 9}
+
+edgelist <- tar_network(targets_only = TRUE)$edges
+setDT(edgelist)
+
+g  <- igraph::graph.data.frame(edgelist,
+                               directed = TRUE)
+
+
+ggraph(g,
+       'dh') + 
+    geom_edge_diagonal(colour = "grey")+
+    geom_node_point()+
+    geom_node_text(aes(label = name),
+                   size = 2,
+                   repel = TRUE)+
+    theme_void()
+
+```
+                       
+
+
+
+
+# Pipeline: Analysis
+
+
+## Full List
+
+
+
+```{r, pipeline-list}
+
+meta <- tar_meta(fields = c("type", "bytes"), complete_only = TRUE)
+setDT(meta)
+meta$MB <- round(meta$bytes / 1e6, digits = 2)
+
+kable(meta[order(type, name)],
+      format = "latex",
+      align = "r",
+      booktabs = TRUE,
+      longtable = TRUE) %>% kable_styling(latex_options = "repeat_header")
+
+
+```
+
+\newpage
+## Timing
+
+
+```{r, pipeline-timing}
+
+meta <- tar_meta(fields = c("time", "seconds"), complete_only = TRUE)
+setDT(meta)
+
+kable(meta[order(-seconds)],
+      format = "latex",
+      align = "r",
+      booktabs = TRUE,
+      longtable = TRUE) %>% kable_styling(latex_options = "repeat_header")
+
+
+```
+
+## Duration
+
+```{r, pipeline-runtime}
+runtime.sum <- sum(meta$seconds)
+
+## Seconds
+print(runtime.sum)
+
+## Minutes
+runtime.sum / 60
+
+## Hours
+runtime.sum / 3600
+```
+
+
+
+\newpage
+## Warnings
+
+
+```{r, pipeling-warnings}
+
+meta <- tar_meta(fields = "warnings", complete_only = TRUE)
+setDT(meta)
+
+kable(meta,
+      format = "latex",
+      align = "r",
+      booktabs = TRUE,
+      longtable = TRUE) %>% kable_styling(latex_options = "repeat_header")
+
+
+```
+
+
+
+## Errors
+
+```{r, pipeline-errors}
+
+meta <- tar_meta(fields = "error", complete_only = TRUE)
+setDT(meta)
+
+kable(meta,
+      format = "latex",
+      align = "r",
+      booktabs = TRUE,
+      longtable = TRUE) %>% kable_styling(latex_options = "repeat_header")
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+# Finalize
+
+```{r}
+
+## Date Stamp
+print(datestamp) 
+
+## Date and Time (Begin)
+print(begin.script)
+
+
+## Date and Time (End)
+end.script <- Sys.time()
+print(end.script)
+
+
+## Runtime for Script
+print(end.script - begin.script)
+
+```
+
+
+# Parameters for Strict Replications
+
+
+```{r}
+system2("openssl", "version", stdout = TRUE)
+
+sessionInfo()
+
+```
+
+
+# Bibliography
