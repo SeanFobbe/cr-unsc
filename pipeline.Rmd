@@ -249,11 +249,11 @@ tar_target(changelog,
 
 ```{targets tar.file3}
 list(
-    tar_target(table.download.raw.file,
+    tar_target(record.table.file,
                "data/UNSC_Record-Pages_2636.csv",
                format = "file"),
-    tar_target(table.download.raw,
-               fread(table.download.raw.file))
+    tar_target(record.table.raw,
+               fread(record.table.file))
 )
 ```
 
@@ -262,9 +262,9 @@ list(
 
 
 ```{targets tar.download1}
-tar_target(table.download.final,
-           f.build.downloadtable(table.download.raw,
-                                 limit = 2636))
+tar_target(record.table.final,
+           f.build.downloadtable(record.table = record.table.raw,
+                                 limit = 2640))
 ```
 
 
