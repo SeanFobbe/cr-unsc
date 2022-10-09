@@ -295,7 +295,7 @@ tar_target(dt.record.final,
 tar_target(dt.download,
            f.download_table_create(record.table = dt.record.final,
                                    sleep = runif(1, 1, 2),
-                                   debug = TRUE,
+                                   debug.toggle = config$debug$downloadtable$toggle,
                                    debug.sample = sample(2500, 50))
 								   )
 ```
@@ -315,8 +315,8 @@ tar_target(files.pdf.text.en,
                            retry.sleep.min = 2,
                            retry.sleep.max = 5,
                            timeout = config$download$timeout,
-                           debug.toggle = FALSE,
-                           debug.files = 500),
+                           debug.toggle = config$debug$download$toggle,
+                           debug.files = config$debug$download$files),
                 format = "file")
 
 ```
@@ -348,7 +348,7 @@ list(tar_target(files.txt.en,
                 format = "file"),
      tar_target(dt.unsc.text.en,
                 f.readtext(x = files.txt.en,
-                           docvarnames = NULL))
+                           docvarnames = docvarnames))
      )
 
 ```					
