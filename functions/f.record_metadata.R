@@ -1,14 +1,13 @@
+#' f.record_metadata
+#'
+#' Extract all relevant metadata from a UN Digital Library record page.
+#'
+#' @param url A valid URL for a UN Digital Library record page.
+#'
+#' @return A data.table containing all relevant metadata for a single record page.
 
 
-
-
-
-
-url <- "https://digitallibrary.un.org/record/111952" # res 37
-
-
-
-# add: lik to draft res and meeting record
+# testing url <- "https://digitallibrary.un.org/record/111952" # res 37
 
 
 
@@ -27,9 +26,19 @@ f.record_metadata <- function(url){
     varname <- tolower(varname)
 
     ## Variable content
-    content <- rvest::html_nodes(html, "[class='value col-xs-12 col-sm-9 col-md-10']") %>% html_text()
-    content <- trimws(content)
+    content.nodes <- rvest::html_nodes(html, "[class='value col-xs-12 col-sm-9 col-md-10']")
+    content.text <- html_text(content.nodes)
+    content.text <- trimws(content.text)
 
+    ## Draft
+    draft.pos <- grep("draft", varname, ignore.case = TRUE)
+    url_record_draft <- html_nodes(content.nodes[[draft.pos]], "a") %>% html_attr("href")
+
+    ## Meeting Record
+    mr.pos <- grep("meeting", varname, ignore.case = TRUE)
+    url_record_meeting <- html_nodes(content.nodes[[draft.pos]], "a") %>% html_attr("href")
+
+    
     ## Subjects
     subjects <- rvest::html_nodes(html, "[class='metadata-row rs-list-row-inner']") %>% html_text()
     subjects <- gsub("\n", "", subjects)
@@ -38,9 +47,13 @@ f.record_metadata <- function(url){
     subjects <- paste0(subjects, collapse = "|")
 
     ## Create table
-    dt.meta <- data.table(varname, content)
+    dt.meta <- data.table(varname, content.text)
     dt.meta <- transpose(dt.meta, make.names = "varname")
-    dt.meta <- cbind(dt.meta, subjects)
+    
+    dt.meta <- cbind(dt.meta,
+                     subjects,
+                     url_record_draft,
+                     url_record_meeting)
 
     ## Acquire URLs
     dt.pdf <- f.record_extract_url(html)
@@ -54,6 +67,13 @@ f.record_metadata <- function(url){
 
 
 
+#' f.record_extract_url
+#'
+#' Extract all URLs to the texts of a given document from a UN Digital Library record page.
+#'
+#' @param html A UN Digital Library record page in HTML format.
+#'
+#' @return A data.table of all URLs to texts in each UN language.
 
 
 
