@@ -1,10 +1,14 @@
-# Project specific files
+# Custom Project Files
 
+corpora/
+_targets/
+test/
 output/
 temp/
-analysis/
-pdf/
-txt/
+_targets.R
+_targets_r/
+tex/auto/
+
 
 
 # History files
