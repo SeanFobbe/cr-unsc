@@ -9,7 +9,7 @@
 
 
 f.download_table_create <- function(record.table,
-                                    sleep = runif(nrow(record.table), 1, 2),
+                                    sleep = runif(nrow(record.table), 1, 3),
                                     debug.toggle = FALSE,
                                     debug.sample = sample(2500, 50)){
 
