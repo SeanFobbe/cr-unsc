@@ -261,7 +261,7 @@ list(
 ## Download
 
 
-```{targets tar.file2}
+```{targets tar.download1}
 tar_target(table.download.final,
            f.build.downloadtable(table.download.raw,
                                  limit = 2636))
