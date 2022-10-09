@@ -279,6 +279,7 @@ tar_target(f.download.table,
                                    sleep = runif(1, 1, 2),
                                    debug = TRUE,
                                    debug.sample = sample(2500, 50))
+								   )
 ```
 
 
