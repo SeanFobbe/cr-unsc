@@ -1,5 +1,5 @@
 
-data.table(res_nos, recordlinks_url)[sample(50, 5)]
+
 
 
 
@@ -10,16 +10,59 @@ html <- read_html(url)
 
 # add: lik to draft res and meeting record
 
-extract_download_undl <- function(html){
 
-    # sample link:  "/record/111952/files/S_RES_37%281947%29-ES.pdf"
+
+f.record_metadata <- function(html){
+
+    ## Nodes
+    nodes <- html_nodes(html, "[class='metadata-row']")
+
+    ## Variable names
+    varname <- html_nodes(html, "[class='title col-xs-12 col-sm-3 col-md-2']") %>% html_text()
+    varname <- trimws(varname)
+    varname <- gsub(" ", "_", varname)
+    varname <- tolower(varname)
+
+    ## Variable content
+    content <- html_nodes(html, "[class='value col-xs-12 col-sm-9 col-md-10']") %>% html_text()
+    content <- trimws(content)
+
+    ## Subjects
+    subjects <- html_nodes(html, "[class='metadata-row rs-list-row-inner']") %>% html_text()
+    subjects <- gsub("\n", "", subjects)
+    subjects <- trimws(subjects)
+    subjects <- gsub(" {2,}", " > ", subjects)
+
+    ## Create table
+    dt.meta <- data.table(varname, content)
+    dt.meta <- transpose(dt.meta, make.names = "varname")
+    dt.meta <- cbind(dt.meta, subjects)
+
+    ## Acquire URLs
+    dt.pdf <- f.record_extract_url(html)
+
+    ## Finalize
+    dt.final <- cbind(dt.meta, dt.pdf)
+    
+    return(dt.final)
+    
+}
+
+
+
+
+
+
+f.record_extract_url <- function(html){
+
+    ## sample link:  "/record/111952/files/S_RES_37%281947%29-ES.pdf"
     
     links <- html_nodes(html, "a") %>% html_attr('href')
 
     pdf.relative <- unique(grep("/record/[0-9]+/files", links, value = TRUE))
 
     pdf.absolute <- paste0("https://digitallibrary.un.org",
-                                pdf.relative)
+                           pdf.relative)
 
     pdf.ar <- grep("AR\\.pdf", pdf.absolute, value = TRUE)
     pdf.en <- grep("EN\\.pdf", pdf.absolute, value = TRUE)
@@ -38,33 +81,4 @@ extract_download_undl <- function(html){
     
     return(value)
     
-    }
-
-
-extract_meta_undl <- function(html){
-
-    nodes <- html_nodes(html, "[class='metadata-row']")
-    title <- html_nodes(html, "[class='title col-xs-12 col-sm-3 col-md-2']") %>% html_text()
-    title <- trimws(title)
-    title <- gsub(" ", "_", title)
-    content <- html_nodes(html, "[class='value col-xs-12 col-sm-9 col-md-10']") %>% html_text()
-    content <- trimws(content)
-
-    value <- data.table(title, content)
-    value <- transpose(value, make.names = "title")
-
-    pdf <- extract_download_undl(html)
-    
-    value <- cbind(value, pdf)
-    
-    return(value)
-    
-    }
-
-
-
-extract_meta_undl(html)
-
-
-fwrite(value, "test.csv")
-
+}
