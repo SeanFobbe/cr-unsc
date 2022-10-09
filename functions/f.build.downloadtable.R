@@ -1,14 +1,19 @@
+#' Build a download table for UN Security Council resolutions drawn from the UN Digital Library.
 
-#' @param x A raw download table included in the source code.
-#' @param limit The limit up to which resolution to query the database.
+
+
+#' @param download.table A raw download table of UN Digital Library pages for UNSC resolutions included in the source code.
+#' @param limit Query the database up to which resolution?
 #' 
 #'
-#' @return The final updated download table with all resolutions up to the specified one.
+#' @return The final updated download table with all resolutions specified.
 
 
 ## needs more work
 
-f.build.downloadtable <- function(x,
+
+
+f.build.downloadtable <- function(download.table,
                                   limit){
 
     ## Define Scope
@@ -19,7 +24,7 @@ f.build.downloadtable <- function(x,
 
     if (length(res_nos_work) != 0){
 
-        ## Longest Part of Function, ca. 1.5 sec per resolution
+        ## Slowest part of function, ca. 1.5 sec per resolution
         recordlinks <- lapply(res_nos_work, f.extract_metalink)
 
         recordlinks2 <- lapply(recordlinks, f.list.empty.NA)
@@ -38,7 +43,7 @@ f.build.downloadtable <- function(x,
 
         return(x)
         
-        }
+    }
 
     
 }
