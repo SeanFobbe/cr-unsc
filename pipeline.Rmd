@@ -252,7 +252,7 @@ list(
     tar_target(record.table.file,
                "data/UNSC_Record-Table_2636.csv",
                format = "file"),
-    tar_target(record.table.raw,
+    tar_target(record.table.stable,
                fread(record.table.file))
 )
 ```
@@ -263,7 +263,7 @@ list(
 
 ```{targets tar.download1}
 tar_target(record.table.final,
-           f.record_table(recordtable.stable = record.table.raw,
+           f.record_table(recordtable.stable = record.table.stable,
                                  limit = 2640))
 ```
 
