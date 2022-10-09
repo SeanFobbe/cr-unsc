@@ -23,7 +23,7 @@ f.download_table_create <- function(record.table,
     metadata.list <- lapply(X = record.table$url_record,
                             FUN = f.record_metadata,                       
                             sleep = sleep,
-                            verbose = TRUE)
+                            verbose = FALSE)
     
 
     metadata.dt <- rbindlist(metadata.list, fill = TRUE)
