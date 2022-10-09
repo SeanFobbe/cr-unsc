@@ -20,7 +20,7 @@ f.build.downloadtable <- function(download.table,
     res_nos_full <- 1:limit
 
     res_nos_work <- setdiff(res_nos_full,
-                            x$res_nos)
+                            download.table$res_nos)
 
     if (length(res_nos_work) != 0){
 
@@ -37,11 +37,11 @@ f.build.downloadtable <- function(download.table,
 
 
 
-        download.table.result <- rbind(x, download.table.content)[order(res_nos)]
+        download.table.result <- rbind(download.table, download.table.content)[order(res_nos)]
 
     }else{
 
-        return(x)
+        return(download.table)
         
     }
 
