@@ -1,45 +1,48 @@
 #' Build a table of record pages for UN Security Council resolutions sourceddrawn from the UN Digital Library.
 
-#' @param record.table A raw download table of UN Digital Library pages for UNSC resolutions included in the source code.
+#' @param recordtable.stable A stable download table of UN Digital Library pages for UNSC resolutions included in the source code.
 #' @param limit Query the database up to which resolution?
 #' 
 #'
 #' @return The final updated download table with all resolutions specified.
 
 
-## needs more work
 
-
-
-f.record_table <- function(record.table,
-                                  limit){
+f.record_table <- function(recordtable.stable,
+                           limit){
 
     ## Define Scope
-    res_nos_full <- 1:limit
+    res_no_full <- 1:limit
 
-    res_nos_work <- setdiff(res_nos_full,
-                            record.table$res_nos)
+    res_no_work <- setdiff(res_no_full,
+                           recordtable.stable$res_no)
 
-    if (length(res_nos_work) != 0){
+    if (length(res_no_work) != 0){
 
-        ## Slowest part of function, ca. 1.5 sec per resolution
-        recordlinks <- lapply(res_nos_work, f.extract_record)
+        ## Extract records
+        url.record.list <- lapply(res_no_work, f.extract_record)
 
-        recordlinks2 <- lapply(recordlinks, f.list.empty.NA)
+        ## Replace empty elements with NA
+        url.record.list2 <- lapply(url.record.list, f.list.empty.NA)
 
-        recordlinks.vec <- unlist(recordlinks2)
+        ## Unlist
+        url.record <- unlist(url.record.list2)
 
-        record.table <- data.table(res_nos_work, recordlinks.vec)
+        ## Make table
+        recordtable.new <- data.table(res_no = res_no_work,
+                                      url_record = url.record)
 
-        record.table.content <- record.table[!is.na(recordlinks_url)]
+        ## Remove rows with NA
+        recordtable.new <- recordtable.new[!is.na(url_record)]
 
+        ## Finalize
+        recordtable.final <- rbind(recordtable.stable, recordtable.new)[order(res_no)]
 
-
-        record.table.result <- rbind(record.table, record.table.content)[order(res_nos)]
+        return(recordtable.final)
 
     }else{
 
-        return(record.table)
+        return(recordtable)
         
     }
 
@@ -55,6 +58,7 @@ f.record_table <- function(record.table,
 #' @param resno The number of a UN Security Council resolution.
 #'
 #' @return The absolute link to a USNC resolution page in the UN Digital Library.
+
 
 
 f.extract_record <- function(resno){
@@ -99,3 +103,5 @@ f.extract_record <- function(resno){
     
     
 }
+
+
