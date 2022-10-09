@@ -124,7 +124,9 @@ tar_option_set(packages = c("tarchetypes",  # Additional targets functions
 							"ggraph",       # Graph visualization
                             "scales",       # Scaling of figures
                             "viridis",      # Viridis palette
-                            "RColorBrewer", # ColorBrewer palette
+                            "RColorBrewer", # ColorBrewer palett
+							"pdftools",     # Extract PDF files
+							"readtext",     # Read TXT files
                             "quanteda",     # Advanced computer linguistics
                             "quanteda.textstats", # Text statistics
                             "quanteda.textplots", # Text visualizations
