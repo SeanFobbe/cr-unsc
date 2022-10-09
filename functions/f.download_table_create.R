@@ -10,11 +10,11 @@
 
 f.download_table_create <- function(record.table,
                                     sleep = runif(1, 1, 2),
-                                    debug = FALSE,
+                                    debug.toggle = FALSE,
                                     debug.sample = sample(2500, 50)){
 
 
-    if(debug == TRUE){
+    if(debug.toggle == TRUE){
 
         record.table <- record.table[res_no %in% sort(debug.sample)]
 
