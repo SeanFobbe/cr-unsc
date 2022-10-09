@@ -1,0 +1,88 @@
+%===========================
+% Title Page
+%===========================
+
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[overlay,remember picture]
+ 
+\node[align=center] at ($(current page.center)+(0,8.5)$)
+{ \scshape \Huge \bfseries Corpus of Resolutions \\[2cm] \Huge \bfseries \scshape UN Security Council \\[1cm] \LARGE \bfseries (\softwareshort)};
+
+\draw[thick] (5.5,-2) -- (9.5,-2);
+
+\node[align=center] at ($(current page.center)+(0,2)$) 
+{ \scshape \LARGE Compilation Report};
+
+\node[align=center] at ($(current page.center)+(0,-8)$)
+{ \large Version \version};
+
+\node[align=center] at ($(current page.center)+(0,-10)$)
+    {\includegraphics[width=0.18\linewidth]{./buttons/MIT0-blue.pdf}};
+
+\node[align=center] at ($(current page.center)+(0,-12)$) 
+{ \large DOI: \softwareversiondoi};
+
+\end{tikzpicture}
+
+\newpage
+
+\pagestyle{plain}
+
+
+
+%===========================
+% Inside Cover
+%===========================
+
+\newpage
+\ra{1.5}
+
+
+\begin{centering}
+\begin{longtable}{p{2.5cm}p{12.5cm}}
+
+\textbf{Title} & \softwaretitle \\
+\textbf{Abbreviation} & \softwareshort \\
+\textbf{Author} & \projectauthor \\
+\textbf{Version} & \version \\
+\textbf{Download} & \url{\softwareversionurldoi}\\
+\textbf{License} & MIT No Attribution (MIT-0)\\
+
+\end{longtable}
+\end{centering}
+
+
+
+\textbf{Citation}
+
+\emph{\projectauthor} (\the\year ). \softwaretitle\ (\softwareshort ). Version \version . Zenodo. DOI: \softwareversiondoi .
+
+\vspace{0.5cm}
+
+\textbf{Digital Object Identifiers: Concept DOI and Version DOI}
+
+This data set is uniquely identified via the Digital Object Identifier (DOI) system. DOIs are persistent identifiers that are globally unique and can be resolved as a link by entering a DOI into the web service at \url{www.doi.org}. The DOI given in this document is a \emph{Version DOI}, which uniquely identifies version \version. Analysts who wish to enable replication analyses are strongly advised to cite the \emph{Version DOI} and the exact version of the data used. A \emph{Concept DOI} is available from the page of the Zenodo record under the heading \enquote{Cite all versions?} and will always resolve to the latest version.
+
+\vspace{0.5cm}
+
+
+
+\textbf{License: MIT No Attribution (MIT-0)}
+
+Copyright --- \the\year --- \projectauthor
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \enquote{Software}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so.
+
+ 
+THE SOFTWARE IS PROVIDED \enquote{AS IS}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+
+\vspace{0.5cm}
+
+\textbf{Disclaimer} 
+
+This data set is a personal academic initiative and is not associated with or endorsed by the IMT Nuremberg or any of the constituent governments.
+
+
+\newpage
