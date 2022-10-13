@@ -9,7 +9,7 @@
 
 
 f.download_table_create <- function(record.table,
-                                    sleep = runif(nrow(record.table), 1, 2),
+                                    sleep = runif(nrow(record.table), 2, 3),
                                     debug.toggle = FALSE,
                                     debug.sample = sample(2500, 50)){
 
@@ -19,11 +19,13 @@ f.download_table_create <- function(record.table,
         record.table <- record.table[res_no %in% sort(debug.sample)]
 
     }
-    
+
+    tictoc::tic()
     metadata.list <- lapply(X = record.table$url_record,
                             FUN = f.record_metadata,                       
                             sleep = sleep,
-                            verbose = FALSE)
+                            verbose = TRUE)
+    tictoc::toc()
     
 
     metadata.dt <- rbindlist(metadata.list, fill = TRUE)
