@@ -4,7 +4,7 @@
 #'
 #' @param url String. A valid URL for a UN Digital Library record page.
 #' @param sleep Numeric. The time in seconds to sleep between requests. Defaults to random number between 1 and 2.
-#' @param verbose Logical.
+#' @param verbose Logical. Whether to print the URL before it is scraped.
 #'
 #' @return A data.table containing all relevant metadata for a single record page.
 
