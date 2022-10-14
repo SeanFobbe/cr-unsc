@@ -10,7 +10,7 @@
 
 
 f.download_table_create <- function(record.table,
-                                    sleep = abs(rgamma(nrow(record.table), 2, 1)),
+                                    sleep = rgamma(nrow(record.table), 2, 1),
                                     debug.toggle = FALSE,
                                     debug.sample = sample(2500, 50)){
 
