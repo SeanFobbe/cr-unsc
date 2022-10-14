@@ -28,8 +28,6 @@ f.download_table_create <- function(record.table,
 
     for(i in 1:nrow(record.table)){
 
-        message(i)
-
         metadata.list[[i]] <- f.record_metadata(url = record.table$url_record[i],
                                                 sleep = sleep,
                                                 verbose = FALSE)
