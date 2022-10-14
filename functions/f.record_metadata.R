@@ -9,8 +9,6 @@
 #' @return A data.table containing all relevant metadata for a single record page.
 
 
-# testing url <- "https://digitallibrary.un.org/record/111952" # res 37
-
 
 
 f.record_metadata <- function(url,
