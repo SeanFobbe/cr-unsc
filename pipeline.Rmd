@@ -117,6 +117,7 @@ knitr::write_bib(renv::dependencies()$Package,
 tar_option_set(packages = c("tarchetypes",  # Additional targets functions
                             "RcppTOML",     # Read and write TOML files
                             "zip",          # Enhanced ZIP handling
+							"testthat",     # Unit tests
 							"rvest",        # Web Scraping
                             "knitr",        # Scientific reporting
                             "kableExtra",   # Enhanced kable tables
