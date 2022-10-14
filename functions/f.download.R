@@ -93,21 +93,13 @@ f.download <- function(url,
             
             for (i in 1:length(filename.missing)){
                 
-                response <- httr::GET(url.missing[i])
-                
-                Sys.sleep(runif(1, 0.25, 0.75))
-                
-                if (response$status_code == 200){
-                    tryCatch({download.file(url = url.missing[i],
-                                            destfile = file.path(dir,
-                                                                 filename.missing[i]))
-                    },
-                    error = function(cond) {
-                        return(NA)}
-                    )     
-                }else{
-                    message("Response code is not 200.")  
-                }
+                tryCatch({download.file(url = url.missing[i],
+                                        destfile = file.path(dir,
+                                                             filename.missing[i]))
+                },
+                error = function(cond) {
+                    return(NA)}
+                )     
                 
                 Sys.sleep(runif(1, retry.sleep.min, retry.sleep.max))
             } 
