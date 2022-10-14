@@ -93,7 +93,7 @@ f.download <- function(url,
             
             for (i in 1:length(filename.missing)){
                 
-                response <- GET(url.missing[i])
+                response <- httr::GET(url.missing[i])
                 
                 Sys.sleep(runif(1, 0.25, 0.75))
                 
