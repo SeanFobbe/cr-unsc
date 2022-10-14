@@ -1,3 +1,4 @@
+#' Create a preliminary download table from the record pages in the UN Digital Library.
 
 
 #' @param record.table Data.table. A table of UNSC resolution numbers and Digital Library record pages.
@@ -22,7 +23,6 @@ f.download_table_create <- function(record.table,
     
 
     ## First Pass
-    tictoc::tic()
 
     metadata.list <- vector("list", nrow(record.table))
 
@@ -32,7 +32,7 @@ f.download_table_create <- function(record.table,
 
         metadata.list[[i]] <- f.record_metadata(url = record.table$url_record[i],
                                                 sleep = sleep,
-                                                verbose = TRUE)
+                                                verbose = FALSE)
 
         if ((i %% 500) == 0){
 
@@ -43,24 +43,27 @@ f.download_table_create <- function(record.table,
         
     }
 
-    tictoc::toc()
 
 
-    ## Retry
+    ## Retries
 
-    for(i in which(is.na(metadata.list))){
+    for(i in 1:5){
 
-        metadata.list[[i]] <- f.record_metadata(url = record.table$url_record[i],
-                                                sleep = 5,
-                                                verbose = TRUE)
+        if(sum(is.na(metadata.list)) == 0){break}
         
+        for(j in which(is.na(metadata.list))){
+
+            metadata.list[[j]] <- f.record_metadata(url = record.table$url_record[j],
+                                                    sleep = 5,
+                                                    verbose = FALSE)
+            
+        }
+
     }
 
-    
 
+    ## Create Final Data Table
     metadata.dt <- rbindlist(metadata.list, fill = TRUE)
-
-
     dt.final <- cbind(record.table, metadata.dt)
 
     
