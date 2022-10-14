@@ -49,7 +49,10 @@ f.record_metadata <- function(url,
 
         if(length(draft.pos) == 1){
 
-            url_record_draft <- html_nodes(content.nodes[[draft.pos]], "a") %>% html_attr("href")
+            url_record_draft <- html_nodes(content.nodes[[draft.pos]], "a")
+            url_record_draft <- html_attr(url_record_draft, "href")
+            url_record_draft <- paste0(url_record_draft, collapse = "|")
+
 
         }else if(length(draft.pos) == 0){
 
@@ -57,7 +60,7 @@ f.record_metadata <- function(url,
 
         }else{
 
-            url_record_draft <- "Error: More than one draft record found!"
+            url_record_draft <- "Error: More than one draft record position!"
 
         }
 
@@ -68,7 +71,10 @@ f.record_metadata <- function(url,
 
         if(length(meeting.pos) == 1){
 
-            url_record_meeting <- html_nodes(content.nodes[[meeting.pos]], "a") %>% html_attr("href")
+            url_record_meeting <- html_nodes(content.nodes[[meeting.pos]], "a")
+            url_record_meeting <- html_attr(url_record_meeting, "href")
+            url_record_meeting <- paste0(url_record_meeting, collapse = "|")
+
 
         }else if(length(meeting.pos) == 0){
 
@@ -76,7 +82,7 @@ f.record_metadata <- function(url,
 
         }else{
 
-            url_record_meeting <- "Error: More than one meeting record found!"
+            url_record_meeting <- "Error: More than one meeting record position!"
 
         }
 
