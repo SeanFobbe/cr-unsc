@@ -651,11 +651,11 @@ tar_target(zip.source,
 ```
 	
 
-### Create ZIP: PDF Original
+### Create ZIP: Resolutions (PDF Original)
 
 
-```{targets tar.zip.pdf.original}
-tar_target(zip.pdf.original,
+```{targets tar.zip.pdf.draft.original}
+tar_target(zip.pdf.res.original,
            f.tar_zip(c(pdf.res.ar,
                        pdf.res.en,
                        pdf.res.es,
@@ -668,6 +668,37 @@ tar_target(zip.pdf.original,
                      mode = "mirror"),
            format = "file")
 ```
+
+
+
+### Create ZIP: Draft (PDF Original)
+
+
+```{targets tar.zip.pdf.draft.original}
+tar_target(zip.pdf.draft.original,
+           f.tar_zip(c(pdf.draft.en),
+                     filename = paste0(prefix.files,
+                                       "_Drafts_PDF.zip"),
+                     dir = "output",
+                     mode = "mirror"),
+           format = "file")
+```
+
+
+### Create ZIP: Meeting Record (PDF Original)
+
+
+```{targets tar.zip.pdf.meeting.original}
+tar_target(zip.pdf.meeting.original,
+           f.tar_zip(c(pdf.meeting.en),
+                     filename = paste0(prefix.files,
+                                       "_Meetings_PDF.zip"),
+                     dir = "output",
+                     mode = "mirror"),
+           format = "file")
+```
+
+
 
 
 
