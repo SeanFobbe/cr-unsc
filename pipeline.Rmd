@@ -316,9 +316,9 @@ tar_target(files.record.res,
 
 
 
-### Build Initial Download Table
+### Parse Resolution HTML Records
 
-```{targets tar.download2}
+```{targets tar.download.parse.res}
 tar_target(dt.download,
            f.parse_records_full(files.record.res))
 		   
@@ -369,6 +369,30 @@ tar_target(files.record.meeting,
                 format = "file")
 
 ```
+
+
+
+
+### Parse Draft HTML Records
+
+```{targets tar.download.parse.draft}
+tar_target(dt.download,
+           f.parse_records_url(files.record.draft))
+		   
+```
+
+
+
+
+### Parse Meeting HTML Records
+
+```{targets tar.download.parse.meeting}
+tar_target(dt.download,
+           f.parse_records_url(files.record.meeting))
+		   
+```
+
+
 
 
 
