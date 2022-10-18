@@ -6,9 +6,32 @@
 #' @return Data.table. A table of all relevant metadata. Includes the UNSC resolution number as unique key.
 
 
-f.parse_records_res <- function(x){
+f.parse_records_full <- function(x){
 
     list <- lapply(x, f.record_metadata)
+
+    dt <- rbindlist(list, fill = TRUE)
+
+    res_no <- as.integer(tools::file_path_sans_ext(basename(x)))
+
+    dt.final <- cbind(res_no, dt)
+
+    return(dt.final)
+
+}
+
+
+
+
+
+
+
+
+
+f.parse_records_url <- function(x,
+                                prefix = ""){
+
+    list <- lapply(x, f.record_url, prefix = prefix)
 
     dt <- rbindlist(list, fill = TRUE)
 
