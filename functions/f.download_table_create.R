@@ -1,71 +1,43 @@
 #' Create a preliminary download table from the record pages in the UN Digital Library.
 
 
-#' @param record.table Data.table. A table of UNSC resolution numbers and Digital Library record pages.
-#' @param sleep Numeric. The number of seconds to sleep between requests.
-#' @param debug Logical. Whether to download only a subet of resolutions.
-#' @param debug.sample Integer. A vector of resolution numbers to download.
+#' @param x String. A vector of filenames to UN Digital Libary record pages for UNSC resolutions.
 
 
 
 
-f.download_table_create <- function(record.table,
-                                    sleep = rgamma(nrow(record.table), 2, 1),
-                                    debug.toggle = FALSE,
-                                    debug.sample = sample(2500, 50)){
+
+## dt.record <- tar_read(dt.record.final)
+## dt.download <- tar_read(dt.download)
+## url.meeting <- tar_read(url.meeting)
+## url.draft <- tar_read(url.draft)
 
 
-    if(debug.toggle == TRUE){
-
-        record.table <- record.table[res_no %in% sort(debug.sample)]
-
-    }
-    
-
-    ## First Pass
-
-    metadata.list <- vector("list", nrow(record.table))
-
-    for(i in 1:nrow(record.table)){
-
-        metadata.list[[i]] <- f.record_metadata(url = record.table$url_record[i],
-                                                sleep = sleep,
-                                                verbose = FALSE)
-
-        if ((i %% 500) == 0){
-
-            Sys.sleep(180)
-            
-        }
-
-        
-    }
+f.download_table_finalize <- function(dt.download,
+                                      dt.record,
+                                      url.meeting,
+                                      url.draft){
 
 
 
-    ## Retries
+    ## Merge tables
+    dt <- merge(dt.record, dt.download, on = "res_no", all.x = TRUE)
+    dt <- merge(dt, url.meeting, on = "res_no", all.x = TRUE)
+    dt <- merge(dt, url.draft, on = "res_no", all.x = TRUE)
 
-    for(i in 1:5){
+    ## Extract year
+    dt$year <- as.integer(gsub(".*\\(([0-9]{4})\\).*", "\\1", dt$symbol))
 
-        if(sum(is.na(metadata.list)) == 0){break}
-        
-        for(j in which(is.na(metadata.list))){
-
-            metadata.list[[j]] <- f.record_metadata(url = record.table$url_record[j],
-                                                    sleep = 5,
-                                                    verbose = FALSE)
-            
-        }
-
-    }
-
-
-    ## Create Final Data Table
-    metadata.dt <- rbindlist(metadata.list, fill = TRUE)
-    dt.final <- cbind(record.table, metadata.dt)
+    ## Create Doc ID
+    dt$doc_id <- paste("S",
+                       "RES",
+                       formatC(dt$res_no, width = 4, flag = "0"),
+                       dt$year,
+                       sep = "_")
 
     
-    return(dt.final)
+    
+    return(dt)
 
 
 }
