@@ -39,12 +39,13 @@ f.record_metadata <- function(x){
 
             url_record_draft <- html_nodes(content.nodes[[draft.pos]], "a")
             url_record_draft <- html_attr(url_record_draft, "href")
+            url_record_draft <- paste0(url_record_draft, collapse = "|")
 
             url_record_draft <- ifelse(grepl("record",
                                                url_record_draft),
                                          url_record_draft, NA_character_)
             
-            url_record_draft <- paste0(url_record_draft, collapse = "|")
+
 
 
         }else if(length(draft.pos) == 0){
@@ -66,13 +67,14 @@ f.record_metadata <- function(x){
 
             url_record_meeting <- html_nodes(content.nodes[[meeting.pos]], "a")
             url_record_meeting <- html_attr(url_record_meeting, "href")
+            url_record_meeting <- paste0(url_record_meeting, collapse = "|")
 
             url_record_meeting <- ifelse(grepl("\\/record\\/",
                                                url_record_meeting),
                                          url_record_meeting, NA_character_)
             
 
-            url_record_meeting <- paste0(url_record_meeting, collapse = "|")
+
 
 
         }else if(length(meeting.pos) == 0){
