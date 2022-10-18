@@ -25,14 +25,14 @@ software.version = "???"
 
 [debug]
 
-toggle = true
-sample = 50
+toggle = false # true/false - whether to activate debuging mode
+sample = 50 # integer - number of resolutions to randomly sample
 
 
 
 [cores] # Parallelization
 
-max = true  
+max = true # use all cores on system
 number = 8 # only used if max = false
 
 
@@ -46,7 +46,7 @@ multihashes = true
 
 [download]
 
-timeout = 600	# Timeout for Downloads
+timeout = 600	# Timeout for downloads
 
 
 
