@@ -100,7 +100,7 @@ f.record_metadata <- function(x){
 
         ## Acquire URLs
         dt.pdf <- f.record_url(x,
-                               prefix = "url_text_")
+                               prefix = "url_res_")
 
         ## Finalize
         dt.final <- cbind(dt.meta, dt.pdf)
