@@ -287,8 +287,13 @@ list(
 ```{targets tar.download.recordtable}
 tar_target(dt.record.final,
            f.record_table(recordtable.stable = record.table.stable,
-                                 limit = 2640))
+                                 limit = 2640,
+								 debug.toggle = config$debug$toggle,
+								 debug.sample = config$debug$sample))
 ```
+
+
+
 
 ### Download HTML Records for Resolutions
 
@@ -305,8 +310,7 @@ tar_target(files.record.res,
                            retry.sleep.min = 2,
                            retry.sleep.max = 5,
                            timeout = config$download$timeout,
-                           debug.toggle = config$debug$download$toggle,
-                           debug.files = config$debug$download$files),
+                           debug.toggle = FALSE),
                 format = "file")
 
 ```
@@ -396,8 +400,14 @@ tar_target(url.meeting,
 
 
 
+### Finalize Download Table
+
+```{targets tar.download.table.final}
 
 
+
+
+```
 
 
 
