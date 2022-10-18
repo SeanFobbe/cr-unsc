@@ -1,9 +1,11 @@
 #' Build a table of record pages for UN Security Council resolutions sourceddrawn from the UN Digital Library.
 
-#' @param recordtable.stable A stable download table of UN Digital Library pages for UNSC resolutions included in the source code.
-#' @param limit Query the database up to which resolution?
+#' @param recordtable.stable Data.Table. A stable download table of UN Digital Library pages for UNSC resolutions included in the source code.
+#' @param limit Integer. Query the database up to which resolution?
+#' @param debug.toggle Logical. Whether to only download a randomized subset of resolutions.
+#' @param debug.sample Integer. The number of random resolutions to return in debugging mode.
 #' 
-#'
+#' 
 #' @return The final updated download table with all resolutions specified.
 
 
