@@ -14,7 +14,7 @@ f.parse_records_full <- function(x){
 
     res_no <- as.integer(tools::file_path_sans_ext(basename(x)))
 
-    dt.final <- cbind(res_no, dt)
+    dt.final <- cbind(res_no, dt)[order(res_no)]
 
     return(dt.final)
 
@@ -24,7 +24,11 @@ f.parse_records_full <- function(x){
 
 
 
+#' Parses UN Digital Library HTML record files and returns a data.table with URLs to full texts to each record.
 
+#' @param x String. A vector of paths to UN Digital Library HTML record files.
+
+#' @return Data.table. A table of all relevant URLs. Includes the UNSC resolution number as unique key.
 
 
 
@@ -37,7 +41,7 @@ f.parse_records_url <- function(x,
 
     res_no <- as.integer(tools::file_path_sans_ext(basename(x)))
 
-    dt.final <- cbind(res_no, dt)
+    dt.final <- cbind(res_no, dt)[order(res_no)]
 
     return(dt.final)
 
