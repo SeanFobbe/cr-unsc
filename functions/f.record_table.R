@@ -9,7 +9,9 @@
 
 
 f.record_table <- function(recordtable.stable,
-                           limit){
+                           limit,
+                           debug.toggle = TRUE,
+                           debug.sample = 50){
 
     ## Define Scope
     res_no_full <- 1:limit
@@ -38,14 +40,26 @@ f.record_table <- function(recordtable.stable,
         ## Finalize
         recordtable.final <- rbind(recordtable.stable, recordtable.new)[order(res_no)]
 
-        return(recordtable.final)
-
     }else{
 
-        return(recordtable)
+        recordtable.final <- recordtable.stable
         
     }
 
+
+    
+    if(debug.toggle == TRUE){
+
+
+        recordtable.final <- recordtable.final[sample(.N, debug.sample)][order(res_no)]
+        
+    }
+
+    
+
+
+    return(recordtable.final)
+    
     
 }
 
