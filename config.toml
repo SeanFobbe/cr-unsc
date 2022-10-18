@@ -27,8 +27,8 @@ software.version = "???"
 
 downloadtable.toggle = false
 
-download.toggle = false
-download.files = 500
+download.toggle = true
+download.files = 50
 
 
 
