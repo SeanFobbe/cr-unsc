@@ -268,11 +268,11 @@ tar_target(changelog,
 
 ```{targets tar.file3}
 list(
-    tar_target(record.table.file,
+    tar_target(csv.record.table,
                "data/UNSC_Record-Table_2636.csv",
                format = "file"),
     tar_target(record.table.stable,
-               fread(record.table.file))
+               fread(csv.record.table))
 )
 ```
 
@@ -300,7 +300,7 @@ tar_target(dt.record.final,
 
 
 ```{targets tar.download.records.res}
-tar_target(files.record.res,
+tar_target(html.record.res,
                 f.download(url = dt.record.final$url_record,
                            filename = paste0(dt.record.final$res_no, ".html"),
                            dir = "record_resolution",
@@ -324,7 +324,7 @@ tar_target(files.record.res,
 
 ```{targets tar.download.parse.res}
 tar_target(dt.download,
-           f.parse_records_full(files.record.res))
+           f.parse_records_full(html.record.res))
 		   
 ```
 
@@ -337,7 +337,7 @@ tar_target(dt.download,
 
 
 ```{targets tar.download.records.draft}
-tar_target(files.record.draft,
+tar_target(html.record.draft,
                 f.download(url = dt.download$url_record_draft,
                            filename = paste0(dt.download$res_no, ".html"),
                            dir = "record_draft",
@@ -359,7 +359,7 @@ tar_target(files.record.draft,
 
 
 ```{targets tar.download.records.meeting}
-tar_target(files.record.meeting,
+tar_target(html.record.meeting,
                 f.download(url = dt.download$url_record_meeting,
                            filename = paste0(dt.download$res_no, ".html"),
                            dir = "record_meeting",
@@ -381,7 +381,7 @@ tar_target(files.record.meeting,
 
 ```{targets tar.download.parse.draft}
 tar_target(url.draft,
-           f.parse_records_url(files.record.draft,
+           f.parse_records_url(html.record.draft,
                                prefix = "url_draft_"))
 
 ```
@@ -393,7 +393,7 @@ tar_target(url.draft,
 
 ```{targets tar.download.parse.meeting}
 tar_target(url.meeting,
-           f.parse_records_url(files.record.meeting,
+           f.parse_records_url(html.record.meeting,
                                prefix = "url_meeting_"))
 		   
 ```
@@ -420,7 +420,7 @@ tar_target(dt.download.final,
 #### Arabic
 
 ```{targets tar.download.res.ar}
-tar_target(files.res.pdf.ar,
+tar_target(pdf.res.ar,
                 f.download(url = dt.download.final$url_res_ar,
                            filename = paste0(dt.download.final$doc_id, "_AR.pdf"),
                            dir = "pdf_res_ar",
@@ -440,7 +440,7 @@ tar_target(files.res.pdf.ar,
 #### Chinese
 
 ```{targets tar.download.res.zh}
-tar_target(files.res.pdf.zh,
+tar_target(pdf.res.zh,
                 f.download(url = dt.download.final$url_res_zh,
                            filename = paste0(dt.download.final$doc_id, "_ZH.pdf"),
                            dir = "pdf_res_zh",
@@ -460,7 +460,7 @@ tar_target(files.res.pdf.zh,
 #### English
 
 ```{targets tar.download.res.en}
-tar_target(files.res.pdf.en,
+tar_target(pdf.res.en,
                 f.download(url = dt.download.final$url_res_en,
                            filename = paste0(dt.download.final$doc_id, "_EN.pdf"),
                            dir = "pdf_res_en",
@@ -479,7 +479,7 @@ tar_target(files.res.pdf.en,
 #### French
 
 ```{targets tar.download.res.fr}
-tar_target(files.res.pdf.fr,
+tar_target(pdf.res.fr,
                 f.download(url = dt.download.final$url_res_fr,
                            filename = paste0(dt.download.final$doc_id, "_FR.pdf"),
                            dir = "pdf_res_fr",
@@ -500,7 +500,7 @@ tar_target(files.res.pdf.fr,
 #### Russian
 
 ```{targets tar.download.res.ru}
-tar_target(files.res.pdf.ru,
+tar_target(pdf.res.ru,
                 f.download(url = dt.download.final$url_res_ru,
                            filename = paste0(dt.download.final$doc_id, "_RU.pdf"),
                            dir = "pdf_res_ru",
@@ -520,7 +520,7 @@ tar_target(files.res.pdf.ru,
 
 
 ```{targets tar.download.res.es}
-tar_target(files.res.pdf.es,
+tar_target(pdf.res.es,
                 f.download(url = dt.download.final$url_res_es,
                            filename = paste0(dt.download.final$doc_id, "_ES.pdf"),
                            dir = "pdf_res_es",
@@ -542,7 +542,7 @@ tar_target(files.res.pdf.es,
 ### Download Drafts
 
 ```{targets tar.download.draft.en}
-tar_target(files.draft.pdf.en,
+tar_target(pdf.draft.en,
                 f.download(url = dt.download.final$url_draft_en,
                            filename = paste0(dt.download.final$doc_id, "_Draft_EN.pdf"),
                            dir = "pdf_draft_en",
@@ -562,7 +562,7 @@ tar_target(files.draft.pdf.en,
 ### Download Meeting Records
 
 ```{targets tar.download.meeting.en}
-tar_target(files.meeting.pdf.en,
+tar_target(pdf.meeting.en,
                 f.download(url = dt.download.final$url_meeting_en,
                            filename = paste0(dt.download.final$doc_id, "_MeetingRec_EN.pdf"),
                            dir = "pdf_meeting_en",
@@ -588,14 +588,14 @@ tar_target(files.meeting.pdf.en,
 
 ```{targets tar.convert1}
 
-list(tar_target(files.res.txt.en,
-                f.tar_pdf_extract(x = files.res.pdf.en,
-                                  outputdir = "txt.res.en",
+list(tar_target(txt.res.en,
+                f.tar_pdf_extract(x = pdf.res.en,
+                                  outputdir = "txt_res_en",
 								  multicore = config$parallel$extractPDF,
                                   cores = fullCores),
                 format = "file"),
      tar_target(dt.txt.en,
-                f.readtext(x = files.res.txt.en,
+                f.readtext(x = txt.res.en,
                            docvarnames = docvarnames))
      )
 
@@ -656,12 +656,12 @@ tar_target(zip.source,
 
 ```{targets tar.zip.pdf.original}
 tar_target(zip.pdf.original,
-           f.tar_zip(c(files.res.pdf.ar,
-                       files.res.pdf.en,
-                       files.res.pdf.es,
-                       files.res.pdf.fr,
-                       files.res.pdf.ru,
-                       files.res.pdf.zh),
+           f.tar_zip(c(pdf.res.ar,
+                       pdf.res.en,
+                       pdf.res.es,
+                       pdf.res.fr,
+                       pdf.res.ru,
+                       pdf.res.zh),
                      filename = paste0(prefix.files,
                                        "_Resolutions_PDF.zip"),
                      dir = "output",
