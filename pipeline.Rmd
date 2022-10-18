@@ -376,9 +376,10 @@ tar_target(files.record.meeting,
 ### Parse Draft HTML Records
 
 ```{targets tar.download.parse.draft}
-tar_target(dt.download,
-           f.parse_records_url(files.record.draft))
-		   
+tar_target(url.draft,
+           f.parse_records_url(files.record.draft,
+                               prefix = "url_draft_"))
+
 ```
 
 
@@ -387,8 +388,9 @@ tar_target(dt.download,
 ### Parse Meeting HTML Records
 
 ```{targets tar.download.parse.meeting}
-tar_target(dt.download,
-           f.parse_records_url(files.record.meeting))
+tar_target(url.meeting,
+           f.parse_records_url(files.record.meeting,
+                               prefix = "url_draft_")))
 		   
 ```
 
