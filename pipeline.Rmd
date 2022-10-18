@@ -419,7 +419,7 @@ tar_target(dt.download.final,
 
 ```{targets tar.download.res.en}
 tar_target(files.res.pdf.en,
-                f.download(url = dt.download.final$url_text_en,
+                f.download(url = dt.download.final$url_res_en,
                            filename = paste0(dt.download.final$doc_id, "_EN.pdf"),
                            dir = "res_pdf_en",
                            sleep.min = 0.3,
