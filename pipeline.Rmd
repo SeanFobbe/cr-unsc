@@ -654,7 +654,7 @@ tar_target(zip.source,
 ### Create ZIP: Resolutions (PDF Original)
 
 
-```{targets tar.zip.pdf.draft.original}
+```{targets tar.zip.pdf.res.original}
 tar_target(zip.pdf.res.original,
            f.tar_zip(c(pdf.res.ar,
                        pdf.res.en,
