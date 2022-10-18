@@ -355,7 +355,7 @@ tar_target(files.record.draft,
 
 
 ```{targets tar.download.records.meeting}
-tar_target(files.record.draft,
+tar_target(files.record.meeting,
                 f.download(url = dt.download$url_record_meeting,
                            filename = paste0(dt.download$res_no, ".html"),
                            dir = "record_meeting",
