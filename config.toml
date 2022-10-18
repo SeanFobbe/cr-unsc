@@ -25,14 +25,8 @@ software.version = "???"
 
 [debug]
 
-downloadtable.toggle = false
-
-download.toggle = true
-download.files = 50
-
-
-
 toggle = true
+sample = 50
 
 
 
