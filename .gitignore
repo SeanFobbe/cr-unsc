@@ -9,7 +9,9 @@ _targets.R
 _targets_r/
 tex/auto/
 
-
+pdf_*/
+txt_*/
+record_*/
 
 
 # R files
