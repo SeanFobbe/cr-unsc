@@ -390,7 +390,7 @@ tar_target(url.draft,
 ```{targets tar.download.parse.meeting}
 tar_target(url.meeting,
            f.parse_records_url(files.record.meeting,
-                               prefix = "url_draft_")))
+                               prefix = "url_draft_"))
 		   
 ```
 
