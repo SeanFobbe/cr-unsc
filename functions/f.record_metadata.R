@@ -107,10 +107,6 @@ f.record_metadata <- function(x){
                          url_record_meeting)
 
 
-        ## Doc ID
-        dt.meta$doc_id <- gsub("\\/|\\(", "_", dt.meta$symbol)
-        dt.meta$doc_id <- gsub("\\)| ", "", dt.meta$doc_id)
-
         ## Acquire URLs
         dt.pdf <- f.record_url(x,
                                prefix = "url_res_")
