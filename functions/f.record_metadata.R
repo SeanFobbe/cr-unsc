@@ -2,31 +2,21 @@
 #'
 #' Extract all relevant metadata from a UN Digital Library record page.
 #'
-#' @param url String. A valid URL for a UN Digital Library record page.
-#' @param sleep Numeric. The time in seconds to sleep between requests. Defaults to random number between 1 and 2.
-#' @param verbose Logical. Whether to print the URL before it is scraped.
+#' @param x String. A valid URL or filename for a UN Digital Library record page.
 #'
 #' @return A data.table containing all relevant metadata for a single record page.
 
 
 
 
-f.record_metadata <- function(url,
-                              sleep = rnorm(1, 1, 2),
-                              verbose = FALSE){
-
-    if (verbose == TRUE){
-
-        message(url)
-        
-    }
+f.record_metadata <- function(x){
 
 
     tryCatch({
         
         
         ## Read HTML
-        html <- rvest::read_html(url)
+        html <- rvest::read_html(x)
         
         ## Nodes
         nodes <- rvest::html_nodes(html, "[class='metadata-row']")
@@ -109,7 +99,8 @@ f.record_metadata <- function(url,
         dt.meta$doc_id <- gsub("\\)| ", "", dt.meta$doc_id)
 
         ## Acquire URLs
-        dt.pdf <- f.record_extract_url(html)
+        dt.pdf <- f.record_url(x,
+                               prefix = "url_text_")
 
         ## Finalize
         dt.final <- cbind(dt.meta, dt.pdf)
@@ -124,68 +115,4 @@ f.record_metadata <- function(url,
         return(NA)}
     )
     
-}
-
-
-
-#' f.record_extract_url
-#'
-#' Extract all URLs to the texts of a given document from a UN Digital Library record page.
-#'
-#' @param html A UN Digital Library record page in HTML format.
-#'
-#' @return A data.table of all URLs to texts in each UN language.
-
-
-
-f.record_extract_url <- function(html){
-
-    ## sample link:  "/record/111952/files/S_RES_37%281947%29-ES.pdf"
-    
-    links <- rvest::html_nodes(html, "a") %>% html_attr('href')
-
-    pdf.relative <- unique(grep("/record/[0-9]+/files", links, value = TRUE))
-
-    pdf.absolute <- paste0("https://digitallibrary.un.org",
-                           pdf.relative)
-
-    url_text_ar <- f.grep.NA("AR\\.pdf", pdf.absolute)    
-    url_text_en <- f.grep.NA("EN\\.pdf", pdf.absolute)
-    url_text_es <- f.grep.NA("ES\\.pdf", pdf.absolute)
-    url_text_fr <- f.grep.NA("FR\\.pdf", pdf.absolute)
-    url_text_ru <- f.grep.NA("RU\\.pdf", pdf.absolute)
-    url_text_zh <- f.grep.NA("ZH\\.pdf", pdf.absolute)
-
-
-    dt.final <- data.table(url_text_ar,
-                           url_text_en,
-                           url_text_es,
-                           url_text_fr,
-                           url_text_ru,
-                           url_text_zh)
-    
-    return(dt.final)
-    
-}
-
-
-
-
-#' f.grep.NA
-#'
-#' Search for string, return value. If no value is found, return NA. Arguments as with classic grep.
-
-
-f.grep.NA <- function(pattern, x){
-
-    value <- grep(pattern = pattern, x = x, value = TRUE)
-
-    if (length(value) == 0){
-
-        value <- NA_character_
-        
-    }
-
-    return(value)
-
 }
