@@ -557,6 +557,8 @@ tar_target(files.draft.pdf.en,
 
 ```
 
+
+
 ### Download Meeting Records
 
 ```{targets tar.download.meeting.en}
@@ -640,16 +642,32 @@ tar_target(latexdefs,
 
 ```{targets tar.zip1}
 tar_target(zip.source,
-                f.tar_zip(files.source,
-                              filename = paste0(prefix.files,
-                                                "_Source_Code.zip"),
-                              dir = "output",
-                              mode = "mirror"),
-                format = "file")
+           f.tar_zip(files.source,
+                     filename = paste0(prefix.files,
+                                       "_Source_Code.zip"),
+                     dir = "output",
+                     mode = "mirror"),
+           format = "file")
 ```
+	
+
+### Create ZIP: PDF Original
 
 
-
+```{targets tar.zip.pdf.original}
+tar_target(zip.pdf.original,
+           f.tar_zip(c("res_pdf_ar",
+                       "res_pdf_en",
+                       "res_pdf_es",
+                       "res_pdf_fr",
+                       "res_pdf_ru",
+                       "res_pdf_zh"),
+                     filename = paste0(prefix.files,
+                                       "_Resolutions_PDF.zip"),
+                     dir = "output",
+                     mode = "mirror"),
+           format = "file")
+```
 
 
 
