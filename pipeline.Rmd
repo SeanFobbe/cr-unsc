@@ -459,7 +459,7 @@ list(tar_target(files.res.txt.en,
                                   cores = fullCores),
                 format = "file"),
      tar_target(dt.txt.en,
-                f.readtext(x = files.txt.en,
+                f.readtext(x = files.res.txt.en,
                            docvarnames = docvarnames))
      )
 
