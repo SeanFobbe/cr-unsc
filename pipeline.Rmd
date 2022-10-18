@@ -402,12 +402,15 @@ tar_target(url.meeting,
 
 ### Finalize Download Table
 
-<!-- ```{targets tar.download.table.final} -->
+```{targets tar.download.table.final}
+tar_target(dt.download.final,
+           f.download_table_finalize(dt.download = dt.download,
+                                     dt.record = dt.record.final,
+                                     url.meeting = url.meeting,
+                                     url.draft = url.draft))
 
 
-
-
-<!-- ``` -->
+```
 
 
 
