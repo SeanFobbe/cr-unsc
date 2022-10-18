@@ -417,7 +417,7 @@ tar_target(dt.download.final,
 ### Download Resolutions
 
 
-#### Arabic
+**Arabic**
 
 ```{targets tar.download.res.ar}
 tar_target(pdf.res.ar,
@@ -437,7 +437,7 @@ tar_target(pdf.res.ar,
 
 
 
-#### Chinese
+**Chinese**
 
 ```{targets tar.download.res.zh}
 tar_target(pdf.res.zh,
@@ -457,7 +457,7 @@ tar_target(pdf.res.zh,
 
 
 
-#### English
+**English**
 
 ```{targets tar.download.res.en}
 tar_target(pdf.res.en,
@@ -476,7 +476,7 @@ tar_target(pdf.res.en,
 ```
 
 
-#### French
+**French**
 
 ```{targets tar.download.res.fr}
 tar_target(pdf.res.fr,
@@ -497,7 +497,7 @@ tar_target(pdf.res.fr,
 
 
 
-#### Russian
+**Russian**
 
 ```{targets tar.download.res.ru}
 tar_target(pdf.res.ru,
@@ -516,7 +516,7 @@ tar_target(pdf.res.ru,
 ```
 
 
-#### Spanish
+**Spanish**
 
 
 ```{targets tar.download.res.es}
@@ -692,7 +692,7 @@ tar_target(zip.pdf.draft.original,
 tar_target(zip.pdf.meeting.original,
            f.tar_zip(c(pdf.meeting.en),
                      filename = paste0(prefix.files,
-                                       "_Meetings_PDF.zip"),
+                                       "_MeetingRecords_PDF.zip"),
                      dir = "output",
                      mode = "mirror"),
            format = "file")
