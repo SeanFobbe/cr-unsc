@@ -295,7 +295,7 @@ tar_target(dt.record.final,
 
 
 ```{targets tar.download.records.res}
-tar_target(files.records.res,
+tar_target(files.record.res,
                 f.download(url = dt.record.final$url_record,
                            filename = paste0(dt.record.final$res_no, ".html"),
                            dir = "record_resolution",
@@ -316,16 +316,16 @@ tar_target(files.records.res,
 
 
 
-### Build Download Table
+### Build Initial Download Table
 
-<!-- ```{targets tar.download2} -->
-<!-- tar_target(dt.download, -->
-<!--            f.download_table_create(record.table = dt.record.final, -->
-<!--                                    sleep = runif(1, 1, 2), -->
-<!--                                    debug.toggle = config$debug$downloadtable$toggle, -->
-<!--                                    debug.sample = sample(2500, 50)) -->
-<!-- 								   ) -->
-<!-- ``` -->
+```{targets tar.download2}
+tar_target(dt.download,
+           f.parse_records_res(files.record.res))
+		   
+```
+
+
+
 
 
 
