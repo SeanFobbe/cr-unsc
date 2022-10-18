@@ -10,6 +10,7 @@
 
 ## sample link:  "/record/111952/files/S_RES_37%281947%29-ES.pdf"
 
+# add: where link does not contain the string "record", replace with NA
 
 
 f.record_url <- function(x,
