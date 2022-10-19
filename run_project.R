@@ -1,5 +1,6 @@
 ## Parameters
 
+begin <- Sys.time()
 datestamp <- Sys.Date()
 
 dir.out <- "output"
@@ -20,3 +21,9 @@ rmarkdown::render("pipeline.Rmd",
                                                  "_",
                                                  datestamp,
                                                  "_CompilationReport.pdf")))
+
+
+## Runtime
+
+end <- Sys.time()
+print(end-begin)
