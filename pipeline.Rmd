@@ -873,6 +873,22 @@ tar_target(zip.pdf.res.original,
 ```
 
 
+	
+
+### Create ZIP: Resolutions (TXT)
+
+
+```{targets tar.zip.txt}
+tar_target(zip.txt,
+           f.tar_zip(c(txt.res.en),
+                     filename = paste0(prefix.files,
+                                       "_TXT.zip"),
+                     dir = "output",
+                     mode = "mirror"),
+           format = "file")
+```
+
+
 
 
 ### Create ZIP: Drafts (PDF Original)
