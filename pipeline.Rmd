@@ -680,6 +680,45 @@ tar_target(dt.res.meta,
 
 
 
+## Write Targets
+
+Write finalized data sets and hash checksums to disk.
+
+
+
+### Write CSV: Main Data Set
+
+```{targets tar.write1}
+tar_target(csv.final,
+           f.tar_fwrite(x = dt.res.final,
+                        filename = file.path("output",
+                                             paste0(prefix.files,
+                                                    "_DE_CSV_MainDataset.csv"))
+                        )
+           )
+```
+
+
+
+### Write CSV: Metadata Only
+
+
+```{targets tar.write2}
+tar_target(csv.meta,
+           f.tar_fwrite(x = dt.res.meta,
+                        filename = file.path("output",
+                                             paste0(prefix.files,
+                                                    "_DE_CSV_Metadata.csv"))
+                        )
+           )
+
+```
+
+
+
+
+
+
 
 ## Report Targets
 
