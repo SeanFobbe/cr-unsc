@@ -1,0 +1,90 @@
+%===========================
+% Title Page
+%===========================
+
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[overlay,remember picture]
+ 
+\node[align=center] at ($(current page.center)+(0,8.5)$)
+{ \scshape \Huge \bfseries Corpus of Resolutions \\[2cm] \Huge \bfseries \scshape UN Security Council \\[1cm] \LARGE \bfseries (\datashort)};
+
+\draw[thick] (5.5,-2) -- (9.5,-2);
+
+\node[align=center] at ($(current page.center)+(0,2)$) 
+{ \scshape \LARGE Codebook};
+
+\node[align=center] at ($(current page.center)+(0,-8)$)
+{ \large Version \version};
+
+\node[align=center] at ($(current page.center)+(0,-10)$)
+    {\includegraphics[width=.20\textwidth]{./buttons/cc-zero.png}};
+
+\node[align=center] at ($(current page.center)+(0,-12)$) 
+{ \large DOI: \dataversiondoi};
+
+\end{tikzpicture}
+
+\newpage
+
+\pagestyle{plain}
+
+
+
+
+
+%===========================
+% Inside Cover
+%===========================
+
+\newpage
+\ra{1.5}
+
+
+\begin{centering}
+\begin{longtable}{p{2.5cm}p{12.5cm}}
+
+\textbf{Title} & \datatitle \\
+\textbf{Abbreviation} & \datashort \\
+\textbf{Author} & \dataauthor\\
+\textbf{Version} & \version \\
+\textbf{Download} & \url{\dataversionurldoi}\\
+\textbf{License} & CC0 1.0 Universal\\
+
+\end{longtable}
+\end{centering}
+
+
+
+\textbf{Citation}
+
+\emph{\dataauthor} (\the\year ). \datatitle\ (\datashort ). Version \version . Zenodo. DOI: \dataversiondoi .
+
+\vspace{0.5cm}
+
+\textbf{Digital Object Identifiers: Concept DOI and Version DOI}
+
+This data set is uniquely identified via the Digital Object Identifier (DOI) system. DOIs are persistent identifiers that are globally unique and can be resolved as a link by entering a DOI into the web service at \url{www.doi.org}. The DOI given in this document is a \enquote{Version DOI}, which uniquely identifies version \version. Academics and others who wish to enable replication analyses are strongly advised to cite the \emph{version DOI} and the precise version of the data used. A \enquote{Concept DOI} is available from the page of the Zenodo record under the heading \enquote{Cite all versions?} and will always resolve to the latest version.
+
+\vspace{0.5cm}
+
+
+
+\textbf{Public Domain Status}
+
+The full data set and this document are distributed under a \textbf{Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication} license. The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
+
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. In no way are the patent or trademark rights of any person affected by CC0, nor are the rights that other persons may have in the work or in how the work is used, such as publicity or privacy rights. Unless expressly stated otherwise, the person who associated a work with this deed makes no warranties about the work, and disclaims liability for all uses of the work, to the fullest extent permitted by applicable law. 
+
+Please see <\url{https://creativecommons.org/publicdomain/zero/1.0/legalcode}> for the full terms of the license.
+
+
+\vspace{0.5cm}
+
+\textbf{Disclaimer} 
+
+This data set is a personal academic initiative and is not associated with or endorsed by the the United Nations or any of its constituent organs and organizations.
+
+
+\newpage
