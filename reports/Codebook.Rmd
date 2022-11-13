@@ -13,7 +13,7 @@ output:
     pandoc_args: --listings
     includes:
       in_header: ../tex/Preamble_EN.tex
-      before_body: [../temp/Definitions.tex,../tex/Titlepage_Codebook.tex]
+      before_body: [../temp/Definitions.tex, ../tex/Titlepage_Codebook.tex]
 bibliography: temp/packages.bib
 nocite: '@*'
 ---
@@ -21,9 +21,27 @@ nocite: '@*'
 
 
 
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(fig.path = file.path("..", "analysis/"),
+                      dev = config$fig$format,
+                      dpi = config$fig$dpi,
+                      fig.align = config$fig$align,
+                      echo = TRUE,
+                      warning = TRUE,
+                      message = TRUE)
+
+```
+
+
+```{r, echo = FALSE}
+tar_load(latexdefs)
+tar_load(lingstats.summary)
+
+```
+
+
 
 # Introduction
 
 Lorem Ipsum.
-
 
