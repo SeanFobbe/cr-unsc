@@ -626,6 +626,47 @@ tar_target(var_lingstats,
 
 
 
+### Create Constants
+
+Creates a number of constants that contain important provenience information to be added to the data set. These are the version number, the version DOI, the concept DOI and the license. May become particularly relevant when merging individual rows from the data set with a larger data set.
+
+
+```{targets tar.enhance9}
+tar_target(var_constants,
+           data.frame(version = as.character(datestamp),
+                      doi_concept = config$doi$data$concept,
+                      doi_version = config$doi$data$version,
+                      lizenz = as.character(config$license$data))[rep(1, nrow(dt.txt.en)),])
+```
+
+
+
+
+
+### Combine Additional Variables
+
+```{targets tar.enhance10}
+tar_target(vars_additional,
+           data.table(var_lingstats,
+                      var_constants))
+
+```
+
+
+### Merge Additional Variables with Main Data Set
+
+```{targets tar.enhance11}
+tar_target(dt.txt.intermediate,
+           cbind(dt.txt.en,
+                 vars_additional))
+
+```
+
+
+
+
+
+
 
 
 ## Report Targets
