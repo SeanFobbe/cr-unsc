@@ -747,37 +747,37 @@ tar_target(lingstats.summary,
 ```
 
 
-### Report erstellen: Robustness Checks
+<!-- ### Report erstellen: Robustness Checks -->
 
-```{targets tar.report3}
-tarchetypes::tar_render(report.robustness,
-                        file.path("reports",
-                                  "RobustnessChecks.Rmd"),
-                        output_file = file.path("../output",
-                                                paste0(config$project$shortname,
-                                                       "_",
-                                                       datestamp,
-                                                       "_RobustnessChecks.pdf")))
+<!-- ```{targets tar.report3} -->
+<!-- tarchetypes::tar_render(report.robustness, -->
+<!--                         file.path("reports", -->
+<!--                                   "RobustnessChecks.Rmd"), -->
+<!--                         output_file = file.path("../output", -->
+<!--                                                 paste0(config$project$shortname, -->
+<!--                                                        "_", -->
+<!--                                                        datestamp, -->
+<!--                                                        "_RobustnessChecks.pdf"))) -->
 
-```
-
-
-
-### Report erstellen: Codebook
+<!-- ``` -->
 
 
 
-```{targets tar.report4}
-tarchetypes::tar_render(report.codebook,
-                        file.path("reports",
-                                  "Codebook.Rmd"),
-                        output_file = file.path("../output",
-                                                paste0(config$project$shortname,
-                                                       "_",
-                                                       datestamp,
-                                                       "_Codebook.pdf")))
+<!-- ### Report erstellen: Codebook -->
 
-```
+
+
+<!-- ```{targets tar.report4} -->
+<!-- tarchetypes::tar_render(report.codebook, -->
+<!--                         file.path("reports", -->
+<!--                                   "Codebook.Rmd"), -->
+<!--                         output_file = file.path("../output", -->
+<!--                                                 paste0(config$project$shortname, -->
+<!--                                                        "_", -->
+<!--                                                        datestamp, -->
+<!--                                                        "_Codebook.pdf"))) -->
+
+<!-- ``` -->
 
 
 
