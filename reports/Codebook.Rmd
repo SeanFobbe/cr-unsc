@@ -26,9 +26,9 @@ knitr::opts_chunk$set(fig.path = file.path("..", "analysis/"),
                       dev = config$fig$format,
                       dpi = config$fig$dpi,
                       fig.align = config$fig$align,
-                      echo = TRUE,
-                      warning = TRUE,
-                      message = TRUE)
+                      echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
 
 ```
 
