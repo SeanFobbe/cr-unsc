@@ -1,0 +1,28 @@
+---
+title: "Robustness Checks | Corpus of Resolutions: UN Security Council"
+author: Seán Fobbe, Niccolò Ridi and Lorenzo Gasbarri
+geometry: margin=3cm
+papersize: a4
+fontsize: 11pt
+output:
+  pdf_document:
+    keep_tex: true
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    pandoc_args: --listings
+    includes:
+      in_header: ../tex/Preamble_EN.tex
+      before_body: [../temp/Definitions.tex,../tex/Titlepage_Robustness.tex]
+bibliography: temp/packages.bib
+nocite: '@*'
+---
+
+
+
+
+
+# Introduction
+
+Lorem Ipsum.
+
