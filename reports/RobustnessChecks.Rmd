@@ -1,6 +1,6 @@
 ---
 title: "Robustness Checks | Corpus of Resolutions: UN Security Council"
-author: Seán Fobbe, Niccolò Ridi and Lorenzo Gasbarri
+author: "Seán Fobbe, Niccolò Ridi and Lorenzo Gasbarri"
 geometry: margin=3cm
 papersize: a4
 fontsize: 11pt
