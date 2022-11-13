@@ -656,7 +656,7 @@ tar_target(vars_additional,
 ### Merge Additional Variables with Main Data Set
 
 ```{targets tar.enhance11}
-tar_target(dt.txt.intermediate,
+tar_target(dt.res.final,
            cbind(dt.res.en,
                  vars_additional))
 
