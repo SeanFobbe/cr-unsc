@@ -20,6 +20,24 @@ nocite: '@*'
 
 
 
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(fig.path = file.path("..", "analysis/"),
+                      dev = config$fig$format,
+                      dpi = config$fig$dpi,
+                      fig.align = config$fig$align,
+                      echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+```{r, echo = FALSE}
+tar_load(latexdefs)
+tar_load(lingstats.summary)
+
+```
+
 
 
 # Introduction
