@@ -594,7 +594,7 @@ list(tar_target(txt.res.en,
 								  multicore = config$parallel$extractPDF,
                                   cores = fullCores),
                 format = "file"),
-     tar_target(dt.txt.en,
+     tar_target(dt.res.en,
                 f.readtext(x = txt.res.en,
                            docvarnames = docvarnames))
      )
@@ -617,7 +617,7 @@ Calculates a number of classical linguistic statistics.
 
 ```{targets tar.enhance8}
 tar_target(var_lingstats,
-                f.lingstats(dt.txt.en,
+                f.lingstats(dt.res.en,
                             multicore = config$parallel$lingsummarize,
                             cores = fullCores,
                             germanvars = FALSE))
@@ -636,7 +636,7 @@ tar_target(var_constants,
            data.frame(version = as.character(datestamp),
                       doi_concept = config$doi$data$concept,
                       doi_version = config$doi$data$version,
-                      lizenz = as.character(config$license$data))[rep(1, nrow(dt.txt.en)),])
+                      lizenz = as.character(config$license$data))[rep(1, nrow(dt.res.en)),])
 ```
 
 
@@ -657,12 +657,24 @@ tar_target(vars_additional,
 
 ```{targets tar.enhance11}
 tar_target(dt.txt.intermediate,
-           cbind(dt.txt.en,
+           cbind(dt.res.en,
                  vars_additional))
 
 ```
 
 
+
+### Create Variant: Metadata Only
+
+Hier wird die Text-Variable entfernt, um eine deutlich platzsparendere Variante des Datensatzes zu erstellen. Enthalten sind nur noch die Metadaten.
+
+
+
+```{targets tar.enhance14}
+tar_target(dt.res.meta,
+           dt.res.final[, !"text"])
+
+```
 
 
 
