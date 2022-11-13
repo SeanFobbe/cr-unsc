@@ -766,37 +766,37 @@ tar_target(lingstats.summary,
 ```
 
 
-<!-- ### Write Report: Robustness Checks -->
+### Write Report: Robustness Checks
 
-<!-- ```{targets tar.report3} -->
-<!-- tarchetypes::tar_render(report.robustness, -->
-<!--                         file.path("reports", -->
-<!--                                   "RobustnessChecks.Rmd"), -->
-<!--                         output_file = file.path("../output", -->
-<!--                                                 paste0(config$project$shortname, -->
-<!--                                                        "_", -->
-<!--                                                        datestamp, -->
-<!--                                                        "_RobustnessChecks.pdf"))) -->
+```{targets tar.report3}
+tarchetypes::tar_render(report.robustness,
+                        file.path("reports",
+                                  "RobustnessChecks.Rmd"),
+                        output_file = file.path("../output",
+                                                paste0(config$project$shortname,
+                                                       "_",
+                                                       datestamp,
+                                                       "_RobustnessChecks.pdf")))
 
-<!-- ``` -->
-
-
-
-<!-- ### Write Report: Codebook -->
+```
 
 
 
-<!-- ```{targets tar.report4} -->
-<!-- tarchetypes::tar_render(report.codebook, -->
-<!--                         file.path("reports", -->
-<!--                                   "Codebook.Rmd"), -->
-<!--                         output_file = file.path("../output", -->
-<!--                                                 paste0(config$project$shortname, -->
-<!--                                                        "_", -->
-<!--                                                        datestamp, -->
-<!--                                                        "_Codebook.pdf"))) -->
+### Write Report: Codebook
 
-<!-- ``` -->
+
+
+```{targets tar.report4}
+tarchetypes::tar_render(report.codebook,
+                        file.path("reports",
+                                  "Codebook.Rmd"),
+                        output_file = file.path("../output",
+                                                paste0(config$project$shortname,
+                                                       "_",
+                                                       datestamp,
+                                                       "_Codebook.pdf")))
+
+```
 
 
 
@@ -901,6 +901,55 @@ tar_target(zip.pdf.meeting.original,
                      mode = "mirror"),
            format = "file")
 ```
+
+
+
+
+
+## Cryptographic Hashes
+
+### Define ZIP-Archives to be Hashed
+
+
+```{targets tar.hashes1}
+tar_target(zip.all,
+           c(zip.pdf.res.original,
+             zip.pdf.draft.original,
+             zip.pdf.meeting.original,
+             zip.txt,
+             zip.csv.final,
+             zip.csv.meta,
+             zip.source))
+```
+
+### Calculate Cryptographic Hashes
+
+
+```{targets tar.hashes2}
+tar_target(hashes,
+           f.tar_multihashes(c(zip.all,
+                               report.codebook[1],
+                               report.robustness[1]),
+                             multicore = config$parallel$multihashes,
+                             cores = fullCores))
+```
+
+
+
+### Write CSV: Cryptographic Hashes
+
+
+```{targets tar.hashes3}
+tar_target(csv.hashes,
+           f.tar_fwrite(x = hashes,
+                        filename = file.path("output",
+                                             paste0(prefix.files,
+                                                    "_CryptographicHashes.csv"))
+                        )
+           )
+```
+
+
 
 
 
