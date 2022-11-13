@@ -71,13 +71,13 @@ f.download <- function(url,
     files.present <- list.files(dir)
     filename.todo <- setdiff(df$filename, files.present)
     df.todo  <- df[df$filename %in% filename.todo,]
-
+    df.todo <- df.todo[!is.na(df.todo$url),] # skip NA urls
 
     
     
     ## Download: First Try
 
-    if(random.order = TRUE){
+    if(random.order == TRUE){
         
         download.order <- sample(nrow(df.todo))
 
@@ -117,11 +117,12 @@ f.download <- function(url,
         files.present <- list.files(dir)
         filename.missing <- setdiff(df$filename, files.present)
         df.missing  <- df[df$filename %in% filename.missing,]
+        df.missing <- df.missing[!is.na(df.missing$url),] # skip NA urls
 
         if(nrow(df.missing) > 0){
 
 
-            if(random.order = TRUE){
+            if(random.order == TRUE){
                 
                 download.order <- sample(nrow(df.missing))
 
