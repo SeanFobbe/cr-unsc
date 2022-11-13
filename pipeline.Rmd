@@ -604,6 +604,29 @@ list(tar_target(txt.res.en,
 
 
 
+## Enhance Targets
+
+
+
+
+
+### Create Variables \enquote{ncharacters, ntokens, ntypes, nsentences}
+
+Calculates a number of classical linguistic statistics.
+
+
+```{targets tar.enhance8}
+tar_target(var_lingstats,
+                f.lingstats(dt.txt.en,
+                            multicore = config$parallel$lingsummarize,
+                            cores = fullCores,
+                            germanvars = FALSE))
+```
+
+
+
+
+
 
 ## Report Targets
 
