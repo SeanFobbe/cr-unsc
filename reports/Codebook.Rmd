@@ -1,12 +1,11 @@
 ---
 title: "Codebook | Corpus of Resolutions: UN Security Council"
-author: Seán Fobbe, Niccolò Ridi and Lorenzo Gasbarri
+author: "Seán Fobbe, Niccolo Ridi and Lorenzo Gasbarri"
 geometry: margin=3cm
 papersize: a4
 fontsize: 11pt
 output:
   pdf_document:
-    keep_tex: true
     toc: true
     toc_depth: 3
     number_sections: true
@@ -14,7 +13,7 @@ output:
     includes:
       in_header: ../tex/Preamble_EN.tex
       before_body: [../temp/Definitions.tex, ../tex/Titlepage_Codebook.tex]
-bibliography: temp/packages.bib
+bibliography: ../temp/packages.bib
 nocite: '@*'
 ---
 
