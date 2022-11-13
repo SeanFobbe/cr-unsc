@@ -80,6 +80,25 @@ dir.analysis <- paste0(getwd(),
 
 
 
+## Clean Up
+
+Deletes files in the output folder that do not match the datestamp.
+
+
+```{r}
+
+unlink(grep(datestamp,
+            list.files("output",
+                       full.names = TRUE),
+            invert = TRUE,
+            value = TRUE))
+
+
+```
+
+
+
+
 ## Create Folders
 
 
