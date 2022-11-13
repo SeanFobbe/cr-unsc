@@ -712,7 +712,7 @@ tar_target(csv.final,
            f.tar_fwrite(x = dt.res.final,
                         filename = file.path("output",
                                              paste0(prefix.files,
-                                                    "_DE_CSV_MainDataset.csv"))
+                                                    "_EN_CSV_MainDataset.csv"))
                         )
            )
 ```
@@ -727,7 +727,7 @@ tar_target(csv.meta,
            f.tar_fwrite(x = dt.res.meta,
                         filename = file.path("output",
                                              paste0(prefix.files,
-                                                    "_DE_CSV_Metadata.csv"))
+                                                    "_EN_CSV_Metadata.csv"))
                         )
            )
 
@@ -756,7 +756,7 @@ tar_target(latexdefs,
 
 
 
-### Zusammenfassungen linguistischer Kennwerte berechnen
+### Summary Statistics for Linguistic Variables
 
 ```{targets tar.report2}
 tar_target(lingstats.summary,
@@ -766,7 +766,7 @@ tar_target(lingstats.summary,
 ```
 
 
-<!-- ### Report erstellen: Robustness Checks -->
+<!-- ### Write Report: Robustness Checks -->
 
 <!-- ```{targets tar.report3} -->
 <!-- tarchetypes::tar_render(report.robustness, -->
@@ -782,7 +782,7 @@ tar_target(lingstats.summary,
 
 
 
-<!-- ### Report erstellen: Codebook -->
+<!-- ### Write Report: Codebook -->
 
 
 
@@ -822,6 +822,36 @@ tar_target(zip.source,
                      mode = "mirror"),
            format = "file")
 ```
+
+
+
+### Create ZIP: Main Dataset CSV
+
+
+```{targets tar.zip3}
+tar_target(zip.csv.final,
+                f.tar_zip(csv.final,
+                              filename = gsub("\\.csv", "\\.zip", basename(csv.final)),
+                              dir = "output",
+                              mode = "cherry-pick"),
+                format = "file")
+```
+
+
+
+### Create ZIP: Metadata Only CSV
+
+
+```{targets tar.zip4}
+tar_target(zip.csv.meta,
+                f.tar_zip(csv.meta,
+                              filename = gsub("\\.csv", "\\.zip", basename(csv.meta)),
+                              dir = "output",
+                              mode = "cherry-pick"),
+                format = "file")
+```
+
+
 	
 
 ### Create ZIP: Resolutions (PDF Original)
@@ -844,7 +874,8 @@ tar_target(zip.pdf.res.original,
 
 
 
-### Create ZIP: Draft (PDF Original)
+
+### Create ZIP: Drafts (PDF Original)
 
 
 ```{targets tar.zip.pdf.draft.original}
@@ -858,7 +889,7 @@ tar_target(zip.pdf.draft.original,
 ```
 
 
-### Create ZIP: Meeting Record (PDF Original)
+### Create ZIP: Meeting Records (PDF Original)
 
 
 ```{targets tar.zip.pdf.meeting.original}
