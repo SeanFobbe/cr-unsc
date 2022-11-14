@@ -766,7 +766,7 @@ Hier wird die Text-Variable entfernt, um eine deutlich platzsparendere Variante 
 
 
 ```{targets tar.enhance14}
-tar_target(dt.res.meta,
+tar_target(dt.final.meta,
            dt.final[, !c("text", "text_draft", "text_meeting")])
 
 ```
@@ -800,7 +800,7 @@ tar_target(csv.final,
 
 ```{targets tar.write2}
 tar_target(csv.meta,
-           f.tar_fwrite(x = dt.res.meta,
+           f.tar_fwrite(x = dt.final.meta,
                         filename = file.path("output",
                                              paste0(prefix.files,
                                                     "_EN_CSV_Metadata.csv"))
