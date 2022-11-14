@@ -90,7 +90,7 @@ f.merge_data <- function(dt.res.en,
     })
 
     
-    return(dt)
+    return(dt.final)
     
 
 }
