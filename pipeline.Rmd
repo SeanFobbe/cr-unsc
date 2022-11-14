@@ -602,7 +602,7 @@ tar_target(pdf.meeting.en,
 
 
 
-### Convert to TXT and ingest into R
+### Convert Resolutions to TXT and ingest into R
 
 
 ```{targets tar.convert1}
@@ -621,9 +621,55 @@ list(tar_target(txt.res.en,
 ```
 
 
+### Convert Drafts to TXT and ingest into R
+
+
+```{targets tar.convert2}
+
+list(tar_target(txt.draft.en,
+                f.tar_pdf_extract(x = pdf.draft.en,
+                                  outputdir = "txt_draft_en",
+								  multicore = config$parallel$extractPDF,
+                                  cores = fullCores),
+                format = "file"),
+     tar_target(dt.draft.en,
+                f.readtext(x = txt.draft.en,
+                           docvarnames = docvarnames))
+     )
+
+```
+
+
+### Convert Meeting Records to TXT and ingest into R
+
+
+
+```{targets tar.convert3}
+
+list(tar_target(txt.meeting.en,
+                f.tar_pdf_extract(x = pdf.meeting.en,
+                                  outputdir = "txt_meeting_en",
+								  multicore = config$parallel$extractPDF,
+                                  cores = fullCores),
+                format = "file"),
+     tar_target(dt.meeting.en,
+                f.readtext(x = txt.meeting.en,
+                           docvarnames = docvarnames))
+     )
+
+```
+
 
 
 ## Enhance Targets
+
+
+
+
+### Merge Downloaded Metadata
+
+
+
 
 
 
@@ -672,7 +718,7 @@ tar_target(vars_additional,
 ```
 
 
-### Merge Additional Variables with Main Data Set
+### Add Additional Variables to Main Data Set
 
 ```{targets tar.enhance11}
 tar_target(dt.res.final,
@@ -680,6 +726,8 @@ tar_target(dt.res.final,
                  vars_additional))
 
 ```
+
+
 
 
 
