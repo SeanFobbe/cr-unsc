@@ -706,7 +706,7 @@ tar_target(var_constants,
            data.frame(version = as.character(datestamp),
                       doi_concept = config$doi$data$concept,
                       doi_version = config$doi$data$version,
-                      lizenz = as.character(config$license$data))[rep(1, nrow(dt.intermediate)),])
+                      license = as.character(config$license$data))[rep(1, nrow(dt.intermediate)),])
 ```
 
 
