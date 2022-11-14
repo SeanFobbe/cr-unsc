@@ -13,8 +13,8 @@
 
 
 f.finalize <- function(dt.intermediate,
-                            vars.additional,
-                            varnames){
+                       vars.additional,
+                       varnames){
 
     ## Unit Test
     test_that("Arguments conform to expectations.", {
@@ -53,5 +53,7 @@ f.finalize <- function(dt.intermediate,
         expect_equal(dt.final[,.N], dt.intermediate[,.N])
     })
 
+
+    return(dt.final)
 
 }
