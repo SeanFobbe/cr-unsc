@@ -1,0 +1,48 @@
+varname,type,description
+res_no,Integer,TBD
+doc\_id,String,The filename of the extracted TXT file.
+symbol,String,TBD
+date,Date,TBD
+text,String,"The text of the resolution, in English."
+text_draft,String,"The draft of the resolution, in English."
+text_meeting,String,"The text of the meeting record, in English."
+body,String,TBD
+doctype,String,TBD
+year,Integer,TBD
+title,String,TBD
+other_titles,String,TBD
+language,String,TBD
+access,String,TBD
+call_number,String,TBD
+action_note,String,TBD
+meeting_record,String,TBD
+authors,String,TBD
+summary,String,"A human-curated summary, published by the UN Digital Library."
+description,String,TBD
+notes,String,TBD
+collections,String,TBD
+subjects,String,TBD
+url_record,String,TBD
+url_record_draft,String,TBD
+url_record_meeting,String,TBD
+url_res_ar,String,TBD
+url_res_en,String,TBD
+url_res_es,String,TBD
+url_res_ru,String,TBD
+url_res_fr,String,TBD
+url_res_zh,String,TBD
+draft,String,TBD
+agenda_information,String,TBD
+contains,String,TBD
+related_resource,String,TBD
+committee_report,String,TBD
+resolution_/_decision,String,TBD
+series,String,TBD
+nchars,Integer,TBD
+ntokens,Integer,TBD
+ntypes,Integer,TBD
+nsentences,Integer,TBD
+version,Date,TBD
+doi\_concept,String,TBD
+doi\_version,String,TBD
+license,String,The license for the data set. For the CR-UNSC it is always. \enquote{Creative Commons Zero 1.0 Universal}. Useful when merging individual rows with other data sets.
