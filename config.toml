@@ -15,11 +15,11 @@ code = "MIT-0"
 
 [doi] # Digital Object Identifier
 
-data.concept = "???"
-data.version = "???" 
+data.concept = "10.5281/zenodo.7319780"
+data.version = "10.5281/zenodo.7319781" 
 
-software.concept = "123"
-software.version = "345" 
+software.concept = "10.5281/zenodo.7319783"
+software.version = "10.5281/zenodo.7319784" 
 
 
 
