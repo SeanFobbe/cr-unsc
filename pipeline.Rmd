@@ -666,13 +666,18 @@ list(tar_target(txt.meeting.en,
 
 
 
-### Merge Downloaded Metadata
+### Merge Data
 
+```{targets tar.enhance1}
 
+tar_target(dt.intermediate,
+           f.merge_data(dt.res.en = dt.res.en,
+                        dt.draft.en = dt.draft.en,
+                        dt.meeting.en = dt.meeting.en,
+                        dt.download = dt.download,
+                        dt.record.final = dt.record.final))
 
-
-
-
+```
 
 
 ### Create Variables \enquote{ncharacters, ntokens, ntypes, nsentences}
@@ -682,7 +687,7 @@ Calculates a number of classical linguistic statistics.
 
 ```{targets tar.enhance8}
 tar_target(var_lingstats,
-                f.lingstats(dt.res.en,
+                f.lingstats(dt.intermediate,
                             multicore = config$parallel$lingsummarize,
                             cores = fullCores,
                             germanvars = FALSE))
@@ -701,7 +706,7 @@ tar_target(var_constants,
            data.frame(version = as.character(datestamp),
                       doi_concept = config$doi$data$concept,
                       doi_version = config$doi$data$version,
-                      lizenz = as.character(config$license$data))[rep(1, nrow(dt.res.en)),])
+                      lizenz = as.character(config$license$data))[rep(1, nrow(dt.intermediate)),])
 ```
 
 
@@ -720,9 +725,11 @@ tar_target(vars_additional,
 
 ### Add Additional Variables to Main Data Set
 
+
+
 ```{targets tar.enhance11}
-tar_target(dt.res.final,
-           cbind(dt.res.en,
+tar_target(dt.final,
+           cbind(dt.intermediate,
                  vars_additional))
 
 ```
@@ -739,7 +746,7 @@ Hier wird die Text-Variable entfernt, um eine deutlich platzsparendere Variante 
 
 ```{targets tar.enhance14}
 tar_target(dt.res.meta,
-           dt.res.final[, !"text"])
+           dt.final[, !c("text", "text_draft", "text_meeting")])
 
 ```
 
@@ -757,7 +764,7 @@ Write finalized data sets and hash checksums to disk.
 
 ```{targets tar.write1}
 tar_target(csv.final,
-           f.tar_fwrite(x = dt.res.final,
+           f.tar_fwrite(x = dt.final,
                         filename = file.path("output",
                                              paste0(prefix.files,
                                                     "_EN_CSV_MainDataset.csv"))
@@ -808,7 +815,7 @@ tar_target(latexdefs,
 
 ```{targets tar.report2}
 tar_target(lingstats.summary,
-                f.lingstats_summary(dt.res.final,
+                f.lingstats_summary(dt.final,
                                     germanvars = FALSE))
 
 ```
