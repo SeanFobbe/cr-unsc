@@ -748,9 +748,10 @@ tar_target(vars_additional,
 
 
 ```{targets tar.enhance11}
-tar_target(dt.final,
-           cbind(dt.intermediate,
-                 vars_additional))
+tar_target(dt.final,           
+           f.finalize(dt.intermediate = dt.intermediate,
+                      vars.additional = vars_additional,
+                      varnames = dt.var_codebook$varname))
 
 ```
 
