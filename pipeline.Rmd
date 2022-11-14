@@ -281,7 +281,7 @@ tar_target(changelog,
 
 
 
-### Read Table of Record Pages (Stable)
+### Table of Record Pages (Stable)
 
 
 
@@ -294,6 +294,26 @@ list(
                fread(csv.record.table))
 )
 ```
+
+
+### Table of Variables
+
+All variables in the data set, including their description.
+
+
+```{targets tar.file4}
+list(
+    tar_target(file.var_codebook,
+               "data/CR-UNSC_Variables.csv",
+               format = "file"),
+    tar_target(dt.var_codebook,
+               fread(file.var_codebook))
+)
+```
+
+
+
+
 
 
 ## Download
