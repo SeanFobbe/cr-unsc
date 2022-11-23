@@ -5,12 +5,22 @@
 
 
 
+## produces duplicates, 2644 instead of 2640 rows. see below
+## url.meeting and url.draft have duplicates
+
+
+# duplicates:
+
+## 1: S_RES_0001_1946
+## 2: S_RES_0100_1953
+## 3: S_RES_1000_1995
+## 4: S_RES_1001_1995
 
 
 ## dt.record <- tar_read(dt.record.final)
-## dt.download <- tar_read(dt.download)
-## url.meeting <- tar_read(url.meeting)
-## url.draft <- tar_read(url.draft)
+## tar_load(dt.download)
+## tar_load(url.meeting)
+## tar_load(url.draft)
 
 
 f.download_table_finalize <- function(dt.download,
@@ -18,6 +28,10 @@ f.download_table_finalize <- function(dt.download,
                                       url.meeting,
                                       url.draft){
 
+
+    ## Remove duplicates (temp fix, must check url creation funcs)
+    url.meeting <- url.meeting[duplicated(url.meeting$res_no)]
+    url.draft <- url.draft[duplicated(url.draft$res_no)]
 
 
     ## Merge tables
