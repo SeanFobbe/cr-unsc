@@ -25,8 +25,8 @@ software.version = "10.5281/zenodo.7319784"
 
 [debug]
 
-toggle = false # true/false - whether to activate debuging mode
-sample = 50 # integer - number of resolutions to randomly sample
+toggle = true # true/false - whether to activate debuging mode
+sample = 100 # integer - number of resolutions to randomly sample
 
 
 
