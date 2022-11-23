@@ -30,8 +30,12 @@ f.download_table_finalize <- function(dt.download,
 
 
     ## Remove duplicates (temp fix, must check url creation funcs)
-    url.meeting <- url.meeting[duplicated(url.meeting$res_no)]
-    url.draft <- url.draft[duplicated(url.draft$res_no)]
+
+    remove <- grep("S_PV.3544-EN", url.meeting$url_meeting_en)
+    url.meeting <- url.meeting[-remove]
+
+    remove <- grep("S_1995_465-EN|S_1995_478-EN|S_1995_486-EN", url.draft$url_draft_en)
+    url.draft <- url.draft[-remove]
 
 
     ## Merge tables
