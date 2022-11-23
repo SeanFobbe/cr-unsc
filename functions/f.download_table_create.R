@@ -29,6 +29,24 @@ f.download_table_finalize <- function(dt.download,
                                       url.draft){
 
 
+    ## Unit Tests
+    
+    test_that("Argument classes satisfy expectations.", {
+        expect_s3_class(dt.download, "data.table")
+        expect_s3_class(dt.record, "data.table")
+        expect_s3_class(url.meeting, "data.table")
+        expect_s3_class(url.draft, "data.table")
+
+    })
+
+    test_that("Argument row counts satisfy expectations.", {
+        expect_equal(dt.record[,.N], dt.download[,.N])
+        expect_gte(dt.record[,.N], url.meeting[,.N])
+        expect_gte(dt.record[,.N], url.draft[,.N])
+
+    })
+    
+
     ## Remove meeting duplicates (temp fix, must check url creation funcs)
 
     remove <- grep("S_PV.3544-EN", url.meeting$url_meeting_en)
@@ -45,6 +63,18 @@ f.download_table_finalize <- function(dt.download,
     url.draft <- url.draft[-remove]
     }
 
+
+    ## Unit Test 
+    test_that("Arguments do not contain duplicate resolution numbers.", {
+        expect_equal(sum(duplicated(dt.record$res_no)), 0)
+        expect_equal(sum(duplicated(dt.download$res_no)), 0)
+        expect_equal(sum(duplicated(url.meeting$res_no)), 0)
+        expect_equal(sum(duplicated(url.draft$res_no)), 0)
+    })
+
+
+    
+
     ## Merge tables
     dt <- merge(dt.record, dt.download, on = "res_no", all.x = TRUE)
     dt <- merge(dt, url.meeting, on = "res_no", all.x = TRUE)
@@ -60,6 +90,13 @@ f.download_table_finalize <- function(dt.download,
                        dt$year,
                        sep = "_")
 
+
+    ## Unit Test 
+    test_that("Result satisfies expectations.", {
+        expect_s3_class(dt, "data.table")
+        expect_equal(sum(duplicated(dt)), 0)
+        expect_equal(dt.record[,.N], dt[,.N])
+    })    
     
     
     return(dt)
