@@ -29,14 +29,21 @@ f.download_table_finalize <- function(dt.download,
                                       url.draft){
 
 
-    ## Remove duplicates (temp fix, must check url creation funcs)
+    ## Remove meeting duplicates (temp fix, must check url creation funcs)
 
     remove <- grep("S_PV.3544-EN", url.meeting$url_meeting_en)
-    url.meeting <- url.meeting[-remove]
 
+    if(length(remove) > 0){
+        url.meeting <- url.meeting[-remove]
+    }
+
+    ## Remove draft duplicates (temp fix, must check url creation funcs)
+    
     remove <- grep("S_1995_465-EN|S_1995_478-EN|S_1995_486-EN", url.draft$url_draft_en)
-    url.draft <- url.draft[-remove]
 
+    if(length(remove) > 0){
+    url.draft <- url.draft[-remove]
+    }
 
     ## Merge tables
     dt <- merge(dt.record, dt.download, on = "res_no", all.x = TRUE)
