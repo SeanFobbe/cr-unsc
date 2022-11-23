@@ -43,7 +43,7 @@ f.download <- function(url,
     }
 
     ## Create folder
-    dir.create(dir, showWarnings = FALSE)
+    dir.create(dir, showWarnings = FALSE, recursive = TRUE)
     
     ## Create Data Frame
     df <- data.frame(url, filename)
