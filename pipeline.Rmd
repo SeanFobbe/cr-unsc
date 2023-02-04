@@ -751,7 +751,8 @@ tar_target(vars_additional,
 tar_target(dt.final,           
            f.finalize(dt.intermediate = dt.intermediate,
                       vars.additional = vars_additional,
-                      varnames = dt.var_codebook$varname))
+                      varnames = dt.var_codebook$varname,
+					  debug.toggle = config$debug$toggle))
 
 ```
 
