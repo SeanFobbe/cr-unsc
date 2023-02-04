@@ -14,7 +14,8 @@
 
 f.finalize <- function(dt.intermediate,
                        vars.additional,
-                       varnames){
+                       varnames,
+                       debug.toggle = FALSE){
 
     ## Unit Test
     test_that("Arguments conform to expectations.", {
@@ -41,8 +42,15 @@ f.finalize <- function(dt.intermediate,
 
     
     ## Unit Test: Check variables and set column order
-    
+
     varnames <- gsub("\\\\", "", varnames) # Remove LaTeX escape characters
+    
+    if(debug.toggle == TRUE){
+
+        varnames <- intersect(names(dt.final), varnames)
+        
+        }
+    
     data.table::setcolorder(dt.final, varnames)
 
     
