@@ -1,7 +1,7 @@
 FROM rocker/verse:4.2.2
 
-RUN R -q -e 'install.packages(c("targets", "tarchetypes"))'
+RUN sudo apt-get remove -y rstudio-server
 
-RUN sudo apt-get remove -y rstudio-server rstudio
+RUN R -q -e 'install.packages(c("targets", "tarchetypes"))'
 
 CMD "R"
