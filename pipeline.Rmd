@@ -769,6 +769,15 @@ tar_target(var_date,
 ```
 
 
+### Create Variables with REGEX from Text
+
+
+```{targets tar.enhance.regex}
+tar_target(var_regex,
+           f.regex_variables(dt.intermediate$text))
+```
+
+
 
 
 ### Create Variables \enquote{ncharacters, ntokens, ntypes, nsentences}
@@ -776,7 +785,7 @@ tar_target(var_date,
 Calculates a number of classical linguistic statistics.
 
 
-```{targets tar.enhance8}
+```{targets tar.enhance.lingstats}
 tar_target(var_lingstats,
                 f.lingstats(dt.intermediate,
                             multicore = config$parallel$lingsummarize,
@@ -793,7 +802,7 @@ tar_target(var_lingstats,
 Creates a number of constants that contain important provenience information to be added to the data set. These are the version number, the version DOI, the concept DOI and the license. May become particularly relevant when merging individual rows from the data set with a larger data set.
 
 
-```{targets tar.enhance9}
+```{targets tar.enhance.constants}
 tar_target(var_constants,
            data.frame(version = as.character(datestamp),
                       doi_concept = config$doi$data$concept,
@@ -807,9 +816,10 @@ tar_target(var_constants,
 
 ### Combine Additional Variables
 
-```{targets tar.enhance10}
+```{targets tar.enhance.combine}
 tar_target(vars_additional,
            data.table(date = var_date,
+                      var_regex,
                       var_lingstats,
                       var_constants))
 
