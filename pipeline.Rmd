@@ -1286,7 +1286,7 @@ tar_make()
 
 ## Visualization
 
-```{r, pipeline-graph, width = 9, height = 14}
+```{r, pipeline-graph, width = 7, height = 14}
 
 edgelist <- tar_network(targets_only = TRUE)$edges
 setDT(edgelist)
