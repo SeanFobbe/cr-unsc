@@ -467,7 +467,7 @@ values <- tibble::tibble(
                                    quote(paste0(dt.download.final$doc_id, "_EN.pdf")),
                                    quote(paste0(dt.download.final$doc_id, "_FR.pdf")),
                                    quote(paste0(dt.download.final$doc_id, "_RU.pdf")),
-                                   quote(paste0(dt.download.final$doc_id, "_ES.pdf")))
+                                   quote(paste0(dt.download.final$doc_id, "_ES.pdf"))),
                       url = c(quote(dt.download.final$url_res_ar),
                                 quote(dt.download.final$url_res_zh),
                                 quote(dt.download.final$url_res_en),
