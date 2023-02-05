@@ -38,10 +38,12 @@ related_resource,String,TBD
 committee_report,String,TBD
 resolution_/_decision,String,TBD
 series,String,TBD
+chapter7,Logical,Whether the string “Chapter VII” is present in the text of the resolution. This would mean that the Council is acting under Chapter VII.
 nchars,Integer,TBD
 ntokens,Integer,TBD
 ntypes,Integer,TBD
 nsentences,Integer,TBD
+npages,Integer,Number of pages of the English version of the document. Sourced from UN Digital Library.
 version,Date,TBD
 doi\_concept,String,TBD
 doi\_version,String,TBD
