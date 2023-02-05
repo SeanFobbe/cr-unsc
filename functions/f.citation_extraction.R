@@ -1,10 +1,18 @@
+#' f.citation_extraction
+#'
+#' Extract citations and convert to igraph object.
+#'
+#' @param dt.final Data.table. The final data set.
+#' @return Igraph object. All internal citations as a graph object.
 
 
 
-f.citation_extraction <- function(text){
+
+f.citation_extraction <- function(dt.final){
 
 
-    target <- stringi::stri_extract_all(text, regex = "[0-9]{1,4} \\([0-9]{4}\\)")
+    target <- stringi::stri_extract_all(dt.final$text,
+                                        regex = "[0-9]{1,4} \\([0-9]{4}\\)")
 
     source <- paste0(dt.final$res_no, " (", dt.final$year, ")")
     
@@ -16,24 +24,29 @@ f.citation_extraction <- function(text){
 
 
 
-g  <- igraph::graph.data.frame(dt,
-                               directed = TRUE)
+    g  <- igraph::graph.data.frame(dt,
+                                   directed = TRUE)
 
 
-ggraph(g,) + 
-    geom_edge_diagonal(colour = "grey")+
-    geom_node_point()+
-    geom_node_text(aes(label = name),
-                   size = 2,
-                   repel = TRUE)+
-    theme_void()
+    return(g)
+    
+
+}
+
+
+
+
+## ggraph(g,) + 
+##     geom_edge_diagonal(colour = "grey")+
+##     geom_node_point()+
+##     geom_node_text(aes(label = name),
+##                    size = 2,
+##                    repel = TRUE)+
+##     theme_void()
     
     
 
-res[[1]]
+## res[[1]]
 
-out[[1]]
+## out[[1]]
     
-    
-str(dt.final)
-    }
