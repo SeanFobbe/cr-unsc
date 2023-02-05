@@ -848,6 +848,24 @@ tar_target(dt.final.meta,
 
 
 
+## Citation Extraction
+
+
+
+```{targets tar.citations}
+tar_target(igraph_citations,
+           f.citation_extraction(dt.final = dt.final))
+
+```
+
+
+
+
+
+
+
+
+
 
 ## Write Targets
 
