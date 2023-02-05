@@ -825,6 +825,19 @@ tar_target(csv.meta,
 
 
 
+### Write Bibtex
+
+
+```{targets tar.write.bibtex.oscola}
+tar_target(bibtex.oscola,
+           f.bibtex(dt.final = dt.final,
+                        filename = file.path("output",
+                                             paste0(prefix.files,
+                                                    "_EN_Bibtex_OSCOLA.bib"))
+                        )
+           )
+
+```
 
 
 
