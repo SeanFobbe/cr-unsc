@@ -707,7 +707,7 @@ list(tar_target(txt.res.en,
 ```{targets tar.convert2}
 
 list(tar_target(txt.draft.en,
-                f.tar_pdf_extract(x = pdf.draft.en,
+                f.tar_pdf_extract(x = pdf_draft_en,
                                   outputdir = "files/txt_draft_en",
 								  multicore = config$parallel$extractPDF,
                                   cores = fullCores),
@@ -727,7 +727,7 @@ list(tar_target(txt.draft.en,
 ```{targets tar.convert3}
 
 list(tar_target(txt.meeting.en,
-                f.tar_pdf_extract(x = pdf.meeting.en,
+                f.tar_pdf_extract(x = pdf_meeting_en,
                                   outputdir = "files/txt_meeting_en",
 								  multicore = config$parallel$extractPDF,
                                   cores = fullCores),
@@ -1059,7 +1059,7 @@ tar_target(zip.txt,
 
 ```{targets tar.zip.pdf.draft.original}
 tar_target(zip.pdf.draft.original,
-           f.tar_zip(c(pdf.draft.en),
+           f.tar_zip(c(pdf_draft_en),
                      filename = paste0(prefix.files,
                                        "_Drafts_PDF.zip"),
                      dir = "output",
@@ -1073,7 +1073,7 @@ tar_target(zip.pdf.draft.original,
 
 ```{targets tar.zip.pdf.meeting.original}
 tar_target(zip.pdf.meeting.original,
-           f.tar_zip(c(pdf.meeting.en),
+           f.tar_zip(c(pdf_meeting_en),
                      filename = paste0(prefix.files,
                                        "_MeetingRecords_PDF.zip"),
                      dir = "output",
