@@ -874,7 +874,7 @@ Write finalized data sets and hash checksums to disk.
 
 
 
-```{targets tar.write}
+```{targets tar.write.csv}
 
 values <- tibble::tibble(
                       name = c("final",
@@ -899,6 +899,22 @@ csv.all <- tarchetypes::tar_map(unlist = FALSE,
                                 )
 
 ```
+
+
+
+
+```{targets tar.write.graphs}
+
+tar_target(graphml_citations, 
+           write_graph(g,
+                        file = file.path("output",
+                                              paste0(prefix.files, 
+                                                     "_EN_GraphML_Citations.graphml")),
+                       format = "graphml"),
+           format = "file")
+
+```
+
 
 
 
