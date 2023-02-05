@@ -24,12 +24,35 @@ f.bibtex <- function(dt.final,
                                              dt.final$res_no),
                           entrysubtype = rep("undoc", nrow(dt.final)),
                           tabulate = rep("undoc", nrow(dt.final)),
-                          institution = rep("UN Security Council", nrow(dt.final)),
-                          instrument_no = 
+                          institution = rep("UNSC", nrow(dt.final)),
+                          instrument_no = paste0("Res ",
+                                                 dt.final$res_no,
+                                                 " (", dt.final$year, ")"),
+                          doc_no = paste0("UN Doc S/RES/", dt.final$res_no, "/", dt.final$year)
                           
                           )
 
+dt.final$title
+    
 
+    months <- format(ISOdate(2004,1:12,1),"%B")
+    
+    date <- gsub(paste0(".* ([0-9]+) (",
+                        paste0(months, collapse = "|"),
+                        ") ([0-9]{4}).*"),
+                 "\\1 \\2 \\3", dt.final$title)
+
+
+    date <- as.Date(date, format =  "%d %B %Y")
+
+
+    
+    mgsub::mgsub(date, months, formatC(1:12, width = 2, flag = 0))
+
+    
+    
+
+    
 
     dt.bib2 <- dt.final[,.(res_no,
                            year,
@@ -51,7 +74,7 @@ f.bibtex <- function(dt.final,
     
     
 
-    str(dt.bib)
+    str(dt.final)
     
 
 
