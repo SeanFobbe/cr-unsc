@@ -74,23 +74,29 @@ f.merge_data <- function(dt.res.en,
     
     ## Merge Record Page URL
 
-    dt.final <- merge(dt,
+    dt.return <- merge(dt,
                       dt.record.final,
                       by = "res_no",                
                       all.x = TRUE,
                       sort = FALSE)
 
 
+    ## Rename Date Variable
+    
+    names(dt.return) <- gsub("date", "date_undl", names(dt.return))
+    
+    
+
     ## Unit Test
     test_that("Results conform to expectations.", {
-        expect_s3_class(dt.final, "data.table")
-        expect_equal(dt.final[,.N], dt.res.en[,.N])
-        expect_gte(dt.final[,.N], dt.draft.en[,.N])
-        expect_gte(dt.final[,.N], dt.meeting.en[,.N])
+        expect_s3_class(dt.return, "data.table")
+        expect_equal(dt.return[,.N], dt.res.en[,.N])
+        expect_gte(dt.return[,.N], dt.draft.en[,.N])
+        expect_gte(dt.return[,.N], dt.meeting.en[,.N])
     })
 
     
-    return(dt.final)
+    return(dt.return)
     
 
 }
