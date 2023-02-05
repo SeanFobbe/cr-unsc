@@ -688,7 +688,7 @@ list(tar_target(txt.meeting.en,
 
 ### Merge Data
 
-```{targets tar.enhance1}
+```{targets tar.enhance.merge}
 
 tar_target(dt.intermediate,
            f.merge_data(dt.res.en = dt.res.en,
@@ -698,6 +698,17 @@ tar_target(dt.intermediate,
                         dt.record.final = dt.record.final))
 
 ```
+
+
+### Create Variable \enquote{date}
+
+
+```{targets tar.enhance.date}
+tar_target(var_date,
+           f.date(dt.intermediate$title))
+```
+
+
 
 
 ### Create Variables \enquote{ncharacters, ntokens, ntypes, nsentences}
@@ -712,6 +723,7 @@ tar_target(var_lingstats,
                             cores = fullCores,
                             germanvars = FALSE))
 ```
+
 
 
 
@@ -737,7 +749,8 @@ tar_target(var_constants,
 
 ```{targets tar.enhance10}
 tar_target(vars_additional,
-           data.table(var_lingstats,
+           data.table(var_date,
+                      var_lingstats,
                       var_constants))
 
 ```
@@ -762,7 +775,7 @@ tar_target(dt.final,
 
 ### Create Variant: Metadata Only
 
-Hier wird die Text-Variable entfernt, um eine deutlich platzsparendere Variante des Datensatzes zu erstellen. Enthalten sind nur noch die Metadaten.
+Remove text variable to create a much smaller version of the data set with metadata only.
 
 
 
