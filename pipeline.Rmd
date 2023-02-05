@@ -906,11 +906,11 @@ csv.all <- tarchetypes::tar_map(unlist = FALSE,
 ```{targets tar.write.graphs}
 
 tar_target(graphml_citations, 
-           igraph::write_graph(igraph_citations,
-                        file = file.path("output",
+           f.tar_write_graph(graph = igraph_citations,
+                             file = file.path("output",
                                               paste0(prefix.files, 
                                                      "_EN_GraphML_Citations.graphml")),
-                       format = "graphml"),
+                             format = "graphml"),
            format = "file")
 
 ```
