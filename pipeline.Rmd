@@ -1286,7 +1286,7 @@ tar_make()
 
 ## Visualization
 
-```{r, pipeline-graph, width = 9, height = 9}
+```{r, pipeline-graph, width = 9, height = 14}
 
 edgelist <- tar_network(targets_only = TRUE)$edges
 setDT(edgelist)
@@ -1296,9 +1296,9 @@ g  <- igraph::graph.data.frame(edgelist,
 
 
 ggraph(g,
-       'dh') + 
+       'sugiyama') + 
     geom_edge_diagonal(colour = "grey")+
-    geom_node_point()+
+    geom_node_point(size = 2)+
     geom_node_text(aes(label = name),
                    size = 2,
                    repel = TRUE)+
