@@ -1013,7 +1013,7 @@ values <- tibble::tibble(
                                "csv_meta",
 							   "txt",
                                "pdf_draft_original",
-                               "pdf_draft_meeting"),
+                               "pdf_meeting_original"),
                       input = c(quote(files.source),
                                 quote(csv_final),
                                 quote(csv_meta),
