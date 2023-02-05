@@ -1009,26 +1009,35 @@ tarchetypes::tar_render(report.codebook,
 
 values <- tibble::tibble(
                       name = c("source",
+                               "pdf_res_original",
+                               "pdf_draft_original",
+                               "pdf_meeting_original",
                                "csv_final",
                                "csv_meta",
-							   "txt",
-                               "pdf_draft_original",
-                               "pdf_meeting_original"),
+							   "txt"),
                       input = c(quote(files.source),
+                                quote(c(pdf_res_ar,
+                                        pdf_res_en,
+                                        pdf_res_es,
+                                        pdf_res_fr,
+                                        pdf_res_ru,
+                                        pdf_res_zh)),
+                                quote(pdf_draft_en),
+                                quote(pdf_meeting_en),
                                 quote(csv_final),
                                 quote(csv_meta),
-								quote(txt.res.en),
-                                quote(pdf_draft_en),
-                                quote(pdf_meeting_en)),
+								quote(txt.res.en)),
                       filename = paste0(prefix.files,
-                                        c("_Source_Code",
-                                          "_EN_CSV_Main-Dataset",
-                                          "_EN_CSV_Metadata",
-										  "_TXT",
-                                          "_EN_Drafts",
-                                          "_EN_Meeting-Records"),
+                                        "_",
+                                        c("Source_Code",
+                                          "ALL_PDF_Resolutions",
+                                          "EN_PDF_Drafts",
+                                          "EN_PDF_Meeting-Records",
+                                          "EN_CSV_Main-Dataset",
+                                          "EN_CSV_Metadata",
+										  "EN_TXT"),
                                         ".zip"),
-                      mode = c(rep("mirror", 1),
+                      mode = c(rep("mirror", 2),
                                rep("cherry-pick", 5))
                   )
 
@@ -1145,23 +1154,23 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
 
 	
 
-### Create ZIP: Resolutions (PDF Original)
+<!-- ### Create ZIP: Resolutions (PDF Original) -->
 
 
-```{targets tar.zip.pdf.res.original}
-tar_target(zip.pdf.res.original,
-           f.tar_zip(c(pdf_res_ar,
-                       pdf_res_en,
-                       pdf_res_es,
-                       pdf_res_fr,
-                       pdf_res_ru,
-                       pdf_res_zh),
-                     filename = paste0(prefix.files,
-                                       "_Resolutions_PDF.zip"),
-                     dir = "output",
-                     mode = "mirror"),
-           format = "file")
-```
+<!-- ```{targets tar.zip.pdf.res.original} -->
+<!-- tar_target(zip.pdf.res.original, -->
+<!--            f.tar_zip(c(pdf_res_ar, -->
+<!--                        pdf_res_en, -->
+<!--                        pdf_res_es, -->
+<!--                        pdf_res_fr, -->
+<!--                        pdf_res_ru, -->
+<!--                        pdf_res_zh), -->
+<!--                      filename = paste0(prefix.files, -->
+<!--                                        "_Resolutions_PDF.zip"), -->
+<!--                      dir = "output", -->
+<!--                      mode = "mirror"), -->
+<!--            format = "file") -->
+<!-- ``` -->
 
 
 
@@ -1175,7 +1184,7 @@ tar_target(zip.pdf.res.original,
 
 ```{targets tar.hashes1}
 tar_target(zip.all,
-           c(zip.pdf.res.original,
+           c(zip_pdf_res_original,
              zip_pdf_draft_original,
              zip_pdf_meeting_original,
              zip_txt,
