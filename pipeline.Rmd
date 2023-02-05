@@ -855,33 +855,62 @@ Write finalized data sets and hash checksums to disk.
 
 
 
-### Write CSV: Main Data Set
 
-```{targets tar.write1}
-tar_target(csv.final,
-           f.tar_fwrite(x = dt.final,
-                        filename = file.path("output",
-                                             paste0(prefix.files,
-                                                    "_EN_CSV_MainDataset.csv"))
-                        )
-           )
+```{targets tar.write}
+
+values <- tibble::tibble(
+                      name = c("final",
+                               "meta"),
+                      input = c(quote(dt.final),
+                                quote(dt.meta)),
+                      filename = paste0(prefix.files,
+                                        c("_EN_CSV_Main-Dataset",
+                                          "_EN_CSV_Metadata"),
+                                        ".csv")
+                  )
+
+
+csv.all <- tarchetypes::tar_map(unlist = FALSE,
+                                values = values,
+                                names = name,
+                                tar_target(csv,
+                                           f.tar_fwrite(x = input,
+                                                        filename = file.path("output",
+                                                                             filename)),
+                                           format = "file")
+                                )
+
 ```
 
 
 
-### Write CSV: Metadata Only
+<!-- ### Write CSV: Main Data Set -->
+
+<!-- ```{targets tar.write1} -->
+<!-- tar_target(csv.final, -->
+<!--            f.tar_fwrite(x = dt.final, -->
+<!--                         filename = file.path("output", -->
+<!--                                              paste0(prefix.files, -->
+<!--                                                     "_EN_CSV_MainDataset.csv")) -->
+<!--                         ) -->
+<!--            ) -->
+<!-- ``` -->
 
 
-```{targets tar.write2}
-tar_target(csv.meta,
-           f.tar_fwrite(x = dt.final.meta,
-                        filename = file.path("output",
-                                             paste0(prefix.files,
-                                                    "_EN_CSV_Metadata.csv"))
-                        )
-           )
 
-```
+<!-- ### Write CSV: Metadata Only -->
+
+
+<!-- ```{targets tar.write2} -->
+<!-- tar_target(csv.meta, -->
+<!--            f.tar_fwrite(x = dt.final.meta, -->
+<!--                         filename = file.path("output", -->
+<!--                                              paste0(prefix.files, -->
+<!--                                                     "_EN_CSV_Metadata.csv")) -->
+<!--                         ) -->
+<!--            ) -->
+
+<!-- ``` -->
 
 
 
@@ -993,8 +1022,8 @@ tar_target(zip.source,
 
 ```{targets tar.zip3}
 tar_target(zip.csv.final,
-                f.tar_zip(csv.final,
-                              filename = gsub("\\.csv", "\\.zip", basename(csv.final)),
+                f.tar_zip(csv_final,
+                              filename = gsub("\\.csv", "\\.zip", basename(csv_final)),
                               dir = "output",
                               mode = "cherry-pick"),
                 format = "file")
@@ -1007,8 +1036,8 @@ tar_target(zip.csv.final,
 
 ```{targets tar.zip4}
 tar_target(zip.csv.meta,
-                f.tar_zip(csv.meta,
-                              filename = gsub("\\.csv", "\\.zip", basename(csv.meta)),
+                f.tar_zip(csv_meta,
+                              filename = gsub("\\.csv", "\\.zip", basename(csv_meta)),
                               dir = "output",
                               mode = "cherry-pick"),
                 format = "file")
