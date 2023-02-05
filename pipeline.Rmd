@@ -456,123 +456,174 @@ tar_target(dt.download.final,
 ### Download Resolutions
 
 
-**Arabic**
-
-```{targets tar.download.res.ar}
-tar_target(pdf.res.ar,
-                f.download(url = dt.download.final$url_res_ar,
-                           filename = paste0(dt.download.final$doc_id, "_AR.pdf"),
-                           dir = "files/pdf_res_ar",
-                           sleep.min = 0.3,
-                           sleep.max = 1,
-                           retries = 3,
-                           retry.sleep.min = 2,
-                           retry.sleep.max = 5,
-                           timeout = config$download$timeout,
-                           debug.toggle = FALSE),
-                format = "file")
-
-```
 
 
+```{targets tar.download}
 
-**Chinese**
-
-```{targets tar.download.res.zh}
-tar_target(pdf.res.zh,
-                f.download(url = dt.download.final$url_res_zh,
-                           filename = paste0(dt.download.final$doc_id, "_ZH.pdf"),
-                           dir = "files/pdf_res_zh",
-                           sleep.min = 0.3,
-                           sleep.max = 1,
-                           retries = 3,
-                           retry.sleep.min = 2,
-                           retry.sleep.max = 5,
-                           timeout = config$download$timeout,
-                           debug.toggle = FALSE),
-                format = "file")
-
-```
-
-
-
-**English**
-
-```{targets tar.download.res.en}
-tar_target(pdf.res.en,
-                f.download(url = dt.download.final$url_res_en,
-                           filename = paste0(dt.download.final$doc_id, "_EN.pdf"),
-                           dir = "files/pdf_res_en",
-                           sleep.min = 0.3,
-                           sleep.max = 1,
-                           retries = 3,
-                           retry.sleep.min = 2,
-                           retry.sleep.max = 5,
-                           timeout = config$download$timeout,
-                           debug.toggle = FALSE),
-                format = "file")
-
-```
+values <- tibble::tibble(
+                      name = c("ar", "zh", "en", "fr", "ru", "es"),
+                      filename = c(quote(paste0(dt.download.final$doc_id, "_AR.pdf")),
+                                   quote(paste0(dt.download.final$doc_id, "_ZH.pdf")),
+                                   quote(paste0(dt.download.final$doc_id, "_EN.pdf")),
+                                   quote(paste0(dt.download.final$doc_id, "_FR.pdf")),
+                                   quote(paste0(dt.download.final$doc_id, "_RU.pdf")),
+                                   quote(paste0(dt.download.final$doc_id, "_ES.pdf")))
+                      url = c(quote(dt.download.final$url_res_ar),
+                                quote(dt.download.final$url_res_zh),
+                                quote(dt.download.final$url_res_en),
+                                quote(dt.download.final$url_res_fr),
+                                quote(dt.download.final$url_res_ru),
+                                quote(dt.download.final$url_res_es)),
+                      dir = c("files/pdf_res_ar",
+                              "files/pdf_res_zh",
+                              "files/pdf_res_en",
+                              "files/pdf_res_fr",
+                              "files/pdf_res_ru",
+                              "files/pdf_res_es"))
+                  )
 
 
-**French**
+zip.list <- tarchetypes::tar_map(unlist = FALSE,
+                                 values = values,
+                                 names = name,
+                                 tar_target(pdf_res,
+                                            f.download(url = url,
+                                                       filename = filename,
+                                                       dir = dir,
+                                                       sleep.min = 0.3,
+                                                       sleep.max = 1,
+                                                       retries = 3,
+                                                       retry.sleep.min = 2,
+                                                       retry.sleep.max = 5,
+                                                       timeout = config$download$timeout,
+                                                       debug.toggle = FALSE),
+                                            format = "file")
+                                 )
 
-```{targets tar.download.res.fr}
-tar_target(pdf.res.fr,
-                f.download(url = dt.download.final$url_res_fr,
-                           filename = paste0(dt.download.final$doc_id, "_FR.pdf"),
-                           dir = "files/pdf_res_fr",
-                           sleep.min = 0.3,
-                           sleep.max = 1,
-                           retries = 3,
-                           retry.sleep.min = 2,
-                           retry.sleep.max = 5,
-                           timeout = config$download$timeout,
-                           debug.toggle = FALSE),
-                format = "file")
+
 
 ```
 
 
 
 
-**Russian**
+<!-- **Arabic** -->
 
-```{targets tar.download.res.ru}
-tar_target(pdf.res.ru,
-                f.download(url = dt.download.final$url_res_ru,
-                           filename = paste0(dt.download.final$doc_id, "_RU.pdf"),
-                           dir = "files/pdf_res_ru",
-                           sleep.min = 0.3,
-                           sleep.max = 1,
-                           retries = 3,
-                           retry.sleep.min = 2,
-                           retry.sleep.max = 5,
-                           timeout = config$download$timeout,
-                           debug.toggle = FALSE),
-                format = "file")
+<!-- ```{targets tar.download.res.ar} -->
+<!-- tar_target(pdf.res.ar, -->
+<!--                 f.download(url = dt.download.final$url_res_ar, -->
+<!--                            filename = paste0(dt.download.final$doc_id, "_AR.pdf"), -->
+<!--                            dir = "files/pdf_res_ar", -->
+<!--                            sleep.min = 0.3, -->
+<!--                            sleep.max = 1, -->
+<!--                            retries = 3, -->
+<!--                            retry.sleep.min = 2, -->
+<!--                            retry.sleep.max = 5, -->
+<!--                            timeout = config$download$timeout, -->
+<!--                            debug.toggle = FALSE), -->
+<!--                 format = "file") -->
 
-```
-
-
-**Spanish**
+<!-- ``` -->
 
 
-```{targets tar.download.res.es}
-tar_target(pdf.res.es,
-                f.download(url = dt.download.final$url_res_es,
-                           filename = paste0(dt.download.final$doc_id, "_ES.pdf"),
-                           dir = "files/pdf_res_es",
-                           sleep.min = 0.3,
-                           sleep.max = 1,
-                           retries = 3,
-                           retry.sleep.min = 2,
-                           retry.sleep.max = 5,
-                           timeout = config$download$timeout,
-                           debug.toggle = FALSE),
-                format = "file")
 
-```
+<!-- **Chinese** -->
+
+<!-- ```{targets tar.download.res.zh} -->
+<!-- tar_target(pdf.res.zh, -->
+<!--                 f.download(url = dt.download.final$url_res_zh, -->
+<!--                            filename = paste0(dt.download.final$doc_id, "_ZH.pdf"), -->
+<!--                            dir = "files/pdf_res_zh", -->
+<!--                            sleep.min = 0.3, -->
+<!--                            sleep.max = 1, -->
+<!--                            retries = 3, -->
+<!--                            retry.sleep.min = 2, -->
+<!--                            retry.sleep.max = 5, -->
+<!--                            timeout = config$download$timeout, -->
+<!--                            debug.toggle = FALSE), -->
+<!--                 format = "file") -->
+
+<!-- ``` -->
+
+
+
+<!-- **English** -->
+
+<!-- ```{targets tar.download.res.en} -->
+<!-- tar_target(pdf.res.en, -->
+<!--                 f.download(url = dt.download.final$url_res_en, -->
+<!--                            filename = paste0(dt.download.final$doc_id, "_EN.pdf"), -->
+<!--                            dir = "files/pdf_res_en", -->
+<!--                            sleep.min = 0.3, -->
+<!--                            sleep.max = 1, -->
+<!--                            retries = 3, -->
+<!--                            retry.sleep.min = 2, -->
+<!--                            retry.sleep.max = 5, -->
+<!--                            timeout = config$download$timeout, -->
+<!--                            debug.toggle = FALSE), -->
+<!--                 format = "file") -->
+
+<!-- ``` -->
+
+
+<!-- **French** -->
+
+<!-- ```{targets tar.download.res.fr} -->
+<!-- tar_target(pdf.res.fr, -->
+<!--                 f.download(url = dt.download.final$url_res_fr, -->
+<!--                            filename = paste0(dt.download.final$doc_id, "_FR.pdf"), -->
+<!--                            dir = "files/pdf_res_fr", -->
+<!--                            sleep.min = 0.3, -->
+<!--                            sleep.max = 1, -->
+<!--                            retries = 3, -->
+<!--                            retry.sleep.min = 2, -->
+<!--                            retry.sleep.max = 5, -->
+<!--                            timeout = config$download$timeout, -->
+<!--                            debug.toggle = FALSE), -->
+<!--                 format = "file") -->
+
+<!-- ``` -->
+
+
+
+
+<!-- **Russian** -->
+
+<!-- ```{targets tar.download.res.ru} -->
+<!-- tar_target(pdf.res.ru, -->
+<!--                 f.download(url = dt.download.final$url_res_ru, -->
+<!--                            filename = paste0(dt.download.final$doc_id, "_RU.pdf"), -->
+<!--                            dir = "files/pdf_res_ru", -->
+<!--                            sleep.min = 0.3, -->
+<!--                            sleep.max = 1, -->
+<!--                            retries = 3, -->
+<!--                            retry.sleep.min = 2, -->
+<!--                            retry.sleep.max = 5, -->
+<!--                            timeout = config$download$timeout, -->
+<!--                            debug.toggle = FALSE), -->
+<!--                 format = "file") -->
+
+<!-- ``` -->
+
+
+<!-- **Spanish** -->
+
+
+<!-- ```{targets tar.download.res.es} -->
+<!-- tar_target(pdf.res.es, -->
+<!--                 f.download(url = dt.download.final$url_res_es, -->
+<!--                            filename = paste0(dt.download.final$doc_id, "_ES.pdf"), -->
+<!--                            dir = "files/pdf_res_es", -->
+<!--                            sleep.min = 0.3, -->
+<!--                            sleep.max = 1, -->
+<!--                            retries = 3, -->
+<!--                            retry.sleep.min = 2, -->
+<!--                            retry.sleep.max = 5, -->
+<!--                            timeout = config$download$timeout, -->
+<!--                            debug.toggle = FALSE), -->
+<!--                 format = "file") -->
+
+<!-- ``` -->
 
 
 
