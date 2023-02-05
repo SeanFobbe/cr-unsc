@@ -458,7 +458,7 @@ tar_target(dt.download.final,
 
 
 
-```{r tar.download}
+```{targets tar.download}
 
 values <- tibble::tibble(
                       name = c("ar", "zh", "en", "fr", "ru", "es"),
@@ -609,7 +609,7 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
 <!-- **Spanish** -->
 
 
-<!-- ```{targets tar.download.res.es} -->
+<!-- ```{r tar.download.res.es} -->
 <!-- tar_target(pdf.res.es, -->
 <!--                 f.download(url = dt.download.final$url_res_es, -->
 <!--                            filename = paste0(dt.download.final$doc_id, "_ES.pdf"), -->
@@ -624,7 +624,6 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
 <!--                 format = "file") -->
 
 <!-- ``` -->
-
 
 
 
