@@ -862,7 +862,7 @@ values <- tibble::tibble(
                       name = c("final",
                                "meta"),
                       input = c(quote(dt.final),
-                                quote(dt.meta)),
+                                quote(dt.final.meta)),
                       filename = paste0(prefix.files,
                                         c("_EN_CSV_Main-Dataset",
                                           "_EN_CSV_Metadata"),
