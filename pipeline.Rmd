@@ -749,7 +749,7 @@ tar_target(var_constants,
 
 ```{targets tar.enhance10}
 tar_target(vars_additional,
-           data.table(var_date,
+           data.table(date = var_date,
                       var_lingstats,
                       var_constants))
 
