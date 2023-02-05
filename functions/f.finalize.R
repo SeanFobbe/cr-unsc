@@ -35,7 +35,7 @@ f.finalize <- function(dt.intermediate,
 
     ## Transform "description" variable
 
-    dt.final$npages <- gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description)
+    dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
 
     
 
