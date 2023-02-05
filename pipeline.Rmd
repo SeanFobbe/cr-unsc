@@ -1002,47 +1002,146 @@ tarchetypes::tar_render(report.codebook,
 ## ZIP Targets
 
 
-### Create ZIP: Source Code
 
 
-```{targets tar.zip1}
-tar_target(zip.source,
-           f.tar_zip(files.source,
-                     filename = paste0(prefix.files,
-                                       "_Source_Code.zip"),
-                     dir = "output",
-                     mode = "mirror"),
-           format = "file")
+
+```{targets tar.zip}
+
+values <- tibble::tibble(
+                      name = c("source",
+                               "csv_final",
+                               "csv_meta",
+							   "txt",
+                               "pdf_draft_original",
+                               "pdf_draft_meeting"),
+                      input = c(quote(files.source),
+                                quote(csv_final),
+                                quote(csv_meta),
+								quote(txt.res.en),
+                                quote(pdf_draft_en),
+                                quote(pdf_meeting_en)),
+                      filename = paste0(prefix.files,
+                                        c("_Source_Code",
+                                          "_EN_CSV_Main-Dataset",
+                                          "_EN_CSV_Metadata",
+										  "_TXT",
+                                          "_EN_Drafts",
+                                          "_EN_Meeting-Records"),
+                                        ".zip"),
+                      mode = c(rep("mirror", 1),
+                               rep("cherry-pick", 5))
+                  )
+
+
+
+
+zip.list <- tarchetypes::tar_map(unlist = FALSE,
+                                values = values,
+                                names = name,
+                                tar_target(zip,
+                                           f.tar_zip(x = input,
+                                                     filename = filename,
+                                                     dir = "output",
+                                                     mode = mode),
+                                           format = "file")
+                                )
+
+
+
 ```
 
 
 
-### Create ZIP: Main Dataset CSV
 
 
-```{targets tar.zip3}
-tar_target(zip.csv.final,
-                f.tar_zip(csv_final,
-                              filename = gsub("\\.csv", "\\.zip", basename(csv_final)),
-                              dir = "output",
-                              mode = "cherry-pick"),
-                format = "file")
-```
+<!-- ### Create ZIP: Source Code -->
+
+
+<!-- ```{targets tar.zip1} -->
+<!-- tar_target(zip.source, -->
+<!--            f.tar_zip(files.source, -->
+<!--                      filename = paste0(prefix.files, -->
+<!--                                        "_Source_Code.zip"), -->
+<!--                      dir = "output", -->
+<!--                      mode = "mirror"), -->
+<!--            format = "file") -->
+<!-- ``` -->
 
 
 
-### Create ZIP: Metadata Only CSV
+<!-- ### Create ZIP: Main Dataset CSV -->
 
 
-```{targets tar.zip4}
-tar_target(zip.csv.meta,
-                f.tar_zip(csv_meta,
-                              filename = gsub("\\.csv", "\\.zip", basename(csv_meta)),
-                              dir = "output",
-                              mode = "cherry-pick"),
-                format = "file")
-```
+<!-- ```{targets tar.zip3} -->
+<!-- tar_target(zip.csv.final, -->
+<!--                 f.tar_zip(csv_final, -->
+<!--                               filename = gsub("\\.csv", "\\.zip", basename(csv_final)), -->
+<!--                               dir = "output", -->
+<!--                               mode = "cherry-pick"), -->
+<!--                 format = "file") -->
+<!-- ``` -->
 
+
+
+<!-- ### Create ZIP: Metadata Only CSV -->
+
+
+<!-- ```{targets tar.zip4} -->
+<!-- tar_target(zip.csv.meta, -->
+<!--                 f.tar_zip(csv_meta, -->
+<!--                               filename = gsub("\\.csv", "\\.zip", basename(csv_meta)), -->
+<!--                               dir = "output", -->
+<!--                               mode = "cherry-pick"), -->
+<!--                 format = "file") -->
+<!-- ``` -->
+
+
+
+
+	
+
+<!-- ### Create ZIP: Resolutions (TXT) -->
+
+
+<!-- ```{targets tar.zip.txt} -->
+<!-- tar_target(zip.txt, -->
+<!--            f.tar_zip(c(txt.res.en), -->
+<!--                      filename = paste0(prefix.files, -->
+<!--                                        "_TXT.zip"), -->
+<!--                      dir = "output", -->
+<!--                      mode = "mirror"), -->
+<!--            format = "file") -->
+<!-- ``` -->
+
+
+
+
+<!-- ### Create ZIP: Drafts (PDF Original) -->
+
+
+<!-- ```{targets tar.zip.pdf.draft.original} -->
+<!-- tar_target(zip.pdf.draft.original, -->
+<!--            f.tar_zip(c(pdf_draft_en), -->
+<!--                      filename = paste0(prefix.files, -->
+<!--                                        "_Drafts_PDF.zip"), -->
+<!--                      dir = "output", -->
+<!--                      mode = "mirror"), -->
+<!--            format = "file") -->
+<!-- ``` -->
+
+
+<!-- ### Create ZIP: Meeting Records (PDF Original) -->
+
+
+<!-- ```{targets tar.zip.pdf.meeting.original} -->
+<!-- tar_target(zip.pdf.meeting.original, -->
+<!--            f.tar_zip(c(pdf_meeting_en), -->
+<!--                      filename = paste0(prefix.files, -->
+<!--                                        "_MeetingRecords_PDF.zip"), -->
+<!--                      dir = "output", -->
+<!--                      mode = "mirror"), -->
+<!--            format = "file") -->
+<!-- ``` -->
 
 	
 
@@ -1065,51 +1164,6 @@ tar_target(zip.pdf.res.original,
 ```
 
 
-	
-
-### Create ZIP: Resolutions (TXT)
-
-
-```{targets tar.zip.txt}
-tar_target(zip.txt,
-           f.tar_zip(c(txt.res.en),
-                     filename = paste0(prefix.files,
-                                       "_TXT.zip"),
-                     dir = "output",
-                     mode = "mirror"),
-           format = "file")
-```
-
-
-
-
-### Create ZIP: Drafts (PDF Original)
-
-
-```{targets tar.zip.pdf.draft.original}
-tar_target(zip.pdf.draft.original,
-           f.tar_zip(c(pdf_draft_en),
-                     filename = paste0(prefix.files,
-                                       "_Drafts_PDF.zip"),
-                     dir = "output",
-                     mode = "mirror"),
-           format = "file")
-```
-
-
-### Create ZIP: Meeting Records (PDF Original)
-
-
-```{targets tar.zip.pdf.meeting.original}
-tar_target(zip.pdf.meeting.original,
-           f.tar_zip(c(pdf_meeting_en),
-                     filename = paste0(prefix.files,
-                                       "_MeetingRecords_PDF.zip"),
-                     dir = "output",
-                     mode = "mirror"),
-           format = "file")
-```
-
 
 
 
@@ -1122,12 +1176,12 @@ tar_target(zip.pdf.meeting.original,
 ```{targets tar.hashes1}
 tar_target(zip.all,
            c(zip.pdf.res.original,
-             zip.pdf.draft.original,
-             zip.pdf.meeting.original,
-             zip.txt,
-             zip.csv.final,
-             zip.csv.meta,
-             zip.source))
+             zip_pdf_draft_original,
+             zip_pdf_meeting_original,
+             zip_txt,
+             zip_csv_final,
+             zip_csv_meta,
+             zip_source))
 ```
 
 ### Calculate Cryptographic Hashes
