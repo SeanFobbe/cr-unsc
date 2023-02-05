@@ -31,6 +31,12 @@ f.finalize <- function(dt.intermediate,
     
     dt.final <- cbind(dt.intermediate,
                       vars.additional)
+
+
+    ## Transform "description" variable
+
+    dt.final$npages <- gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description)
+
     
 
     
