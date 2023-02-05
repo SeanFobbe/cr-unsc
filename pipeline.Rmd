@@ -458,7 +458,7 @@ tar_target(dt.download.final,
 
 
 
-```{targets tar.download}
+```{r tar.download}
 
 values <- tibble::tibble(
                       name = c("ar", "zh", "en", "fr", "ru", "es"),
@@ -469,17 +469,17 @@ values <- tibble::tibble(
                                    quote(paste0(dt.download.final$doc_id, "_RU.pdf")),
                                    quote(paste0(dt.download.final$doc_id, "_ES.pdf"))),
                       url = c(quote(dt.download.final$url_res_ar),
-                                quote(dt.download.final$url_res_zh),
-                                quote(dt.download.final$url_res_en),
-                                quote(dt.download.final$url_res_fr),
-                                quote(dt.download.final$url_res_ru),
-                                quote(dt.download.final$url_res_es)),
+                              quote(dt.download.final$url_res_zh),
+                              quote(dt.download.final$url_res_en),
+                              quote(dt.download.final$url_res_fr),
+                              quote(dt.download.final$url_res_ru),
+                              quote(dt.download.final$url_res_es)),
                       dir = c("files/pdf_res_ar",
                               "files/pdf_res_zh",
                               "files/pdf_res_en",
                               "files/pdf_res_fr",
                               "files/pdf_res_ru",
-                              "files/pdf_res_es"))
+                              "files/pdf_res_es")
                   )
 
 
