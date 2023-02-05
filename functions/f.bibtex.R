@@ -13,12 +13,20 @@
 #' to do:
 #' - add date
 
+##tar_load(dt.final)
+##dt.final$date
+##    str(dt.final)
+    
+
+    
 
 
 f.bibtex <- function(dt.final,
                      filename){
 
 
+    ## Create custom variables
+    
     dt.bib1 <- data.table(CATEGORY = rep("MISC", nrow(dt.final)),
                           BIBTEXKEY = paste0("S_RES_",
                                              dt.final$res_no),
@@ -32,29 +40,10 @@ f.bibtex <- function(dt.final,
                           
                           )
 
-dt.final$title
-    
-
-    months <- format(ISOdate(2004,1:12,1),"%B")
-    
-    date <- gsub(paste0(".* ([0-9]+) (",
-                        paste0(months, collapse = "|"),
-                        ") ([0-9]{4}).*"),
-                 "\\1 \\2 \\3", dt.final$title)
-
-
-    date <- as.Date(date, format =  "%d %B %Y")
-
-
-    
-    mgsub::mgsub(date, months, formatC(1:12, width = 2, flag = 0))
-
-    
-    
-
-    
+    ## Select pre-computed variables
 
     dt.bib2 <- dt.final[,.(res_no,
+                           date,
                            year,
                            title,
                            other_titles,
@@ -70,19 +59,18 @@ dt.final$title
                            ntokens)]
 
 
+    ## Combine data tables
+    
     dt.bib <- cbind(dt.bib1, dt.bib2)
-    
-    
-
-    str(dt.final)
-    
 
 
-    
+    ## Write to bibtex
 
     bib2df::df2bib(dt.bib, filename)
 
-    return(filename)
     
+    return(filename)
 
+
+    
 }
