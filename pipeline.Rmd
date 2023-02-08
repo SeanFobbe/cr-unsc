@@ -1422,7 +1422,11 @@ if (meta[,.N > 0]){
         
     }
 
-}
+}else{
+
+    cat("No errors to report.")
+
+    }
 
 
 ```
