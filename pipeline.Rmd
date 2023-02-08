@@ -1384,19 +1384,35 @@ runtime.sum / 3600
 ## Warnings
 
 
-```{r, pipeling-warnings}
+```{r, pipline-warnings, results = 'asis'}
 
 meta <- tar_meta(fields = "warnings", complete_only = TRUE)
 setDT(meta)
 
-kable(meta,
-      format = "latex",
-      align = "r",
-      booktabs = TRUE,
-      longtable = TRUE) %>% kable_styling(latex_options = "repeat_header")
+for(i in 1:meta[,.N]){
 
+    cat(paste("###", meta[i]$name))
+    cat(meta[i]$warnings)
+    
+}
 
 ```
+
+
+
+<!-- ```{r, pipeling-warnings} -->
+
+<!-- meta <- tar_meta(fields = "warnings", complete_only = TRUE) -->
+<!-- setDT(meta) -->
+
+<!-- kable(meta, -->
+<!--       format = "latex", -->
+<!--       align = "r", -->
+<!--       booktabs = TRUE, -->
+<!--       longtable = TRUE) %>% kable_styling(latex_options = "repeat_header") -->
+
+
+<!-- ``` -->
 
 
 
