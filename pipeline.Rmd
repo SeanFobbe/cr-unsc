@@ -760,9 +760,9 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
 ```{targets tar.enhance.merge}
 
 tar_target(dt.intermediate,
-           f.merge_data(dt.res.en = dt.res.en,
-                        dt.draft.en = dt.draft.en,
-                        dt.meeting.en = dt.meeting.en,
+           f.merge_data(dt.res.en = dt_res_en,
+                        dt.draft.en = dt_draft_en,
+                        dt.meeting.en = dt_meeting_en,
                         dt.download = dt.download,
                         dt.record.final = dt.record.final))
 
