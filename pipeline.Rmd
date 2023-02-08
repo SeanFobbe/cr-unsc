@@ -1399,6 +1399,10 @@ if (meta[,.N > 0]){
         
     }
 
+}else{
+
+    cat("No warnings to report.")
+
 }
 
 ```
@@ -1426,7 +1430,7 @@ if (meta[,.N > 0]){
 
     cat("No errors to report.")
 
-    }
+}
 
 
 ```
