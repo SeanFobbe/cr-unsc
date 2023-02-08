@@ -508,7 +508,16 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
                                                        retry.sleep.max = 5,
                                                        timeout = config$download$timeout,
                                                        debug.toggle = FALSE),
-                                            format = "file"))
+                                            format = "file"),
+                                 tar_target(txt,
+                                            f.tar_pdf_extract(x = pdf,
+                                                              outputdir = paste0("files/txt_", name),
+                                                              multicore = config$parallel$extractPDF,
+                                                              cores = fullCores),
+                                            format = "file"),
+                                 tar_target(dt,
+                                            f.readtext(x = txt,
+                                                       docvarnames = docvarnames)))
 
 
 
@@ -685,59 +694,59 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
 ### Convert Resolutions to TXT and ingest into R
 
 
-```{targets tar.convert1}
+<!-- ```{r tar.convert1} -->
 
-list(tar_target(txt.res.en,
-                f.tar_pdf_extract(x = pdf_res_en,
-                                  outputdir = "files/txt_res_en",
-								  multicore = config$parallel$extractPDF,
-                                  cores = fullCores),
-                format = "file"),
-     tar_target(dt.res.en,
-                f.readtext(x = txt.res.en,
-                           docvarnames = docvarnames))
-     )
+<!-- list(tar_target(txt.res.en, -->
+<!--                 f.tar_pdf_extract(x = pdf_res_en, -->
+<!--                                   outputdir = "files/txt_res_en", -->
+<!-- 								  multicore = config$parallel$extractPDF, -->
+<!--                                   cores = fullCores), -->
+<!--                 format = "file"), -->
+<!--      tar_target(dt.res.en, -->
+<!--                 f.readtext(x = txt.res.en, -->
+<!--                            docvarnames = docvarnames)) -->
+<!--      ) -->
 
-```
-
-
-### Convert Drafts to TXT and ingest into R
+<!-- ``` -->
 
 
-```{targets tar.convert2}
-
-list(tar_target(txt.draft.en,
-                f.tar_pdf_extract(x = pdf_draft_en,
-                                  outputdir = "files/txt_draft_en",
-								  multicore = config$parallel$extractPDF,
-                                  cores = fullCores),
-                format = "file"),
-     tar_target(dt.draft.en,
-                f.readtext(x = txt.draft.en,
-                           docvarnames = docvarnames))
-     )
-
-```
+<!-- ### Convert Drafts to TXT and ingest into R -->
 
 
-### Convert Meeting Records to TXT and ingest into R
+<!-- ```{targets tar.convert2} -->
+
+<!-- list(tar_target(txt.draft.en, -->
+<!--                 f.tar_pdf_extract(x = pdf_draft_en, -->
+<!--                                   outputdir = "files/txt_draft_en", -->
+<!-- 								  multicore = config$parallel$extractPDF, -->
+<!--                                   cores = fullCores), -->
+<!--                 format = "file"), -->
+<!--      tar_target(dt.draft.en, -->
+<!--                 f.readtext(x = txt.draft.en, -->
+<!--                            docvarnames = docvarnames)) -->
+<!--      ) -->
+
+<!-- ``` -->
+
+
+<!-- ### Convert Meeting Records to TXT and ingest into R -->
 
 
 
-```{targets tar.convert3}
+<!-- ```{targets tar.convert3} -->
 
-list(tar_target(txt.meeting.en,
-                f.tar_pdf_extract(x = pdf_meeting_en,
-                                  outputdir = "files/txt_meeting_en",
-								  multicore = config$parallel$extractPDF,
-                                  cores = fullCores),
-                format = "file"),
-     tar_target(dt.meeting.en,
-                f.readtext(x = txt.meeting.en,
-                           docvarnames = docvarnames))
-     )
+<!-- list(tar_target(txt.meeting.en, -->
+<!--                 f.tar_pdf_extract(x = pdf_meeting_en, -->
+<!--                                   outputdir = "files/txt_meeting_en", -->
+<!-- 								  multicore = config$parallel$extractPDF, -->
+<!--                                   cores = fullCores), -->
+<!--                 format = "file"), -->
+<!--      tar_target(dt.meeting.en, -->
+<!--                 f.readtext(x = txt.meeting.en, -->
+<!--                            docvarnames = docvarnames)) -->
+<!--      ) -->
 
-```
+<!-- ``` -->
 
 
 
