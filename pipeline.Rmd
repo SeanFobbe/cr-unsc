@@ -1388,7 +1388,7 @@ runtime.sum / 3600
 
 meta <- tar_meta(fields = "warnings", complete_only = TRUE)
 setDT(meta)
-meta$warnings <- gsub("(\\.pdf|\\.html?|\\.txt)", "\\1 \n", meta$warnings)
+meta$warnings <- gsub("(\\.pdf|\\.html?|\\.txt)", "\\1 \n\n", meta$warnings)
 
 for(i in 1:meta[,.N]){
 
