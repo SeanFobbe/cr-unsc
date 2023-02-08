@@ -1393,7 +1393,7 @@ meta$warnings <- gsub("(\\.pdf|\\.html?|\\.txt)", "\\1 \n", meta$warnings)
 for(i in 1:meta[,.N]){
 
     cat(paste("###", meta[i]$name), "\n\n")
-    paste(meta[i]$warnings, "\n\n")
+    cat(paste(meta[i]$warnings, "\n\n"))
     
 }
 
