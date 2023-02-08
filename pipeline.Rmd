@@ -1295,7 +1295,7 @@ tar_make()
 
 ## Visualization
 
-```{r, pipeline-graph, width = 7, height = 14}
+```{r, pipeline-graph, width = 10, height = 14}
 
 edgelist <- tar_network(targets_only = TRUE)$edges
 setDT(edgelist)
@@ -1306,7 +1306,7 @@ g  <- igraph::graph.data.frame(edgelist,
 
 ggraph(g,
        'sugiyama') + 
-    geom_edge_diagonal(colour = "grey")+
+    geom_edge_diagonal(colour = "grey70")+
     geom_node_point(size = 2)+
     geom_node_text(aes(label = name),
                    size = 2,
@@ -1328,9 +1328,12 @@ ggraph(g,
 
 ```{r, pipeline-list}
 
-meta <- tar_meta(fields = c("type", "bytes"), complete_only = TRUE)
+meta <- tar_meta(fields = c("type", "bytes", "format"), complete_only = TRUE)
 setDT(meta)
 meta$MB <- round(meta$bytes / 1e6, digits = 2)
+
+# Total Disk Usage
+sum(meta$MB, na.rm = TRUE)
 
 kable(meta[order(type, name)],
       format = "latex",
@@ -1349,6 +1352,7 @@ kable(meta[order(type, name)],
 
 meta <- tar_meta(fields = c("time", "seconds"), complete_only = TRUE)
 setDT(meta)
+meta$mins <- round(meta$seconds / 60, digits = 2)
 
 kable(meta[order(-seconds)],
       format = "latex",
