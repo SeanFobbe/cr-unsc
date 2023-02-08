@@ -1390,30 +1390,19 @@ meta <- tar_meta(fields = "warnings", complete_only = TRUE)
 setDT(meta)
 meta$warnings <- gsub("(\\.pdf|\\.html?|\\.txt)", "\\1 \n\n", meta$warnings)
 
-for(i in 1:meta[,.N]){
+if (meta[,.N > 0]){
 
-    cat(paste("###", meta[i]$name), "\n\n")
-    cat(paste(meta[i]$warnings, "\n\n"))
-    
+    for(i in 1:meta[,.N]){
+
+        cat(paste("###", meta[i]$name), "\n\n")
+        cat(paste(meta[i]$warnings, "\n\n"))
+        
+    }
+
 }
 
 ```
 
-
-
-<!-- ```{r, pipeling-warnings} -->
-
-<!-- meta <- tar_meta(fields = "warnings", complete_only = TRUE) -->
-<!-- setDT(meta) -->
-
-<!-- kable(meta, -->
-<!--       format = "latex", -->
-<!--       align = "r", -->
-<!--       booktabs = TRUE, -->
-<!--       longtable = TRUE) %>% kable_styling(latex_options = "repeat_header") -->
-
-
-<!-- ``` -->
 
 
 
@@ -1424,11 +1413,16 @@ for(i in 1:meta[,.N]){
 meta <- tar_meta(fields = "error", complete_only = TRUE)
 setDT(meta)
 
-kable(meta,
-      format = "latex",
-      align = "r",
-      booktabs = TRUE,
-      longtable = TRUE) %>% kable_styling(latex_options = "repeat_header")
+if (meta[,.N > 0]){
+
+    for(i in 1:meta[,.N]){
+
+        cat(paste("###", meta[i]$name), "\n\n")
+        cat(paste(meta[i]$error, "\n\n"))
+        
+    }
+
+}
 
 
 ```
