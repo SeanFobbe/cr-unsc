@@ -155,7 +155,7 @@ f.download <- function(url,
     
     if(length(filename.missing) > 0){
 
-        warning(paste("Missing file:", filename.missing, collapse = "\n"))
+        warning(paste("Missing file:", filename.missing, collapse = "\n", "  "))
         
     }
 
