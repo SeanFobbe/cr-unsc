@@ -34,7 +34,7 @@ sample = 100 # integer - number of resolutions to randomly sample
 
 max = true # use all cores on system
 number = 8 # only used if max = false
-tesseractJobs = 4  # only used if max = false; tesseract uses 3-4 cores per job
+tesseract = 4  # only used if max = false; tesseract uses 3-4 cores per job
 
 
 
