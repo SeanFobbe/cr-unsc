@@ -195,11 +195,13 @@ prefix.files <- paste0(config$project$shortname,
 
 if (config$cores$max == TRUE){
     fullCores <- parallel::detectCores()
+	tesseractJobs <- round(fullCores / 4) + 1
 }
 
 
 if (config$cores$max == FALSE){
     fullCores <- as.integer(config$cores$number)
+	tesseractJobs <- as.integer(config$cores$tesseract)
 }
 
 ```
@@ -457,7 +459,7 @@ tar_target(dt.download.final,
 
 
 
-```{r tar.download}
+```{targets tar.download}
 
 values <- tibble::tibble(
                       name = c("res_ar",
@@ -530,7 +532,7 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
                                                           dir.out.pdf = paste0("files/pdf_tesseract", name),
                                                           dir.out.txt = paste0("files/txt_tesseract", name),
                                                           quiet = TRUE,
-                                                          jobs = 4),
+                                                          jobs = tesseractJobs),
                                             format = "file"),
                                  tar_target(txt,
                                             f.tar_pdf_extract(x = pdf,
