@@ -193,6 +193,19 @@
         "backports"
       ]
     },
+    "bib2df": {
+      "Package": "bib2df",
+      "Version": "1.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "f2cf33875b859a757ad919a4471cdc0f",
+      "Requirements": [
+        "dplyr",
+        "httr",
+        "humaniformat",
+        "stringr"
+      ]
+    },
     "bigD": {
       "Package": "bigD",
       "Version": "0.2.0",
@@ -787,6 +800,16 @@
         "jsonlite",
         "mime",
         "openssl"
+      ]
+    },
+    "humaniformat": {
+      "Package": "humaniformat",
+      "Version": "0.6.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "d521cf9db39ca79250a00029661fb7cd",
+      "Requirements": [
+        "Rcpp"
       ]
     },
     "igraph": {
