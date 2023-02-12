@@ -457,7 +457,7 @@ tar_target(dt.download.final,
 
 
 
-```{targets tar.download}
+```{r tar.download}
 
 values <- tibble::tibble(
                       name = c("res_ar",
@@ -491,7 +491,15 @@ values <- tibble::tibble(
                               "files/pdf_res_ru",
                               "files/pdf_res_es",
                               "files/pdf_draft_en",
-                              "files/pdf_meeting_en"))
+                              "files/pdf_meeting_en"),
+                      tesslang = c("ara",
+                                   "chi_sim",
+                                   "eng",
+                                   "fra",
+                                   "rus",
+                                   "spa",
+                                   "eng",
+                                   "eng"))
 
 
 zip.list <- tarchetypes::tar_map(unlist = FALSE,
@@ -508,6 +516,21 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
                                                        retry.sleep.max = 5,
                                                        timeout = config$download$timeout,
                                                        debug.toggle = FALSE),
+                                            format = "file"),
+                                 tar_target(ocr,
+                                            f.tar_pdf_ocr(grep("S_RES_0[0-8][0-9][0-9]",
+                                                               pdf,
+                                                               value = TRUE),
+                                                          dpi = 300,
+                                                          lang = tesslang,
+                                                          crop.firstpage = 0,
+                                                          crop.lastpage = 0,
+                                                          output = "pdf txt",
+                                                          skip = TRUE,
+                                                          dir.out.pdf = paste0("files/pdf_tesseract", name),
+                                                          dir.out.txt = paste0("files/txt_tesseract", name),
+                                                          quiet = TRUE,
+                                                          jobs = 4),
                                             format = "file"),
                                  tar_target(txt,
                                             f.tar_pdf_extract(x = pdf,
