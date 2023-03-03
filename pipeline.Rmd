@@ -148,7 +148,7 @@ tar_option_set(packages = c("tarchetypes",  # Additional targets functions
                             "scales",       # Scaling of figures
 							"magick",       # Image processing
                             "viridis",      # Viridis palette
-                            "RColorBrewer", # ColorBrewer palett
+                            "RColorBrewer", # ColorBrewer palette
 							"pdftools",     # Extract PDF files
 							"readtext",     # Read TXT files
                             "quanteda",     # Advanced computer linguistics
