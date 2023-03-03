@@ -60,6 +60,6 @@ tokens_locale = "en_US"
 
 [fig] # Knitr
 
-fig.format = [ "pdf", "png" ] 	# Output format of figures
-fig.dpi = 300     	 	# Resolution of figures
-fig.align = "center"    	# Alignment of figures
+format = [ "pdf", "png" ] 	# Output format of figures
+dpi = 300     	 	# Resolution of figures
+align = "center"    	# Alignment of figures
