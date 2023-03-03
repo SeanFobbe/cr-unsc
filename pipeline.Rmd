@@ -1019,7 +1019,7 @@ tar_target(bibtex.oscola,
 ### Write \LaTeX Definitions
 
 
-```{targets tar.report1}
+```{targets tar.report.defs}
 tar_target(latexdefs,
            f.latexdefs(config,
                        dir = "temp",
@@ -1032,7 +1032,7 @@ tar_target(latexdefs,
 
 ### Summary Statistics for Linguistic Variables
 
-```{targets tar.report2}
+```{targets tar.report.lingsumm}
 tar_target(lingstats.summary,
                 f.lingstats_summary(dt.final,
                                     germanvars = FALSE))
