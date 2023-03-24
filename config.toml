@@ -28,6 +28,8 @@ software.version = "10.5281/zenodo.7319784"
 toggle = false # true/false - whether to activate debuging mode
 sample = 100 # integer - number of resolutions to randomly sample
 
+cleanrun = false # Deletes all intermediate and final results before a run. This setting is independent from the debugging toggle!
+
 
 
 [cores] # Parallelization
