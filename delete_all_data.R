@@ -3,14 +3,8 @@
 targets::tar_destroy(ask = FALSE)
 
 
-dir.pdf <- list.files(pattern = "pdf", include.dirs = TRUE)
-dir.txt <- list.files(pattern = "txt", include.dirs = TRUE)
-dir.record <- list.files(pattern = "record", include.dirs = TRUE)
 
-
-delete <- c(dir.pdf,
-            dir.txt,
-            dir.record,
+delete <- c("files/",
             "temp/",
             "analysis/",
             "output/")
