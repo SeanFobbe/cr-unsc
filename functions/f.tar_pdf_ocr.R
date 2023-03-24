@@ -257,36 +257,43 @@ pdf_ocr_single <- function(x,
                            crop.lastpage = 0,
                            output = "pdf txt",
                            dir.out = "."){
-    
-    
-    filename.out <- gsub("\\.pdf",
-                         "_TESSERACT",
-                         x,
-                         ignore.case = TRUE)
 
-    filename.out <- file.path(dir.out,
-                          basename(filename.out))
+    tryCatch({
+        
+        filename.out <- gsub("\\.pdf",
+                             "_TESSERACT",
+                             x,
+                             ignore.case = TRUE)
 
-    
-    ## Convert to TIFF
-    filename.tiff <- f.convert_crop(x = x,
-                                    dir.out = ".",
-                                    dpi = dpi,
-                                    crop.firstpage = crop.firstpage,
-                                    crop.lastpage = crop.lastpage)
-    
-    
-    ## Run Tesseract
-    system2("tesseract",
-            paste(filename.tiff,
-                  filename.out,
-                  "-l",
-                  lang,
-                  output))
-    
-    unlink(filename.tiff)
+        filename.out <- file.path(dir.out,
+                                  basename(filename.out))
 
-    invisible(filename.out)
+        
+        ## Convert to TIFF
+        filename.tiff <- f.convert_crop(x = x,
+                                        dir.out = ".",
+                                        dpi = dpi,
+                                        crop.firstpage = crop.firstpage,
+                                        crop.lastpage = crop.lastpage)
+        
+        
+        ## Run Tesseract
+        system2("tesseract",
+                paste(filename.tiff,
+                      filename.out,
+                      "-l",
+                      lang,
+                      output))
+        
+        unlink(filename.tiff)
+
+        invisible(filename.out)
+
+    },
+    
+    error = function(cond) {
+        return(NA)}
+    )
 
     
 }
