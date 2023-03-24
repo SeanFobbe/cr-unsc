@@ -1,29 +1,55 @@
-## Parameters
+# This script will run the full data pipeline.
+
+
+
+# Timing
 
 begin <- Sys.time()
-datestamp <- Sys.Date()
+
+
+
+
+# Set Directory
 
 dir.out <- "output"
-
-config <- RcppTOML::parseTOML("config.toml")
-
-
-## Create Dir
 
 dir.create(dir.out, showWarnings = FALSE)
 
 
-## Run full pipeline
+
+
+# Load Config
+
+config <- RcppTOML::parseTOML("config.toml")
+
+
+
+
+# Execute Clean Run (see config)
+
+
+if(config$debug$cleanrun == TRUE){
+
+    source("delete_all_data.R")
+
+    }
+
+
+# Run Pipeline
 
 rmarkdown::render("pipeline.Rmd",
                   output_file = file.path(dir.out,
                                           paste0(config$project$shortname,
                                                  "_",
-                                                 datestamp,
+                                                 Sys.Date(),
                                                  "_CompilationReport.pdf")))
 
 
-## Runtime
+
+
+
+# Report Timing
 
 end <- Sys.time()
+
 print(end-begin)
