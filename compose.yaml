@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  cr-unsc:
+    container_name: cr-unsc
+    image: cr-unsc:4.2.2
+    tty: true
+    volumes:
+      - .:/cr-unsc:z
+      - ./gitconfig:/etc/gitconfig:z
