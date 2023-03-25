@@ -18,7 +18,7 @@ RUN pip install -r requirements-python.txt
 COPY requirements-R.R .
 RUN Rscript requirements-R.R
 
-# Tesseract layer
+# Tesseract layer (move to lower layer once stable!)
 COPY requirements-tesseract.sh .
 RUN sh requirements-tesseract.sh
 
