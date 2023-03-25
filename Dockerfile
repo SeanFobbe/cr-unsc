@@ -18,6 +18,10 @@ RUN pip install -r requirements-python.txt
 COPY requirements-R.R .
 RUN Rscript requirements-R.R
 
+# Tesseract layer
+COPY requirements-tesseract.R .
+RUN sh requirements-tesseract.R
+
 
 # Config layers
 WORKDIR /cr-unsc
