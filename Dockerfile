@@ -19,8 +19,8 @@ COPY requirements-R.R .
 RUN Rscript requirements-R.R
 
 # Tesseract layer
-COPY requirements-tesseract.R .
-RUN sh requirements-tesseract.R
+COPY requirements-tesseract.sh .
+RUN sh requirements-tesseract.sh
 
 
 # Config layers
