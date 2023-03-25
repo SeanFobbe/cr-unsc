@@ -1,6 +1,6 @@
 ## Install System Dependencies
 
-apt-get install -y automake ca-certificates g++ git libtool libleptonica-dev make pkg-config wget
+apt-get install -y automake ca-certificates g++ git libtool libleptonica-dev make pkg-config
 
 apt-get install -y --no-install-recommends asciidoc docbook-xsl xsltproc
 
