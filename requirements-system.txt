@@ -1,5 +1,6 @@
 git
 pip
+wget
 python3
 libatlas3-base
 libopenblas-base
@@ -16,5 +17,3 @@ libjpeg-dev
 libgif-dev
 librsvg2-dev
 libglpk-dev
-tesseract-ocr
-tesseract-ocr-deu
