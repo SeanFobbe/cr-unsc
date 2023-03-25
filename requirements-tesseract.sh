@@ -1,6 +1,6 @@
 ## Install System Dependencies
 
-apt-get install -y automake ca-certificates g++ git libtool libleptonica-dev make pkg-config
+apt-get install -y automake ca-certificates g++ git libtool libleptonica-dev make pkg-config wget
 
 apt-get install -y --no-install-recommends asciidoc docbook-xsl xsltproc
 
@@ -17,8 +17,8 @@ cd tesseract
 ./autogen.sh
 ./configure
 make
-sudo make install
-sudo ldconfig
+make install
+ldconfig
 
 
 ## Download Language Models
