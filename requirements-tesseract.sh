@@ -21,28 +21,27 @@ sudo make install
 sudo ldconfig
 
 
-
 ## Download Language Models
 
 # English
-wget -O ${TESSDATA_PREFIX}/eng.traineddata https://github.com/tesseract-ocr/tessdata_fast/blob/main/eng.traineddata
+wget -O /usr/local/share/tessdata/eng.traineddata https://github.com/tesseract-ocr/tessdata_fast/raw/main/eng.traineddata
 
 # Chinese
-wget -O ${TESSDATA_PREFIX}/chi_sim.traineddata https://github.com/tesseract-ocr/tessdata_fast/blob/main/chi_sim.traineddata
+wget -O /usr/local/share/tessdata/chi_sim.traineddata https://github.com/tesseract-ocr/tessdata_fast/raw/main/chi_sim.traineddata
 
 # French
-wget -O ${TESSDATA_PREFIX}/fra.traineddata https://github.com/tesseract-ocr/tessdata_fast/blob/main/fra.traineddata
+wget -O /usr/local/share/tessdata/fra.traineddata https://github.com/tesseract-ocr/tessdata_fast/raw/main/fra.traineddata
 
 # Spanish
-wget -O ${TESSDATA_PREFIX}/spa.traineddata https://github.com/tesseract-ocr/tessdata_fast/blob/main/spa.traineddata
+wget -O /usr/local/share/tessdata/spa.traineddata https://github.com/tesseract-ocr/tessdata_fast/raw/main/spa.traineddata
 
 # Arabic
-wget -O ${TESSDATA_PREFIX}/ara.traineddata https://github.com/tesseract-ocr/tessdata_fast/blob/main/ara.traineddata
+wget -O /usr/local/share/tessdata/ara.traineddata https://github.com/tesseract-ocr/tessdata_fast/raw/main/ara.traineddata
 
 # Russian
-wget -O ${TESSDATA_PREFIX}/rus.traineddata https://github.com/tesseract-ocr/tessdata_fast/blob/main/rus.traineddata
+wget -O /usr/local/share/tessdata/rus.traineddata https://github.com/tesseract-ocr/tessdata_fast/raw/main/rus.traineddata
 
 # German
-wget -O ${TESSDATA_PREFIX}/deu.traineddata https://github.com/tesseract-ocr/tessdata_fast/blob/main/deu.traineddata
+wget -O /usr/local/share/tessdata/deu.traineddata https://github.com/tesseract-ocr/tessdata_fast/raw/main/deu.traineddata
 
 
