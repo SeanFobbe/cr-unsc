@@ -17,3 +17,10 @@ libjpeg-dev
 libgif-dev
 librsvg2-dev
 libglpk-dev
+libleptonica-dev
+make
+automake
+ca-certificates
+g++
+libtool
+pkg-config
