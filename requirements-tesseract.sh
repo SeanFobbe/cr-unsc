@@ -44,11 +44,3 @@ wget -O /usr/local/share/tessdata/rus.traineddata https://github.com/tesseract-o
 
 # Spanish
 wget -O /usr/local/share/tessdata/spa.traineddata https://github.com/tesseract-ocr/tessdata_fast/raw/main/spa.traineddata
-
-
-
-
-
-
-
-
