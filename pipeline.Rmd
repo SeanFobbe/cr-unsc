@@ -709,6 +709,49 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
 <!-- ``` -->
 
 
+### Combine PDF and TXT targets
+
+NOTE: Should add OCR PDFs, too.
+
+
+```{targets tar.download.pdf}
+tar_target(pdf_res_all,
+           c(pdf_res_ar,
+             pdf_res_en,
+             pdf_res_es,
+             pdf_res_fr,
+             pdf_res_ru,
+             pdf_res_zh))
+
+
+```
+
+
+
+
+```{targets tar.download.txt}
+tar_target(txt_all,
+           c(txt_res_ar,
+             txt_res_en,
+             txt_res_es,
+             txt_res_fr,
+             txt_res_ru,
+             txt_res_zh,
+			 txt_draft_en,
+			 txt_meeting_en),
+           grep("\\.txt",c(ocr_res_ar,
+                           ocr_res_en,
+                           ocr_res_es,
+                           ocr_res_fr,
+                           ocr_res_ru,
+                           ocr_res_zh,
+                           ocr_draft_en,
+                           ocr_meeting_en), value = TRUE))
+
+
+```
+
+
 
 ## Convert Targets
 
