@@ -721,7 +721,8 @@ tar_target(pdf_res_all,
              pdf_res_es,
              pdf_res_fr,
              pdf_res_ru,
-             pdf_res_zh))
+             pdf_res_zh),
+           format = "file")
 
 
 ```
@@ -746,7 +747,8 @@ tar_target(txt_all,
                            ocr_res_ru,
                            ocr_res_zh,
                            ocr_draft_en,
-                           ocr_meeting_en), value = TRUE))
+                           ocr_meeting_en), value = TRUE),
+           format = "file")
 
 
 ```
