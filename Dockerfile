@@ -10,6 +10,10 @@ RUN apt-get update && apt-get install -y pandoc pandoc-citeproc texlive-science 
 COPY requirements-system.txt .
 RUN apt-get update && apt-get -y install $(cat requirements-system.txt)
 
+# Tesseract layer 
+COPY requirements-tesseract.sh .
+RUN sh requirements-tesseract.sh
+
 # Python layer
 COPY requirements-python.txt .
 RUN pip install -r requirements-python.txt
@@ -17,10 +21,6 @@ RUN pip install -r requirements-python.txt
 # R layer
 COPY requirements-R.R .
 RUN Rscript requirements-R.R
-
-# Tesseract layer (move to lower layer once stable!)
-COPY requirements-tesseract.sh .
-RUN sh requirements-tesseract.sh
 
 
 # Config layers
