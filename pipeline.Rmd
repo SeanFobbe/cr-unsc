@@ -96,6 +96,9 @@ unlink(grep(datestamp,
             invert = TRUE,
             value = TRUE))
 
+unlink("temp")
+unlink("temp_tesseract")
+
 
 ```
 
