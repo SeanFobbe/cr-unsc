@@ -321,6 +321,7 @@ pdf_ocr_single <- function(x,
 
 
 
+
 f.convert_crop <- function(x,
                            dpi = 300,
                            crop.firstpage = 0,
@@ -342,57 +343,119 @@ f.convert_crop <- function(x,
 
 
 
+    info <- image_info(img)
+    index.lastpage <- nrow(info)
+
+    width.firstpage  <-  info[1,]$width
+    height.firstpage <- info[1,]$height
+
+    width.lastpage <- info[index.lastpage,]$width
+    height.lastpage <- info[index.lastpage,]$height
+
+
+    
+
     if (crop.firstpage != 0 || crop.lastpage != 0){
 
 
-        info <- image_info(img)
-        index.lastpage <- nrow(info)
-
-
-        dims.firstpage <- geometry_area(width = info[1,]$width,
-                                        height = round(info[1,]$height * (1 - crop.firstpage)),
-                                        x_off = 0,
-                                        y_off = 0)
-
-
-        ## Crop first page
-        firstpage <- image_crop(img[1],
-                                dims.firstpage,
-                                gravity = "South")
-
-
-
         
-        ## Crop last page
+        ## Case 1: Crop for one or more pages
+        
         if (index.lastpage > 1){
 
-            dims.lastpage <- geometry_area(width = info[index.lastpage,]$width,
-                                        height = round(info[index.lastpage,]$height * (1 - crop.lastpage)),
-                                        x_off = 0,
-                                        y_off = 0)
+            ## Crop first page
+
+            height.firstpage.new <- round(height.firstpage * (1 - crop.firstpage))
+            
+            dims.firstpage <- geometry_area(width = width.firstpage,
+                                            height = height.firstpage.new,
+                                            x_off = 0,
+                                            y_off = 0)
+
+
+
+            firstpage <- image_crop(img[1],
+                                    dims.firstpage,
+                                    gravity = "South")
+
+            
+
+            ## Crop last page
+
+            height.lastpage.new <- round(height.lastpage * (1 - crop.lastpage))
+            
+            dims.lastpage <- geometry_area(width = width.lastpage,
+                                           height = height.lastpage.new,
+                                           x_off = 0,
+                                           y_off = 0)
 
 
             lastpage <- image_crop(img[index.lastpage],
                                    dims.lastpage,
                                    gravity = "North")
 
-        }
 
 
-        if(index.lastpage == 1){
+            if(index.lastpage == 2){
+                
+                img.final <- c(firstpage, lastpage)
+                
+            }else{
+                
+                middlepages <- img[-c(1, index.lastpage)]
+                
+                img.final <- c(firstpage, middlepages, lastpage)
+                
+            }
             
-            img.final <- firstpage
             
-        }else if(index.lastpage == 2){
-            
-            img.final <- c(firstpage, lastpage)
-            
+            ## Case 2: Crop for single page
         }else{
+
+
+            ## Top 
+            height.firstpage.new <- round(height.firstpage * (1 - crop.firstpage))
+
             
-            middlepages <- img[-c(1, index.lastpage)]
+            dims.firstpage <- geometry_area(width = width.firstpage,
+                                            height = height.firstpage.new,
+                                            x_off = 0,
+                                            y_off = 0)
+
+
+
+            singlepage <- image_crop(img[1],
+                                     dims.firstpage,
+                                     gravity = "South")
+
+
+
+            info.singlepage <- image_info(singlepage)
+
+            height.singlepage.postcrop  <-  info.singlepage[1,]$height
             
-            img.final <- c(firstpage, middlepages, lastpage)
+
+            ## Bottom
+            height.lastpage.new <- height.singlepage.postcrop - round(height.firstpage * crop.lastpage)
+
+
+            dims.lastpage <- geometry_area(width = width.firstpage,
+                                           height = height.lastpage.new,
+                                           x_off = 0,
+                                           y_off = 0)
+
+
+            singlepage <- image_crop(singlepage,
+                                     dims.lastpage,
+                                     gravity = "North")
             
+
+
+            
+            img.final <- singlepage
+            
+            
+
         }
 
 
@@ -401,6 +464,7 @@ f.convert_crop <- function(x,
         img.final  <- img
 
     }
+
 
 
 
@@ -432,3 +496,4 @@ f.convert_crop <- function(x,
 
 
 }
+
