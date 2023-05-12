@@ -8,3 +8,4 @@ services:
     volumes:
       - .:/cr-unsc:z
       - ./gitconfig:/etc/gitconfig:z
+      - ./etc/magick-policy.xml:/etc/ImageMagick-6/policy.xml:z	
