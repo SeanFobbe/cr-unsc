@@ -405,7 +405,7 @@ f.convert_crop <- function(x,
 
     if(tempfile == TRUE){
 
-        filenames.new <- tempfile(pattern = "tesseract", fileext = ".tiff")
+        filename.new <- tempfile(pattern = "tesseract", fileext = ".tiff")
 
     }else{
         filename.new <- file.path(dir.out,
