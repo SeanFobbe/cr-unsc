@@ -5,6 +5,7 @@ services:
     container_name: cr-unsc
     image: cr-unsc:4.2.2
     tty: true
+    tmpfs: /tmp
     volumes:
       - .:/cr-unsc
       - ./gitconfig:/etc/gitconfig
