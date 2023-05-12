@@ -7,7 +7,7 @@ apt-get install -y --no-install-recommends asciidoc docbook-xsl xsltproc
 
 ## Clone Tesseract Repository
 
-git clone  https://github.com/tesseract-ocr/tesseract.git --branch 5.3.0 --single-branch
+git clone  https://github.com/tesseract-ocr/tesseract.git --branch 5.3.1 --single-branch
 
 
 
