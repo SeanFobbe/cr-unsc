@@ -312,7 +312,8 @@ pdf_ocr_single <- function(x,
 #' @param dpi Integer. The density to convert the image at. Defaults to 300.
 #' @param crop.firstpage Numeric. The proportion of the first page to crop. Crop begins at the top of the page. Accepts values between 0 and 1, but not 1. Defaults to 0. Example: 0.2 will crop 20% off the top of the first page.
 #' @param crop.lastpage Numeric. The proportion of the last page to crop. Crop begins at the bottom of the page. Accepts values between 0 and 1, but not 1. Defaults to 0. Example: 0.2 will crop 20% off the bottom of the last page.
-#' @param dir.out String. The output directory. Defaults to working directory.
+#' @param dir.out String. The output directory. Defaults to working directory. Will be ignored if tempfile = TRUE.
+#' @param tempfile Logical. Output system-bound temporary files with random names instead of a modified version of the original filename? Useful if used in conjunction with Tesseract and tempfs.
 #'
 #' @return String. Returns path to output TIFF.
     
@@ -323,7 +324,8 @@ f.convert_crop <- function(x,
                            dpi = 300,
                            crop.firstpage = 0,
                            crop.lastpage = 0,                               
-                           dir.out = "."){
+                           dir.out = ".",
+                           tempfile = TRUE){
 
     
     if(crop.firstpage == 1 || crop.lastpage == 1){
@@ -399,14 +401,23 @@ f.convert_crop <- function(x,
 
     }
 
-    filename.new <- paste0(tools::file_path_sans_ext(basename(x)), ".tiff")
 
+
+    if(tempfile == TRUE){
+
+        filenames.new <- tempfile(pattern = "tesseract", fileext = ".tiff")
+
+    }else{
+        filename.new <- file.path(dir.out,
+                                  paste0(tools::file_path_sans_ext(basename(x)), ".tiff"))
+        }
+    
 
 
     ## Write image
     image_write(
         img.final,
-        path = file.path(dir.out, filename.new),
+        path = filename.new,
         format = "tiff",
         quality = NULL,
         depth = 8,
