@@ -18,6 +18,7 @@ libgif-dev
 librsvg2-dev
 libglpk-dev
 libleptonica-dev
+imagemagick
 make
 automake
 ca-certificates
