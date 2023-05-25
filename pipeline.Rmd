@@ -329,7 +329,7 @@ list(
 ```{targets tar.download.recordtable}
 tar_target(dt.record.final,
            f.record_table(recordtable.stable = record.table.stable,
-                                 limit = 2640,
+                                 limit = config$download$resmax,
 								 debug.toggle = config$debug$toggle,
 								 debug.sample = config$debug$sample))
 ```
