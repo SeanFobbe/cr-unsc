@@ -50,6 +50,7 @@ multihashes = true
 
 [download]
 
+resmax = 2600  # Maximum resolution number to download
 timeout = 600	# Timeout for downloads
 
 
