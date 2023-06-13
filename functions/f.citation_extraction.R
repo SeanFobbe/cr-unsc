@@ -18,16 +18,26 @@ f.citation_extraction <- function(dt.final){
     ## Define source resolutions
     source <- paste0(dt.final$res_no, " (", dt.final$year, ")")
 
+
     ## Bind source and target
     bind <- mapply(cbind, source, target)
     bind2 <- lapply(bind, as.data.table)
 
     dt <- rbindlist(bind2)
+    setnames(dt, new = c("source", "target"))
 
+    ## Remove resolutions without citations
+    dt <- dt[!is.na(target)]
 
     ## Remove self-citations    
     dt <- dt[!(dt$source == dt$target)]
 
+    
+    
+
+
+
+    ## Create Graph Object
     g  <- igraph::graph.data.frame(dt,
                                    directed = TRUE)
 
