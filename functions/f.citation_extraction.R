@@ -34,6 +34,10 @@ f.citation_extraction <- function(dt.final){
 }
 
 
+## DEBUGGING
+
+##tar_load(dt.final)
+
 
 
 ## ggraph(g,) + 
