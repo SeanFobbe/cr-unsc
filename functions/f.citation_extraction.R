@@ -11,18 +11,22 @@
 f.citation_extraction <- function(dt.final){
 
 
+    ## Extract outgoing citations
     target <- stringi::stri_extract_all(dt.final$text,
                                         regex = "[0-9]{1,4} \\([0-9]{4}\\)")
 
+    ## Define source resolutions
     source <- paste0(dt.final$res_no, " (", dt.final$year, ")")
-    
-    bind <- mapply(cbind, source, target)
 
+    ## Bind source and target
+    bind <- mapply(cbind, source, target)
     bind2 <- lapply(bind, as.data.table)
 
     dt <- rbindlist(bind2)
 
 
+    ## Remove self-citations    
+    dt <- dt[!(dt$source == dt$target)]
 
     g  <- igraph::graph.data.frame(dt,
                                    directed = TRUE)
