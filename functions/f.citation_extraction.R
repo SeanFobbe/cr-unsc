@@ -75,6 +75,7 @@ f.citation_extraction <- function(dt.final){
     ## Set Vertex Attributes (all)
 
     varnames <- names(dt.graphmeta)
+    varnames <- grep("text|url", varnames, invert = TRUE, value = TRUE)
     
     for(i in varnames){
     g <- igraph::set_vertex_attr(g,
@@ -84,10 +85,6 @@ f.citation_extraction <- function(dt.final){
 
     }
 
-
-   
-
-    
     return(g)
     
     
