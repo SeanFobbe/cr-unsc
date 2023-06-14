@@ -96,8 +96,7 @@ ggraph(g,
 
 
 
-
-```{r}
+```{r, results = "asis"}
 
 missingvalues <- f.missingvalues(x = dt.final,
                                  kable = TRUE,
