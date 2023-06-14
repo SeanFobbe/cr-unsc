@@ -114,6 +114,12 @@ setDT(dt.values.present)
 setnames(dt.values.present, new = c("var", "present"))
 
 
+fwrite(dt.values.present,
+       paste0(dir.analysis, prefix.files, "Values-Present.csv"))
+
+fwrite(dt.values.missing,
+       paste0(dir.analysis, prefix.files, "Values-Missing.csv"))
+
 
 ```
 
