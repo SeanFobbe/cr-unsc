@@ -18,7 +18,7 @@ f.missingvalues <- function(x,
     vec.na <- is.na(x)
     
     values.missing <- apply(vec.na, 2, sum)
-    values.present <- dt.final[,.N] - apply(vec.na, 2, sum)
+    values.present <- nrow(x) - apply(vec.na, 2, sum)
 
 
     
