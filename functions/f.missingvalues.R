@@ -47,8 +47,8 @@ f.missingvalues <- function(x,
     }
 
 
-    list.return <- list(dt.values.missing,
-                        dt.values.present)
+    list.return <- list(missing = dt.values.missing,
+                        present = dt.values.present)
     
 
     return(list.return)
