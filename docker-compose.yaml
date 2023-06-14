@@ -10,5 +10,5 @@ services:
       - .:/cr-unsc
       - type: bind
         source: ${PWD}/gitconfig
-	target: /etc/gitconfig
+        target: /etc/gitconfig
       - ./etc/magick-policy.xml:/etc/ImageMagick-6/policy.xml
