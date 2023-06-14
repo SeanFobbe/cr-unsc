@@ -33,21 +33,63 @@ f.citation_extraction <- function(dt.final){
     dt <- dt[!(dt$source == dt$target)]
 
     ## Reduce to numeric value
-    dt$source <- gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$source)
-    dt$target <- gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$target)
+    dt$source <- as.integer(sub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$source))
+    dt$target <- as.integer(gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$target))
     
     ## Remove implausible citations (res cannot cite later resolutions!)
     dt <- dt[!(dt$source <= dt$target)]
-
-   
-
+    dt <- dt[!(dt$source == 0)]
+    dt <- dt[!(dt$target == 0)]
 
     ## Create Graph Object
     g  <- igraph::graph.data.frame(dt,
                                    directed = TRUE)
 
+    
+    ## Convert Parallel Edges to Weights
+    
+    igraph::E(g)$weight <- 1
+    g <- igraph::simplify(g, edge.attr.comb = list(weight = "sum"))
 
+
+    ## Extract vertex names
+    g.names <- as.integer(igraph::vertex_attr(g, "name"))
+
+
+    ## Fill missing resolutions
+    dt.missing <- data.table(res_no = setdiff(g.names, dt.final$res_no))
+    dt.fill <- rbind(dt.final, dt.missing, fill = TRUE)
+    
+    ## Match metadata to graph
+    match <- match(g.names, dt.fill$res_no)
+    dt.graphmeta <- dt.fill[match]    
+
+    
+    ## Set Vertex Attributes (single)
+    ## g <- igraph::set_vertex_attr(g,
+    ##                              "symbol",
+    ##                              index = match,
+    ##                              dt.graphmeta[match]$symbol)
+
+    
+    ## Set Vertex Attributes (all)
+
+    varnames <- names(dt.graphmeta)
+    
+    for(i in varnames){
+    g <- igraph::set_vertex_attr(g,
+                                 i,
+                                 index = match,
+                                 unname(unlist(dt.graphmeta[match, ..i])))
+
+    }
+
+
+   
+
+    
     return(g)
+    
     
 
 }
@@ -56,6 +98,8 @@ f.citation_extraction <- function(dt.final){
 ## DEBUGGING
 
 ##tar_load(dt.final)
+##library(data.table)
+## data.frame(V(g)$name[1:50], V(g)$symbol[1:50], V(g)$title[1:50])
 
 
 
