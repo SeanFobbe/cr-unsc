@@ -25,5 +25,4 @@ RUN Rscript requirements-R.R
 
 # Config layers
 WORKDIR /cr-unsc
-RUN touch /etc/gitconfig
 CMD "R"
