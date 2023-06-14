@@ -44,3 +44,30 @@ tar_load(lingstats.summary)
 
 Lorem Ipsum.
 
+
+
+
+
+```{r, results = "asis"}
+cat(readLines(tar_read(changelog)),
+    sep = "\n")
+
+```
+
+
+
+
+
+
+# Replication Parameters
+
+
+```{r}
+system2("openssl", "version", stdout = TRUE)
+
+sessionInfo()
+
+```
+
+
+# Bibliography
