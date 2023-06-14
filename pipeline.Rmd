@@ -1317,6 +1317,7 @@ tar_target(zip.all,
 ```{targets tar.hashes2}
 tar_target(hashes,
            f.tar_multihashes(c(zip.all,
+                               graphml_citations,
                                report.codebook[1],
                                report.robustness[1]),
                              multicore = config$parallel$multihashes,
