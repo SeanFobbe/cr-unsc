@@ -32,9 +32,14 @@ f.citation_extraction <- function(dt.final){
     ## Remove self-citations    
     dt <- dt[!(dt$source == dt$target)]
 
+    ## Reduce to numeric value
+    dt$source <- gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$source)
+    dt$target <- gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$target)
     
-    
+    ## Remove implausible citations (res cannot cite later resolutions!)
+    dt <- dt[!(dt$source <= dt$target)]
 
+   
 
 
     ## Create Graph Object
