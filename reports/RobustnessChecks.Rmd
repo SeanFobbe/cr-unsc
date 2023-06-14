@@ -43,3 +43,20 @@ tar_load(lingstats.summary)
 
 Lorem Ipsum.
 
+
+
+
+
+
+# Replication Parameters
+
+
+```{r}
+system2("openssl", "version", stdout = TRUE)
+
+sessionInfo()
+
+```
+
+
+# Literaturverzeichnis
