@@ -2,14 +2,16 @@
 #'
 #' Summarize missing values in data.frame or data.table
 #'
-#' @param x A data.frame or data.table to be inspected
-#' @param dir.out Output directory to write CSV files to. Does not write CSV files if NULL (default).
+#' @param x A data.frame or data.table to be inspected.
+#' @param kable Whether to output results as Kable tables.
+#' @param dir.out Output directory to write CSV files to. Does not write CSV files if NULL. (default).
 #' @param prefix.files Optional prefix to add to files.
 
 
 
 
 f.missingvalues <- function(x,
+                            kable = FALSE,
                             dir.out = NULL,
                             prefix.files = ""){
 
@@ -45,6 +47,32 @@ f.missingvalues <- function(x,
 
 
     }
+
+  if (kable == TRUE){
+
+            cat("\n------------------------------------------------\n")
+            cat("\n=== Missing Values === \n")
+            cat("------------------------------------------------\n")
+
+            
+            print(kable(dt.values.missing[missing > 0],
+                        format = "latex",
+                        booktabs = TRUE,
+                        longtable = TRUE) %>% kable_styling(latex_options = "repeat_header"))
+
+
+            cat("\n------------------------------------------------\n")
+            cat("\n=== Present Values === \n")
+            cat("------------------------------------------------\n")
+
+            
+            print(kable(dt.values.present[present < nrow(x)],
+                        format = "latex",
+                        booktabs = TRUE,
+                        longtable = TRUE) %>% kable_styling(latex_options = "repeat_header"))
+      
+        }
+    
 
 
     list.return <- list(missing = dt.values.missing,
