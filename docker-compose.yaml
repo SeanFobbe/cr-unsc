@@ -8,8 +8,5 @@ services:
     tmpfs: /tmp
     volumes:
       - .:/cr-unsc
-      - type: bind
-        source: ${PWD}/gitconfig
-        target: /etc/gitconfig
-        read_only: true
+      - ./etc/gitconfig:/etc/gitconfig
       - ./etc/magick-policy.xml:/etc/ImageMagick-6/policy.xml
