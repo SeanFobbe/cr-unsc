@@ -99,26 +99,9 @@ ggraph(g,
 
 ```{r}
 
-
-na <- is.na(dt.final)
-
-values.missing <- apply(na, 2, sum)
-values.present <- dt.final[,.N] - apply(na, 2, sum)
-
-dt.values.missing <- transpose(data.frame(as.list(values.missing)), keep.names = "var")
-setDT(dt.values.missing)
-setnames(dt.values.missing, new = c("var", "missing"))
-
-dt.values.present <- transpose(data.frame(as.list(values.present)), keep.names = "var")
-setDT(dt.values.present)
-setnames(dt.values.present, new = c("var", "present"))
-
-
-fwrite(dt.values.present,
-       paste0(dir.analysis, prefix.files, "Values-Present.csv"))
-
-fwrite(dt.values.missing,
-       paste0(dir.analysis, prefix.files, "Values-Missing.csv"))
+missingvalues <- f.missingvalues(x = dt.final,
+                                 dir.out = dir.analysis,
+                                 prefix.files = prefix.files)
 
 
 ```
@@ -126,13 +109,13 @@ fwrite(dt.values.missing,
 ## Missing Values
 
 ```{r}
-print(dt.values.missing[missing > 0])
+kable(missingvalues$missing[missing > 0])
 ```
 
 ## Present Values
 
 ```{r}
-print(dt.values.present)
+kable(missingvalues$present[present < nrow(dt.final)])
 
 ```
 
