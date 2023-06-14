@@ -131,7 +131,7 @@ prefix <- paste0(config$project$shortname,
 
 ```
 
-## Frequenztabellen berechnen
+## Run Frequency Tables
 
 
 ```{r, results = "asis"}
