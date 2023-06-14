@@ -246,8 +246,7 @@ docvarnames <- c("body",
 
 ```{targets global-sourcefiles, tar_globals = TRUE}
 
-files.source.raw <-  c(system2("git", "ls-files", stdout = TRUE),
-                       ".git")
+files.source.raw <-  c(system2("git", "ls-files", stdout = TRUE), ".git")
 
 ```
 
