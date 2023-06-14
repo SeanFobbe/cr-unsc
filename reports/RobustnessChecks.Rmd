@@ -34,6 +34,10 @@ knitr::opts_chunk$set(fig.path = file.path("..", "analysis/"),
 ```{r, echo = FALSE}
 tar_load(latexdefs)
 tar_load(lingstats.summary)
+tar_load(dt.record.final)
+tar_load(dt.download.final)
+tar_load(dt.final)
+tar_load(igraph_citations)
 
 ```
 
