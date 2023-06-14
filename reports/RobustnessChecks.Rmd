@@ -100,25 +100,12 @@ ggraph(g,
 ```{r}
 
 missingvalues <- f.missingvalues(x = dt.final,
+                                 kable = TRUE,
                                  dir.out = dir.analysis,
                                  prefix.files = prefix.files)
 
 
 ```
-
-## Missing Values
-
-```{r}
-kable(missingvalues$missing[missing > 0])
-```
-
-## Present Values
-
-```{r}
-kable(missingvalues$present[present < nrow(dt.final)])
-
-```
-
 
 
 
