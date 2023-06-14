@@ -11,4 +11,5 @@ services:
       - type: bind
         source: ${PWD}/gitconfig
         target: /etc/gitconfig
+        read_only: true
       - ./etc/magick-policy.xml:/etc/ImageMagick-6/policy.xml
