@@ -62,7 +62,7 @@ f.citation_extraction <- function(dt.final){
     
     ## Match metadata to graph
     match <- match(g.names, dt.fill$res_no)
-    dt.graphmeta <- dt.fill[match]    
+    dt.graphmeta <- dt.fill[match]
 
     
     ## Set Vertex Attributes (single)
@@ -78,16 +78,14 @@ f.citation_extraction <- function(dt.final){
     varnames <- grep("text|url", varnames, invert = TRUE, value = TRUE)
     
     for(i in varnames){
-    g <- igraph::set_vertex_attr(g,
-                                 i,
-                                 index = match,
-                                 unname(unlist(dt.graphmeta[match, ..i])))
+    g <- igraph::set_vertex_attr(graph = g,
+                                 name = i,
+                                 value = unname(unlist(dt.graphmeta[, ..i])))
 
     }
 
     return(g)
-    
-    
+
 
 }
 
@@ -97,6 +95,15 @@ f.citation_extraction <- function(dt.final){
 ##tar_load(dt.final)
 ##library(data.table)
 ## data.frame(V(g)$name[1:50], V(g)$symbol[1:50], V(g)$title[1:50])
+
+    ## sum(is.na(dt.graphmeta$language))
+    ## sum(is.na(V(g)$language))
+    ## sum(is.na(unname(unlist(dt.graphmeta[match, ..i]))))
+    ## sum(is.na(dt.graphmeta[match]$symbol))
+
+
+    ## sum(is.na(unname(unlist(dt.graphmeta[match,"symbol"]))))
+    
 
 
 
