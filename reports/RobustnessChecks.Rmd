@@ -48,6 +48,21 @@ Lorem Ipsum.
 
 
 
+
+
+
+
+```{r, results = "asis"}
+cat(readLines(tar_read(changelog)),
+    sep = "\n")
+
+```
+
+
+
+
+
+
 # Replication Parameters
 
 
