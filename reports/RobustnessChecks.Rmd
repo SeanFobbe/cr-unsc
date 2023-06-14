@@ -50,7 +50,7 @@ Lorem Ipsum.
 
 
 
-```{r, CR-UNSC_00_Pipeline_Graph_blue, fig.width = 12, fig.height = 14, fig.pos = "p", fig.cap = "The complete data set compilation process."}
+```{r, CR-UNSC_00_Pipeline_Graph_blue, fig.width = 16, fig.height = 14, fig.pos = "p", fig.cap = "The complete data set compilation process."}
 
 
 edgelist <- tar_network(targets_only = TRUE)$edges
