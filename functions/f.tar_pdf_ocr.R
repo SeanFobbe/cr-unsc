@@ -7,6 +7,7 @@ f.tar_pdf_ocr <- function(x,
                           skip = TRUE,
                           dir.out.pdf = "pdf_tesseract",
                           dir.out.txt = "txt_tesseract",
+                          tempfile = FALSE,
                           quiet = TRUE,
                           jobs = round(parallel::detectCores() / 4 )){
 
@@ -86,6 +87,7 @@ f.tar_pdf_ocr <- function(x,
                      output = output,
                      skip = skip,
                      dir.out = "temp_tesseract",
+                     tempfile = tempfile,
                      quiet = quiet)
 
     }
@@ -126,6 +128,7 @@ f.future_pdf_ocr <- function(x,
                              output = "pdf txt",
                              skip = TRUE,
                              dir.out = ".",
+                             tempfile = FALSE,
                              quiet = TRUE){
 
     ## Timestamp: Begin
@@ -205,6 +208,7 @@ f.future_pdf_ocr <- function(x,
                                                crop.lastpage = crop.lastpage,
                                                output = output,
                                                dir.out = dir.out,
+                                               tempfile = tempfile,
                                                future.seed = TRUE)
         
 
@@ -256,7 +260,8 @@ pdf_ocr_single <- function(x,
                            crop.firstpage = 0,
                            crop.lastpage = 0,
                            output = "pdf txt",
-                           dir.out = "."){
+                           dir.out = ".",
+                           tempfile = FALSE){
 
     tryCatch({
         
@@ -272,7 +277,7 @@ pdf_ocr_single <- function(x,
         ## Convert to TIFF
         filename.tiff <- f.convert_crop(x = x,
                                         dir.out = ".",
-                                        tempfile = TRUE,
+                                        tempfile = tempfile,
                                         dpi = dpi,
                                         crop.firstpage = crop.firstpage,
                                         crop.lastpage = crop.lastpage)
