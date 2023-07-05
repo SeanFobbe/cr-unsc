@@ -1,6 +1,6 @@
 ---
 title: "Compilation Report | Corpus of Resolutions: UN Security Council"
-author: Seán Fobbe
+author: Seán Fobbe, Niccolò Ridi and Lorenzo Gasbarri
 geometry: margin=3cm
 fontsize: 11pt
 papersize: a4
