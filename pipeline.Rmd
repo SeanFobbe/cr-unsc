@@ -1401,11 +1401,7 @@ ggraph(g,
 
 
 
-
-# Pipeline: Analysis
-
-
-## Full List
+# Target List
 
 
 
@@ -1428,7 +1424,7 @@ kable(meta[order(type, name)],
 ```
 
 \newpage
-## Timing
+# Total Runtime
 
 
 ```{r, pipeline-timing}
@@ -1437,18 +1433,6 @@ meta <- tar_meta(fields = c("time", "seconds"), complete_only = TRUE)
 setDT(meta)
 meta$mins <- round(meta$seconds / 60, digits = 2)
 
-kable(meta[order(-seconds)],
-      format = "latex",
-      align = "r",
-      booktabs = TRUE,
-      longtable = TRUE) %>% kable_styling(latex_options = "repeat_header")
-
-
-```
-
-## Duration
-
-```{r, pipeline-runtime}
 runtime.sum <- sum(meta$seconds)
 
 ## Seconds
@@ -1459,12 +1443,30 @@ runtime.sum / 60
 
 ## Hours
 runtime.sum / 3600
+
+
+
+
+```
+
+# Target Runtime
+
+```{r, pipeline-runtime}
+
+kable(meta[order(-seconds)],
+      format = "latex",
+      align = "r",
+      booktabs = TRUE,
+      longtable = TRUE) %>% kable_styling(latex_options = "repeat_header")
+
+
+
 ```
 
 
 
 \newpage
-## Warnings
+# Warnings
 
 
 ```{r, pipline-warnings, results = 'asis'}
@@ -1493,7 +1495,7 @@ if (meta[,.N > 0]){
 
 
 \newpage
-## Errors
+# Errors
 
 ```{r, pipeline-errors}
 
