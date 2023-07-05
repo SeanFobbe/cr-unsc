@@ -113,9 +113,9 @@ unlink("temp_tesseract")
 dirs <- c("output",
           "temp")
 
-dir.create(dir.analysis, showWarnings = FALSE)
-
 lapply(dirs, dir.create, showWarnings = FALSE)
+
+dir.create(dir.analysis, showWarnings = FALSE)
 
 ```
 
@@ -1356,6 +1356,23 @@ tar_target(csv.hashes,
 ```{r pipeline-run, results = "hide"}
 tar_make()
 ```
+
+
+
+## Archive Pipeline
+
+
+```{r pipeline-zip}
+zip(paste0("output/",
+           paste0(config$project$shortname,
+                  "_",
+                  datestamp),
+           "_Targets_Storage.zip"),
+    "_targets/")
+```
+
+
+
 
 
 
