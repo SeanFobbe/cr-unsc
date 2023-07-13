@@ -1425,7 +1425,7 @@ kable(meta[order(type, name)],
 ```
 
 \newpage
-# Total Runtime
+# Runtime Total
 
 
 ```{r, pipeline-timing}
@@ -1450,7 +1450,7 @@ runtime.sum / 3600
 
 ```
 
-# Target Runtime
+# Runtime of Targets
 
 ```{r, pipeline-runtime}
 
@@ -1562,7 +1562,7 @@ kable(table.size,
 
 
 
-# Finalize
+# Runtime of Script
 
 ```{r}
 
