@@ -3,6 +3,7 @@
 corpora/
 _targets/
 test/
+analysis/
 output/
 temp/
 _targets.R
