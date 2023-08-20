@@ -321,7 +321,7 @@ Gold standard resolution texts are OCR texts with all extraneous information rem
 ```{targets tar.file.goldres}
 list(
     tar_target(txt_en_res_gold,
-               list.files("data/txt_en_res_gold", pattern = ".txt", full.names = TRUE),
+               list.files("data/txt_res_en_gold", pattern = ".txt", full.names = TRUE),
                format = "file"),
     tar_target(dt_res_en_gold,
                f.readtext(x = txt_en_res_gold,
