@@ -265,7 +265,7 @@ Defines targets that track and read input data files. Source files are not read 
 
 ### Source Code
 
-```{targets tar.file1}
+```{targets tar.file.source}
 tar_target(files.source,
            files.source.raw,
            format = "file")
@@ -275,7 +275,7 @@ tar_target(files.source,
 
 ### Changelog
 
-```{targets tar.file2}
+```{targets tar.file.changelog}
 tar_target(changelog,
            "CHANGELOG.md",
            format = "file")
@@ -287,7 +287,7 @@ tar_target(changelog,
 
 
 
-```{targets tar.file3}
+```{targets tar.file.recordpages}
 list(
     tar_target(csv.record.table,
                "data/UNSC_Record-Table_2636.csv",
@@ -303,7 +303,7 @@ list(
 All variables in the data set, including their description.
 
 
-```{targets tar.file4}
+```{targets tar.file.vars}
 list(
     tar_target(file.var_codebook,
                "data/CR-UNSC_Variables.csv",
@@ -314,6 +314,20 @@ list(
 ```
 
 
+### Gold Standard Resolutions
+
+Gold standard resolution texts are OCR texts with all extraneous information removed and errors corrected by hand.
+
+```{targets tar.file.goldres}
+list(
+    tar_target(txt_en_res_gold,
+               list.files("data/txt_en_res_gold", pattern = ".txt", full.names = TRUE),
+               format = "file"),
+    tar_target(dt.var_codebook,
+               f.readtext(x = txt_en_res_gold,
+                          docvarnames = docvarnames))
+)
+```
 
 
 
