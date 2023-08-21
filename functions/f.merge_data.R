@@ -4,10 +4,11 @@
 #'
 #' @param dt.res.en The English texts of UNSC resolutions.
 #' @param dt.res.en.gold The gold-standard manually reviewed English texts of UNSC resolutions.
-#' @param dt.draft.en The English drafts of UNSC resolutions.
-#' @param dt.meeting.en The English meeting records for UNSC resolutions.
+#' @param dt.draft.en The English draft texts of UNSC resolutions.
+#' @param dt.meeting.en The English meeting record texts for UNSC resolutions.
 #' @param dt.download The original download table with metadata from each record page.
 #' @param dt.record.final The URLs to each record page.
+#' @param dt.voting The voting data collected from each record page.
 
 
 
@@ -16,7 +17,8 @@ f.merge_data <- function(dt.res.en,
                          dt.draft.en,
                          dt.meeting.en,
                          dt.download,
-                         dt.record.final){
+                         dt.record.final
+                         dt.voting){
 
     
     ## Unit test
@@ -27,6 +29,7 @@ f.merge_data <- function(dt.res.en,
         expect_s3_class(dt.meeting.en, "data.table")
         expect_s3_class(dt.download, "data.table")
         expect_s3_class(dt.record.final, "data.table")
+        expect_s3_class(dt.voting, "data.table")
     })
 
     
@@ -78,6 +81,17 @@ f.merge_data <- function(dt.res.en,
                 sort = FALSE)
 
 
+    ## Merge voting data
+
+    dt.voting$resolution <- NULL
+    
+    dt <- merge(dt,
+                dt.voting,
+                by = "res_no",                
+                all.x = TRUE,
+                sort = FALSE)
+
+
     
     ## Merge record page URL
 
@@ -87,6 +101,8 @@ f.merge_data <- function(dt.res.en,
                       all.x = TRUE,
                       sort = FALSE)
 
+
+    
 
     ## Rename date variable
     
@@ -100,6 +116,7 @@ f.merge_data <- function(dt.res.en,
     test_that("Results conform to expectations.", {
         expect_s3_class(dt.return, "data.table")
         expect_equal(dt.return[,.N], dt.res.en[,.N])
+        expect_lte(dt.return[,.N], dt.voting[,.N])
         expect_gte(dt.return[,.N], dt.draft.en[,.N])
         expect_gte(dt.return[,.N], dt.meeting.en[,.N])
     })
