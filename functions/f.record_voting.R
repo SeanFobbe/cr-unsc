@@ -72,7 +72,6 @@ f.record_voting <- function(recordtable.stable = NA,
     
     if(debug.toggle == TRUE){
 
-
         recordtable.final <- recordtable.final[res_no %in% debug.nums][order(res_no)]
         
     }
