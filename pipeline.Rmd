@@ -352,9 +352,7 @@ list(
 ## Download
 
 
-### Debugging Numbers
-
-
+### Debugging Resolution Numbers
 
 ```{targets tar.download.debugnums}
 tar_target(debug.nums,
