@@ -10,7 +10,7 @@
 
 
 
-f.record_table <- function(recordtable.stable,
+f.record_main <- function(recordtable.stable,
                            limit,
                            debug.toggle = TRUE,
                            debug.sample = 50){
@@ -24,7 +24,7 @@ f.record_table <- function(recordtable.stable,
     if (length(res_no_work) != 0){
 
         ## Extract records
-        url.record.list <- lapply(res_no_work, f.extract_record)
+        url.record.list <- lapply(res_no_work, f.extract_record_main)
 
         ## Replace empty elements with NA
         url.record.list2 <- lapply(url.record.list, f.list.empty.NA)
@@ -77,7 +77,7 @@ f.record_table <- function(recordtable.stable,
 
 
 
-f.extract_record <- function(resno){
+f.extract_record_main <- function(resno){
 
     ## Query without space, e.g. S/RES/988(
     query <- paste0("https://digitallibrary.un.org/search?ln=en&as=1&m1=p&p1=S%2FRES%2F",
