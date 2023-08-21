@@ -3,6 +3,7 @@
 #' This function merges the various data tables created by different functions into one coherent whole, which is then available for further processing.
 #'
 #' @param dt.res.en The English texts of UNSC resolutions.
+#' @param dt.res.en.gold The gold-standard manually reviewed English texts of UNSC resolutions.
 #' @param dt.draft.en The English drafts of UNSC resolutions.
 #' @param dt.meeting.en The English meeting records for UNSC resolutions.
 #' @param dt.download The original download table with metadata from each record page.
@@ -11,6 +12,7 @@
 
 
 f.merge_data <- function(dt.res.en,
+                         dt.res.en.gold,
                          dt.draft.en,
                          dt.meeting.en,
                          dt.download,
@@ -20,6 +22,7 @@ f.merge_data <- function(dt.res.en,
     ## Unit Test
     test_that("Arguments conform to expectations.", {
         expect_s3_class(dt.res.en, "data.table")
+        expect_s3_class(dt.res.en.gold, "data.table")
         expect_s3_class(dt.draft.en, "data.table")
         expect_s3_class(dt.meeting.en, "data.table")
         expect_s3_class(dt.download, "data.table")
@@ -102,3 +105,14 @@ f.merge_data <- function(dt.res.en,
     
 
 }
+
+
+
+## DEBUGGING Code
+
+## dt.res.en = tar_read(dt_res_en)
+## dt.res.en.gold = tar_read(dt_res_en_gold)
+## dt.draft.en = tar_read(dt_draft_en)
+## dt.meeting.en = tar_read(dt_meeting_en)
+## dt.download = tar_read(dt.download)
+## dt.record.final = tar_read(dt.record.final)
