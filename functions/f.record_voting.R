@@ -10,7 +10,7 @@
 
 
 
-f.record_voting <- function(recordtable.stable,
+f.record_voting <- function(recordtable.stable = NA,
                            limit,
                            debug.toggle = TRUE,
                            debug.sample = 50){
@@ -18,8 +18,19 @@ f.record_voting <- function(recordtable.stable,
     ## Define Scope
     res_no_full <- 1:limit
 
-    res_no_work <- setdiff(res_no_full,
-                           recordtable.stable$res_no)
+    
+    if (is.na(recordtable.stable) == FALSE){
+
+        res_no_work <- setdiff(res_no_full,
+                               recordtable.stable$res_no)
+        
+    }else{
+
+        res_no_work  <- res_no_full
+        
+    }
+    
+
 
     if (length(res_no_work) != 0){
 
@@ -40,7 +51,16 @@ f.record_voting <- function(recordtable.stable,
         recordtable.new <- recordtable.new[!is.na(url_record)]
 
         ## Finalize
-        recordtable.final <- rbind(recordtable.stable, recordtable.new)[order(res_no)]
+
+        if (is.na(recordtable.stable) == FALSE){
+            
+            recordtable.final <- rbind(recordtable.stable, recordtable.new)[order(res_no)]
+
+        }else{
+
+            recordtable.final  <- record.table.new[order(res_no)]
+            
+        }
 
     }else{
 
