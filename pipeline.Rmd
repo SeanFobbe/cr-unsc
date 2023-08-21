@@ -354,7 +354,7 @@ tar_target(dt.record.final,
 
 ```{targets tar.download.recordtable.voting}
 tar_target(dt.record.voting.final,
-           f.record_table(recordtable.stable = NA,
+           f.record_voting(recordtable.stable = NA,
                           limit = config$download$resmax,
                           debug.toggle = config$debug$toggle,
                           debug.nums = sample(1:limit, 50)))
