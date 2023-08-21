@@ -336,15 +336,28 @@ list(
 
 
 
-### Build Table of Record Pages (Final)
+### Build Table of Main Record Pages (Final)
 
 
-```{targets tar.download.recordtable}
+```{targets tar.download.recordtable.main}
 tar_target(dt.record.final,
            f.record_table(recordtable.stable = record.table.stable,
-                                 limit = config$download$resmax,
-								 debug.toggle = config$debug$toggle,
-								 debug.sample = config$debug$sample))
+                          limit = config$download$resmax,
+                          debug.toggle = config$debug$toggle,
+                          debug.sample = config$debug$sample))
+```
+
+
+### Build Table of Voting Record Pages (Final)
+
+
+
+```{targets tar.download.recordtable.voting}
+tar_target(dt.record.voting.final,
+           f.record_table(recordtable.stable = NA,
+                          limit = config$download$resmax,
+                          debug.toggle = config$debug$toggle,
+                          debug.nums = sample(1:limit, 50)))
 ```
 
 
