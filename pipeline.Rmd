@@ -304,7 +304,7 @@ list(
 ```{targets tar.file.recordpages.voting}
 list(
     tar_target(csv.record.voting,
-               "data/UNSC_Record_Voting_130.csv",
+               "data/UNSC_Record_Voting_2636.csv",
                format = "file"),
     tar_target(record.voting.stable,
                fread(csv.record.voting))
