@@ -120,6 +120,11 @@ f.extract_record_voting <- function(resno){
     }
     
 
+    Sys.sleep(runif(1, 1, 2))
+    
+    message(resno)
+    
+    
     if(length(record) == 0){
 
         message(paste("No link acquired for", resno))
@@ -134,10 +139,6 @@ f.extract_record_voting <- function(resno){
         return(record.absolute)
         
     }
-
-    Sys.sleep(runif(1, 4, 5))
-    
-    message(resno)
 
     
 }
