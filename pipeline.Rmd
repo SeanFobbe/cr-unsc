@@ -180,6 +180,8 @@ datestamp <- Sys.Date()
 
 config <- RcppTOML::parseTOML("config.toml")
 
+debug.nums <- sample(1:config$download$resmax, 50)
+
 
 dir.analysis <- paste0(getwd(),
                        "/analysis")
@@ -368,7 +370,7 @@ tar_target(dt.record.voting.final,
            f.record_voting(recordtable.stable = record.voting.stable,
                           limit = config$download$resmax,
                           debug.toggle = config$debug$toggle,
-                          debug.nums = sample(1:limit, 50)))
+                          debug.nums = debug.nums))
 ```
 
 
