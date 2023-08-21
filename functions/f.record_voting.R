@@ -58,7 +58,7 @@ f.record_voting <- function(recordtable.stable = NA,
 
         }else{
 
-            recordtable.final  <- record.table.new[order(res_no)]
+            recordtable.final  <- recordtable.new[order(res_no)]
             
         }
 
