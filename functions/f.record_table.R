@@ -10,16 +10,26 @@
 
 
 
-f.record_main <- function(recordtable.stable,
+f.record_main <- function(recordtable.stable = NA,
                            limit,
                            debug.toggle = TRUE,
-                           debug.sample = 50){
+                           debug.nums = sample(1:limit, 50)){
 
     ## Define Scope
     res_no_full <- 1:limit
 
-    res_no_work <- setdiff(res_no_full,
-                           recordtable.stable$res_no)
+    
+    if (any(class(recordtable.stable) %in% "data.frame")){
+
+        res_no_work <- setdiff(res_no_full,
+                               recordtable.stable$res_no)
+        
+    }else{
+
+        res_no_work  <- res_no_full
+        
+    }
+    
 
     if (length(res_no_work) != 0){
 
@@ -37,10 +47,20 @@ f.record_main <- function(recordtable.stable,
                                       url_record = url.record)
 
         ## Remove rows with NA
-        recordtable.new <- recordtable.new[!is.na(url_record)]
+        recordtable.new <- recordtable.new[!url_record == "NA"]
 
         ## Finalize
-        recordtable.final <- rbind(recordtable.stable, recordtable.new)[order(res_no)]
+
+        if (any(class(recordtable.stable) %in% "data.frame")){
+            
+            recordtable.final <- rbind(recordtable.stable, recordtable.new)[order(res_no)]
+
+        }else{
+
+            recordtable.final  <- recordtable.new[order(res_no)]
+            
+        }
+        
 
     }else{
 
@@ -52,8 +72,7 @@ f.record_main <- function(recordtable.stable,
     
     if(debug.toggle == TRUE){
 
-
-        recordtable.final <- recordtable.final[sample(.N, debug.sample)][order(res_no)]
+        recordtable.final <- recordtable.final[res_no %in% debug.nums][order(res_no)]
         
     }
 
