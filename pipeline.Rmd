@@ -437,6 +437,15 @@ tar_target(dt.download,
 ```
 
 
+### Parse Voting HTML Records
+
+```{targets tar.download.parse.voting}
+tar_target(dt.voting,
+           f.parse_records_voting(html.record.voting))
+		   
+```
+
+
 
 
 
