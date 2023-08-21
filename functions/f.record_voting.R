@@ -3,7 +3,7 @@
 #' @param recordtable.stable Data.Table. A stable download table of UN Digital Library pages for UNSC resolution voting data included in the source code.
 #' @param limit Integer. Query the database up to which resolution?
 #' @param debug.toggle Logical. Whether to only download a randomized subset of resolutions.
-#' @param debug.sample Integer. The number of random resolutions to return in debugging mode.
+#' @param debug.nums Integer. A vector of fixed resolution numbers to query.
 #' 
 #' 
 #' @return The final updated download table with all resolutions specified.
@@ -11,9 +11,9 @@
 
 
 f.record_voting <- function(recordtable.stable = NA,
-                           limit,
-                           debug.toggle = TRUE,
-                           debug.sample = 50){
+                            limit,
+                            debug.toggle = TRUE,
+                            debug.nums = sample(1:limit, 50)){
 
     ## Define Scope
     res_no_full <- 1:limit
@@ -73,7 +73,7 @@ f.record_voting <- function(recordtable.stable = NA,
     if(debug.toggle == TRUE){
 
 
-        recordtable.final <- recordtable.final[sample(.N, debug.sample)][order(res_no)]
+        recordtable.final <- recordtable.final[res_no %in% debug.nums][order(res_no)]
         
     }
 
