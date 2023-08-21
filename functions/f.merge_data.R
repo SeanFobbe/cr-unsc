@@ -19,7 +19,7 @@ f.merge_data <- function(dt.res.en,
                          dt.record.final){
 
     
-    ## Unit Test
+    ## Unit test
     test_that("Arguments conform to expectations.", {
         expect_s3_class(dt.res.en, "data.table")
         expect_s3_class(dt.res.en.gold, "data.table")
@@ -29,17 +29,21 @@ f.merge_data <- function(dt.res.en,
         expect_s3_class(dt.record.final, "data.table")
     })
 
+    
+    ## Replace OCR with gold-standard resolutions 
+
+    dt.res.en.gold$docvar6 <- NULL
+    dt.res.en.digital <- dt.res.en[!res_no %in% dt.res.en.gold$res_no]
+    dt.res.en <- rbind(dt.res.en.gold, dt.res.en.digital)[order(res_no)]
 
     
-    ## Reduce Variables
+    ## Remove variables
 
     dt.draft.en <- dt.draft.en[,.(res_no, text)]
     dt.meeting.en <- dt.meeting.en[,.(res_no, text)]
 
-
-
     
-    ## Rename Text Variables for Draft and Meeting
+    ## Rename text variables for draft and meeting
 
     names(dt.draft.en) <- gsub("text", "text_draft", names(dt.draft.en))
     names(dt.meeting.en) <- gsub("text", "text_meeting", names(dt.meeting.en))
@@ -47,7 +51,7 @@ f.merge_data <- function(dt.res.en,
 
     
     
-    ## Merge Draft Texts
+    ## Merge draft texts
 
     dt <- merge(dt.res.en,
                 dt.draft.en,
@@ -56,7 +60,7 @@ f.merge_data <- function(dt.res.en,
                 sort = FALSE)
 
 
-    ## Merge Meeting records
+    ## Merge meeting records
 
     dt <- merge(dt,
                 dt.meeting.en,
@@ -65,7 +69,7 @@ f.merge_data <- function(dt.res.en,
                 sort = FALSE)
     
 
-    ## Merge Downloaded Metadata
+    ## Merge downloaded metadata
 
     dt <- merge(dt,
                 dt.download,
@@ -75,7 +79,7 @@ f.merge_data <- function(dt.res.en,
 
 
     
-    ## Merge Record Page URL
+    ## Merge record page URL
 
     dt.return <- merge(dt,
                       dt.record.final,
@@ -84,7 +88,7 @@ f.merge_data <- function(dt.res.en,
                       sort = FALSE)
 
 
-    ## Rename Date Variable
+    ## Rename date variable
     
     names(dt.return) <- gsub("date", "date_undl", names(dt.return))
 
@@ -92,7 +96,7 @@ f.merge_data <- function(dt.res.en,
 
     
 
-    ## Unit Test
+    ## Unit test
     test_that("Results conform to expectations.", {
         expect_s3_class(dt.return, "data.table")
         expect_equal(dt.return[,.N], dt.res.en[,.N])
