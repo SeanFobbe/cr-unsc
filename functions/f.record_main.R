@@ -2,8 +2,8 @@
 
 #' @param recordtable.stable Data.Table. A stable download table of UN Digital Library pages for UNSC resolutions included in the source code.
 #' @param limit Integer. Query the database up to which resolution?
-#' @param debug.toggle Logical. Whether to only download a randomized subset of resolutions.
-#' @param debug.sample Integer. The number of random resolutions to return in debugging mode.
+#' @param debug.toggle Logical. Whether to only download a subset of resolutions.
+#' @param debug.nums Integer. A vector of fixed resolution numbers to query.
 #' 
 #' 
 #' @return The final updated download table with all resolutions specified.
