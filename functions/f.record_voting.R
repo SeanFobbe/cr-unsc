@@ -48,7 +48,7 @@ f.record_voting <- function(recordtable.stable = NA,
                                       url_record = url.record)
 
         ## Remove rows with NA
-        recordtable.new <- recordtable.new[!is.na(url_record)]
+        recordtable.new <- recordtable.new[!url_record == "NA"]
 
         ## Finalize
 
@@ -120,7 +120,7 @@ f.extract_record_voting <- function(resno){
     }
     
 
-    Sys.sleep(runif(1, 1, 2))
+    Sys.sleep(runif(1, 2, 3))
     
     message(resno)
     
