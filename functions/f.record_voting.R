@@ -35,7 +35,7 @@ f.record_voting <- function(recordtable.stable = NA,
     if (length(res_no_work) != 0){
 
         ## Extract records
-        url.record.list <- lapply(res_no_work, f.extract_record)
+        url.record.list <- lapply(res_no_work, f.extract_record_voting)
 
         ## Replace empty elements with NA
         url.record.list2 <- lapply(url.record.list, f.list.empty.NA)
@@ -98,7 +98,7 @@ f.record_voting <- function(recordtable.stable = NA,
 
 
 
-f.extract_record <- function(resno){
+f.extract_record_voting <- function(resno){
 
     ## Query without space, e.g. S/RES/988(
     query <- paste0("https://digitallibrary.un.org/search?ln=en&as=1&cc=Voting+Data&m1=p&p1=S%2FRES%2F",
@@ -135,7 +135,7 @@ f.extract_record <- function(resno){
         
     }
 
-    Sys.sleep(runif(1, 2, 3))
+    Sys.sleep(runif(1, 4, 5))
     
     message(resno)
 
