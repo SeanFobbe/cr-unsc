@@ -287,6 +287,8 @@ tar_target(changelog,
 
 ### Table of Main Record Pages (Stable)
 
+This file contains a stable and checked list of resolutions numbers and the corresponding UN Digital Library records pages for the resolution texts and meta data.
+
 ```{targets tar.file.recordpages.main}
 list(
     tar_target(csv.record.table,
@@ -300,6 +302,9 @@ list(
 
 
 ### Table of Voting Record Pages (Stable)
+
+This file contains a stable and checked list of resolutions numbers and the corresponding UN Digital Library records pages for voting data.
+
 
 ```{targets tar.file.recordpages.voting}
 list(
@@ -352,6 +357,7 @@ list(
 
 ### Build Table of Main Record Pages (Final)
 
+This step builds the final table of UN Digital Library main records containing the links to full texts and resolution metadata. It draws on a pre-built list to speed up the download and reduce load on UN servers.
 
 ```{targets tar.download.recordtable.main}
 tar_target(dt.record.final,
@@ -363,6 +369,8 @@ tar_target(dt.record.final,
 
 
 ### Build Table of Voting Record Pages (Final)
+
+This step builds the final table of UN Digital Library records containing voting data. It draws on a pre-built list to speed up the download and reduce load on UN servers.
 
 
 ```{targets tar.download.recordtable.voting}
