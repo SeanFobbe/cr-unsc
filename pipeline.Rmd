@@ -408,7 +408,7 @@ tar_target(html.record.res,
 
 
 ```{targets tar.download.records.res.voting}
-tar_target(html.record.res,
+tar_target(html.record.voting,
                 f.download(url = dt.record.voting.final$url_record,
                            filename = paste0(dt.record.voting.final$res_no, ".html"),
                            dir = "files/record_voting",
