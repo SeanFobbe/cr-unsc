@@ -21,3 +21,8 @@ f.regex_variables <- function(text){
     return(dt.return)
     
 }
+
+
+## DEBUGGING CODE
+
+## text <- tar_read(dt.intermediate)$text
