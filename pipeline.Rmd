@@ -283,17 +283,29 @@ tar_target(changelog,
 
 
 
-### Table of Record Pages (Stable)
+### Table of Main Record Pages (Stable)
 
-
-
-```{targets tar.file.recordpages}
+```{targets tar.file.recordpages.main}
 list(
     tar_target(csv.record.table,
                "data/UNSC_Record-Table_2636.csv",
                format = "file"),
     tar_target(record.table.stable,
                fread(csv.record.table))
+)
+```
+
+
+
+### Table of Voting Record Pages (Stable)
+
+```{targets tar.file.recordpages.voting}
+list(
+    tar_target(csv.record.voting,
+               "data/UNSC_Record_Voting_130.csv",
+               format = "file"),
+    tar_target(record.voting.stable,
+               fread(csv.record.voting))
 )
 ```
 
@@ -351,10 +363,9 @@ tar_target(dt.record.final,
 ### Build Table of Voting Record Pages (Final)
 
 
-
 ```{targets tar.download.recordtable.voting}
 tar_target(dt.record.voting.final,
-           f.record_voting(recordtable.stable = NA,
+           f.record_voting(recordtable.stable = record.voting.stable,
                           limit = config$download$resmax,
                           debug.toggle = config$debug$toggle,
                           debug.nums = sample(1:limit, 50)))
