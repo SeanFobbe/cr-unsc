@@ -19,7 +19,7 @@ f.record_voting <- function(recordtable.stable = NA,
     res_no_full <- 1:limit
 
     
-    if (is.na(recordtable.stable) == FALSE){
+    if (any(class(recordtable.stable) %in% "data.frame")){
 
         res_no_work <- setdiff(res_no_full,
                                recordtable.stable$res_no)
@@ -52,7 +52,7 @@ f.record_voting <- function(recordtable.stable = NA,
 
         ## Finalize
 
-        if (is.na(recordtable.stable) == FALSE){
+        if (any(class(recordtable.stable) %in% "data.frame")){
             
             recordtable.final <- rbind(recordtable.stable, recordtable.new)[order(res_no)]
 
