@@ -180,8 +180,6 @@ datestamp <- Sys.Date()
 
 config <- RcppTOML::parseTOML("config.toml")
 
-debug.nums <- sample(1:config$download$resmax, 50)
-
 
 dir.analysis <- paste0(getwd(),
                        "/analysis")
@@ -352,6 +350,16 @@ list(
 
 
 ## Download
+
+
+### Debugging Numbers
+
+
+
+```{targets tar.download.debugnums}
+tar_target(debug.nums,
+           sample(1:config$download$resmax, config$debug$sample))
+```
 
 
 
