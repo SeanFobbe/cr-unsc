@@ -1,4 +1,4 @@
-#' Build a table of record pages for UN Security Council resolutions sourceddrawn from the UN Digital Library.
+#' Build a table of record pages for UN Security Council resolutions sourced from the UN Digital Library.
 
 #' @param recordtable.stable Data.Table. A stable download table of UN Digital Library pages for UNSC resolutions included in the source code.
 #' @param limit Integer. Query the database up to which resolution?
@@ -79,12 +79,15 @@ f.record_table <- function(recordtable.stable,
 
 f.extract_record <- function(resno){
 
+    ## Query without space, e.g. S/RES/988(
     query <- paste0("https://digitallibrary.un.org/search?ln=en&as=1&m1=p&p1=S%2FRES%2F",
                     resno,                     "(&f1=documentsymbol&op1=a&m2=a&p2=&f2=&op2=a&m3=a&p3=&f3=&dt=&d1d=&d1m=&d1y=&d2d=&d2m=&d2y=&rm=&ln=en&sf=&so=d&rg=50&c=United%20Nations%20Digital%20Library%20System&of=hb&fti=0&fti=0&fct__1=Resolutions%20and%20Decisions")
 
     links <- f.linkextract(query)
     record <- unique(grep("/record/[0-9]+$", links, value = TRUE))
 
+
+    ## Query with space, e.g. S/RES/988 (
     if(length(record) == 0){
         
         query <- paste0("https://digitallibrary.un.org/search?ln=en&as=1&m1=p&p1=S%2FRES%2F",
