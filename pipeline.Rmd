@@ -974,11 +974,11 @@ tar_target(vars_additional,
 ```
 
 
-### Add Additional Variables to Main Data Set
+### Finalize Main Data Set
 
 
 
-```{targets tar.enhance11}
+```{targets tar.enhance.finalize}
 tar_target(dt.final,           
            f.finalize(dt.intermediate = dt.intermediate,
                       vars.additional = vars_additional,
@@ -997,7 +997,7 @@ Remove text variable to create a much smaller version of the data set with metad
 
 
 
-```{targets tar.enhance14}
+```{targets tar.variant.meta}
 tar_target(dt.final.meta,
            dt.final[, !c("text", "text_draft", "text_meeting")])
 
