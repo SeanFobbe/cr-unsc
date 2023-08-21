@@ -69,11 +69,11 @@ f.record_main <- function(recordtable.stable,
 
 
 
-#' For a given UN Security Council resolution, extract the relevant page in the UN Digital Library.
+#' For a given UN Security Council resolution, extract the relevant main page in the UN Digital Library.
 
 #' @param resno The number of a UN Security Council resolution.
 #'
-#' @return The absolute link to a USNC resolution page in the UN Digital Library.
+#' @return The absolute link to a USNC resolution main page in the UN Digital Library.
 
 
 
@@ -99,6 +99,13 @@ f.extract_record_main <- function(resno){
     }
     
 
+
+    Sys.sleep(runif(1, 2, 3))
+    
+    message(resno)
+
+
+    
     if(length(record) == 0){
 
         message(paste("No link acquired for", resno))
@@ -113,11 +120,6 @@ f.extract_record_main <- function(resno){
         return(record.absolute)
         
     }
-
-    Sys.sleep(runif(1, 1, 2))
-    
-    message(resno)
-
 
     
     
