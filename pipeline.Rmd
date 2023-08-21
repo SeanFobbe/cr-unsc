@@ -846,6 +846,7 @@ tar_target(txt_all,
 
 tar_target(dt.intermediate,
            f.merge_data(dt.res.en = dt_res_en,
+                        dt.res.en.gold = dt_res_en_gold,
                         dt.draft.en = dt_draft_en,
                         dt.meeting.en = dt_meeting_en,
                         dt.download = dt.download,
