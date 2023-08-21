@@ -42,12 +42,6 @@ f.record_metadata_voting <- function(x){
         dt.meta <- dt.meta[,.(resolution, vote_summary, vote_date, vote)]
 
 
-        ## Add res_no
-        
-        dt.meta$res_no <- as.integer(gsub("S\\/RES\\/([0-9]+).*",
-                                          "\\1",
-                                          dt.meta$resolution))
-        
         
         ## Extract individual counts
         dt.meta$vote_yes <- as.integer(gsub(".*Yes: ([0-9]*).*",
