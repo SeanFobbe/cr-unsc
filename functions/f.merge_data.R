@@ -120,3 +120,4 @@ f.merge_data <- function(dt.res.en,
 ## dt.meeting.en = tar_read(dt_meeting_en)
 ## dt.download = tar_read(dt.download)
 ## dt.record.final = tar_read(dt.record.final)
+## dt.voting = tar_read(dt.voting)
