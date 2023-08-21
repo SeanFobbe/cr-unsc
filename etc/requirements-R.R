@@ -30,7 +30,9 @@ pkgs <- c("data.table",
           "rvest",
           "renv",
           "testthat",
-          "zip")
+          "zip",
+          "countrycode",
+          "ISOcodes")
 
 
 install.packages(pkgs)
