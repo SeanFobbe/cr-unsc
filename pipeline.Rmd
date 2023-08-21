@@ -358,7 +358,7 @@ tar_target(dt.record.final,
            f.record_main(recordtable.stable = record.table.stable,
                           limit = config$download$resmax,
                           debug.toggle = config$debug$toggle,
-                          debug.sample = config$debug$sample))
+                          debug.sample = debug.nums))
 ```
 
 
