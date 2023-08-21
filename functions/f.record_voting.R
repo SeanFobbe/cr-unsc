@@ -78,10 +78,11 @@ f.record_voting <- function(recordtable.stable,
 
 
 
+
 f.extract_record <- function(resno){
 
     ## Query without space, e.g. S/RES/988(
-    query <- paste0("https://digitallibrary.un.org/search?ln=en&as=1&cc=Voting+Data&m1=a&p1=S%2FRES%2F",
+    query <- paste0("https://digitallibrary.un.org/search?ln=en&as=1&cc=Voting+Data&m1=p&p1=S%2FRES%2F",
                     resno,                    "(&f1=documentsymbol&op1=a&m2=a&p2=&f2=&op2=a&m3=a&p3=&f3=&dt=&d1d=&d1m=&d1y=&d2d=&d2m=&d2y=&rm=&action_search=Search&sf=&so=d&rg=50&c=Voting+Data&c=&of=hb&fti=0&fti=0")
 
     links <- f.linkextract(query)
@@ -91,8 +92,8 @@ f.extract_record <- function(resno){
     ## Query with space, e.g. S/RES/988 (
     if(length(record) == 0){
         
-        query <- paste0("https://digitallibrary.un.org/search?ln=en&as=1&cc=Voting+Data&m1=a&p1=S%2FRES%2F",
-                        resno,                    "+(&f1=documentsymbol&op1=a&m2=a&p2=&f2=&op2=a&m3=a&p3=&f3=&dt=&d1d=&d1m=&d1y=&d2d=&d2m=&d2y=&rm=&action_search=Search&sf=&so=d&rg=50&c=Voting+Data&c=&of=hb&fti=0&fti=0")
+    query <- paste0("https://digitallibrary.un.org/search?ln=en&as=1&cc=Voting+Data&m1=p&p1=S%2FRES%2F",
+                    resno,                    "+(&f1=documentsymbol&op1=a&m2=a&p2=&f2=&op2=a&m3=a&p3=&f3=&dt=&d1d=&d1m=&d1y=&d2d=&d2m=&d2y=&rm=&action_search=Search&sf=&so=d&rg=50&c=Voting+Data&c=&of=hb&fti=0&fti=0")
 
         links <- f.linkextract(query)
         record <- unique(grep("/record/[0-9]+$", links, value = TRUE))
