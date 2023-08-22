@@ -145,6 +145,7 @@ f.merge_data <- function(dt.res.en,
 ## dt.record.final = tar_read(dt.record.final)
 ## dt.voting = tar_read(dt.voting)
 
-## dt.res.all <- tar_read(dt_res_all)
+## dt.extracted.res.all <- tar_read(dt_extracted_res_all)
+## dt.ocr.res.all <- tar_read(dt_ocr_res_all)
 ## dt.draft.all <- tar_read(dt_draft_all)
 ## dt.meeting.all <- tar_read(dt_meeting_all)
