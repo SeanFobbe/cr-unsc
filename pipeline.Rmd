@@ -918,7 +918,8 @@ tar_target(dt.intermediate,
                         dt.draft.en = dt_draft_en,
                         dt.meeting.en = dt_meeting_en,
                         dt.download = dt.download,
-                        dt.record.final = dt.record.final))
+                        dt.record.final = dt.record.final,
+						dt.voting = dt.voting))
 
 ```
 
