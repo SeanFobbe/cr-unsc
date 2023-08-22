@@ -150,9 +150,9 @@ iso_transform <- function(iso.alpha3,
 
         strings.split <- unlist(stringi::stri_split(str = iso.alpha3, regex = separator))
 
-        transformed <- countrycode(sourcevar = strings.split,
-                                   origin = "iso3c",
-                                   destination = output)
+        transformed <- countrycode::countrycode(sourcevar = strings.split,
+                                                origin = "iso3c",
+                                                destination = output)
 
         result <- paste0(sort(unique(transformed)), collapse = "|")
 
