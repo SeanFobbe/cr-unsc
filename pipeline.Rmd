@@ -856,13 +856,13 @@ tar_target(txt_all,
 
 ```{targets tar.download.dt}
 tar_target(dt_res_all,
-           data.table::rbind(dt_res_ar,
-                             dt_res_en,
-                             dt_res_es,
-                             dt_res_fr,
-                             dt_res_ru,
-                             dt_res_zh,
-                             fill = TRUE))
+           rbind(dt_res_ar,
+                 dt_res_en,
+                 dt_res_es,
+                 dt_res_fr,
+                 dt_res_ru,
+                 dt_res_zh,
+                 fill = TRUE))
 
 
 ```
