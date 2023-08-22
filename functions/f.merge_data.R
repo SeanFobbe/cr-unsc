@@ -12,7 +12,8 @@
 
 
 
-f.merge_data <- function(dt.res.en,
+f.merge_data <- function(dt.extracted.res.all,
+                         dt.ocr.res.all,
                          dt.res.en.gold,
                          dt.draft.en,
                          dt.meeting.en,
@@ -24,7 +25,6 @@ f.merge_data <- function(dt.res.en,
     
     ## Unit test
     test_that("Arguments conform to expectations.", {
-        expect_s3_class(dt.res.en, "data.table")
         expect_s3_class(dt.res.en.gold, "data.table")
         expect_s3_class(dt.draft.en, "data.table")
         expect_s3_class(dt.meeting.en, "data.table")
@@ -89,6 +89,9 @@ f.merge_data <- function(dt.res.en,
                        dt.extracted.res.all[res_no > ocr.limit & language == "RU"],
                        fill = TRUE)[,.(res_no, text)]
 
+    str(dt.ocr.res.all[language == "RU"])
+
+    
     setnames(dt.res.ru, "text", "text_ru")
     
     dt <- merge(dt,
@@ -190,7 +193,7 @@ f.merge_data <- function(dt.res.en,
     ## Unit test
     test_that("Results conform to expectations.", {
         expect_s3_class(dt.return, "data.table")
-        expect_equal(dt.return[,.N], dt.res.en[,.N])
+#        expect_equal(dt.return[,.N], dt.res.en[,.N])
         expect_lte(dt.return[,.N], dt.voting[,.N])
         expect_gte(dt.return[,.N], dt.draft.en[,.N])
         expect_gte(dt.return[,.N], dt.meeting.en[,.N])
