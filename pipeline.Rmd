@@ -861,8 +861,8 @@ tar_target(dt_res_all,
                              dt_res_es,
                              dt_res_fr,
                              dt_res_ru,
-                             dt_res_zh),
-           fill = TRUE)
+                             dt_res_zh,
+                             fill = TRUE))
 
 
 ```
