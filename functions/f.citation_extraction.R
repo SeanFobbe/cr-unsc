@@ -161,10 +161,14 @@ f.citation_extraction <- function(dt.final){
 
     igraph::E(g.unga)$weight <- 1
     g.unga <- igraph::simplify(g.unga, edge.attr.comb = list(weight = "sum"))
+
+    g.unga <- igraph::set_vertex_attr(graph = g.unga,
+                                      name = "body",
+                                      value = "A")
+
     
 
-##    add_edges
-
+    
     ## Combine UNSC and UNGA graphs
 
     g.all <- igraph::union(g, g.unga)
