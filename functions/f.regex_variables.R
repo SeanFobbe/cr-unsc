@@ -57,10 +57,20 @@ f.regex_variables <- function(text){
     m49[ISO_Alpha_3 == "GBR"]$Name <- "(United Kingdom of Great Britain and Northern Ireland)|(Great Britain)|(United Kingdom)"    
     m49[ISO_Alpha_3 == "TZA"]$Name <- "Tanzania"    
     m49[ISO_Alpha_3 == "VEN"]$Name <- "Venezuela"    
-    
 
     
 
+
+
+
+
+    extract_countries(str = text[2370],
+                      pattern.search = m49$Name,
+                      pattern.success = m49$ISO_Alpha_3)
+    
+
+    
+    
     regex <- paste0(iso[,.(Name, Official_name, Common_name)], collapse = "|")
     regex <- gsub("\\|NA", "", regex)
 
@@ -90,4 +100,32 @@ f.regex_variables <- function(text){
 
 ## DEBUGGING CODE
 
+
+## tar_load(dt.intermediate)
 ## text <- tar_read(dt.intermediate)$text
+
+
+
+
+
+
+#' @param str String to be searched.
+#' @param pattern.search Search pattern, must have corresponding success pattern!
+#' @param pattern.success Success pattern reported when search pattern is found.
+
+
+extract_countries <- function(str,
+                              pattern.search,
+                              pattern.success){
+    
+
+    hits <- stringi::stri_detect(str = str, regex = pattern.search)
+
+    success <- sort(pattern.success[hits])
+
+    success <- paste0(success, collapse = "|")
+
+    return(success)
+
+
+}
