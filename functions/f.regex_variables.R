@@ -54,7 +54,7 @@ f.regex_variables <- function(text){
     m49[ISO_Alpha_3 == "TUR"]$Name <- "Türkiye|Turkey"    
     m49[ISO_Alpha_3 == "GBR"]$Name <- "(United Kingdom of Great Britain and Northern Ireland)|(Great Britain)|(United Kingdom)"    
     m49[ISO_Alpha_3 == "TZA"]$Name <- "Tanzania"    
-    m49[ISO_Alpha_3 == "VEN"]$Name <- "Venezuela"    
+    m49[ISO_Alpha_3 == "VEN"]$Name <- "Venezuela"
 
     
     dt$iso_alpha3 <- unlist(lapply(text, extract_countries, m49 = m49))
