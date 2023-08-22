@@ -162,9 +162,14 @@ f.citation_extraction <- function(dt.final){
     igraph::E(g.unga)$weight <- 1
     g.unga <- igraph::simplify(g.unga, edge.attr.comb = list(weight = "sum"))
 
+    
+                 
+    
     g.unga <- igraph::set_vertex_attr(graph = g.unga,
                                       name = "body",
-                                      value = "A")
+                                      value = ifelse(grepl("A/RES", igraph::vertex_attr(g.unga, "name")),
+                                                     "A",
+                                                     "S"))
 
     
 
