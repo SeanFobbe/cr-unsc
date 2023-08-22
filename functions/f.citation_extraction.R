@@ -167,12 +167,12 @@ f.citation_extraction <- function(dt.final){
 
     ## Combine UNSC and UNGA graphs
 
-    g.all <- union(g, g.unga)
+    g.all <- igraph::union(g, g.unga)
 
 
 
     
-    return(g)
+    return(g.all)
 
 
 }
