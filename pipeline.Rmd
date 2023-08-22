@@ -541,7 +541,7 @@ tar_target(dt.download.final,
 
 
 
-```{r tar.download}
+```{targets tar.download}
 
 values <- tibble::tibble(
                       name = c("res_ar",
