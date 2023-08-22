@@ -29,8 +29,8 @@ Please refer to the Codebook regarding the relative merits of each variant. Unle
 
 ## System Requirements
 
-- Compiled with Fedora Linux. Other Linux distributions may also work. Other operating systems not tested.
-- 4 GB space on the hard drive
+- The reference data sets were compiled on a Debian host system. Running the Docker config on an SELinux system like Fedora may require some modifications in the Docker Compose config.
+- 50 GB space on hard drive
 - Multi-core CPU recommended. We used 8 cores/16 threads to compile the reference data sets. Standard config will use all cores on a system. This can be fine-tuned in the config file.
 
 
@@ -50,76 +50,36 @@ Please always use an *empty* folder for creating the data set. The code will del
 
 
 
-### Schritt 2: Install 'R' Programming Language
+### Step 2: Create Docker Image
 
-You must have installed the [R Programming Language](https://www.r-project.org/) und [OpenSSL](https://www.openssl.org/). Usually these are incldued with Fedora Linux, otherwise do:
-
-```
-$ sudo dnf install R openssl
-```
-
-
-
-### Schritt 3: Install 'renv'
-
-Start an R session in the project folder. You should automatically be asked to install [renv](https://rstudio.github.io/renv/articles/renv.html). `renv` is a tool for the strict version control of R packages and is a key tool to ensure reproducibility.
-
-
-### Schritt 4: Install R Packages
-
-To use [renv](https://rstudio.github.io/renv/articles/renv.html) to install all R packages in the required version, execute in an R console:
+The Dockerfile contains automated instructions to create a full operation system with all necessary dependencies. To create the image from the Dockerfile, please execute: 
 
 ```
-> renv::restore()  # Execute in R console
-```
-
-*Warning:* it is not sufficient to have installed packages in your regular project library. You must do this again via [renv](https://rstudio.github.io/renv/articles/renv.html), even if by coincidence you have them installed exactly as required.
-
-
-
-### Schritt 5: Install LaTeX
-
-
-To compile the PDF reports you need a \LaTeX\ distribution. You can install a comprehensive \LaTeX -Distribution in Fedora like so.
-
-
-```
-$ sudo dnf install texlive-scheme-full
-```
-
-Alternatively, you can install the R package [tinytex](https://yihui.org/tinytex/), which is very economical and installs only the \LaTeX\ packages required for the project:
-
-```
-> install.packages("tinytex")  # Execute in R console
-```
-
-The \LaTeX\  distribution used for the reference data sets is `texlive-scheme-full`.
-
-
-
-
-
-### Schritt 6: Compile Data Set
-
-
-If you have compiled the dat set previously and wish to clean up all results for a fresh run, use the following script:
-
-```
-> source("delete_all_data.R") # Execute in R console
+$ bash docker-build-image.sh
 ```
 
 
-Den vollständigen Datensatz kompilieren Sie mit folgendem Befehl:
+### Step 3: Compile Dataset
+
+If you have previously compiled the data set, whether successfuly or not, you can delete all output and temporary files by executing:
 
 ```
-> source("run_project.R") # Execute in R console
+$ Rscript delete_all_data.R
 ```
+
+You can compile the full data set by executing:
+
+
+```
+$ bash docker-run-project.sh
+```
+
 
 
 
 ### Results
 
-Once the pipeline has concluded successfuly, the data set and all published results are now stored in the folder `output/`.
+Once the pipeline has concluded successfuly, the data set and all results are now stored in the folder `output/`.
 
 
 
@@ -143,7 +103,7 @@ The below commands are useful to troubleshoot the pipeline.
 
 ```
 > tar_progress()  # Show progress and errors
-> tar_meta()      # Show all metadata (can be subsetted)
+> tar_meta()      # Show all metadata
 > tar_meta(fields = "warnings", complete_only = TRUE)  # Warnings
 > tar_meta(fields = "error", complete_only = TRUE)  # Errors
 > tar_meta(fields = "seconds")  # Runtime for each target
@@ -153,7 +113,7 @@ The below commands are useful to troubleshoot the pipeline.
 
 ## Project Structure
 
-This structural analysis of the project describes the most important and version-controlled components. During compilation the pipeline will create further folders in which intermediate results are stored (`pdf/`, `txt/`, `temp/` `analysis` and `output/`). Final results are stored in the folder `output/`.
+This structural analysis of the project describes its most important and version-controlled components. During compilation the pipeline will create further folders in which intermediate results are stored (`files`, `temp/` `analysis` and `output/`). Final results are stored in the folder `output/`.
 
  
 ``` 
@@ -163,15 +123,20 @@ This structural analysis of the project describes the most important and version
 ├── config.toml                # Primary configuration file
 ├── data                       # Data sets that are imported by the pipeline
 ├── delete_all_data.R          # Clear all results for fresh run
+├── docker-build-image.sh      # Build Docker image
+├── docker-compose.yaml        # Docker container runtime configuration
+├── Dockerfile                 # Instructions on how to create Docker image
+├── docker-run-project.sh      # Build Docker image and run full project
+├── etc                        # Additional configuration files
 ├── functions                  # Key pipeline components
 ├── gpg                        # Personal Public GPG-Key for Seán Fobbe
-├── pipeline.Rmd               # Master file describing the pipeline
+├── instructions               # Instructions on how to manually handle data
+├── pipeline.Rmd               # Master file for data pipeline
 ├── README.md                  # Usage instructions
 ├── renv                       # Version control, executables
 ├── renv.lock                  # Version control, version info
 ├── reports                    # Report templates
 ├── run_project.R              # Run entire pipeline
-├── _targets_packages.R        # Version control, packages in pipeline
 └── tex                        # LaTeX templates
 
 
