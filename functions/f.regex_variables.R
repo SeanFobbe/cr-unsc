@@ -56,10 +56,73 @@ f.regex_variables <- function(text){
     m49[ISO_Alpha_3 == "VEN"]$Name <- "Venezuela"    
 
     
-    countries_iso3 <- unlist(lapply(text[1:20], extract_countries, m49 = m49))
+    countries_iso_alpha3 <- unlist(lapply(text[2370:2400], extract_countries, m49 = m49))
+
+
+    ## Load ISO codes
+    iso3 <- ISOcodes::ISO_3166_1
+    setDT(iso3)
+    
+    ## ISO names
+    countries_iso_name <- stri_replace_all(str = countries_iso_alpha3,
+                                           regex = iso3$Alpha_3,
+                                           replacement = iso3$Name,
+                                           vectorize_all = FALSE)
+
+    ## M49 codes
+    countries_m49_code <- stri_replace_all(str = countries_iso_alpha3,
+                                           regex = m49$ISO_Alpha_3,
+                                           replacement = m49$Code,
+                                           vectorize_all = FALSE)
 
 
 
+    iso_transform <- function(iso.alpha3){
+
+        if(iso.alpha3 == ""){
+
+            return("")
+            
+        }else{
+
+            strings.split <- unlist(stri_split(str = iso.alpha3, regex = "\\|"))
+
+            transformed <- countrycode(sourcevar = strings.split,
+                                       origin = "iso3c",
+                                       destination = "un.region.name")
+
+            result <- paste0(sort(unique(transformed)), collapse = "|")
+
+            return(result)
+        }        
+        
+    }
+
+        
+
+unlist(lapply(countries_iso_alpha3, iso_transform))
+
+    
+
+
+
+
+    
+
+    m49regions <- UN_M.49_Regions
+    setDT(m49regions)
+    m49regions <- m49regions[Type == "Region"]
+
+    m49regions$children_regex <- gsub(", ", "\\|", m49regions$Children)
+
+    countries_m49_subregion <- stri_replace_all(str = countries_m49_code,
+                                                regex = m49regions$children_regex,
+                                                replacement = m49regions$Name,
+                                                vectorize_all = FALSE)
+
+    
+
+    
 
 
 
