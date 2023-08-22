@@ -57,7 +57,7 @@ f.regex_variables <- function(text){
     m49[ISO_Alpha_3 == "VEN"]$Name <- "Venezuela"    
 
     
-    countries_iso_alpha3 <- unlist(lapply(text[2370:2400], extract_countries, m49 = m49))
+    dt$iso_alpha3 <- unlist(lapply(text, extract_countries, m49 = m49))
 
 
     ## Load ISO codes
@@ -65,13 +65,13 @@ f.regex_variables <- function(text){
     setDT(iso3)
     
     ## ISO names
-    countries_iso_name <- stri_replace_all(str = countries_iso_alpha3,
-                                           regex = iso3$Alpha_3,
-                                           replacement = iso3$Name,
-                                           vectorize_all = FALSE)
+    dt$iso_name <- stri_replace_all(str = dt$iso_alpha3,
+                                    regex = iso3$Alpha_3,
+                                    replacement = iso3$Name,
+                                    vectorize_all = FALSE)
 
     ## M49 codes
-    countries_m49_code <- stri_replace_all(str = countries_iso_alpha3,
+    dt$m49_countrycode <- stri_replace_all(str = dt$iso_alpha3,
                                            regex = m49$ISO_Alpha_3,
                                            replacement = m49$Code,
                                            vectorize_all = FALSE)
@@ -79,39 +79,24 @@ f.regex_variables <- function(text){
 
 
 
-        
-
-    unlist(lapply(countries_iso_alpha3,
-                  iso_transform,
-                  output = "un.region.name"))
-
-    unlist(lapply(countries_iso_alpha3,
-                  iso_transform,
-                  output = "un.regionintermediate.name"))
-
-
-    unlist(lapply(countries_iso_alpha3,
-                  iso_transform,
-                  output = "un.regionsub.name"))
-
     
+    ## M49 Regions
+    dt$m49_region <- unlist(lapply(dt$iso_alpha3,
+                                   iso_transform,
+                                   output = "un.region.name"))
+
+    ## M49 Intermediate Regions
+    dt$m49_intermediateregion <- unlist(lapply(dt$iso_alpha3,
+                                               iso_transform,
+                                               output = "un.regionintermediate.name"))
 
 
+    ## M49 Sub-Regions
+    dt$m49_subregion <- unlist(lapply(dt$iso_alpha3,
+                                      iso_transform,
+                                      output = "un.regionsub.name"))
 
-    
 
-    m49regions <- UN_M.49_Regions
-    setDT(m49regions)
-    m49regions <- m49regions[Type == "Region"]
-
-    m49regions$children_regex <- gsub(", ", "\\|", m49regions$Children)
-
-    countries_m49_subregion <- stri_replace_all(str = countries_m49_code,
-                                                regex = m49regions$children_regex,
-                                                replacement = m49regions$Name,
-                                                vectorize_all = FALSE)
-
-    
 
 
     
