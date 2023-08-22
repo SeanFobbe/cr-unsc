@@ -11,7 +11,8 @@
 f.citation_extraction <- function(dt.final){
 
 
-    ## Extract outgoing UNSC citations
+    ## Extract outgoing UNSC citations, example: "S/RES/2672 (2023)"
+    
     target <- stringi::stri_extract_all(dt.final$text,
                                         regex = "[0-9]{1,4} \\([0-9]{4}\\)")
 
@@ -22,7 +23,7 @@ f.citation_extraction <- function(dt.final){
     ## Bind source and target
     bind <- mapply(cbind, source, target)
     bind2 <- lapply(bind, as.data.table)
-
+    
     dt <- rbindlist(bind2)
     setnames(dt, new = c("source", "target"))
 
@@ -33,25 +34,16 @@ f.citation_extraction <- function(dt.final){
     dt <- dt[!(dt$source == dt$target)]
 
     ## Reduce to numeric value
-    dt$source_no <- as.integer(sub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$source))
-    dt$target_no <- as.integer(gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$target))
+    dt$source <- as.integer(sub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$source))
+    dt$target <- as.integer(gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$target))
     
     ## Remove implausible citations (res cannot cite later resolutions!)
-    dt <- dt[source_no >= target_no]
-    dt <- dt[source_no != 0]
-    dt <- dt[target_no != 0]
+    dt <- dt[source >= target]
+    dt <- dt[source != 0]
+    dt <- dt[target != 0]
 
 
-
-
-
-
-
-
-
-
-
-
+    
     
     ## Create Graph Object
     g  <- igraph::graph.data.frame(dt,
@@ -96,7 +88,87 @@ f.citation_extraction <- function(dt.final){
 
     }
 
-    return(g)
+
+
+
+
+
+
+
+
+
+    ## Extract outgoing UNGA citations (Roman short): A/RES/1514(XV)
+    ## NONE TO BE FOUND
+    
+    ## target <- stringi::stri_extract_all(dt.final$text,
+    ##                                     regex = "A\\/RES\\/[0-9]+\\s*\\([IVX]+\\)",
+    ##                                     case_insensitive = TRUE)
+
+
+    
+    
+    ## todo: emergency sesions: A/RES/997(ES-I), A/RES/ES-11/1, ", "22 A (I)"
+    
+
+    unga.roman.long <- "[Gg]eneral\\s*[Aa]ssembly\\s*[Rr]esolution\\s*[0-9]{1,5}\\s*\\([IVXLC]+\\)"
+    unga.arabic.short <- "A\\/RES\\/[0-9]+\\/[0-9]+"
+    unga.arabic.long <- "[Gg]eneral\\s*[Aa]ssembly\\s*[Rr]esolution\\s*[0-9]{1,5}\\/[0-9]{1,5}"
+
+    unga.regex.full <- paste0(paste0("(",
+                                     c(unga.roman.long,
+                                       unga.arabic.short,
+                                       unga.arabic.long),
+                                     ")"),
+                              collapse = "|")
+
+    ## Run extraction
+    target <- stringi::stri_extract_all(dt.final$text,
+                                        regex = unga.regex.full,
+                                        case_insensitive = TRUE)
+
+    
+    ## unique(unlist(target))
+
+
+
+    
+    ## Bind
+    bind <- mapply(cbind, source, target)
+    bind2 <- lapply(bind, as.data.table)
+    
+    dt.unga <- rbindlist(bind2)
+    setnames(dt.unga, new = c("source", "target"))
+
+    ## Reduce source to numeric value
+    dt.unga$source <- as.integer(sub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt.unga$source))
+    
+    ## Remove resolutions without UNGA citations
+    dt.unga <- dt.unga[!is.na(target)]
+
+    
+    ## Standardize
+    temp <- gsub("\\s+", " ", dt.unga$target)
+    temp <- gsub("[Gg]eneral [Aa]ssembly [Rr]esolution ", "A/RES/", temp)
+    dt.unga$target <- gsub("res", "RES", temp,  ignore.case = TRUE)
+
+    
+
+
+    ## Create Graph Object
+    g.unga  <- igraph::graph.data.frame(dt.unga,
+                                        directed = TRUE)
+
+
+
+
+    ## Combine UNSC and UNGA graphs
+
+    g.all <- union(g, g.unga)
+
+
+
+    
+    return(g.all)
 
 
 }
