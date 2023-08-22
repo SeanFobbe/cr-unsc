@@ -16,8 +16,18 @@ All data sets created with this script will always be hosted permanently open ac
  
 The pipeline will produce the following results and store them in the folder `output`:
 
-- ???
-- ???
+- Compilation Report
+- Codebook
+- Robustness Checks Report
+- ZIP archive containing the main data set as a CSV file
+- ZIP archive containing the just the metadata of the main data set as a CSV file
+- ZIP archive containing all citation data and metadata as a GraphML file
+- ZIP archive containing all texts of resolutions as TXT files (OCR and extracted)
+- ZIP archive containing all texts of resolutions as PDF files (OCR and extracted)
+- ZIP archive containing all texts of drafts as PDF files (OCR and extracted)
+- ZIP archive containing all texts of meeting records as PDF files (OCR and extracted)
+- ZIP archive containing the full source code
+- ZIP archive containing all intermediate pipeline results ("targets")
 
  The integrity and veracity of each ZIP archive is documented with cryptographically secure hash signatures (SHA2-256 and SHA3-512). Hashes are stored in a separate CSV file created during the data set compilation process.
  
@@ -115,7 +125,7 @@ The below commands are useful to troubleshoot the pipeline.
 
 This structural analysis of the project describes its most important and version-controlled components. During compilation the pipeline will create further folders in which intermediate results are stored (`files`, `temp/` `analysis` and `output/`). Final results are stored in the folder `output/`.
 
- 
+
 ``` 
 .
 ├── buttons                    # Buttons (for tex title pages)
