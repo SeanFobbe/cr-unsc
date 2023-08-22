@@ -172,7 +172,7 @@ f.citation_extraction <- function(dt.final){
 
 
     
-    return(g.all)
+    return(g)
 
 
 }
