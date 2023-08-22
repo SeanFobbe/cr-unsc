@@ -33,12 +33,18 @@ f.merge_data <- function(dt.res.en,
     })
 
     
-    ## Replace OCR with gold-standard resolutions 
+    ## Merge English digital texts with gold-standard resolutions 
 
     dt.res.en.gold$docvar6 <- NULL
     dt.res.en.digital <- dt.res.en[!res_no %in% dt.res.en.gold$res_no]
     dt.res.en <- rbind(dt.res.en.gold, dt.res.en.digital)[order(res_no)]
 
+
+    ## ## Merge Arabic resolution texts
+
+    ## dt.res.all[language == "EN"]
+
+    
     
     ## Remove variables
 
