@@ -16,9 +16,9 @@ f.regex_variables <- function(text){
 
     
     
-    dt$chapter6 <- stringi::stri_detect_regex(text, "\\bChapter *VI\\b")
-    dt$chapter7 <- stringi::stri_detect_regex(text, "\\bChapter *VII\\b")
-    dt$chapter8 <- stringi::stri_detect_regex(text, "\\bChapter *VIII\\b")
+    dt$chapter6 <- stringi::stri_detect_regex(text, "\\b[Cc]hapter *VI\\b")
+    dt$chapter7 <- stringi::stri_detect_regex(text, "\\b[Cc]hapter *VII\\b")
+    dt$chapter8 <- stringi::stri_detect_regex(text, "\\b[Cc]hapter *VIII\\b")
     
     dt$peace_threat <- stringi::stri_detect_regex(text, "\\bthreat *to *the *peace\\b",
                                                case_insensitive = TRUE)
@@ -56,7 +56,8 @@ f.regex_variables <- function(text){
     m49[ISO_Alpha_3 == "TZA"]$Name <- "Tanzania"    
     m49[ISO_Alpha_3 == "VEN"]$Name <- "Venezuela"
 
-    
+
+    ## Extract ISO codes based on M49 country names
     dt$iso_alpha3 <- unlist(lapply(text, extract_countries, m49 = m49))
 
 
@@ -75,9 +76,6 @@ f.regex_variables <- function(text){
                                            regex = m49$ISO_Alpha_3,
                                            replacement = m49$Code,
                                            vectorize_all = FALSE)
-
-
-
 
     
     ## M49 Regions
