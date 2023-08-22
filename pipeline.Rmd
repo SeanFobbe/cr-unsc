@@ -627,7 +627,7 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
                                             f.readtext(x = txt,
                                                        docvarnames = docvarnames)),
                                  tar_target(dt_ocr,
-                                            f.readtext(x = ocr,
+                                            f.readtext(x = grep("\\.txt", ocr, value = TRUE),
                                                        docvarnames = docvarnames))
                                  )
 
