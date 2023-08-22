@@ -36,6 +36,7 @@ f.regex_variables <- function(text){
     ## Load M49 codes
     m49 <- ISOcodes::UN_M.49_Countries
     setDT(m49)
+    m49 <- m49[!ISO_Alpha_3 == ""]
     
     ## Simplify names to improve regex hits
     m49[ISO_Alpha_3 == "BOL"]$Name <- "Bolivia"
@@ -67,15 +68,15 @@ f.regex_variables <- function(text){
     
     ## ISO names
     dt$iso_name <- stringi::stri_replace_all(str = dt$iso_alpha3,
-                                    regex = iso3$Alpha_3,
-                                    replacement = iso3$Name,
-                                    vectorize_all = FALSE)
+                                             regex = iso3$Alpha_3,
+                                             replacement = iso3$Name,
+                                             vectorize_all = FALSE)
 
     ## M49 codes
     dt$m49_countrycode <- stringi::stri_replace_all(str = dt$iso_alpha3,
-                                           regex = m49$ISO_Alpha_3,
-                                           replacement = m49$Code,
-                                           vectorize_all = FALSE)
+                                                    regex = m49$ISO_Alpha_3,
+                                                    replacement = m49$Code,
+                                                    vectorize_all = FALSE)
 
     
     ## M49 Regions
