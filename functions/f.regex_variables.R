@@ -66,13 +66,13 @@ f.regex_variables <- function(text){
     setDT(iso3)
     
     ## ISO names
-    dt$iso_name <- stri_replace_all(str = dt$iso_alpha3,
+    dt$iso_name <- stringi::stri_replace_all(str = dt$iso_alpha3,
                                     regex = iso3$Alpha_3,
                                     replacement = iso3$Name,
                                     vectorize_all = FALSE)
 
     ## M49 codes
-    dt$m49_countrycode <- stri_replace_all(str = dt$iso_alpha3,
+    dt$m49_countrycode <- stringi::stri_replace_all(str = dt$iso_alpha3,
                                            regex = m49$ISO_Alpha_3,
                                            replacement = m49$Code,
                                            vectorize_all = FALSE)
@@ -148,7 +148,7 @@ iso_transform <- function(iso.alpha3,
         
     }else{
 
-        strings.split <- unlist(stri_split(str = iso.alpha3, regex = separator))
+        strings.split <- unlist(stringi::stri_split(str = iso.alpha3, regex = separator))
 
         transformed <- countrycode(sourcevar = strings.split,
                                    origin = "iso3c",
