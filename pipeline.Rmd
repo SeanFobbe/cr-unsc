@@ -851,27 +851,37 @@ tar_target(txt_all,
 ```
 
 
-### Combine Resolution Text Table Targets
+### Combine Extracted Resolution Text DT Targets
 
 
-```{targets tar.download.dt.res}
-tar_target(dt_res_all,
+```{targets tar.download.dt.res.extracted}
+tar_target(dt_extracted_res_all,
            rbind(dt_res_ar,
                  dt_res_en,
                  dt_res_es,
                  dt_res_fr,
                  dt_res_ru,
-                 dt_res_zh,
-				 dt_ocr_res_ar,
+                 dt_res_zh))
+
+
+```
+
+
+### Combine OCR Resolution Text DT Targets
+
+
+```{targets tar.download.dt.res.ocr}
+tar_target(dt_ocr_res_all,
+           rbind(dt_ocr_res_ar,
                  dt_ocr_res_en,
                  dt_ocr_res_es,
                  dt_ocr_res_fr,
                  dt_ocr_res_ru,
-                 dt_ocr_res_zh,
-                 fill = TRUE))
+                 dt_ocr_res_zh))
 
 
 ```
+
 
 ### Combine Draft  Text Table Targets
 
