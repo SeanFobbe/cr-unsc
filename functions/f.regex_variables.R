@@ -35,9 +35,6 @@ f.regex_variables <- function(text){
     ## Load M49 codes
     m49 <- ISOcodes::UN_M.49_Countries
     setDT(m49)
-
-
-    print(m49, nrows = 250)
     
     ## Simplify names to improve regex hits
     m49[ISO_Alpha_3 == "BOL"]$Name <- "Bolivia"
@@ -59,24 +56,13 @@ f.regex_variables <- function(text){
     m49[ISO_Alpha_3 == "VEN"]$Name <- "Venezuela"    
 
     
+    countries_iso3 <- unlist(lapply(text[1:20], extract_countries, m49 = m49))
 
 
-    lapply(text[1:20], extract_countries, m49 = m49)
 
 
 
-    extract_countries(str = text[2370],
-                      m49 = m49)
-    
 
-    
-    
-    regex <- paste0(iso[,.(Name, Official_name, Common_name)], collapse = "|")
-    regex <- gsub("\\|NA", "", regex)
-
-    grepl()
-    
-    str(iso)
     
     
     
@@ -98,19 +84,10 @@ f.regex_variables <- function(text){
 }
 
 
-## DEBUGGING CODE
-
-
-## tar_load(dt.intermediate)
-## text <- tar_read(dt.intermediate)$text
-
-
-
-
-
+#' Extract countries from text
 
 #' @param str String to be searched.
-#' @param m49 M49 data from ISOcodes package, possibly amended
+#' @param m49 M49 data from ISOcodes package. This can be amended for better regex hits.
 
 
 
@@ -127,3 +104,19 @@ extract_countries <- function(str,
 
 
 }
+
+
+
+
+
+
+
+
+## DEBUGGING CODE
+
+
+## tar_load(dt.intermediate)
+## text <- tar_read(dt.intermediate)$text
+
+
+
