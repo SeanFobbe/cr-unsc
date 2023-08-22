@@ -634,7 +634,7 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
 
 combined <- tarchetypes::tar_combine(
     dt_ocr_all,
-    tar_select_names(zip.list, starts_with("dt_ocr")),
+    tarchetypes::tar_select_names(zip.list, starts_with("dt_ocr")),
     command = dplyr::bind_rows(!!!.x, .id = "method")
 )
 
