@@ -873,14 +873,25 @@ tar_target(dt_res_all,
 
 ```
 
-### Combine Draft and Meeting Text Table Targets
+### Combine Draft  Text Table Targets
 
 
-```{targets tar.download.dt.meetingdraft}
-tar_target(dt_draft_meeting_all,
+```{targets tar.download.dt.draft}
+tar_target(dt_draft_all,
            rbind(dt_draft_en,
                  dt_ocr_draft_en,
-                 dt_meeting_en,
+                 fill = TRUE))
+
+
+```
+
+
+### Combine Meeting Text Table Targets
+
+
+```{targets tar.download.dt.meeting}
+tar_target(dt_meeting_all,
+           rbind(dt_meeting_en,
                  dt_ocr_meeting_en,
                  fill = TRUE))
 
