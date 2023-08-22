@@ -154,12 +154,16 @@ f.citation_extraction <- function(dt.final){
     
 
 
-    ## Create Graph Object
+    ## Create UNGA Graph Object
     g.unga  <- igraph::graph.data.frame(dt.unga,
                                         directed = TRUE)
 
 
+    igraph::E(g.unga)$weight <- 1
+    g.unga <- igraph::simplify(g.unga, edge.attr.comb = list(weight = "sum"))
+    
 
+##    add_edges
 
     ## Combine UNSC and UNGA graphs
 
