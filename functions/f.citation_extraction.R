@@ -11,7 +11,7 @@
 f.citation_extraction <- function(dt.final){
 
 
-    ## Extract outgoing citations
+    ## Extract outgoing UNSC citations
     target <- stringi::stri_extract_all(dt.final$text,
                                         regex = "[0-9]{1,4} \\([0-9]{4}\\)")
 
@@ -33,14 +33,26 @@ f.citation_extraction <- function(dt.final){
     dt <- dt[!(dt$source == dt$target)]
 
     ## Reduce to numeric value
-    dt$source <- as.integer(sub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$source))
-    dt$target <- as.integer(gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$target))
+    dt$source_no <- as.integer(sub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$source))
+    dt$target_no <- as.integer(gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$target))
     
     ## Remove implausible citations (res cannot cite later resolutions!)
-    dt <- dt[!(dt$source <= dt$target)]
-    dt <- dt[!(dt$source == 0)]
-    dt <- dt[!(dt$target == 0)]
+    dt <- dt[source_no >= target_no]
+    dt <- dt[source_no != 0]
+    dt <- dt[target_no != 0]
 
+
+
+
+
+
+
+
+
+
+
+
+    
     ## Create Graph Object
     g  <- igraph::graph.data.frame(dt,
                                    directed = TRUE)
