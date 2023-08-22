@@ -106,7 +106,7 @@ f.merge_data <- function(dt.res.en,
 
     ## Rename date variable
     
-    names(dt.return) <- gsub("date", "date_undl", names(dt.return))
+    names(dt.return) <- gsub("^date$", "date_undl", names(dt.return))
 
 
 
