@@ -61,12 +61,12 @@ f.regex_variables <- function(text){
     
 
 
+    lapply(text[1:20], extract_countries, m49 = m49)
 
 
 
     extract_countries(str = text[2370],
-                      pattern.search = m49$Name,
-                      pattern.success = m49$ISO_Alpha_3)
+                      m49 = m49)
     
 
     
@@ -110,18 +110,16 @@ f.regex_variables <- function(text){
 
 
 #' @param str String to be searched.
-#' @param pattern.search Search pattern, must have corresponding success pattern!
-#' @param pattern.success Success pattern reported when search pattern is found.
+#' @param m49 M49 data from ISOcodes package, possibly amended
+
 
 
 extract_countries <- function(str,
-                              pattern.search,
-                              pattern.success){
-    
+                              m49 = ISOCodes::UN_M.49_Countries){    
 
-    hits <- stringi::stri_detect(str = str, regex = pattern.search)
+    hits <- stringi::stri_detect(str = str, regex = m49$Name)
 
-    success <- sort(pattern.success[hits])
+    success <- sort(m49$ISO_Alpha_3[hits])
 
     success <- paste0(success, collapse = "|")
 
