@@ -5,7 +5,7 @@
 
 ## Overview
 
-This code in the [R programming language](https://en.wikipedia.org/wiki/R_(programming_language)) downloads and processes the full set of resolutions, drafts and meeting records rendered by the United Nations Security Council (UNSC) as published on <https://www.icj-cij.org> into a rich and structured human- and machine-readable data set. It is the basis for the **Corpus of Resolutions: UN Security Council (CR-UNSC)**.
+This code in the [R programming language](https://en.wikipedia.org/wiki/R_(programming_language)) downloads and processes the full set of resolutions, drafts and meeting records rendered by the United Nations Security Council (UNSC) as published on <https://digitallibrary.un.org/?ln=en> into a rich and structured human- and machine-readable data set. It is the basis for the **Corpus of Resolutions: UN Security Council (CR-UNSC)**.
 
 All data sets created with this script will always be hosted permanently open access and freely available at Zenodo, the scientific repository of CERN. Each version is uniquely identified with a persistent Digitial Object Identifier (DOI), the *Version DOI*. The newest version of the data set will always available via the link of the *Concept DOI*: ???
 
