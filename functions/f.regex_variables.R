@@ -96,7 +96,7 @@ f.regex_variables <- function(text){
                                       iso_transform,
                                       output = "un.regionsub.name"))
 
-
+   
 
 
     
@@ -115,7 +115,7 @@ f.regex_variables <- function(text){
 
 
 extract_countries <- function(str,
-                              m49 = ISOCodes::UN_M.49_Countries){    
+                              m49 = ISOcodes::UN_M.49_Countries){    
 
     hits <- stringi::stri_detect(str = str, regex = m49$Name)
 
@@ -127,6 +127,8 @@ extract_countries <- function(str,
 
 
 }
+
+
 
 
 
