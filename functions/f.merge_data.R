@@ -131,10 +131,14 @@ f.merge_data <- function(dt.res.en,
 
 ## DEBUGGING Code
 
-dt.res.en = tar_read(dt_res_en)
-dt.res.en.gold = tar_read(dt_res_en_gold)
-dt.draft.en = tar_read(dt_draft_en)
-dt.meeting.en = tar_read(dt_meeting_en)
-dt.download = tar_read(dt.download)
-dt.record.final = tar_read(dt.record.final)
-dt.voting = tar_read(dt.voting)
+## dt.res.en = tar_read(dt_res_en)
+## dt.res.en.gold = tar_read(dt_res_en_gold)
+## dt.draft.en = tar_read(dt_draft_en)
+## dt.meeting.en = tar_read(dt_meeting_en)
+## dt.download = tar_read(dt.download)
+## dt.record.final = tar_read(dt.record.final)
+## dt.voting = tar_read(dt.voting)
+
+## dt.res.all <- tar_read(dt_res_all)
+## dt.draft.all <- tar_read(dt_draft_all)
+## dt.meeting.all <- tar_read(dt_meeting_all)
