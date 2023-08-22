@@ -175,8 +175,14 @@ f.citation_extraction <- function(dt.final){
                                       value = ifelse(grepl("A/RES", igraph::vertex_attr(g.all, "name")),
                                                      "A",
                                                      "S"))
-    
 
+    ## Retrofill Symbols
+
+    index.na <- which(is.na(igraph::vertex_attr(g.all, "symbol")))
+    
+    igraph::vertex_attr(g.all, "symbol")[index.na] <- igraph::vertex_attr(g.all, "name")[index.na]
+
+    
     
     return(g.all)
 
