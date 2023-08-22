@@ -17,7 +17,7 @@ f.merge_data <- function(dt.res.en,
                          dt.draft.en,
                          dt.meeting.en,
                          dt.download,
-                         dt.record.final
+                         dt.record.final,
                          dt.voting){
 
     
