@@ -11,24 +11,25 @@
 f.regex_variables <- function(text){
 
 
+    dt <- data.table(human_rights = stringi::stri_detect_regex(text, "\\bhuman *rights\\b",
+                                                               case_insensitive = TRUE))
 
-    human_rights <- stringi::stri_detect_regex(text, "\\bhuman *rights\\b",
-                                               case_insensitive = TRUE)
     
-    chapter6 <- stringi::stri_detect_regex(text, "\\bChapter *VI\\b")
-    chapter7 <- stringi::stri_detect_regex(text, "\\bChapter *VII\\b")
-    chapter8 <- stringi::stri_detect_regex(text, "\\bChapter *VIII\\b")
     
-    peace_threat <- stringi::stri_detect_regex(text, "\\bthreat *to *the *peace\\b",
+    dt$chapter6 <- stringi::stri_detect_regex(text, "\\bChapter *VI\\b")
+    dt$chapter7 <- stringi::stri_detect_regex(text, "\\bChapter *VII\\b")
+    dt$chapter8 <- stringi::stri_detect_regex(text, "\\bChapter *VIII\\b")
+    
+    dt$peace_threat <- stringi::stri_detect_regex(text, "\\bthreat *to *the *peace\\b",
                                                case_insensitive = TRUE)
 
-    peace_breach <- stringi::stri_detect_regex(text, "\\bbreach *of *the *peace\\b",
+    dt$peace_breach <- stringi::stri_detect_regex(text, "\\bbreach *of *the *peace\\b",
                                                case_insensitive = TRUE)
 
-    aggression <- stringi::stri_detect_regex(text, "\\baggression\\b",
+    dt$aggression <- stringi::stri_detect_regex(text, "\\baggression\\b",
                                              case_insensitive = TRUE)
 
-    self_defence <- stringi::stri_detect_regex(text, "\\bself-defen[cs]e\\b",
+    dt$self_defence <- stringi::stri_detect_regex(text, "\\bself-defen[cs]e\\b",
                                                case_insensitive = TRUE)
 
 
@@ -77,33 +78,23 @@ f.regex_variables <- function(text){
 
 
 
-    iso_transform <- function(iso.alpha3){
-
-        if(iso.alpha3 == ""){
-
-            return("")
-            
-        }else{
-
-            strings.split <- unlist(stri_split(str = iso.alpha3, regex = "\\|"))
-
-            transformed <- countrycode(sourcevar = strings.split,
-                                       origin = "iso3c",
-                                       destination = "un.region.name")
-
-            result <- paste0(sort(unique(transformed)), collapse = "|")
-
-            return(result)
-        }        
-        
-    }
 
         
 
-unlist(lapply(countries_iso_alpha3, iso_transform))
+    unlist(lapply(countries_iso_alpha3,
+                  iso_transform,
+                  output = "un.region.name"))
+
+    unlist(lapply(countries_iso_alpha3,
+                  iso_transform,
+                  output = "un.regionintermediate.name"))
+
+
+    unlist(lapply(countries_iso_alpha3,
+                  iso_transform,
+                  output = "un.regionsub.name"))
 
     
-
 
 
 
@@ -122,29 +113,13 @@ unlist(lapply(countries_iso_alpha3, iso_transform))
 
     
 
-    
-
-
 
     
-    
-    
-    
-    dt.return <- data.table(human_rights,
-                            chapter6,
-                            chapter7,
-                            chapter8,
-                            peace_threat,
-                            peace_breach,
-                            aggression,
-                            self_defence)
-
-
-
-    
-    return(dt.return)
+    return(dt)
     
 }
+
+
 
 
 #' Extract countries from text
@@ -170,8 +145,38 @@ extract_countries <- function(str,
 
 
 
+#' Transform one or multiple ISO3 codes per string to other formats with countrycode
+#'
+#' @param iso.alpa3 String. Each string may contain one or more ISO Alpha 3 codes separated by the separator string.
+#' @param separator String. The separator internal to strings, default is the pipe character "|".
+#' @param output String. The desired output, see {countrycodes} package for options.
 
 
+
+iso_transform <- function(iso.alpha3,
+                          separator = "\\|",
+                          output){
+
+    if(iso.alpha3 == ""){
+
+        return("")
+        
+    }else{
+
+        strings.split <- unlist(stri_split(str = iso.alpha3, regex = separator))
+
+        transformed <- countrycode(sourcevar = strings.split,
+                                   origin = "iso3c",
+                                   destination = output)
+
+        result <- paste0(sort(unique(transformed)), collapse = "|")
+
+        return(result)
+    }        
+    
+}
+
+ 
 
 
 
