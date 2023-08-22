@@ -31,6 +31,45 @@ f.regex_variables <- function(text){
     self_defence <- stringi::stri_detect_regex(text, "\\bself-defen[cs]e\\b",
                                                case_insensitive = TRUE)
 
+
+    ## Load M49 codes
+    m49 <- ISOcodes::UN_M.49_Countries
+    setDT(m49)
+
+
+    print(m49, nrows = 250)
+    
+    ## Simplify names to improve regex hits
+    m49[ISO_Alpha_3 == "BOL"]$Name <- "Bolivia"
+    m49[ISO_Alpha_3 == "BES"]$Name <- "Bonaire|(Sint Eustatius)|Saba"
+    m49[ISO_Alpha_3 == "HKG"]$Name <- "Hong Kong"
+    m49[ISO_Alpha_3 == "MAC"]$Name <- "Macao"
+    m49[ISO_Alpha_3 == "PRK"]$Name <- "(Democratic People's Republic of Korea)|DPRK"
+    m49[ISO_Alpha_3 == "FLK"]$Name <- "(Falkland Islands)|Malvinas"
+    m49[ISO_Alpha_3 == "IRN"]$Name <- "Iran"
+    m49[ISO_Alpha_3 == "FSM"]$Name <- "Micronesia"
+    m49[ISO_Alpha_3 == "MAF"]$Name <- "Saint Martin"
+    m49[ISO_Alpha_3 == "SXM"]$Name <- "Sint Maarten"
+    m49[ISO_Alpha_3 == "PSE"]$Name <- "Palestine"
+    m49[ISO_Alpha_3 == "SJM"]$Name <- "Svalbard|Jan Mayen"
+    m49[ISO_Alpha_3 == "SYR"]$Name <- "(Syrian Arab Republic)|Syria"
+    m49[ISO_Alpha_3 == "TUR"]$Name <- "Türkiye|Turkey"    
+    m49[ISO_Alpha_3 == "GBR"]$Name <- "(United Kingdom of Great Britain and Northern Ireland)|(Great Britain)|(United Kingdom)"    
+    
+
+    
+
+    
+
+    regex <- paste0(iso[,.(Name, Official_name, Common_name)], collapse = "|")
+    regex <- gsub("\\|NA", "", regex)
+
+    grepl()
+    
+    str(iso)
+    
+    
+    
     
     dt.return <- data.table(human_rights,
                             chapter6,
