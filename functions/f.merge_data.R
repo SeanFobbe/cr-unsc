@@ -198,8 +198,8 @@ f.merge_data <- function(dt.extracted.res.all,
         expect_s3_class(dt.return, "data.table")
         expect_equal(dt.return[,.N], dt.extracted.res.all[language == "EN",.N])
         expect_lte(dt.return[,.N], dt.voting[,.N])
-        expect_gte(dt.return[,.N], dt.draft.en[,.N])
-        expect_gte(dt.return[,.N], dt.meeting.en[,.N])
+        expect_gte(dt.return[,.N], dt.draft.all[,.N])
+        expect_gte(dt.return[,.N], dt.meeting.all[,.N])
     })
 
     
