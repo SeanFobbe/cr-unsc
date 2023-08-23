@@ -34,13 +34,15 @@ f.finalize <- function(dt.intermediate,
 
 
     ## Create "npage" variable
-
     dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
 
-    ## Remove "description" variable
-
+    ## Remove "description" variable (contains only page numbers now available in "npages")
     dt.final$description <- NULL
 
+    ## Remove "date_undl" variable (contains only date, "New York" and "UN"; date is separate variable now)
+
+    dt.final$date_undl <- NULL
+    
     
     ## Order by Resolution Number
 
