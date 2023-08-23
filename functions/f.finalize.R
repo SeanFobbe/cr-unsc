@@ -94,3 +94,10 @@ f.finalize <- function(dt.intermediate,
     return(dt.final)
 
 }
+
+## DEBUGGING Code
+
+## tar_load(dt.intermediate)
+## tar_load(vars.additional)
+## varnames  <- tar_read(dt.var_codebook)$varname
+## debug.toggle = FALSE
