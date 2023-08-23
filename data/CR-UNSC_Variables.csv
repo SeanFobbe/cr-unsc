@@ -19,57 +19,57 @@ other_titles,thematic,String,TBD
 call_number,id,String,TBD
 action_note,id,String,TBD
 meeting_record,id,String,TBD
-authors,id,String,TBD
-summary,thematic,String,"A human-curated summary, curated by the UN Digital Library."
-notes,thematic,String,"Additional notes on the resolution, curated by the UN Digital Library."
+authors,DEL,String,TBD
+summary,thematic,String,A human-curated summary. Curated by the UN Digital Library.
+notes,thematic,String,Additional notes on the resolution. Curated by the UN Digital Library.
 collections,thematic,String,TBD
 subjects,thematic,String,TBD
-url_record,url,String,TBD
-url_record_draft,url,String,TBD
-url_record_meeting,url,String,TBD
-url_res_ar,url,String,TBD
-url_res_en,url,String,TBD
-url_res_es,url,String,TBD
-url_res_ru,url,String,TBD
-url_res_fr,url,String,TBD
-url_res_zh,url,String,TBD
+url_record,url,String,The URL of the UN Digital Library record for the main resolution.
+url_record_draft,url,String,The URL of the UN Digital Library record for the draft resolution.
+url_record_meeting,url,String,The URL of the UN Digital Library record for the meeting transcript.
+url_res_ar,url,String,The URL of the PDF file containing the Arabic resolution text hosted by the UN Digital Library.
+url_res_en,url,String,The URL of the PDF file containing the English resolution text hosted by the UN Digital Library.
+url_res_es,url,String,The URL of the PDF file containing the Spanish resolution text hosted by the UN Digital Library.
+url_res_ru,url,String,The URL of the PDF file containing the Russian resolution text hosted by the UN Digital Library.
+url_res_fr,url,String,The URL of the PDF file containing the French resolution text hosted by the UN Digital Library.
+url_res_zh,url,String,The URL of the PDF file containing the Chinese resolution text hosted by the UN Digital Library.
 draft,id,String,The official UN symbol of the draft. Example: S/2023/102
 agenda_information,thematic,String,TBD
 contains,thematic,String,"The full name of an instrument annexed to a resolution, otherwise \enquote{NA}. Example: Statute of the International Tribunal for Rwanda (1994)"
 related_resource,,String,TBD
 committee_report,,String,TBD
-resolution_/_decision,,String,TBD
+resolution_/_decision,DEL,String,TBD
 series,,String,TBD
-chapter7,,Logical,Whether the string “Chapter VII” is present in the text of the resolution. This would mean that the Council is acting under Chapter VII.
-nchars,,Integer,TBD
-ntokens,,Integer,TBD
-ntypes,,Integer,TBD
-nsentences,,Integer,TBD
-npages,,Integer,Number of pages of the English version of the document. Sourced from UN Digital Library.
-version,,Date,TBD
-doi\_concept,,String,TBD
-doi\_version,,String,TBD
-license,,String,The license for the data set. In this data set it is always Creative Commons Zero 1.0 Universal. Useful when merging individual rows with other data sets.
-vote_summary,,,
-vote_date,,,
-vote_detail,,,
-vote_yes,,,
-vote_no,,,
-vote_abstention,,,
-vote_nonvote,,,
-vote_total,,,
-human_rights,,,
-chapter6,,,
-chapter8,,,
-peace_threat,,,
-peace_breach,,,
-aggression,,,
-self_defence,,,
-iso_alpha3,,,
-iso_name,,,
-m49_countrycode,,,
-m49_region,,,
-m49_intermediateregion,,,
-m49_subregion,,,
-meeting_no,,,
-topic,,,
+chapter7,thematic,Logical,Whether the string “Chapter VII” is present in the text of the resolution.
+nchars,text,Integer,TBD
+ntokens,text,Integer,TBD
+ntypes,text,Integer,TBD
+nsentences,text,Integer,TBD
+npages,text,Integer,Number of pages of the English PDF version of the document. Curated by the UN Digital Library.
+version,misc,Date,TBD
+doi\_concept,misc,String,TBD
+doi\_version,misc,String,TBD
+license,misc,String,The license for the data set. In this data set it is always Creative Commons Zero 1.0 Universal. Useful when merging individual rows with other data sets.
+vote_summary,vote,,
+vote_date,vote,,
+vote_detail,vote,,
+vote_yes,vote,,
+vote_no,vote,,
+vote_abstention,vote,,
+vote_nonvote,vote,,
+vote_total,vote,,
+human_rights,thematic,Logical,Whether the string “human rights” is present in the English text of the resolution. Either TRUE or FALSE.
+chapter6,thematic,Logical,Whether the string “Chapter VI” is present in the English text of the resolution. Either TRUE or FALSE.
+chapter8,thematic,Logical,Whether the string “Chapter VIII” is present in the English text of the resolution.  Either TRUE or FALSE.
+peace_threat,thematic,Logical,Whether the string “threat to the peace” is present in the English text of the resolution.  Either TRUE or FALSE.
+peace_breach,thematic,Logical,Whether the string “breach of the peace” is present in the English text of the resolution.  Either TRUE or FALSE.
+aggression,thematic,Logical,Whether the string “aggression” is present in the English text of the resolution.  Either TRUE or FALSE.
+self_defence,thematic,Logical,Whether the strings “self-defense” or “self-defence” are present in the English text of the resolution.  Either TRUE or FALSE.
+iso_alpha3,geo,String,"The ISO 3166-1 Alpha-3 codes of all countries mentioned in the text of the resolution. Example: GBR. If more than one, separated by a pipe character. Extracted by searching for short names listed in the UN M49 standard (slightly modified for better accuracy, for example by adding \enquote{DPRK} for North Korea). Warning: a hit for the Congo will always show up when the Democratic Republic of the Congo (DRC) is mentioned. Further disambiguation is not possible because both the short name (Congo) and the fll name (Republic of the Congo) are perfect subsets of the official name of the DRC."
+iso_name,geo,String,"The ISO 3166-1 Alpha-3 names of all countries mentioned in the resolution. Example: Afghanistan. If more than one, separated by a pipe character. Based on the variable \enquote{iso_alpha3}."
+m49_countrycode,geo,String,"The UN M49 country codes of all countries mentioned in the resolution. Example: 818. If more than one, separated by a pipe character. Based on the variable \enquote{iso_alpha3}."
+m49_region,geo,String,"The UN M49 regions of all countries mentioned in the resolution. Example: Americas. If more than one, separated by a pipe character. Based on the variable \enquote{iso_alpha3}."
+m49_region_intermediate,geo,String,"The UN M49 intermediate regions of all countries mentioned in the resolution. Example: South America. If more than one, separated by a pipe character. Note that not all countries have intermediate regions assigned. Based on the variable \enquote{iso_alpha3}."
+m49_region_sub,geo,String,"The UN M49 sub-regions of all countries mentioned in the resolution. Example: Latin America and the Caribbean. If more than one, separated by a pipe character. Based on the variable \enquote{iso_alpha3}."
+meeting_no,id,Integer,The number of the UN Security Council meeting in which the resolution was adopted.
+topic,thematic,String,A short description of the resolution’s specific topic. Example: \enquote{on withdrawal of USSR troops from Iran}
