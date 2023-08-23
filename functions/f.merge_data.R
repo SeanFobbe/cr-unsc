@@ -88,9 +88,6 @@ f.merge_data <- function(dt.extracted.res.all,
     dt.res.ru <- rbind(dt.ocr.res.all[language == "RU"],
                        dt.extracted.res.all[res_no > ocr.limit & language == "RU"],
                        fill = TRUE)[,.(res_no, text)]
-
-    str(dt.ocr.res.all[language == "RU"])
-
     
     setnames(dt.res.ru, "text", "text_ru")
     
@@ -113,10 +110,42 @@ f.merge_data <- function(dt.extracted.res.all,
                 by = "res_no",                
                 all.x = TRUE,
                 sort = FALSE)
-    
 
 
+    ## Merge draft texts
+
+    dt.draft.en <- rbind(dt.draft.all[docvar7 == "TESSERACT"],
+                         dt.draft.all[res_no > ocr.limit & is.na(docvar7)],
+                         fill = TRUE)[,.(res_no, text)]
+
+    setnames(dt.draft.en, "text", "text_draft")
+
+    dt <- merge(dt,
+                dt.draft.en,
+                by = "res_no",                
+                all.x = TRUE,
+                sort = FALSE)
+
+
+    ## Merge meeting record texts
+
+    dt.meeting.en <- rbind(dt.meeting.all[docvar7 == "TESSERACT"],
+                         dt.meeting.all[res_no > ocr.limit & is.na(docvar7)],
+                         fill = TRUE)[,.(res_no, text)]
+
+    setnames(dt.meeting.en, "text", "text_meeting")
     
+    dt <- merge(dt,
+                dt.meeting.en,
+                by = "res_no",                
+                all.x = TRUE,
+                sort = FALSE)
+    
+    
+    
+    str(dt.draft.all)
+
+    unique(dt.draft.all$docvar7)
     
     ## Remove variables
 
@@ -132,13 +161,9 @@ f.merge_data <- function(dt.extracted.res.all,
 
     
     
-    ## Merge draft texts
 
-    dt <- merge(dt,
-                dt.draft.en,
-                by = "res_no",                
-                all.x = TRUE,
-                sort = FALSE)
+
+
 
 
     ## Merge meeting records
