@@ -2,13 +2,15 @@
 #'
 #' This function merges the various data tables created by different functions into one coherent whole, which is then available for further processing.
 #'
-#' @param dt.res.en The English texts of UNSC resolutions.
+#' @param dt.extracted.res.all The hexalingual set of extracted texts of UNSC resolutions.
+#' @param dt.ocr.res.all The hexalingual set of OCR texts of UNSC resolutions.
 #' @param dt.res.en.gold The gold-standard manually reviewed English texts of UNSC resolutions.
-#' @param dt.draft.en The English draft texts of UNSC resolutions.
-#' @param dt.meeting.en The English meeting record texts for UNSC resolutions.
+#' @param dt.draft.all The English draft texts (OCR and extracted) of UNSC resolutions.
+#' @param dt.meeting.all The English meeting record texts (OCR and extracted) for UNSC resolutions.
 #' @param dt.download The original download table with metadata from each record page.
 #' @param dt.record.final The URLs to each record page.
 #' @param dt.voting The voting data collected from each record page.
+#' @param ocr.limit The set of resolutions up to which scanning (non-born-digital) is assumed and OCR is performed.
 
 
 
@@ -192,7 +194,7 @@ f.merge_data <- function(dt.extracted.res.all,
     ## Unit test
     test_that("Results conform to expectations.", {
         expect_s3_class(dt.return, "data.table")
-#        expect_equal(dt.return[,.N], dt.res.en[,.N])
+        expect_equal(dt.return[,.N], dt.extracted.res.all[language == "EN",.N])
         expect_lte(dt.return[,.N], dt.voting[,.N])
         expect_gte(dt.return[,.N], dt.draft.en[,.N])
         expect_gte(dt.return[,.N], dt.meeting.en[,.N])
