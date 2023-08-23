@@ -51,12 +51,25 @@ f.bibtex <- function(dt.final,
                            action_note,
                            draft,
                            agenda_information,
-                           description,
+                           vote_summary,
+                           vote_detail,
+                           chapter6,
+                           chapter7,
+                           chapter8,
+                           iso_name,
+                           m49_region,
+                           m49_region_sub,
+                           m49_region_intermediate,
                            notes,
                            subjects,
                            call_number,
                            related_resource,
-                           ntokens)]
+                           ntokens,
+                           npages,
+                           version,
+                           doi_concept,
+                           doi_version,
+                           license)]
 
 
     ## Combine data tables
