@@ -75,7 +75,7 @@ ggraph(g,
     theme_void()+
     labs(
         title = paste(prefix.figuretitle,
-                      "| Complete data set compilation process."),
+                      "| Complete data set compilation process"),
         caption = caption
     )+
     theme(
