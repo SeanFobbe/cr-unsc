@@ -45,11 +45,10 @@ f.finalize <- function(dt.intermediate,
 
     ## Create "topic" variable (topic of specific resolutions)
 
-    dt.final$topic <- unlist(stringi::stri_extract_all(dt.final$other_title,
-                                                       regex = "\\[(.*)\\]"))
+    dt.final$topic <- gsub(".*\\[(.*)\\].*", "\\1", dt.final$other_title)
+    dt.final$topic <- gsub(" +|\n+", " ", dt.final$topic)
 
-    dt.final$topic <- gsub("\\[|\\]", "", dt.final$topic)
-
+    
     
     ## Create "npage" variable
     dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
