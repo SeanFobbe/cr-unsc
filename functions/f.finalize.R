@@ -32,6 +32,7 @@ f.finalize <- function(dt.intermediate,
     dt.final <- cbind(dt.intermediate,
                       vars.additional)
 
+    
     ## Create "meeting_no" variable
     ## Note: does not contain meeting numbers for all resolutions
     
@@ -49,10 +50,11 @@ f.finalize <- function(dt.intermediate,
     dt.final$topic <- gsub(" +|\n+", " ", dt.final$topic)
 
     
-    
     ## Create "npage" variable
     dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
 
+
+    
     ## Remove "description" variable (contains only page numbers now available in "npages")
     dt.final$description <- NULL
 
