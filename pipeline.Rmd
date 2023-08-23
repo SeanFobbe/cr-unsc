@@ -993,7 +993,8 @@ tar_target(dt.intermediate,
                         dt.meeting.en = dt_meeting_all,
                         dt.download = dt.download,
                         dt.record.final = dt.record.final,
-						dt.voting = dt.voting))
+						dt.voting = dt.voting,
+						ocr.limit = 899))
 
 ```
 
