@@ -88,6 +88,9 @@ f.finalize <- function(dt.intermediate,
     test_that("Result conforms to expectations.", {
         expect_s3_class(dt.final, "data.table")
         expect_equal(dt.final[,.N], dt.intermediate[,.N])
+        expect_setequal(names(dt.final), varnames)
+        expect_equal(names(dt.final), varnames)
+
     })
 
 
