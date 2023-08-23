@@ -1,77 +1,75 @@
-varname,type,description
-res_no,Integer,The number of the resolution. Example: 156
-doc\_id,String,The filename of the extracted TXT file.
-symbol,String,The official UN symbol of the resolution. Example: S/RES/2316 (2016)
-date,Date,The adoption date of the resolution in the format YYYY-MM-DD (ISO 8601). Example: 2016-11-09
-text,String,"The English text of the resolution. Up to resolution 899 this is revised OCR text, later resolutions are assumed to be born-digital and the text is extracted from the PDF file as-is."
-text_ar,String,"The Arabic text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text_es,String,"The Spanish text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text_fr,String,"The French text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text_ru,String,"The Russian text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text_zh,String,"The Chinese text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text_draft,String,"The English text of the draft resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text_meeting,String,"The English text of the meeting record. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-body,String,"The body issuing the document. In the main data set this is always the UN Security Council (\enquote{S}), in the network data this may also be the UN General Assembly (\enquote{A})."
-doctype,String,The type of the main document. In this data set always \enquote{RES}.
-year,Integer,The adoption year of the resolution in the format YYYY (ISO 8601). Example: 2016
-title,String,TBD
-other_titles,String,TBD
-language,String,TBD
-access,String,TBD
-call_number,String,TBD
-action_note,String,TBD
-meeting_record,String,TBD
-authors,String,TBD
-summary,String,"A human-curated summary, published by the UN Digital Library."
-notes,String,TBD
-collections,String,TBD
-subjects,String,TBD
-url_record,String,TBD
-url_record_draft,String,TBD
-url_record_meeting,String,TBD
-url_res_ar,String,TBD
-url_res_en,String,TBD
-url_res_es,String,TBD
-url_res_ru,String,TBD
-url_res_fr,String,TBD
-url_res_zh,String,TBD
-draft,String,TBD
-agenda_information,String,TBD
-contains,String,TBD
-related_resource,String,TBD
-committee_report,String,TBD
-resolution_/_decision,String,TBD
-series,String,TBD
-chapter7,Logical,Whether the string “Chapter VII” is present in the text of the resolution. This would mean that the Council is acting under Chapter VII.
-nchars,Integer,TBD
-ntokens,Integer,TBD
-ntypes,Integer,TBD
-nsentences,Integer,TBD
-npages,Integer,Number of pages of the English version of the document. Sourced from UN Digital Library.
-version,Date,TBD
-doi\_concept,String,TBD
-doi\_version,String,TBD
-license,String,The license for the data set. For the CR-UNSC it is always. \enquote{Creative Commons Zero 1.0 Universal}. Useful when merging individual rows with other data sets.
-vote_summary,,
-vote_date,,
-vote_detail,,
-vote_yes,,
-vote_no,,
-vote_abstention,,
-vote_nonvote,,
-vote_total,,
-human_rights,,
-chapter6,,
-chapter8,,
-peace_threat,,
-peace_breach,,
-aggression,,
-self_defence,,
-iso_alpha3,,
-iso_name,,
-m49_countrycode,,
-m49_region,,
-m49_intermediateregion,,
-m49_subregion,,
-meeting_no,,
-topic,,
+varname,group,type,description
+res_no,id,Integer,The number of the resolution. Example: 156
+doc\_id,id,String,The filename of the extracted TXT file.
+symbol,id,String,The official UN symbol of the resolution. Example: S/RES/2316 (2016)
+date,id,Date,The adoption date of the resolution in the format YYYY-MM-DD (ISO 8601). Example: 2016-11-09
+text,text,String,"The English text of the resolution. Up to resolution 899 this is revised OCR text, later resolutions are assumed to be born-digital and the text is extracted from the PDF file as-is."
+text_ar,text,String,"The Arabic text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text_es,text,String,"The Spanish text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text_fr,text,String,"The French text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text_ru,text,String,"The Russian text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text_zh,text,String,"The Chinese text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text_draft,text,String,"The English text of the draft resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text_meeting,text,String,"The English text of the meeting record. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+body,id,String,"The body issuing the document. In the main data set this is always the UN Security Council (\enquote{S}), in the network data this may also be the UN General Assembly (\enquote{A})."
+doctype,id,String,The type of the main document. In this data set always \enquote{RES}.
+year,id,Integer,The adoption year of the resolution in the format YYYY (ISO 8601). Example: 2016
+title,thematic,String,TBD
+other_titles,thematic,String,TBD
+call_number,id,String,TBD
+action_note,id,String,TBD
+meeting_record,id,String,TBD
+authors,id,String,TBD
+summary,thematic,String,"A human-curated summary, curated by the UN Digital Library."
+notes,thematic,String,"Additional notes on the resolution, curated by the UN Digital Library."
+collections,thematic,String,TBD
+subjects,thematic,String,TBD
+url_record,url,String,TBD
+url_record_draft,url,String,TBD
+url_record_meeting,url,String,TBD
+url_res_ar,url,String,TBD
+url_res_en,url,String,TBD
+url_res_es,url,String,TBD
+url_res_ru,url,String,TBD
+url_res_fr,url,String,TBD
+url_res_zh,url,String,TBD
+draft,id,String,The official UN symbol of the draft. Example: S/2023/102
+agenda_information,thematic,String,TBD
+contains,thematic,String,"The full name of an instrument annexed to a resolution, otherwise \enquote{NA}. Example: Statute of the International Tribunal for Rwanda (1994)"
+related_resource,,String,TBD
+committee_report,,String,TBD
+resolution_/_decision,,String,TBD
+series,,String,TBD
+chapter7,,Logical,Whether the string “Chapter VII” is present in the text of the resolution. This would mean that the Council is acting under Chapter VII.
+nchars,,Integer,TBD
+ntokens,,Integer,TBD
+ntypes,,Integer,TBD
+nsentences,,Integer,TBD
+npages,,Integer,Number of pages of the English version of the document. Sourced from UN Digital Library.
+version,,Date,TBD
+doi\_concept,,String,TBD
+doi\_version,,String,TBD
+license,,String,The license for the data set. In this data set it is always Creative Commons Zero 1.0 Universal. Useful when merging individual rows with other data sets.
+vote_summary,,,
+vote_date,,,
+vote_detail,,,
+vote_yes,,,
+vote_no,,,
+vote_abstention,,,
+vote_nonvote,,,
+vote_total,,,
+human_rights,,,
+chapter6,,,
+chapter8,,,
+peace_threat,,,
+peace_breach,,,
+aggression,,,
+self_defence,,,
+iso_alpha3,,,
+iso_name,,,
+m49_countrycode,,,
+m49_region,,,
+m49_intermediateregion,,,
+m49_subregion,,,
+meeting_no,,,
+topic,,,
