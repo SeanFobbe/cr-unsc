@@ -44,7 +44,7 @@ summary,3_thematic,String,0,A human-curated summary. Curated by the UN Digital L
 title,3_thematic,String,0,"The number, year, body, meeting number and date of the resolution in narrative text.  Curated by the UN Digital Library."
 topic,3_thematic,String,0,A short description of the resolution’s specific topic. Example: \enquote{on withdrawal of USSR troops from Iran}
 vote_abstention,4_vote,Integer,1,The number of abstentions. Based on the variable \enquote{vote_summary}.
-vote_date,4_vote,Date,1,The date of the vote on the resolution in the format YYYY-MM-DD (ISO 8601). Example: 1948-08-19. Curated by the UN Digital Library.
+vote_date,4_vote,Date,0,The date of the vote on the resolution in the format YYYY-MM-DD (ISO 8601). Example: 1948-08-19. Curated by the UN Digital Library.
 vote_detail,4_vote,String,0,The exact vote cast by every State. Curated by the UN Digital Library.
 vote_no,4_vote,Integer,1,The number of no votes. Based on the variable \enquote{vote_summary}.
 vote_nonvote,4_vote,Integer,1,The number of non-voting members. Based on the variable \enquote{vote_summary}.
@@ -69,7 +69,7 @@ url_res_zh,6_url,String,0,The URL of the PDF file containing the Chinese resolut
 doi\_concept,7_misc,String,1,The Digital Object Identifier (DOI) for the \emph{concept} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire the \emph{latest version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data.
 doi\_version,7_misc,String,1,The Digital Object Identifier (DOI) for the \emph{specific version} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire this \emph{specific version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data.
 license,7_misc,String,1,The license for the data set. In this data set it is always Creative Commons Zero 1.0 Universal. Useful when merging individual rows with other data sets.
-version,7_misc,Date,1,The version of the data set as a date in the form YYYY-MM-DD (ISO-8601). The version represents the date on which the data set creation process was begun.
+version,7_misc,Date,0,The version of the data set as a date in the form YYYY-MM-DD (ISO-8601). The version represents the date on which the data set creation process was begun.
 authors,DEL,String,0,TBD
 collections,DEL,String,0,TBD
 resolution_/_decision,DEL,String,0,TBD
