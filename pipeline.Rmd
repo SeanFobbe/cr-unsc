@@ -986,7 +986,8 @@ tar_target(dt_meeting_all,
 ```{targets tar.enhance.merge}
 
 tar_target(dt.intermediate,
-           f.merge_data(dt.res.en = dt_res_en,
+           f.merge_data(dt.extracted.res.all = dt_extracted_res_en,
+                        dt.ocr.res.all = dt_ocr_res_all,
                         dt.res.en.gold = dt_res_en_gold,
                         dt.draft.en = dt_draft_en,
                         dt.meeting.en = dt_meeting_en,
