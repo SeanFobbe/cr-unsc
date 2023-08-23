@@ -103,3 +103,4 @@ f.finalize <- function(dt.intermediate,
 ## vars.additional <- tar_read(vars_additional)
 ## varnames  <- tar_read(dt.var_codebook)$varname
 ## debug.toggle = FALSE
+## varnames <- fread("data/CR-UNSC_Variables.csv")$varname
