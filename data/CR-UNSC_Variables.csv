@@ -23,7 +23,6 @@ action_note,String,TBD
 meeting_record,String,TBD
 authors,String,TBD
 summary,String,"A human-curated summary, published by the UN Digital Library."
-,,
 notes,String,TBD
 collections,String,TBD
 subjects,String,TBD
@@ -53,3 +52,12 @@ version,Date,TBD
 doi\_concept,String,TBD
 doi\_version,String,TBD
 license,String,The license for the data set. For the CR-UNSC it is always. \enquote{Creative Commons Zero 1.0 Universal}. Useful when merging individual rows with other data sets.
+vote_summary,,
+vote_date,,
+vote_detail,,
+vote_yes,,
+vote_no,,
+vote_abstention,,
+vote_nonvote,,
+vote_total,,
+human_rights,,
