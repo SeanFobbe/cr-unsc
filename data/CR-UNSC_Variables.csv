@@ -1,18 +1,18 @@
 varname,group,type,freqtable,description
-action_note,1_id,String,1,The date of the action note in the format YYYY-MM-DD (ISO 8601). Example: 1946-06-26. Curated by the UN Digital Library.
+action_note,1_id,String,1,The date of the action note in the format YYYY-MM-DD (ISO 8601). Example: \enquote{1946-06-26}. Curated by the UN Digital Library.
 body,1_id,String,1,"The body issuing the document. In the main data set this is always the UN Security Council (\enquote{S}), in the network data this may also be the UN General Assembly (\enquote{A})."
-call_number,1_id,String,1,The call number of the resolution. Example: UNS(01)/R3.
-committee_report,1_id,String,0,The official UN symbol of the committee report. Example: S/2006/58. Curated by the UN Digital Library.
-date,1_id,Date,0,The adoption date of the resolution in the format YYYY-MM-DD (ISO 8601). Example: 2016-11-09
+call_number,1_id,String,1,The call number of the resolution. Example: \enquote{UNS(01)/R3}.
+committee_report,1_id,String,0,The official UN symbol of the committee report. Example: \enquote{S/2006/58}. Curated by the UN Digital Library.
+date,1_id,Date,0,The adoption date of the resolution in the format YYYY-MM-DD (ISO 8601). Example: \enquote{2016-11-09}.
 doc\_id,1_id,String,0,The filename of the extracted TXT file.
 doctype,1_id,String,1,The type of the main document. In this data set always \enquote{RES}.
-draft,1_id,String,0,The official UN symbol of the draft. Example: S/2023/102. Curated by the UN Digital Library.
+draft,1_id,String,0,The official UN symbol of the draft. Example: \enquote{S/2023/102}. Curated by the UN Digital Library.
 meeting_no,1_id,Integer,1,The number of the UN Security Council meeting in which the resolution was adopted.
-meeting_record,1_id,String,0,The official UN symbol of the meeting record. Example: S/PV.8891. Curated by the UN Digital Library.
-related_resource,1_id,String,0,The official UN symbol of related resources. Example: S/1234. Curated by the UN Digital Library.
-res_no,1_id,Integer,0,The number of the resolution. Example: 156.
-symbol,1_id,String,0,The official UN symbol of the resolution. Example: S/RES/2316 (2016)
-year,1_id,Integer,1,The adoption year of the resolution in the format YYYY (ISO 8601). Example: 2016
+meeting_record,1_id,String,0,The official UN symbol of the meeting record. Example: \enquote{S/PV.8891}. Curated by the UN Digital Library.
+related_resource,1_id,String,0,The official UN symbol of related resources. Example: \enquote{S/1234}. Curated by the UN Digital Library.
+res_no,1_id,Integer,0,The number of the resolution. Example: \enquote{156}.
+symbol,1_id,String,0,The official UN symbol of the resolution. Example: \enquote{S/RES/2316} (2016)
+year,1_id,Integer,1,The adoption year of the resolution in the format YYYY (ISO 8601). Example: \enquote{2016}
 nchars,2_text,Integer,0,The number of characters in the English text of the resolution. Calculated with the nchar() function in R.
 npages,2_text,Integer,0,Number of pages of the English PDF version of the document. Curated by the UN Digital Library.
 nsentences,2_text,Integer,0,"The number of sentences in a given document computed with the quanteda package. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied. The rules for detecting sentence boundaries are very complex and are described in \enquote{Unicode Standard Annex No 29}."
