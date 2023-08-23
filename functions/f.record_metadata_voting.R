@@ -88,4 +88,4 @@ f.record_metadata_voting <- function(x){
 
 ## x <- all[999]
 
-## f.record_metadata_voting(all[2400])
+## f.record_metadata_voting(all[1])
