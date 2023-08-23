@@ -27,9 +27,11 @@ f.merge_data <- function(dt.extracted.res.all,
     
     ## Unit test
     test_that("Arguments conform to expectations.", {
+        expect_s3_class(dt.extracted.res.all, "data.table")
+        expect_s3_class(dt.ocr.res.all, "data.table")
         expect_s3_class(dt.res.en.gold, "data.table")
-        expect_s3_class(dt.draft.en, "data.table")
-        expect_s3_class(dt.meeting.en, "data.table")
+        expect_s3_class(dt.draft.all, "data.table")
+        expect_s3_class(dt.meeting.all, "data.table")
         expect_s3_class(dt.download, "data.table")
         expect_s3_class(dt.record.final, "data.table")
         expect_s3_class(dt.voting, "data.table")
