@@ -162,117 +162,117 @@ kable(dt.var_codebook[group == "1_id", .(varname, type, description)],
 Text variables contain the full text of all six language versions of the UN Security Council's resolutions. Also provided are pre-computed statistical measures of the length of each resolution (English text only).
 
 
-```{r}
+<!-- ```{r} -->
 
-kable(dt.var_codebook[group == "2_text", .(varname, type, description)],
-      format = "latex",
-      align = 'P{3.5cm}P{3cm}p{8cm}',
-      booktabs = TRUE,
-      longtable = TRUE,
-      escape = FALSE,
-      col.names = c("Variable",
-                    "Type",
-                    "Description"))  %>% kable_styling(latex_options = "repeat_header")
+<!-- kable(dt.var_codebook[group == "2_text", .(varname, type, description)], -->
+<!--       format = "latex", -->
+<!--       align = 'P{3.5cm}P{3cm}p{8cm}', -->
+<!--       booktabs = TRUE, -->
+<!--       longtable = TRUE, -->
+<!--       escape = FALSE, -->
+<!--       col.names = c("Variable", -->
+<!--                     "Type", -->
+<!--                     "Description"))  %>% kable_styling(latex_options = "repeat_header") -->
 
-```
+<!-- ``` -->
 
-## Thematic Variables
+<!-- ## Thematic Variables -->
 
-Thematic variables contain a number of different classifications of UN Security Council texts and will prove especially useful for refining the data to fit a thematic research question.
-
-
-```{r}
-
-kable(dt.var_codebook[group == "3_thematic", .(varname, type, description)],
-      format = "latex",
-      align = 'P{3.5cm}P{3cm}p{8cm}',
-      booktabs = TRUE,
-      longtable = TRUE,
-      escape = FALSE,
-      col.names = c("Variable",
-                    "Type",
-                    "Description"))  %>% kable_styling(latex_options = "repeat_header")
-
-```
-
-## Vote Variables
-
-Voting variables document the voting results and patterns of UN Security Council's resolutions. Note that the voting variables contain the geographic distribution of votes.
+<!-- Thematic variables contain a number of different classifications of UN Security Council texts and will prove especially useful for refining the data to fit a thematic research question. -->
 
 
-```{r}
+<!-- ```{r} -->
 
-kable(dt.var_codebook[group == "4_vote", .(varname, type, description)],
-      format = "latex",
-      align = 'P{3.5cm}P{3cm}p{8cm}',
-      booktabs = TRUE,
-      longtable = TRUE,
-      escape = FALSE,
-      col.names = c("Variable",
-                    "Type",
-                    "Description"))  %>% kable_styling(latex_options = "repeat_header")
+<!-- kable(dt.var_codebook[group == "3_thematic", .(varname, type, description)], -->
+<!--       format = "latex", -->
+<!--       align = 'P{3.5cm}P{3cm}p{8cm}', -->
+<!--       booktabs = TRUE, -->
+<!--       longtable = TRUE, -->
+<!--       escape = FALSE, -->
+<!--       col.names = c("Variable", -->
+<!--                     "Type", -->
+<!--                     "Description"))  %>% kable_styling(latex_options = "repeat_header") -->
 
-```
+<!-- ``` -->
 
-## Geographic Variables
+<!-- ## Vote Variables -->
 
-Geographic variables provide insight into the geographic distribution of the UN Security Council's attention. Note that the voting variables contain the geographic distribution of votes.
-
-
-```{r}
-
-kable(dt.var_codebook[group == "5_geo", .(varname, type, description)],
-      format = "latex",
-      align = 'P{3.5cm}P{3cm}p{8cm}',
-      booktabs = TRUE,
-      longtable = TRUE,
-      escape = FALSE,
-      col.names = c("Variable",
-                    "Type",
-                    "Description"))  %>% kable_styling(latex_options = "repeat_header")
-
-```
-
-## Source Variables
-
-Source variables provide explicit references for the data sources via URLs to UN Digital Library record pages and documents.
+<!-- Voting variables document the voting results and patterns of UN Security Council's resolutions. Note that the voting variables contain the geographic distribution of votes. -->
 
 
+<!-- ```{r} -->
 
-```{r}
+<!-- kable(dt.var_codebook[group == "4_vote", .(varname, type, description)], -->
+<!--       format = "latex", -->
+<!--       align = 'P{3.5cm}P{3cm}p{8cm}', -->
+<!--       booktabs = TRUE, -->
+<!--       longtable = TRUE, -->
+<!--       escape = FALSE, -->
+<!--       col.names = c("Variable", -->
+<!--                     "Type", -->
+<!--                     "Description"))  %>% kable_styling(latex_options = "repeat_header") -->
 
-kable(dt.var_codebook[group == "6_url", .(varname, type, description)],
-      format = "latex",
-      align = 'P{3.5cm}P{3cm}p{8cm}',
-      booktabs = TRUE,
-      longtable = TRUE,
-      escape = FALSE,
-      col.names = c("Variable",
-                    "Type",
-                    "Description"))  %>% kable_styling(latex_options = "repeat_header")
+<!-- ``` -->
 
-```
+<!-- ## Geographic Variables -->
+
+<!-- Geographic variables provide insight into the geographic distribution of the UN Security Council's attention. Note that the voting variables contain the geographic distribution of votes. -->
 
 
-## Meta Variables
+<!-- ```{r} -->
 
-Meta variables provide further information on the data set, including version, DOIs and licensing information.
+<!-- kable(dt.var_codebook[group == "5_geo", .(varname, type, description)], -->
+<!--       format = "latex", -->
+<!--       align = 'P{3.5cm}P{3cm}p{8cm}', -->
+<!--       booktabs = TRUE, -->
+<!--       longtable = TRUE, -->
+<!--       escape = FALSE, -->
+<!--       col.names = c("Variable", -->
+<!--                     "Type", -->
+<!--                     "Description"))  %>% kable_styling(latex_options = "repeat_header") -->
+
+<!-- ``` -->
+
+<!-- ## Source Variables -->
+
+<!-- Source variables provide explicit references for the data sources via URLs to UN Digital Library record pages and documents. -->
 
 
 
-```{r}
+<!-- ```{r} -->
 
-kable(dt.var_codebook[group == "7_misc", .(varname, type, description)],
-      format = "latex",
-      align = 'P{3.5cm}P{3cm}p{8cm}',
-      booktabs = TRUE,
-      longtable = TRUE,
-      escape = FALSE,
-      col.names = c("Variable",
-                    "Type",
-                    "Description"))  %>% kable_styling(latex_options = "repeat_header")
+<!-- kable(dt.var_codebook[group == "6_url", .(varname, type, description)], -->
+<!--       format = "latex", -->
+<!--       align = 'P{3.5cm}P{3cm}p{8cm}', -->
+<!--       booktabs = TRUE, -->
+<!--       longtable = TRUE, -->
+<!--       escape = FALSE, -->
+<!--       col.names = c("Variable", -->
+<!--                     "Type", -->
+<!--                     "Description"))  %>% kable_styling(latex_options = "repeat_header") -->
 
-```
+<!-- ``` -->
+
+
+<!-- ## Meta Variables -->
+
+<!-- Meta variables provide further information on the data set, including version, DOIs and licensing information. -->
+
+
+
+<!-- ```{r} -->
+
+<!-- kable(dt.var_codebook[group == "7_misc", .(varname, type, description)], -->
+<!--       format = "latex", -->
+<!--       align = 'P{3.5cm}P{3cm}p{8cm}', -->
+<!--       booktabs = TRUE, -->
+<!--       longtable = TRUE, -->
+<!--       escape = FALSE, -->
+<!--       col.names = c("Variable", -->
+<!--                     "Type", -->
+<!--                     "Description"))  %>% kable_styling(latex_options = "repeat_header") -->
+
+<!-- ``` -->
 
 
 
