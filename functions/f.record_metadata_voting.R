@@ -43,31 +43,57 @@ f.record_metadata_voting <- function(x){
 
 
         
-        ## Extract individual counts
+        ## Extract individual yes counts
         dt.meta$vote_yes <- as.integer(gsub(".*Yes: ([0-9]*).*",
                                             "\\1",
                                             dt.meta$vote_summary))
 
+        dt.meta$vote_yes <- ifelse(is.na(dt.meta$vote_yes),
+                                   0,
+                                   dt.meta$vote_yes)
+
+        ## Extract individual no counts
         dt.meta$vote_no <- as.integer(gsub(".*No: ([0-9]*).*",
                                            "\\1",
                                            dt.meta$vote_summary))
 
+        dt.meta$vote_no <- ifelse(is.na(dt.meta$vote_no),
+                                  0,
+                                  dt.meta$vote_no)
+
+        
+        ## Extract individual abstention counts
         dt.meta$vote_abstention <- as.integer(gsub(".*Abstentions: ([0-9]*).*",
                                                    "\\1",
                                                    dt.meta$vote_summary))
 
+        dt.meta$vote_abstention <- ifelse(is.na(dt.meta$vote_abstention),
+                                          0,
+                                          dt.meta$vote_abstention)
+        
+        ## Extract individual non-voting counts
         dt.meta$vote_nonvote <- as.integer(gsub(".*Non-Voting: ([0-9]*).*",
                                                 "\\1",
                                                 dt.meta$vote_summary))
-        
 
+        dt.meta$vote_nonvote <- ifelse(is.na(dt.meta$vote_nonvote),
+                                       0,
+                                       dt.meta$vote_nonvote)
+
+
+        ## Extract individual total voting counts
         dt.meta$vote_total <- as.integer(gsub(".*Total voting membership: ([0-9]*).*",
                                               "\\1",
                                               dt.meta$vote_summary))
 
+        dt.meta$vote_total <- ifelse(is.na(dt.meta$vote_total),
+                                     0,
+                                     dt.meta$vote_total)
+        
+        
+        ## Add detail to variable name
         setnames(dt.meta, "vote", "vote_detail")
         
-
         
         return(dt.meta)
 
@@ -86,6 +112,6 @@ f.record_metadata_voting <- function(x){
 
 ## all <- tar_read(html.record.voting)
 
-## x <- all[999]
+## x <- all[1]
 
 ## f.record_metadata_voting(all[1])
