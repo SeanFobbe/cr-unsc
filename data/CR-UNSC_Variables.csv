@@ -3,7 +3,7 @@ action_note,1_id,String,1,The date of the action note in the format YYYY-MM-DD (
 body,1_id,String,1,"The body issuing the document. In the main data set this is always the UN Security Council (\enquote{S}), in the network data this may also be the UN General Assembly (\enquote{A})."
 call_number,1_id,String,1,The call number of the resolution. Example: UNS(01)/R3.
 committee_report,1_id,String,0,The official UN symbol of the committee report. Example: S/2006/58. Curated by the UN Digital Library.
-date,1_id,Date,1,The adoption date of the resolution in the format YYYY-MM-DD (ISO 8601). Example: 2016-11-09
+date,1_id,Date,0,The adoption date of the resolution in the format YYYY-MM-DD (ISO 8601). Example: 2016-11-09
 doc\_id,1_id,String,0,The filename of the extracted TXT file.
 doctype,1_id,String,1,The type of the main document. In this data set always \enquote{RES}.
 draft,1_id,String,0,The official UN symbol of the draft. Example: S/2023/102. Curated by the UN Digital Library.
