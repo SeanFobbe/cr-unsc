@@ -31,7 +31,6 @@ aggression,3_thematic,Logical,Whether the string “aggression” is present in 
 chapter6,3_thematic,Logical,Whether the string “Chapter VI” is present in the English text of the resolution. Either TRUE or FALSE.
 chapter7,3_thematic,Logical,Whether the string “Chapter VII” is present in the English text of the resolution. Either TRUE or FALSE.
 chapter8,3_thematic,Logical,Whether the string “Chapter VIII” is present in the English text of the resolution.  Either TRUE or FALSE.
-collections,DEL,String,TBD
 contains,3_thematic,String,"The full name of an instrument annexed to a resolution, otherwise \enquote{NA}. Example: Statute of the International Tribunal for Rwanda (1994). Curated by the UN Digital Library."
 human_rights,3_thematic,Logical,Whether the string “human rights” is present in the English text of the resolution. Either TRUE or FALSE.
 notes,3_thematic,String,Additional notes on the resolution. Curated by the UN Digital Library.
@@ -72,4 +71,5 @@ doi\_version,7_misc,String,The Digital Object Identifier (DOI) for the \emph{spe
 license,7_misc,String,The license for the data set. In this data set it is always Creative Commons Zero 1.0 Universal. Useful when merging individual rows with other data sets.
 version,7_misc,Date,The version of the data set as a date in the form YYYY-MM-DD (ISO-8601). The version represents the date on which the data set creation process was begun.
 authors,DEL,String,TBD
+collections,DEL,String,TBD
 resolution_/_decision,DEL,String,TBD
