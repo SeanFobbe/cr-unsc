@@ -85,13 +85,13 @@ f.regex_variables <- function(text){
                                    output = "un.region.name"))
 
     ## M49 Intermediate Regions
-    dt$m49_intermediateregion <- unlist(lapply(dt$iso_alpha3,
+    dt$m49_region_intermediate <- unlist(lapply(dt$iso_alpha3,
                                                iso_transform,
                                                output = "un.regionintermediate.name"))
 
 
     ## M49 Sub-Regions
-    dt$m49_subregion <- unlist(lapply(dt$iso_alpha3,
+    dt$m49_region_sub <- unlist(lapply(dt$iso_alpha3,
                                       iso_transform,
                                       output = "un.regionsub.name"))
 
