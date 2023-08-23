@@ -32,7 +32,17 @@ f.finalize <- function(dt.intermediate,
     dt.final <- cbind(dt.intermediate,
                       vars.additional)
 
+    ## Create "meeting_no" variable
+    ## Note: does not contain meeting numbers for all resolutions
+    
+    meeting_no <- unlist(stringi::stri_extract_all(dt.final$title,
+                                                   regex = "([0-9]+)\\s*[a-z]+\\s*meeting",
+                                                   case_insensitive = TRUE))
 
+    dt.final$meeting_no <- as.integer(unlist(stringi::stri_extract_all(meeting_no,
+                                                                       regex = "[0-9]+")))
+
+    
     ## Create "npage" variable
     dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
 
