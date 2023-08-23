@@ -49,6 +49,57 @@ Lorem Ipsum.
 
 
 
+
+
+# Reading Files
+
+The data are published in open, interoperable and widely used formats (CSV, TXT, PDF). They can be used with all modern programming languages (e.g. Python or R) and graphical interfaces. The PDF collections are intended to facilitate traditional legal research.
+
+**Important:** Missing values are always coded as \enquote{NA}.
+
+
+## CSV Files
+
+ Working with the CSV files is recommended. CSV\footnote{The CSV format is defined in RFC 4180: <\url{https://tools.ietf.org/html/rfc4180}>.} is an open and simple machine-readable tabular data format. In this data set values are separated by commas. Each column is a variable and each row is a document. Variables are explained in detail in section \ref{variables}.
+
+
+To read \textbf{CSV} files into R I strongly recommend using the fast file reader **fread()** from the **data.table** package (available on CRAN). The file can be read into \textbf{R} like so: 
+
+```{r, eval = FALSE, echo = TRUE}
+library(data.table)
+unsc <- fread("CR-UNSC_2023-08-23_EN_CSV_Main-Dataset.csv")
+```
+
+
+
+## TXT Files
+
+The \textbf{TXT} files, including metadata, can be read into \textbf{R} with the package \textbf{readtext} (available on CRAN) thus:
+
+```{r, eval = FALSE, echo = TRUE}
+library(readtext)
+unsc <- readtext("txt_res_en/*.txt",
+                 docvarsfrom = "filenames", 
+                 docvarnames = c("body",
+                                 "doctype",
+                                 "res_no",
+                                 "year",
+                                 "language"),
+                 dvsep = "_", 
+                 encoding = "UTF-8")
+
+```
+
+
+
+
+
+
+
+
+
+
+
 ```{r, CR-UNSC_00_Pipeline_Graph_blackwhite, fig.width = 12, fig.height = 14, fig.pos = "p", fig.cap = "The complete data set compilation process."}
 
 
