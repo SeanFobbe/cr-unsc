@@ -33,11 +33,13 @@ f.finalize <- function(dt.intermediate,
                       vars.additional)
 
 
-    ## Transform "description" variable
+    ## Create "npage" variable
 
     dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
 
-    
+    ## Remove "description" variable
+
+    dt.final$description <- NULL
 
     
     ## Order by Resolution Number
