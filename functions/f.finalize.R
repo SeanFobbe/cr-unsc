@@ -61,7 +61,14 @@ f.finalize <- function(dt.intermediate,
     ## Remove "date_undl" variable (contains only date, "New York" and "UN"; date is separate variable now)
 
     dt.final$date_undl <- NULL
+
+    ## Remove "language" variable (text language is encoded in var names)
+    dt.final$language <- NULL
     
+    ## Remove "access" variable (only repeats file name)
+    dt.final$access <- NULL
+
+
     
     ## Order by Resolution Number
 
@@ -107,3 +114,4 @@ f.finalize <- function(dt.intermediate,
 ## varnames  <- tar_read(dt.var_codebook)$varname
 ## debug.toggle = FALSE
 ## varnames <- fread("data/CR-UNSC_Variables.csv")$varname
+## setdiff(names(dt.final), varnames)
