@@ -45,7 +45,7 @@ f.merge_data <- function(dt.extracted.res.all,
     ## Merge Arabic resolution texts
     dt.res.ar <- rbind(dt.ocr.res.all[language == "AR"],
                        dt.extracted.res.all[res_no > ocr.limit & language == "AR"],
-                       fill = TRUE)[,.(res_no, text)]
+                       fill = TRUE)[,.(res_no, text)][order(res_no)]
 
     setnames(dt.res.ar, "text", "text_ar")
     
@@ -59,7 +59,7 @@ f.merge_data <- function(dt.extracted.res.all,
     ## Merge Spanish resolution texts
     dt.res.es <- rbind(dt.ocr.res.all[language == "ES"],
                        dt.extracted.res.all[res_no > ocr.limit & language == "ES"],
-                       fill = TRUE)[,.(res_no, text)]
+                       fill = TRUE)[,.(res_no, text)][order(res_no)]
 
     setnames(dt.res.es, "text", "text_es")
     
@@ -73,7 +73,7 @@ f.merge_data <- function(dt.extracted.res.all,
     ## Merge French resolution texts
     dt.res.fr <- rbind(dt.ocr.res.all[language == "FR"],
                        dt.extracted.res.all[res_no > ocr.limit & language == "FR"],
-                       fill = TRUE)[,.(res_no, text)]
+                       fill = TRUE)[,.(res_no, text)][order(res_no)]
 
     setnames(dt.res.fr, "text", "text_fr")
     
@@ -87,7 +87,7 @@ f.merge_data <- function(dt.extracted.res.all,
     ## Merge Russian resolution texts
     dt.res.ru <- rbind(dt.ocr.res.all[language == "RU"],
                        dt.extracted.res.all[res_no > ocr.limit & language == "RU"],
-                       fill = TRUE)[,.(res_no, text)]
+                       fill = TRUE)[,.(res_no, text)][order(res_no)]
     
     setnames(dt.res.ru, "text", "text_ru")
     
@@ -101,7 +101,7 @@ f.merge_data <- function(dt.extracted.res.all,
     ## Merge Chinese resolution texts
     dt.res.zh <- rbind(dt.ocr.res.all[language == "ZH"],
                        dt.extracted.res.all[res_no > ocr.limit & language == "ZH"],
-                       fill = TRUE)[,.(res_no, text)]
+                       fill = TRUE)[,.(res_no, text)][order(res_no)]
 
     setnames(dt.res.zh, "text", "text_zh")
     
@@ -116,7 +116,7 @@ f.merge_data <- function(dt.extracted.res.all,
 
     dt.draft.en <- rbind(dt.draft.all[docvar7 == "TESSERACT"],
                          dt.draft.all[res_no > ocr.limit & is.na(docvar7)],
-                         fill = TRUE)[,.(res_no, text)]
+                         fill = TRUE)[,.(res_no, text)][order(res_no)]
 
     setnames(dt.draft.en, "text", "text_draft")
 
@@ -131,7 +131,7 @@ f.merge_data <- function(dt.extracted.res.all,
 
     dt.meeting.en <- rbind(dt.meeting.all[docvar7 == "TESSERACT"],
                          dt.meeting.all[res_no > ocr.limit & is.na(docvar7)],
-                         fill = TRUE)[,.(res_no, text)]
+                         fill = TRUE)[,.(res_no, text)][order(res_no)]
 
     setnames(dt.meeting.en, "text", "text_meeting")
     
@@ -141,38 +141,12 @@ f.merge_data <- function(dt.extracted.res.all,
                 all.x = TRUE,
                 sort = FALSE)
     
+        
     
-    
-    str(dt.draft.all)
+    ## ## Rename text variables for draft and meeting
 
-    unique(dt.draft.all$docvar7)
-    
-    ## Remove variables
-
-    dt.draft.en <- dt.draft.en[,.(res_no, text)]
-    dt.meeting.en <- dt.meeting.en[,.(res_no, text)]
-
-    
-    ## Rename text variables for draft and meeting
-
-    names(dt.draft.en) <- gsub("text", "text_draft", names(dt.draft.en))
-    names(dt.meeting.en) <- gsub("text", "text_meeting", names(dt.meeting.en))
-
-
-    
-    
-
-
-
-
-
-    ## Merge meeting records
-
-    dt <- merge(dt,
-                dt.meeting.en,
-                by = "res_no",
-                all.x = TRUE,
-                sort = FALSE)
+    ## names(dt.draft.en) <- gsub("text", "text_draft", names(dt.draft.en))
+    ## names(dt.meeting.en) <- gsub("text", "text_meeting", names(dt.meeting.en))
     
 
     ## Merge downloaded metadata
