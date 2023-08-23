@@ -43,20 +43,20 @@ subjects,3_thematic,String,0,Various thematic labels. Multiple labels separated 
 summary,3_thematic,String,0,A human-curated summary. Curated by the UN Digital Library.
 title,3_thematic,String,0,"The number, year, body, meeting number and date of the resolution in narrative text.  Curated by the UN Digital Library."
 topic,3_thematic,String,0,A short description of the resolution’s specific topic. Example: \enquote{on withdrawal of USSR troops from Iran}
-vote\_abstention,4_vote,Integer,1,The number of abstentions. Based on the variable \enquote{vote_summary}.
+vote\_abstention,4_vote,Integer,1,The number of abstentions. Based on the variable \enquote{vote\_summary}.
 vote\_date,4_vote,Date,0,The date of the vote on the resolution in the format YYYY-MM-DD (ISO 8601). Example: 1948-08-19. Curated by the UN Digital Library.
 vote\_detail,4_vote,String,0,The exact vote cast by every State. Curated by the UN Digital Library.
-vote\_no,4_vote,Integer,1,The number of no votes. Based on the variable \enquote{vote_summary}.
-vote\_nonvote,4_vote,Integer,1,The number of non-voting members. Based on the variable \enquote{vote_summary}.
+vote\_no,4_vote,Integer,1,The number of no votes. Based on the variable \enquote{vote\_summary}.
+vote\_nonvote,4_vote,Integer,1,The number of non-voting members. Based on the variable \enquote{vote\_summary}.
 vote\_summary,4_vote,String,0,"A narrative summary of the voting counts (yes, no, abstention, non-voting, total voting membership). Curated by the UN Digital Library."
-vote\_total,4_vote,Integer,1,The total voting membership of the UN Security Council at the time of the vote. Based on the variable \enquote{vote_summary}.
-vote\_yes,4_vote,Integer,1,The number of yes votes. Based on the variable \enquote{vote_summary}.
+vote\_total,4_vote,Integer,1,The total voting membership of the UN Security Council at the time of the vote. Based on the variable \enquote{vote\_summary}.
+vote\_yes,4_vote,Integer,1,The number of yes votes. Based on the variable \enquote{vote\_summary}.
 iso\_alpha3,5_geo,String,0,"The ISO 3166-1 Alpha-3 codes of all countries mentioned in the text of the resolution. Example: GBR. If more than one, separated by a pipe character. Extracted by searching for short names listed in the UN M49 standard (slightly modified for better accuracy, for example by adding \enquote{DPRK} for North Korea). Warning: a hit for the Congo will always show up when the Democratic Republic of the Congo (DRC) is mentioned. Further disambiguation is not possible because both the short name (Congo) and the fll name (Republic of the Congo) are perfect subsets of the official name of the DRC."
-iso\_name,5_geo,String,0,"The ISO 3166-1 Alpha-3 names of all countries mentioned in the resolution. Example: Afghanistan. If more than one, separated by a pipe character. Based on the variable \enquote{iso_alpha3}."
-m49\_countrycode,5_geo,String,0,"The UN M49 country codes of all countries mentioned in the resolution. Example: 818. If more than one, separated by a pipe character. Based on the variable \enquote{iso_alpha3}."
-m49\_region,5_geo,String,1,"The UN M49 regions of all countries mentioned in the resolution. Example: Americas. If more than one, separated by a pipe character. Based on the variable \enquote{iso_alpha3}."
-m49\_region\_intermediate,5_geo,String,1,"The UN M49 intermediate regions of all countries mentioned in the resolution. Example: South America. If more than one, separated by a pipe character. Note that not all countries have intermediate regions assigned. Based on the variable \enquote{iso_alpha3}."
-m49\_region\_sub,5_geo,String,1,"The UN M49 sub-regions of all countries mentioned in the resolution. Example: Latin America and the Caribbean. If more than one, separated by a pipe character. Based on the variable \enquote{iso_alpha3}."
+iso\_name,5_geo,String,0,"The ISO 3166-1 Alpha-3 names of all countries mentioned in the resolution. Example: Afghanistan. If more than one, separated by a pipe character. Based on the variable \enquote{iso\_alpha3}."
+m49\_countrycode,5_geo,String,0,"The UN M49 country codes of all countries mentioned in the resolution. Example: 818. If more than one, separated by a pipe character. Based on the variable \enquote{iso\_alpha3}."
+m49\_region,5_geo,String,1,"The UN M49 regions of all countries mentioned in the resolution. Example: Americas. If more than one, separated by a pipe character. Based on the variable \enquote{iso\_alpha3}."
+m49\_region\_intermediate,5_geo,String,1,"The UN M49 intermediate regions of all countries mentioned in the resolution. Example: South America. If more than one, separated by a pipe character. Note that not all countries have intermediate regions assigned. Based on the variable \enquote{iso\_alpha3}."
+m49\_region\_sub,5_geo,String,1,"The UN M49 sub-regions of all countries mentioned in the resolution. Example: Latin America and the Caribbean. If more than one, separated by a pipe character. Based on the variable \enquote{iso\_alpha3}."
 url\_record,6_url,String,0,The URL of the UN Digital Library record for the main resolution.
 url\_record\_draft,6_url,String,0,The URL of the UN Digital Library record for the draft resolution.
 url\_record\_meeting,6_url,String,0,The URL of the UN Digital Library record for the meeting transcript.
