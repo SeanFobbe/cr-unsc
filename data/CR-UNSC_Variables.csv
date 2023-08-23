@@ -33,31 +33,31 @@ url_res_es,url,String,The URL of the PDF file containing the Spanish resolution 
 url_res_ru,url,String,The URL of the PDF file containing the Russian resolution text hosted by the UN Digital Library.
 url_res_fr,url,String,The URL of the PDF file containing the French resolution text hosted by the UN Digital Library.
 url_res_zh,url,String,The URL of the PDF file containing the Chinese resolution text hosted by the UN Digital Library.
-draft,id,String,The official UN symbol of the draft. Example: S/2023/102
+draft,id,String,The official UN symbol of the draft. Example: S/2023/102. Curated by the UN Digital Library.
 agenda_information,thematic,String,TBD
-contains,thematic,String,"The full name of an instrument annexed to a resolution, otherwise \enquote{NA}. Example: Statute of the International Tribunal for Rwanda (1994)"
-related_resource,,String,TBD
-committee_report,,String,TBD
+contains,thematic,String,"The full name of an instrument annexed to a resolution, otherwise \enquote{NA}. Example: Statute of the International Tribunal for Rwanda (1994). Curated by the UN Digital Library."
+related_resource,id,String,The official UN symbol of related resources. Example: S/1234. Curated by the UN Digital Library.
+committee_report,id,String,The official UN symbol of the committee report. Example: S/2006/58. Curated by the UN Digital Library.
 resolution_/_decision,DEL,String,TBD
-series,,String,TBD
-chapter7,thematic,Logical,Whether the string “Chapter VII” is present in the text of the resolution.
-nchars,text,Integer,TBD
-ntokens,text,Integer,TBD
-ntypes,text,Integer,TBD
-nsentences,text,Integer,TBD
+series,thematic,String,Indicates whether an Advisory Opinion was requested from the International Court of Justice. Curated by the UN Digital Library.
+chapter7,thematic,Logical,Whether the string “Chapter VII” is present in the English text of the resolution. Either TRUE or FALSE.
+nchars,text,Integer,The number of characters in the English text of the resolution.
+ntokens,text,Integer,"The number of tokens (an arbitrary character sequence bounded by whitespace) in a given document computed with the quanteda package. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied."
+ntypes,text,Integer,"The number of types (unique tokens) in a given document computed with the quanteda package. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied."
+nsentences,text,Integer,"The number of sentences in a given document computed with the quanteda package. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied. The rules for detecting sentence boundaries are very complex and are described in \enquote{Unicode Standard Annex No 29}."
 npages,text,Integer,Number of pages of the English PDF version of the document. Curated by the UN Digital Library.
-version,misc,Date,TBD
-doi\_concept,misc,String,TBD
-doi\_version,misc,String,TBD
+version,misc,Date,The version of the data set as a date in the form YYYY-MM-DD (ISO-8601). The version represents the date on which the data set creation process was begun.
+doi\_concept,misc,String,The Digital Object Identifier (DOI) for the \emph{concept} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire the \emph{latest version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data.
+doi\_version,misc,String,The Digital Object Identifier (DOI) for the \emph{specific version} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire this \emph{specific version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data.
 license,misc,String,The license for the data set. In this data set it is always Creative Commons Zero 1.0 Universal. Useful when merging individual rows with other data sets.
-vote_summary,vote,,
-vote_date,vote,,
-vote_detail,vote,,
-vote_yes,vote,,
-vote_no,vote,,
-vote_abstention,vote,,
-vote_nonvote,vote,,
-vote_total,vote,,
+vote_summary,vote,String,"A textual summary of the voting counts (yes, no, abstention, non-voting, total voting membership). Curated by the UN Digital Library."
+vote_date,vote,Date,The date of the vote on the resolution in the format YYYY-MM-DD (ISO 8601). Example: 1948-08-19. Curated by the UN Digital Library.
+vote_detail,vote,String,The exact vote cast by every State. Curated by the UN Digital Library.
+vote_yes,vote,Integer,The number of yes votes. Based on the variable \enquote{vote_summary}.
+vote_no,vote,Integer,The number of no votes. Based on the variable \enquote{vote_summary}.
+vote_abstention,vote,Integer,The number of abstentions. Based on the variable \enquote{vote_summary}.
+vote_nonvote,vote,Integer,The number of non-voting members. Based on the variable \enquote{vote_summary}.
+vote_total,vote,Integer,The total voting membership of the UN Security Council at the time of the vote. Based on the variable \enquote{vote_summary}.
 human_rights,thematic,Logical,Whether the string “human rights” is present in the English text of the resolution. Either TRUE or FALSE.
 chapter6,thematic,Logical,Whether the string “Chapter VI” is present in the English text of the resolution. Either TRUE or FALSE.
 chapter8,thematic,Logical,Whether the string “Chapter VIII” is present in the English text of the resolution.  Either TRUE or FALSE.
