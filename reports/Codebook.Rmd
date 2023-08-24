@@ -139,6 +139,13 @@ ggraph(g,
 
 # Variable Descriptions
 
+## General Remarks
+
+- Missing values are always coded as \enquote{NA}.
+- All Strings are encoded in UTF-8.
+- A significant part of the metadata has been drawn from the UN Digital Library metadata records and was originally curated by the UN Digital Library.
+
+
 ## ID Variables
 
 The group ID variables identifies the resolution, its draft, meeting record and various associated documents with symbols and dates.
@@ -257,7 +264,7 @@ kable(dt.var_codebook[group == "6_url", .(varname, type, description)],
 
 ## Meta Variables
 
-Meta variables provide further information on the data set, including version, DOIs and licensing information.
+Meta variables provide further information on the data set, including version, DOIs and licensing information. These document provenance and ensure compliance with FAIR Data Principles F1, F3 and R1.1.
 
 
 
@@ -398,6 +405,20 @@ ggplot(dt.allmetrics.en, aes(x = value,
         
 
 ```
+
+
+
+# Metadata Frequency Tables
+ 
+\ra{1.3}
+ 
+
+## Resolutions By Year
+
+
+## Concerned Countries
+
+
 
 
 
