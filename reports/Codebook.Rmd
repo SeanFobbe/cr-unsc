@@ -496,6 +496,66 @@ ggplot(dt.allmetrics.en, aes(x = value,
 
 ## Resolutions By Year
 
+freqtable.year <- f.fast.freqtable(dt.final,
+                                 varlist = "year",
+                                 sumrow = TRUE,
+                                 output.list = TRUE,
+                                 output.kable = FALSE,
+                                 output.csv = FALSE,
+                                 align = c("p{5cm}"))[[1]][,exactpercent:=NULL]
+
+freqtable.year.nosum <- freqtable.year[-.N]
+
+```
+
+
+```{r, CR-UNSC_05_Barplot_Resolutions-by-Year, fig.height = 6, fig.width = 9}
+ggplot(data = freqtable.year.nosum) +
+    geom_bar(aes(x = reorder(year,
+                             -N),
+                 y = N),
+             stat = "identity",
+             fill = "black",
+             color = "black",
+             width = 0.5) +
+    theme_bw() +
+    labs(
+        title = paste(prefix.figuretitle,
+                      "| Resolutions by Year"),
+        caption = caption,
+        x = "Year of Adoption",
+        y = "Resolutions"
+    )+
+    theme(
+        text = element_text(size = 14),
+        plot.title = element_text(size = 14,
+                                  face = "bold"),
+        legend.position = "none",
+        plot.margin = margin(10, 20, 10, 10)
+    )
+
+```
+
+
+\vspace{0.5cm}
+
+
+```{r}
+
+kable(freqtable.year,
+      format = "latex",
+      align = 'P{3cm}',
+      booktabs = TRUE,
+      longtable = TRUE,
+      col.names = c("Year",
+                    "Resolutions",
+                    "% Gesamt",
+                    "% Kumulativ"))  %>% kable_styling(latex_options = "repeat_header")
+
+```
+
+
+
 
 ## Concerned Countries
 
