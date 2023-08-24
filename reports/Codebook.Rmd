@@ -498,7 +498,7 @@ ggplot(dt.allmetrics.en, aes(x = value,
 
 
 ```{r, CR-UNSC_05_Barplot_Resolutions-by-Year, fig.height = 6, fig.width = 9}
-freqtable.year <- f.fast.freqtable(dt.final,
+freqtable <- f.fast.freqtable(dt.final,
                                  varlist = "year",
                                  sumrow = TRUE,
                                  output.list = TRUE,
@@ -506,15 +506,14 @@ freqtable.year <- f.fast.freqtable(dt.final,
                                  output.csv = FALSE,
                                  align = c("p{5cm}"))[[1]][,exactpercent:=NULL]
 
-freqtable.year.nosum <- freqtable.year[-.N]
+freqtable.nosum <- freqtable[-.N]
 
 
 
 
 
-ggplot(data = freqtable.year.nosum) +
-    geom_bar(aes(x = reorder(year,
-                             -N),
+ggplot(data = freqtable.nosum) +
+    geom_bar(aes(x = year,
                  y = N),
              stat = "identity",
              fill = "black",
@@ -544,7 +543,7 @@ ggplot(data = freqtable.year.nosum) +
 
 ```{r}
 
-kable(freqtable.year,
+kable(freqtable,
       format = "latex",
       align = 'P{3cm}',
       booktabs = TRUE,
