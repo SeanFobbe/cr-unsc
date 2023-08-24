@@ -610,6 +610,26 @@ ggplot(data = freqtable.nosum) +
 
 
 
+\vspace{0.5cm}
+
+
+```{r}
+
+kable(freqtable,
+      format = "latex",
+      align = 'P{3cm}',
+      booktabs = TRUE,
+      longtable = TRUE,
+      col.names = c("Country",
+                    "Resolutions",
+                    "% Total",
+                    "% Cumulative"))  %>% kable_styling(latex_options = "repeat_header")
+
+```
+
+
+
+
 ## Resolutions By Subject
 
 
@@ -661,6 +681,21 @@ ggplot(data = freqtable.nosum) +
         legend.position = "none",
         plot.margin = margin(10, 20, 10, 10)
     )
+
+```
+
+
+```{r}
+
+kable(freqtable,
+      format = "latex",
+      align = 'P{3cm}',
+      booktabs = TRUE,
+      longtable = TRUE,
+      col.names = c("Subject",
+                    "Resolutions",
+                    "% Total",
+                    "% Cumulative"))  %>% kable_styling(latex_options = "repeat_header")
 
 ```
 
