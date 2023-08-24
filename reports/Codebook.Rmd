@@ -561,7 +561,7 @@ kable(freqtable,
 ## Concerned Countries
 
 
-```{r, CR-UNSC_05_Barplot_Resolutions-by-Country, fig.height = 6, fig.width = 9}
+```{r, CR-UNSC_05_Barplot_Resolutions-by-Country, fig.height = 14, fig.width = 10}
 split <- unlist(stringi::stri_split(dt.final$iso_name, regex = "\\|"))
 country <- split[split != ""]
 
