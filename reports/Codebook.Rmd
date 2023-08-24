@@ -496,6 +496,8 @@ ggplot(dt.allmetrics.en, aes(x = value,
 
 ## Resolutions By Year
 
+
+```{r, CR-UNSC_05_Barplot_Resolutions-by-Year, fig.height = 6, fig.width = 9}
 freqtable.year <- f.fast.freqtable(dt.final,
                                  varlist = "year",
                                  sumrow = TRUE,
@@ -506,10 +508,10 @@ freqtable.year <- f.fast.freqtable(dt.final,
 
 freqtable.year.nosum <- freqtable.year[-.N]
 
-```
 
 
-```{r, CR-UNSC_05_Barplot_Resolutions-by-Year, fig.height = 6, fig.width = 9}
+
+
 ggplot(data = freqtable.year.nosum) +
     geom_bar(aes(x = reorder(year,
                              -N),
