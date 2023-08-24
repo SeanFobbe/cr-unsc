@@ -593,7 +593,7 @@ ggplot(data = freqtable.nosum) +
     theme_bw() +
     labs(
         title = paste(prefix.figuretitle,
-                      "| Countries mentioned"),
+                      "| Top 50 Countries mentioned"),
         caption = caption,
         x = "Country",
         y = "Resolutions"
@@ -669,7 +669,7 @@ ggplot(data = freqtable.nosum) +
     theme_bw() +
     labs(
         title = paste(prefix.figuretitle,
-                      "| Resolutions by Subject"),
+                      "| Top 50 Subjects"),
         caption = caption,
         x = "Subject",
         y = "Resolutions"
@@ -687,7 +687,7 @@ ggplot(data = freqtable.nosum) +
 
 ```{r}
 
-kable(freqtable,
+kable(freqtable.nosum,
       format = "latex",
       align = 'P{3cm}',
       booktabs = TRUE,
