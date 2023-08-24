@@ -403,6 +403,37 @@ ggplot(dt.allmetrics.en, aes(x = value,
 
 
 
+# Cryptographic Signatures
+
+
+## Two Phase Signature
+
+
+The integrity and veracity of the ZIP archives and other output of the data set are guaranteed with two-phase *hash-and-sign* signature process.
+
+In **Phase I** the data pipeline automatically computes digital fingerprints (hashes) with two different secure algorithms (SHA2-256 und SHA3-512) and stores these in a CSV file.
+
+In **Phase II** the CSV files with hashes is manually signed with a secret GPG key.
+
+This process ensures that the compilation of the data set can be performed by anyone, such as in scientific replication studies, but provides the same guarantees as signing the full data set would. 
+
+
+
+## Personal GPG Key
+
+The CSV file is signed with the personal GPG key of the first author. The public key is included with the data set and source code publication on Zenodo, as well as the project GitHub repository. The key is identified as follows:
+ 
+ **Name:** Sean Fobbe (fobbe-data@posteo.de)
+ 
+ **Fingerprint:** FE6F B888 F0E5 656C 1D25  3B9A 50C4 1384 F44A 4E42
+
+
+
+
+
+\newpage
+
+
 
 
 
