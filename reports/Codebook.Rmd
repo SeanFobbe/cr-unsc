@@ -285,19 +285,71 @@ kable(dt.var_codebook[group == "7_misc", .(varname, type, description)],
 
 
 
-#'\newpage
-#'### All Distributions of Linguistic Metrics
+# Linguistic Metrics
+
+
+## Explanation of Metrics
+
+We provide a number of classic linguistic metrics and visualize their distributions to better communicate the scope of the corpus and its constituent documents:
+
+
+\medskip
+
+\begin{centering}
+\begin{longtable}{P{3.5cm}p{10.5cm}}
+
+\toprule
+
+Metric & Definition\\
+
+\midrule
+
+Characters & Characters roughly correspond to graphemes, the smallest functional unit in a writing system. The word \enquote{judge} is composed of 5 characters, for example.\\
+Tokens & An arbitrary character sequence delimited by whitespace on both sides, e.g. it roughly corresponds to the notion of a \enquote{word}. However, due to its strictly syntactical definition it might also include arbitrary sequences of numbers or special characters.\\
+Types & Unique tokens. If, for example, the token \enquote{human} appeared one hundred times in a given document, it would be counted as only one type. \\
+Sentences & Corresponds approximately to the colloquial definition of a sentence. The exact rules for determining sentence boundaries are very complex and may be reviewed in \enquote{Unicode Standard: Annex No 29}.\\
+
+\bottomrule
+
+\end{longtable}
+\end{centering}
 
 
 
 
+
+## Summary Statistics
+
+
+
+```{r}
+
+
+
+kable(lingstats.summary,
+      digits = 2,
+      format.args = list(big.mark = ","),
+      format = "latex",
+      booktabs = TRUE,
+      longtable = TRUE)
+
+
+```
+
+
+
+## Distributions of Document Length
+
+The diagrams in this section are combined violin and box plots. They are especially useful in visualizing distributions of quantitative variables. Their interpretation is fairly straightforward: the greater the area under the curve for a given range, the more frequent the values are in this range. The thick center line of the box indicates the median, the outer lines of the box the first and third quartiles. Whiskers extend outwards to 1.5 times the inter-quartile range (IQR). Outliers beyond 1.5 times IQR are shown as individual points.
+
+Please note that the x-axis is logarithmically scaled, i.e. in powers of 10. It therefore increases in a non-linear fashion. Additional sub-markings are included to assist with interpretation.
 
 
 
 ```{r, CR-UNSC_EN_10_Distributions_LinguisticMetrics, fig.height = 10, fig.width = 8.3}
-#' When plotting a boxplot on a logarithmic scale the standard geom_boxplot() function from ggplot2 incorrectly performs the statistical transformation first before calculating the boxplot statistics. While median and quartiles are based on ordinal position the inter-quartile range differs depending on when statistical transformation is performed.
-#'
-#' Solutions are based on this SO question: https://stackoverflow.com/questions/38753628/ggplot-boxplot-length-of-whiskers-with-logarithmic-axis
+## When plotting a boxplot on a logarithmic scale the standard geom_boxplot() function from ggplot2 incorrectly performs the statistical transformation first before calculating the boxplot statistics. While median and quartiles are based on ordinal position the inter-quartile range differs depending on when statistical transformation is performed.
+
+## Solutions are based on this SO question: https://stackoverflow.com/questions/38753628/ggplot-boxplot-length-of-whiskers-with-logarithmic-axis
 
 
 dt.allmetrics.en <- melt(var_lingstats,
@@ -330,7 +382,7 @@ ggplot(dt.allmetrics.en, aes(x = value,
     theme_bw() +
     labs(
         title = paste(prefix.figuretitle,
-                      "| Distributions of Document Length"),
+                      "| Distributions of Document Length (EN)"),
         caption = caption,
         x = "Value",
         y = "Linguistic Metric"
