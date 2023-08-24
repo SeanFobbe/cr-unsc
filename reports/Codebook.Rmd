@@ -98,7 +98,43 @@ unsc <- readtext("txt_res_en/*.txt",
 
 
 
+# Data Set Design
 
+
+## Description of Data Set
+
+The \textbf{\datatitle\ (\datashort)} collects and structures in human- and machine-readable form all published resolutions of the United Nations Security Council. Complementary data sets provide citation data (to UNSC and UNGA resolutions) and easily importable biblopgrahic data.
+
+
+
+
+
+## Table of Sources
+
+
+\begin{centering}
+\begin{longtable}{P{5cm}p{9cm}}
+
+\toprule
+ Data Source & Citation \\
+
+\midrule
+
+ Primary Data Source & \url{https://digitallibrary.un.org/}\\
+ Source Code & \url{\softwareversionurldoi}\\
+
+\bottomrule
+
+\end{longtable}
+\end{centering}
+
+
+
+## Data Collection
+
+Data were collected with the explicit consent of the Secretariat of the \unsc . All documents were downloaded via TLS-encrypted connections and cryptographically signed after data processing was complete. The data set collects all resolutions issued by the \unsc\ that were published on the UN Digital Library on \version .
+
+ 
 
 
 
