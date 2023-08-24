@@ -558,7 +558,7 @@ kable(freqtable,
 
 
 
-## Concerned Countries
+## Resolutions by Country Mentioned
 
 
 ```{r, CR-UNSC_05_Barplot_Resolutions-by-Country, fig.height = 14, fig.width = 10}
@@ -610,7 +610,60 @@ ggplot(data = freqtable.nosum) +
 
 
 
-## Thematic Subjects
+## Resolutions By Subject
+
+
+
+```{r, CR-UNSC_05_Barplot_Resolutions-by-Subject, fig.height = 14, fig.width = 10}
+split <- unlist(stringi::stri_split(dt.final$subjects, regex = "\\|"))
+subjects <- split[split != ""]
+
+
+freqtable <- f.fast.freqtable(data.table(subjects),
+                              sumrow = TRUE,
+                              output.list = TRUE,
+                              output.kable = FALSE,
+                              output.csv = FALSE,
+                              align = c("p{5cm}"))[[1]]
+
+freqtable$subjects <- tools::toTitleCase(tolower(freqtable$subjects))
+
+freqtable$subjects <- gsub("Un", "UN", freqtable$subjects)
+freqtable$subjects <- gsub("Vii", "VII", freqtable$subjects)
+
+freqtable.nosum <- freqtable[-.N][order(-N)][1:50]
+
+
+
+
+
+ggplot(data = freqtable.nosum) +
+    geom_bar(aes(x = reorder(subjects,
+                             N),
+                 y = N),
+             stat = "identity",
+             fill = "black",
+             color = "black",
+             width = 0.5) +
+    coord_flip()+
+    theme_bw() +
+    labs(
+        title = paste(prefix.figuretitle,
+                      "| Resolutions by Subject"),
+        caption = caption,
+        x = "Subject",
+        y = "Resolutions"
+    )+
+    theme(
+        text = element_text(size = 14),
+        plot.title = element_text(size = 14,
+                                  face = "bold"),
+        legend.position = "none",
+        plot.margin = margin(10, 20, 10, 10)
+    )
+
+```
+
 
 
 
