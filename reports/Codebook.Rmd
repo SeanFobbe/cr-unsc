@@ -550,8 +550,8 @@ kable(freqtable,
       longtable = TRUE,
       col.names = c("Year",
                     "Resolutions",
-                    "% Gesamt",
-                    "% Kumulativ"))  %>% kable_styling(latex_options = "repeat_header")
+                    "% Total",
+                    "% Cumulative"))  %>% kable_styling(latex_options = "repeat_header")
 
 ```
 
