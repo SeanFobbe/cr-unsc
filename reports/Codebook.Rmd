@@ -561,7 +561,55 @@ kable(freqtable,
 ## Concerned Countries
 
 
+```{r, CR-UNSC_05_Barplot_Resolutions-by-Country, fig.height = 6, fig.width = 9}
+split <- unlist(stringi::stri_split(dt.final$iso_name, regex = "\\|"))
+country <- split[split != ""]
 
+
+freqtable <- f.fast.freqtable(data.table(country),
+                              sumrow = TRUE,
+                              output.list = TRUE,
+                              output.kable = FALSE,
+                              output.csv = FALSE,
+                              align = c("p{5cm}"))[[1]][order(-N)][1:50]
+
+
+
+freqtable.nosum <- freqtable[-.N]
+
+
+
+
+
+ggplot(data = freqtable.nosum) +
+    geom_bar(aes(x = reorder(country,
+                             N),
+                 y = N),
+             stat = "identity",
+             fill = "black",
+             color = "black",
+             width = 0.5) +
+    theme_bw() +
+    labs(
+        title = paste(prefix.figuretitle,
+                      "| Countries mentioned"),
+        caption = caption,
+        x = "Country",
+        y = "Resolutions"
+    )+
+    theme(
+        text = element_text(size = 14),
+        plot.title = element_text(size = 14,
+                                  face = "bold"),
+        legend.position = "none",
+        plot.margin = margin(10, 20, 10, 10)
+    )
+
+```
+
+
+
+## Thematic Subjects
 
 
 
