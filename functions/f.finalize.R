@@ -105,8 +105,16 @@ f.finalize <- function(dt.intermediate,
     
     
     ## Format compliance
-    test_that("Class is correct.", {
+    test_that("Class and type are correct.", {
         expect_s3_class(dt.final, "data.table")
+        expect_type(dt.final$aggression, "logical")
+        expect_type(dt.final$chapter6, "logical")
+        expect_type(dt.final$chapter7, "logical")
+        expect_type(dt.final$chapter8, "logical")
+        expect_type(dt.final$human_rights, "logical")
+        expect_type(dt.final$peace_breach, "logical")
+        expect_type(dt.final$peace_threat, "logical")
+        expect_type(dt.final$self_defence, "logical") 
     })
 
     
