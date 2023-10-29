@@ -97,32 +97,21 @@ f.finalize <- function(dt.intermediate,
 
     ## TESTING ##
 
-    ## Classes
+
+    ## Codebook compliance
+    test_that("Variable names in data set are documented and ordered as in Codebook", {
+        expect_equal(names(dt.final), varnames)
+    })
+    
+    
+    ## Format compliance
     test_that("Class is correct.", {
         expect_s3_class(dt.final, "data.table")
     })
 
-    test_that("Variable names in data set are ordered as in Codebook", {
-        expect_equal(names(dt.final), varnames)
-    })
     
     test_that("Input and output data tables have same number of rows", {
         expect_equal(dt.final[,.N], dt.intermediate[,.N])
-    })
-
-    ## Uniqueness
-    test_that("URLs are unique", {
-        expect_equal(sum(duplicated(dt.final$record)),  0)
-        expect_equal(sum(duplicated(dt.final$record_draft)),  0)
-        expect_equal(sum(duplicated(dt.final$record_meeting)),  0) 
-        expect_equal(sum(duplicated(dt.final$url_res_en)),  0)
-        expect_equal(sum(duplicated(dt.final$url_res_es)),  0)
-        expect_equal(sum(duplicated(dt.final$url_res_ru)),  0)        
-        ##expect_equal(sum(duplicated(dt.final$url_res_fr)),  0) # fails        
-        ##expect_equal(sum(duplicated(dt.final$url_res_ar)),  0) # fails
-        ##expect_equal(sum(duplicated(dt.final$url_res_zh)),  0) # fails
-
-        ## ADD draft and meeting URL
     })
 
 
@@ -139,8 +128,31 @@ f.finalize <- function(dt.intermediate,
         expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_ru))))
         expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_zh))))
     })
+
+    
+    test_that("Dates are in ISO format.", {
+        expect_true(all(grepl("[0-9]{4}-[0-9]{2}-[0-9]{2}", na.omit(dt.final$date))))
+        expect_true(all(grepl("[0-9]{4}-[0-9]{2}-[0-9]{2}", na.omit(dt.final$action_note))))
+    })
+
+
+    ## Uniqueness
+    test_that("URLs are unique", {
+        expect_equal(sum(duplicated(dt.final$record)),  0)
+        expect_equal(sum(duplicated(dt.final$record_draft)),  0)
+        expect_equal(sum(duplicated(dt.final$record_meeting)),  0) 
+        expect_equal(sum(duplicated(dt.final$url_res_en)),  0)
+        expect_equal(sum(duplicated(dt.final$url_res_es)),  0)
+        expect_equal(sum(duplicated(dt.final$url_res_ru)),  0)        
+        ##expect_equal(sum(duplicated(dt.final$url_res_fr)),  0) # fails        
+        ##expect_equal(sum(duplicated(dt.final$url_res_ar)),  0) # fails
+        ##expect_equal(sum(duplicated(dt.final$url_res_zh)),  0) # fails
+
+        ## ADD draft and meeting URL
+    })
     
 
+    
     
 
     return(dt.final)
