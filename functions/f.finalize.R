@@ -126,6 +126,20 @@ f.finalize <- function(dt.intermediate,
     })
 
 
+    ## Format compliance
+    
+    test_that("URLs are valid", {
+        expect_true(all(grepl("https://digitallibrary.un.org/record/[0-9]+", na.omit(dt.final$record))))
+        expect_true(all(grepl("https://digitallibrary.un.org/record/[0-9]+", na.omit(dt.final$record_meeting))))
+        expect_true(all(grepl("https://digitallibrary.un.org/record/[0-9]+", na.omit(dt.final$record_draft))))
+        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_ar))))
+        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_en))))
+        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_es))))
+        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_fr))))
+        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_ru))))
+        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_zh))))
+    })
+    
 
     
 
