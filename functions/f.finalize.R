@@ -182,12 +182,15 @@ f.finalize <- function(dt.intermediate,
 
     ## Voting Boundaries
 
-    test_that("Vote counts are within acceptable bounds", {
+    test_that("Vote count minima are within acceptable bounds", {
         expect_true(all(dt.final$vote_total >= 0))
         expect_true(all(dt.final$vote_yes >= 0))
         expect_true(all(dt.final$vote_no >= 0))
         expect_true(all(dt.final$vote_abstention >= 0))
         expect_true(all(dt.final$vote_nonvote >= 0))
+    })
+
+    test_that("Vote count maxima are within acceptable bounds", {
         expect_true(all(dt.final$vote_total <= 15))
         expect_true(all(dt.final$vote_yes <= 15))
         expect_true(all(dt.final$vote_no <= 15))
@@ -201,11 +204,14 @@ f.finalize <- function(dt.intermediate,
     
     
     ## Linguistic Variables
-    test_that("Linguistic variables are within acceptable bounds.", {
+    test_that("Linguistic variables minima are within acceptable bounds.", {
         expect_true(all(dt.final$nchars >= 0))
         expect_true(all(dt.final$ntokens >= 0))
         expect_true(all(dt.final$ntypes >= 0))
         expect_true(all(dt.final$nsentences >= 0))
+    })
+
+    test_that("Linguistic variables minima are within acceptable bounds.", {
         expect_true(all(dt.final$nchars < 1e6))
         expect_true(all(dt.final$ntokens < 1e5))
         expect_true(all(dt.final$ntypes < 1e4))
