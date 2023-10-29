@@ -71,7 +71,6 @@ f.finalize <- function(dt.intermediate,
 
     
     ## Order by Resolution Number
-
     setorder(dt.final,
              res_no)
 
@@ -87,6 +86,11 @@ f.finalize <- function(dt.intermediate,
         
         }
     
+    test_that("Variables in data set are identical to those documented in Codebook", {
+        expect_setequal(names(dt.final), varnames)
+    })
+
+    ## Set Column Order
     data.table::setcolorder(dt.final, varnames)
 
     
