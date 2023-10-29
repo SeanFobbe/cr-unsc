@@ -31,6 +31,10 @@ knitr::opts_chunk$set(fig.path = file.path("..", "analysis/"),
 ```
 
 
+# Overview
+
+## Load results
+
 ```{r}
 tar_load(latexdefs)
 tar_load(dt.var_codebook)
@@ -39,6 +43,35 @@ tar_load(dt.record.final)
 tar_load(dt.download.final)
 tar_load(dt.final)
 tar_load(igraph_citations)
+
+```
+
+## Count Automated Tests
+
+
+```{r}
+
+Rfiles <- list.files("functions", pattern = "\\.R$", full.names = TRUE)
+code <- unlist(lapply(Rfiles, readLines))
+
+
+```
+
+
+### Tests
+
+
+```{r}
+
+sum(stringi::stri_count(regex = "test_that\\(", code))
+
+```
+
+### Expectations
+
+```{r}
+
+sum(stringi::stri_count(regex = "expect_", code))
 
 ```
 
@@ -55,7 +88,7 @@ Lorem Ipsum. test
 
 
 
-```{r, CR-UNSC_00_Pipeline_Graph_blue, fig.width = 16, fig.height = 14, fig.pos = "p", fig.cap = "The complete data set compilation process."}
+```{r, CR-UNSC_00_Pipeline_Graph_blue, fig.width = 16, fig.height = 18, fig.pos = "p", fig.cap = "The complete data set compilation process."}
 
 
 edgelist <- tar_network(targets_only = TRUE)$edges
