@@ -54,6 +54,9 @@ f.finalize <- function(dt.intermediate,
     dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
 
 
+    ## Convert "action_note" var to IDate
+    dt.final$action_note  <- as.IDate(dt.final$action_note)
+    
     
     ## Remove "description" variable (contains only page numbers now available in "npages")
     dt.final$description <- NULL
@@ -122,8 +125,6 @@ f.finalize <- function(dt.intermediate,
         expect_equal(dt.final[,.N], dt.intermediate[,.N])
     })
 
-
-    ## Format compliance
     
     test_that("URLs are valid", {
         expect_true(all(grepl("https://digitallibrary.un.org/record/[0-9]+", na.omit(dt.final$record))))
@@ -158,6 +159,25 @@ f.finalize <- function(dt.intermediate,
 
         ## ADD draft and meeting URL
     })
+
+
+    ## Year and Date Boundaries
+    
+    test_that("Years are within acceptable bounds", {
+        expect_true(all(dt.final$year >= 1946))
+        expect_true(all(dt.final$year <= year(Sys.Date())))    
+    })
+
+    test_that("Dates are within acceptable bounds", {
+        expect_true(all(na.omit(dt.final$date) >= "1946-01-25"))
+        expect_true(all(na.omit(dt.final$date) <= Sys.Date()))
+        expect_true(all(na.omit(dt.final$action_note) >= "1946-01-25"))
+        expect_true(all(na.omit(dt.final$action_note) <= Sys.Date()))
+    })
+
+
+    ## str(dt.final)
+    
     
     ## Linguistic Variables
     test_that("var nchars is within acceptable bounds.", {
