@@ -109,8 +109,21 @@ f.finalize <- function(dt.intermediate,
     test_that("Input and output data tables have same number of rows", {
         expect_equal(dt.final[,.N], dt.intermediate[,.N])
     })
-         
-        
+
+    ## Uniqueness
+    test_that("URLs are unique", {
+        expect_equal(sum(duplicated(dt.final$record)),  0)
+        expect_equal(sum(duplicated(dt.final$record_draft)),  0)
+        expect_equal(sum(duplicated(dt.final$record_meeting)),  0) 
+        expect_equal(sum(duplicated(dt.final$url_res_en)),  0)
+        expect_equal(sum(duplicated(dt.final$url_res_es)),  0)
+        expect_equal(sum(duplicated(dt.final$url_res_ru)),  0)        
+        ##expect_equal(sum(duplicated(dt.final$url_res_fr)),  0) # fails        
+        ##expect_equal(sum(duplicated(dt.final$url_res_ar)),  0) # fails
+        ##expect_equal(sum(duplicated(dt.final$url_res_zh)),  0) # fails
+
+        ## ADD draft and meeting URL
+    })
 
 
 
