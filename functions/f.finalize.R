@@ -161,6 +161,21 @@ f.finalize <- function(dt.intermediate,
         ## ADD draft and meeting URL
     })
 
+    test_that("Identifiers are unique.", {
+        expect_equal(sum(duplicated(dt.final$doc_id)),  0)
+        expect_equal(sum(duplicated(dt.final$res_no)),  0)
+        expect_equal(sum(duplicated(dt.final$symbol)),  0)
+
+    })
+
+
+    ## Sets
+    test_that("Body and Doctype are correct", {
+        expect_length(setdiff(dt.final$body, "S"), 0)
+        expect_length(setdiff(dt.final$doctype, "RES"), 0)
+    })
+
+    
 
     ## Year and Date Boundaries
     
@@ -197,11 +212,7 @@ f.finalize <- function(dt.intermediate,
         expect_true(all(dt.final$vote_abstention <= 15))
         expect_true(all(dt.final$vote_nonvote <= 15))
     })
-        
-    
 
-    ## str(dt.final)
-    
     
     ## Linguistic Variables
     test_that("Linguistic variables minima are within acceptable bounds.", {
@@ -209,13 +220,15 @@ f.finalize <- function(dt.intermediate,
         expect_true(all(dt.final$ntokens >= 0))
         expect_true(all(dt.final$ntypes >= 0))
         expect_true(all(dt.final$nsentences >= 0))
+        expect_true(all(na.omit(dt.final$npages) >= 0))
     })
 
     test_that("Linguistic variables minima are within acceptable bounds.", {
         expect_true(all(dt.final$nchars < 1e6))
         expect_true(all(dt.final$ntokens < 1e5))
         expect_true(all(dt.final$ntypes < 1e4))
-        expect_true(all(dt.final$nsentences < 1e4)) 
+        expect_true(all(dt.final$nsentences < 1e4))
+        expect_true(all(na.omit(dt.final$npages) < 110))
     })
     
     
