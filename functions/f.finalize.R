@@ -53,11 +53,6 @@ f.finalize <- function(dt.intermediate,
     ## Create "npage" variable
     dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
 
-
-    ## Convert "action_note" var to IDate
-    dt.final$action_note  <- as.IDate(dt.final$action_note)
-    
-    
     ## Remove "description" variable (contains only page numbers now available in "npages")
     dt.final$description <- NULL
 
@@ -70,6 +65,12 @@ f.finalize <- function(dt.intermediate,
     
     ## Remove "access" variable (only repeats file name)
     dt.final$access <- NULL
+
+
+
+    ## Convert Dates
+    dt.final$action_note  <- as.IDate(dt.final$action_note)
+    dt.final$vote_date  <- as.IDate(dt.final$vote_date)
 
 
     
@@ -171,36 +172,46 @@ f.finalize <- function(dt.intermediate,
     test_that("Dates are within acceptable bounds", {
         expect_true(all(na.omit(dt.final$date) >= "1946-01-25"))
         expect_true(all(na.omit(dt.final$date) <= Sys.Date()))
+        expect_true(all(na.omit(dt.final$vote_date) >= "1946-01-25"))
+        expect_true(all(na.omit(dt.final$vote_date) <= Sys.Date()))
         expect_true(all(na.omit(dt.final$action_note) >= "1946-01-25"))
         expect_true(all(na.omit(dt.final$action_note) <= Sys.Date()))
     })
 
+    
+
+    ## Voting Boundaries
+
+    test_that("Vote counts are within acceptable bounds", {
+        expect_true(all(dt.final$vote_total >= 0))
+        expect_true(all(dt.final$vote_yes >= 0))
+        expect_true(all(dt.final$vote_no >= 0))
+        expect_true(all(dt.final$vote_abstention >= 0))
+        expect_true(all(dt.final$vote_nonvote >= 0))
+        expect_true(all(dt.final$vote_total <= 15))
+        expect_true(all(dt.final$vote_yes <= 15))
+        expect_true(all(dt.final$vote_no <= 15))
+        expect_true(all(dt.final$vote_abstention <= 15))
+        expect_true(all(dt.final$vote_nonvote <= 15))
+    })
+        
+    
 
     ## str(dt.final)
     
     
     ## Linguistic Variables
-    test_that("var nchars is within acceptable bounds.", {
+    test_that("Linguistic variables are within acceptable bounds.", {
         expect_true(all(dt.final$nchars >= 0))
-        expect_true(all(dt.final$nchars < 1e6))   
-    })
-
-    test_that("var ntokens is within acceptable bounds.", {
         expect_true(all(dt.final$ntokens >= 0))
-        expect_true(all(dt.final$ntokens < 1e5))   
-    })
-    
-    test_that("var ntypes is within acceptable bounds.", {
         expect_true(all(dt.final$ntypes >= 0))
-        expect_true(all(dt.final$ntypes < 1e4))   
-    })
-    
-    test_that("var nsentences is within acceptable bounds.", {
         expect_true(all(dt.final$nsentences >= 0))
-        expect_true(all(dt.final$nsentences < 1e4))   
+        expect_true(all(dt.final$nchars < 1e6))
+        expect_true(all(dt.final$ntokens < 1e5))
+        expect_true(all(dt.final$ntypes < 1e4))
+        expect_true(all(dt.final$nsentences < 1e4)) 
     })
     
-
     
 
     return(dt.final)
