@@ -74,36 +74,47 @@ f.finalize <- function(dt.intermediate,
     setorder(dt.final,
              res_no)
 
-
-    
-    ## Unit Test: Check variables and set column order
-
+    ## Unit Test: Variable Names
     varnames <- gsub("\\\\", "", varnames) # Remove LaTeX escape characters
     
     if(debug.toggle == TRUE){
 
         varnames <- intersect(names(dt.final), varnames)
         
-        }
+    }
     
-    test_that("Variables in data set are identical to those documented in Codebook", {
+    test_that("Variable names in data set are all documented in Codebook", {
         expect_setequal(names(dt.final), varnames)
-    })
 
+    })
+    
     ## Set Column Order
     data.table::setcolorder(dt.final, varnames)
 
+
+
     
 
-    ## Unit Test
-    test_that("Result conforms to expectations.", {
-        expect_s3_class(dt.final, "data.table")
-        expect_equal(dt.final[,.N], dt.intermediate[,.N])
-        expect_setequal(names(dt.final), varnames)
-        expect_equal(names(dt.final), varnames)
+    ## TESTING ##
 
+    ## Classes
+    test_that("Class is correct.", {
+        expect_s3_class(dt.final, "data.table")
     })
 
+    test_that("Variable names in data set are ordered as in Codebook", {
+        expect_equal(names(dt.final), varnames)
+    })
+    
+    test_that("Input and output data tables have same number of rows", {
+        expect_equal(dt.final[,.N], dt.intermediate[,.N])
+    })
+         
+        
+
+
+
+    
 
     return(dt.final)
 
