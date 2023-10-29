@@ -171,10 +171,10 @@ f.finalize <- function(dt.intermediate,
 
     test_that("Dates are within acceptable bounds", {
         expect_true(all(na.omit(dt.final$date) >= "1946-01-25"))
-        expect_true(all(na.omit(dt.final$date) <= Sys.Date()))
         expect_true(all(na.omit(dt.final$vote_date) >= "1946-01-25"))
-        expect_true(all(na.omit(dt.final$vote_date) <= Sys.Date()))
         expect_true(all(na.omit(dt.final$action_note) >= "1946-01-25"))
+        expect_true(all(na.omit(dt.final$date) <= Sys.Date()))
+        expect_true(all(na.omit(dt.final$vote_date) <= Sys.Date()))
         expect_true(all(na.omit(dt.final$action_note) <= Sys.Date()))
     })
 
