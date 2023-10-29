@@ -159,8 +159,28 @@ f.finalize <- function(dt.intermediate,
         ## ADD draft and meeting URL
     })
     
+    ## Linguistic Variables
+    test_that("var nchars is within acceptable bounds.", {
+        expect_true(all(dt.final$nchars >= 0))
+        expect_true(all(dt.final$nchars < 1e6))   
+    })
 
+    test_that("var ntokens is within acceptable bounds.", {
+        expect_true(all(dt.final$ntokens >= 0))
+        expect_true(all(dt.final$ntokens < 1e5))   
+    })
     
+    test_that("var ntypes is within acceptable bounds.", {
+        expect_true(all(dt.final$ntypes >= 0))
+        expect_true(all(dt.final$ntypes < 1e4))   
+    })
+    
+    test_that("var nsentences is within acceptable bounds.", {
+        expect_true(all(dt.final$nsentences >= 0))
+        expect_true(all(dt.final$nsentences < 1e4))   
+    })
+    
+
     
 
     return(dt.final)
