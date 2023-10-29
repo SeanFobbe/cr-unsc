@@ -41,6 +41,12 @@ tar_load(dt.var_codebook)
 tar_load(lingstats.summary)
 tar_load(dt.record.final)
 tar_load(dt.download.final)
+tar_load(pdf_res_ar)
+tar_load(pdf_res_en)
+tar_load(pdf_res_es)
+tar_load(pdf_res_fr)
+tar_load(pdf_res_ru)
+tar_load(pdf_res_zh)
 tar_load(dt.final)
 tar_load(igraph_citations)
 
@@ -123,6 +129,23 @@ ggraph(g,
 
 ```
 
+
+
+# Completeness of Download
+
+
+## Download: Missing PDF Files
+
+```{r}
+
+setdiff(paste0(dt.download.final[!is.na(url_res_ar)]$doc_id, "_AR.pdf"), basename(pdf_res_ar))
+setdiff(paste0(dt.download.final[!is.na(url_res_ar)]$doc_id, "_EN.pdf"), basename(pdf_res_en))
+setdiff(paste0(dt.download.final[!is.na(url_res_ar)]$doc_id, "_ES.pdf"), basename(pdf_res_es))
+setdiff(paste0(dt.download.final[!is.na(url_res_ar)]$doc_id, "_FR.pdf"), basename(pdf_res_fr))
+setdiff(paste0(dt.download.final[!is.na(url_res_ar)]$doc_id, "_RU.pdf"), basename(pdf_res_ru))
+setdiff(paste0(dt.download.final[!is.na(url_res_ar)]$doc_id, "_ZH.pdf"), basename(pdf_res_zh))
+
+```
 
 
 
