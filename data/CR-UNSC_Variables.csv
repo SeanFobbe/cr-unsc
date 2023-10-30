@@ -7,7 +7,7 @@ date,1_id,Date,0,The adoption date of the resolution in the format YYYY-MM-DD (I
 doc\_id,1_id,String,0,The filename of the extracted TXT file.
 doctype,1_id,String,1,The type of the main document. In this data set always \enquote{RES}.
 draft,1_id,String,0,The official UN symbol of the draft. Example: \enquote{S/2023/102}. Curated by the UN Digital Library.
-meeting\_no,1_id,Integer,1,The number of the UN Security Council meeting in which the resolution was adopted.
+meeting\_no,1_id,Integer,0,The number of the UN Security Council meeting in which the resolution was adopted.
 meeting\_record,1_id,String,0,The official UN symbol of the meeting record. Example: \enquote{S/PV.8891}. Curated by the UN Digital Library.
 related\_resource,1_id,String,0,The official UN symbol of related resources. Example: \enquote{S/1234}. Curated by the UN Digital Library.
 res\_no,1_id,Integer,0,The number of the resolution. Example: \enquote{156}.
