@@ -149,7 +149,7 @@ setdiff(paste0(dt.download.final[!is.na(url_res_ar)]$doc_id, "_ZH.pdf"), basenam
 
 
 
-# Missing Values Check
+# Missing Values
 
 
 
@@ -162,6 +162,59 @@ missingvalues <- f.missingvalues(x = dt.final,
 
 
 ```
+
+# Documents with low character count
+
+
+## Arabic
+
+```{r}
+dt.final[nchar(dt.final$text_ar) < 200, .(doc_id, text_ar)]
+
+```
+
+
+## English
+
+```{r}
+dt.final[nchar(dt.final$text) < 200, .(doc_id, text)]
+
+```
+
+## Spanish
+
+```{r}
+dt.final[nchar(dt.final$text_es) < 200, .(doc_id, text_es)]
+
+```
+
+
+## French
+
+```{r}
+dt.final[nchar(dt.final$text_fr) < 200, .(doc_id, text_fr)]
+
+```
+
+
+## Russian
+
+```{r}
+dt.final[nchar(dt.final$text_ru) < 200, .(doc_id, text_ru)]
+
+```
+
+
+## Chinese
+
+```{r}
+dt.final[nchar(dt.final$text_zh) < 200, .N]
+
+```
+
+
+
+
 
 
 
