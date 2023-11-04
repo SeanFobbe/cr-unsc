@@ -371,9 +371,7 @@ This step builds the final table of UN Digital Library main records containing t
 ```{targets tar.download.recordtable.main}
 tar_target(dt.record.final,
            f.record_main(recordtable.stable = record.table.stable,
-                          limit = config$download$resmax,
-                          debug.toggle = config$debug$toggle,
-                          debug.nums = debug.nums))
+                         res.no.full = res.no.full))
 ```
 
 
@@ -385,9 +383,7 @@ This step builds the final table of UN Digital Library records containing voting
 ```{targets tar.download.recordtable.voting}
 tar_target(dt.record.voting.final,
            f.record_voting(recordtable.stable = record.voting.stable,
-                          limit = config$download$resmax,
-                          debug.toggle = config$debug$toggle,
-                          debug.nums = debug.nums))
+                           res.no.full = res.no.full))
 ```
 
 
