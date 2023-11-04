@@ -1,9 +1,7 @@
 #' Build a table of record pages for UN Security Council resolutions sourced from the UN Digital Library.
 
 #' @param recordtable.stable Data.Table. A stable download table of UN Digital Library pages for UNSC resolutions included in the source code.
-#' @param limit Integer. Query the database up to which resolution?
-#' @param debug.toggle Logical. Whether to only download a subset of resolutions.
-#' @param debug.nums Integer. A vector of fixed resolution numbers to query.
+#' @param res.no.full Integer. The complete set of resolution numbers to be queried. Reducing this set for debugging purposes must take place in an upstream target.
 #' 
 #' 
 #' @return The final updated download table with all resolutions specified.
@@ -11,22 +9,17 @@
 
 
 f.record_main <- function(recordtable.stable = NA,
-                           limit,
-                           debug.toggle = TRUE,
-                           debug.nums = sample(1:limit, 50)){
-
-    ## Define Scope
-    res_no_full <- 1:limit
+                          res.no.full){
 
     
     if (any(class(recordtable.stable) %in% "data.frame")){
 
-        res_no_work <- setdiff(res_no_full,
+        res_no_work <- setdiff(res.no.full,
                                recordtable.stable$res_no)
         
     }else{
 
-        res_no_work  <- res_no_full
+        res_no_work  <- res.no.full
         
     }
     
@@ -69,13 +62,8 @@ f.record_main <- function(recordtable.stable = NA,
     }
 
 
-    
-    if(debug.toggle == TRUE){
-
-        recordtable.final <- recordtable.final[res_no %in% debug.nums][order(res_no)]
-        
-    }
-
+    ## Align with target resolution numbers (relevant in debugging mode)
+    recordtable.final <- recordtable.final[res_no %in% res.no.full][order(res_no)]
     
 
 
