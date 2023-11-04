@@ -352,11 +352,14 @@ list(
 ## Download
 
 
-### Debugging Resolution Numbers
+### Define Scope of Resolution Numbers
 
-```{targets tar.download.debugnums}
-tar_target(debug.nums,
-           sample(1:config$download$resmax, config$debug$sample))
+```{targets tar.download.resno}
+tar_target(res.no.full,
+           f.scope(limit = config$download$resmax,
+                   debug.toggle = config$debug$toggle,
+                   debug.sample = config$debug$sample))
+
 ```
 
 
