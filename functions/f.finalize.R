@@ -165,7 +165,6 @@ f.finalize <- function(dt.intermediate,
         expect_equal(sum(duplicated(dt.final$doc_id)),  0)
         expect_equal(sum(duplicated(dt.final$res_no)),  0)
         expect_equal(sum(duplicated(dt.final$symbol)),  0)
-
     })
 
 
