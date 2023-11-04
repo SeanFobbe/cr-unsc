@@ -48,18 +48,11 @@ f.record_metadata_voting <- function(x){
                                             "\\1",
                                             dt.meta$vote_summary))
 
-        dt.meta$vote_yes <- ifelse(is.na(dt.meta$vote_yes),
-                                   0,
-                                   dt.meta$vote_yes)
 
         ## Extract individual no counts
         dt.meta$vote_no <- as.integer(gsub(".*No: ([0-9]*).*",
                                            "\\1",
                                            dt.meta$vote_summary))
-
-        dt.meta$vote_no <- ifelse(is.na(dt.meta$vote_no),
-                                  0,
-                                  dt.meta$vote_no)
 
         
         ## Extract individual abstention counts
@@ -67,18 +60,13 @@ f.record_metadata_voting <- function(x){
                                                    "\\1",
                                                    dt.meta$vote_summary))
 
-        dt.meta$vote_abstention <- ifelse(is.na(dt.meta$vote_abstention),
-                                          0,
-                                          dt.meta$vote_abstention)
+
         
         ## Extract individual non-voting counts
         dt.meta$vote_nonvote <- as.integer(gsub(".*Non-Voting: ([0-9]*).*",
                                                 "\\1",
                                                 dt.meta$vote_summary))
 
-        dt.meta$vote_nonvote <- ifelse(is.na(dt.meta$vote_nonvote),
-                                       0,
-                                       dt.meta$vote_nonvote)
 
 
         ## Extract individual total voting counts
@@ -86,10 +74,6 @@ f.record_metadata_voting <- function(x){
                                               "\\1",
                                               dt.meta$vote_summary))
 
-        dt.meta$vote_total <- ifelse(is.na(dt.meta$vote_total),
-                                     0,
-                                     dt.meta$vote_total)
-        
         
         ## Add detail to variable name
         setnames(dt.meta, "vote", "vote_detail")
