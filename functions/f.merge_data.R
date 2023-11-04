@@ -156,7 +156,7 @@ f.merge_data <- function(dt.extracted.res.all,
     ## Merge downloaded metadata
 
     dt <- merge(dt,
-                dt.download,
+                dt.download[,!"vote_summary"],
                 by = "res_no",                
                 all.x = TRUE,
                 sort = FALSE)
