@@ -246,8 +246,7 @@ f.finalize <- function(dt.intermediate,
 
     test_that("Vote count sums are correct", {
         vote.sum <- dt.final$vote_yes + dt.final$vote_no + dt.final$vote_abstention + dt.final$vote_nonvote
-        expect_equal(vote.sum, dt.final$vote_total)
-
+        expect_identical(vote.sum, dt.final$vote_total)
     })
 
 ## debugging: check problematic votes    
@@ -281,11 +280,11 @@ f.finalize <- function(dt.intermediate,
 
 ## DEBUGGING Code
 
-tar_load(dt.intermediate)
-vars.additional <- tar_read(vars_additional)
-varnames  <- tar_read(dt.var_codebook)$varname
-debug.toggle = FALSE
-varnames <- fread("data/CR-UNSC_Variables.csv")$varname
+## tar_load(dt.intermediate)
+## vars.additional <- tar_read(vars_additional)
+## varnames  <- tar_read(dt.var_codebook)$varname
+## debug.toggle = FALSE
+## varnames <- fread("data/CR-UNSC_Variables.csv")$varname
 
 
 
