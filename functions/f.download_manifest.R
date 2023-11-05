@@ -118,65 +118,20 @@ f.download_manifest <- function(dt.download,
     })
 
 
-    names.url.all <- grep("url", names(dt.final), value = TRUE)
-    names.url.all.numbered <- c("res_no", names.url.all)
-    f.duplicated.NA <- function(x){duplicated(x, incomparables = NA)}
-
-    dt.test <- dt.final[,..names.url.all.numbered]
-
-
-    
-    for(i in names.url.all){
+    test_that("Resolution URLs are unique", {
+        names.url.res <- grep("url_res", names(dt.final), value = TRUE)
+        f.duplicated.NA <- function(x){duplicated(x, incomparables = NA)}
         
-        vec <- na.omit(unname(unlist(dt.final[,..i])))
-        sum <- sum(duplicated(vec))
+        for(i in names.url.res){
+            expect_equal(sum(f.duplicated.NA(dt.final[[i]])),  0)            
+        }
+    })
 
-        print(i)
-        expect_equal(sum, 0)
+
+    test_that("Record URLs are unique", {
         
-    }
-
-
-
-
-    no <- dt.final[f.duplicated.NA(url_record_draft)]$res_no
-
-    dt.final[res_no %in% no]$url_record_draft
-
-
-    dt.final[duplicated(url_record_draft)]
-
-
-    names(dt.final)
-
-
-    test[f.duplicated.incomparable(url_record_draft)]
-
-    unname(unlist(dt.final[!is.na(url_record_draft)]))
-    
-
-    test <- dt.final[,..names.url.all]
-
-    duplicated(dt.final$url_record_draft, incomparables = NA)
-
-
-    test[,lapply(url_record_draft, function(x)duplicated(x, incomparables = NA))]
-    
-    
-    dt.final[,..i][duplicated(omiturl_res_fr)]
-
-    test_that("URLs are unique", {
         expect_equal(sum(duplicated(dt.final$url_record)),  0)
-        expect_equal(sum(duplicated(dt.final$url_record_draft)),  0)
-        expect_equal(sum(duplicated(dt.final$url_record_meeting)),  0) 
-        expect_equal(sum(duplicated(dt.final$url_res_en)),  0)
-        expect_equal(sum(duplicated(dt.final$url_res_es)),  0)
-        expect_equal(sum(duplicated(dt.final$url_res_ru)),  0)        
-        ##expect_equal(sum(duplicated(dt.final$url_res_fr)),  0) # fails        
-        ##expect_equal(sum(duplicated(dt.final$url_res_ar)),  0) # fails
-        ##expect_equal(sum(duplicated(dt.final$url_res_zh)),  0) # fails
 
-        ## ADD draft and meeting URL
     })
     
     
