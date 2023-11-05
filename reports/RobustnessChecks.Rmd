@@ -233,6 +233,15 @@ langtest[,.N,keyby = "es_langtest"]
 
 
 
+# Visual Language Inspection
+
+
+```{r}
+
+substr(dt.final$text_ar, 1, 200)
+
+```
+
 
 
 
