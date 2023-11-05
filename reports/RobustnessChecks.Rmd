@@ -199,11 +199,6 @@ print(ocrtest)
 
 
 
-
-## Maximum Difference (French)
-
-
-
 # Documents with Low Character Count
 
 
