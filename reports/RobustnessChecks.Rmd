@@ -189,8 +189,6 @@ To compare the text quality of extracted, OCR and gold (expert revised) variants
 The resulting number of features determines the quality and speed with which document-feature matrix (or document-term matrix) oriented workflows can proceed. Lower is better.
 
 
-## Raw Features Counts
-
 ```{r}
 
 print(ocrtest)
