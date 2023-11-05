@@ -66,10 +66,20 @@ url\_res\_es,6_url,String,0,The URL of the PDF file containing the Spanish resol
 url\_res\_fr,6_url,String,0,The URL of the PDF file containing the French resolution text hosted by the UN Digital Library.
 url\_res\_ru,6_url,String,0,The URL of the PDF file containing the Russian resolution text hosted by the UN Digital Library.
 url\_res\_zh,6_url,String,0,The URL of the PDF file containing the Chinese resolution text hosted by the UN Digital Library.
+url\_draft\_ar,6_url,String,0,The URL of the PDF file containing the Arabic draft text hosted by the UN Digital Library.
+url\_draft\_en,6_url,String,0,The URL of the PDF file containing the English draft text hosted by the UN Digital Library.
+url\_draft\_es,6_url,String,0,The URL of the PDF file containing the Spanish draft text hosted by the UN Digital Library.
+url\_draft\_fr,6_url,String,0,The URL of the PDF file containing the French draft text hosted by the UN Digital Library.
+url\_draft\_ru,6_url,String,0,The URL of the PDF file containing the Russian draft text hosted by the UN Digital Library.
+url\_draft\_zh,6_url,String,0,The URL of the PDF file containing the Chinese draft text hosted by the UN Digital Library.
+url\_meeting\_ar,6_url,String,0,The URL of the PDF file containing the Arabic meeting record text hosted by the UN Digital Library.
+url\_meeting\_en,6_url,String,0,The URL of the PDF file containing the English meeting record text hosted by the UN Digital Library.
+url\_meeting\_es,6_url,String,0,The URL of the PDF file containing the Spanish meeting record text hosted by the UN Digital Library.
+url\_meeting\_fr,6_url,String,0,The URL of the PDF file containing the French meeting record text hosted by the UN Digital Library.
+url\_meeting\_ru,6_url,String,0,The URL of the PDF file containing the Russian meeting record text hosted by the UN Digital Library.
+url\_meeting\_zh,6_url,String,0,The URL of the PDF file containing the Chinese meeting record text hosted by the UN Digital Library.
 doi\_concept,7_misc,String,1,The Digital Object Identifier (DOI) for the \emph{concept} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire the \emph{latest version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data.
 doi\_version,7_misc,String,1,The Digital Object Identifier (DOI) for the \emph{specific version} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire this \emph{specific version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data.
 license,7_misc,String,1,The license for the data set. In this data set it is always Creative Commons Zero 1.0 Universal. Useful when merging individual rows with other data sets.
 version,7_misc,Date,0,The version of the data set as a date in the form YYYY-MM-DD (ISO-8601). The version represents the date on which the data set creation process was begun.
-authors,DEL,String,0,TBD
-collections,DEL,String,0,TBD
 resolution\_/\_decision,DEL,String,0,TBD
