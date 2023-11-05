@@ -19,7 +19,7 @@ f.merge_data <- function(dt.extracted.res.all,
                          dt.res.en.gold,
                          dt.draft.all,
                          dt.meeting.all,
-                         dt.download,
+                         dt.download.final,
                          dt.record.final,
                          dt.voting,
                          ocr.limit = 899){
@@ -32,7 +32,7 @@ f.merge_data <- function(dt.extracted.res.all,
         expect_s3_class(dt.res.en.gold, "data.table")
         expect_s3_class(dt.draft.all, "data.table")
         expect_s3_class(dt.meeting.all, "data.table")
-        expect_s3_class(dt.download, "data.table")
+        expect_s3_class(dt.download.final, "data.table")
         expect_s3_class(dt.record.final, "data.table")
         expect_s3_class(dt.voting, "data.table")
     })
@@ -156,7 +156,7 @@ f.merge_data <- function(dt.extracted.res.all,
     ## Merge downloaded metadata
 
     dt <- merge(dt,
-                dt.download[,!"vote_summary"],
+                dt.download.final[,!"vote_summary"],
                 by = "res_no",                
                 all.x = TRUE,
                 sort = FALSE)
@@ -219,7 +219,7 @@ f.merge_data <- function(dt.extracted.res.all,
 ## dt.res.en.gold = tar_read(dt_res_en_gold)
 ## dt.draft.en = tar_read(dt_draft_en)
 ## dt.meeting.en = tar_read(dt_meeting_en)
-## dt.download = tar_read(dt.download)
+## dt.download.final = tar_read(dt.download.final)
 ## dt.record.final = tar_read(dt.record.final)
 ## dt.voting = tar_read(dt.voting)
 
