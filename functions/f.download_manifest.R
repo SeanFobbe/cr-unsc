@@ -1,4 +1,4 @@
-#' Create a preliminary download table from the record pages in the UN Digital Library.
+#' Create a download manifest from the record pages in the UN Digital Library.
 
 
 #' @param x String. A vector of filenames to UN Digital Libary record pages for UNSC resolutions.
@@ -17,10 +17,6 @@
 ## 4: S_RES_1001_1995
 
 
-## dt.record <- tar_read(dt.record.final)
-## tar_load(dt.download)
-## tar_load(url.meeting)
-## tar_load(url.draft)
 
 
 f.download_manifest <- function(dt.download,
@@ -103,3 +99,11 @@ f.download_manifest <- function(dt.download,
 
 
 }
+
+
+## DEBUGGING CODE
+
+## dt.record <- tar_read(dt.record.final)
+## tar_load(dt.download)
+## tar_load(url.meeting)
+## tar_load(url.draft)
