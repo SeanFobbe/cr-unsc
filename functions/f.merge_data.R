@@ -146,17 +146,11 @@ f.merge_data <- function(dt.extracted.res.all,
                 sort = FALSE)
     
         
-    
-    ## ## Rename text variables for draft and meeting
-
-    ## names(dt.draft.en) <- gsub("text", "text_draft", names(dt.draft.en))
-    ## names(dt.meeting.en) <- gsub("text", "text_meeting", names(dt.meeting.en))
-    
 
     ## Merge downloaded metadata
-
+    
     dt <- merge(dt,
-                dt.download.final[,!"vote_summary"],
+                dt.download.final[,!c("doc_id", "year", "vote_summary")],
                 by = "res_no",                
                 all.x = TRUE,
                 sort = FALSE)
@@ -172,22 +166,11 @@ f.merge_data <- function(dt.extracted.res.all,
                 all.x = TRUE,
                 sort = FALSE)
 
-
-    
-    ## Merge record page URL
-
-    dt.return <- merge(dt,
-                      dt.record.final,
-                      by = "res_no",                
-                      all.x = TRUE,
-                      sort = FALSE)
-
-
     
 
     ## Rename date variable
     
-    names(dt.return) <- gsub("^date$", "date_undl", names(dt.return))
+    names(dt.final) <- gsub("^date$", "date_undl", names(dt.final))
 
 
 
@@ -195,15 +178,15 @@ f.merge_data <- function(dt.extracted.res.all,
 
     ## Unit test
     test_that("Results conform to expectations.", {
-        expect_s3_class(dt.return, "data.table")
-        expect_equal(dt.return[,.N], dt.extracted.res.all[language == "EN",.N])
-        expect_lte(dt.return[,.N], dt.voting[,.N])
-        expect_gte(dt.return[,.N], dt.draft.all[is.na(docvar7),.N])
-        expect_gte(dt.return[,.N], dt.meeting.all[is.na(docvar7),.N])
+        expect_s3_class(dt.final, "data.table")
+        expect_equal(dt.final[,.N], dt.extracted.res.all[language == "EN",.N])
+        expect_lte(dt.final[,.N], dt.voting[,.N])
+        expect_gte(dt.final[,.N], dt.draft.all[is.na(docvar7),.N])
+        expect_gte(dt.final[,.N], dt.meeting.all[is.na(docvar7),.N])
     })
 
     
-    return(dt.return)
+    return(dt.final)
     
 
 }
