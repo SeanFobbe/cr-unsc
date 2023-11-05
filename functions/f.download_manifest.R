@@ -74,6 +74,17 @@ f.download_manifest <- function(dt.download,
                        dt$year,
                        sep = "_")
 
+    ## Add missing PDF URLs
+
+    dt[1312]$url_res_ar <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-AR.pdf"
+    dt[1312]$url_res_en <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-EN.pdf"
+    dt[1312]$url_res_es <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-ES.pdf"
+    dt[1312]$url_res_fr <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-FR.pdf"
+    dt[1312]$url_res_ru <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-RU.pdf"
+    dt[1312]$url_res_zh <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-ZH.pdf"
+
+    
+
     ## Finalize
     dt.final <- dt
     
