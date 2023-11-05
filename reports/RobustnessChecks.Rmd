@@ -234,34 +234,6 @@ langtest[,.N,keyby = "es_langtest"]
 
 
 
-## Arabic
-
-```{r}
-
-langtest[,.N,keyby = "ar_langtest"]
-
-```
-
-
-
-## Russian
-
-```{r}
-
-langtest[,.N,keyby = "ru_langtest"]
-
-```
-
-
-## Chinese
-
-```{r}
-
-langtest[,.N,keyby = "zh_langtest"]
-
-```
-
-
 
 
 
