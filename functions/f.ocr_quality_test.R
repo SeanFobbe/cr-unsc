@@ -46,6 +46,19 @@ f.ocr_quality_test <- function(dt.res.en.gold,
     dfm.fr.ocr <- dfm(f.token.processor(corpus(test.fr.ocr)))
 
 
+    ## Spanish
+
+    quanteda_options(tokens_locale = "es") # Locale for Tokenization
+
+    test.es.extracted <- dt.extracted.res.all[(res_no  %in% gold.resno) &language == "ES"][,doc_id := res_no][,.(doc_id, text)]
+
+    test.es.ocr <- dt.ocr.res.all[(res_no  %in% gold.resno) &language == "ES"][,doc_id := res_no][,.(doc_id, text)]
+
+    dfm.es.extracted <- dfm(f.token.processor(corpus(test.es.extracted)))
+    dfm.es.ocr <- dfm(f.token.processor(corpus(test.es.ocr)))
+
+    
+
 
     
     ## Collate results
@@ -54,17 +67,23 @@ f.ocr_quality_test <- function(dt.res.en.gold,
                                          "English",
                                          "English",
                                          "French",
-                                         "French"),
+                                         "French",
+                                         "Spanish",
+                                         "Spanish"),
                             processing = c("Extracted",
                                            "OCR",
                                            "Gold",
+                                           "Extracted",
+                                           "OCR",
                                            "Extracted",
                                            "OCR"),
                             features = c(nfeat(dfm.en.extracted),
                                          nfeat(dfm.en.ocr),
                                          nfeat(dfm.en.gold),
                                          nfeat(dfm.fr.extracted),
-                                         nfeat(dfm.fr.ocr)))
+                                         nfeat(dfm.fr.ocr),
+                                         nfeat(dfm.es.extracted),
+                                         nfeat(dfm.es.ocr)))
 
 
     return(dt.final)
