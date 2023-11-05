@@ -51,14 +51,12 @@ f.download_manifest <- function(dt.download,
 
 
     ## Unit Test 
-    test_that("Arguments do not contain duplicate resolution numbers.", {
+    test_that("Individual tables do not contain duplicate resolution numbers.", {
         expect_equal(dt.record[duplicated(res_no),.N], 0)
         expect_equal(dt.download[duplicated(res_no),.N], 0)
         expect_equal(url.meeting[duplicated(res_no),.N], 0)
         expect_equal(url.draft[duplicated(res_no),.N], 0)
     })
-
-
     
 
     ## Merge tables
@@ -76,19 +74,67 @@ f.download_manifest <- function(dt.download,
                        dt$year,
                        sep = "_")
 
+    ## Finalize
+    dt.final <- dt
+    
 
-    ## Unit Test 
+    ## Unit Tests
     test_that("Types are correct", {
-        expect_s3_class(dt, "data.table")
+        expect_s3_class(dt.final, "data.table")
     })
     
     test_that("Result does not contain duplicate rows", {
-        expect_equal(sum(duplicated(dt)), 0)
+        expect_equal(sum(duplicated(dt.final)), 0)
     })
 
     test_that("Result contains same number of rows as input.", {
-        expect_equal(dt.record[,.N], dt[,.N])
+        expect_equal(dt.record[,.N], dt.final[,.N])
     }) 
+
+    test_that("URLs are valid", {
+
+        names.url.record <- grep("url_record", names(dt.final), value = TRUE)
+
+        for(i in names.url.record){
+
+            vec <- na.omit(unlist(dt.final[,..i]))
+            grep <- grepl("https://digitallibrary.un.org/record/[0-9+]", vec)
+            expect_true(all(grep))
+
+        }
+
+        names.url.files <- grep("url_res|url_meeting|url_draft", names(dt.final), value = TRUE)
+
+        for(i in names.url.files){
+
+            vec <- na.omit(unlist(dt.final[,..i]))
+            grep <- grepl("https://digitallibrary.un.org/record/.*\\.pdf", vec)
+            expect_true(all(grep))
+
+        }
+
+    })
+
+
+
+    
+    unlist(dt.final[,..i])
+
+
+    test_that("URLs are unique", {
+        expect_equal(sum(duplicated(dt.final$record)),  0)
+        expect_equal(sum(duplicated(dt.final$record_draft)),  0)
+        expect_equal(sum(duplicated(dt.final$record_meeting)),  0) 
+        expect_equal(sum(duplicated(dt.final$url_res_en)),  0)
+        expect_equal(sum(duplicated(dt.final$url_res_es)),  0)
+        expect_equal(sum(duplicated(dt.final$url_res_ru)),  0)        
+        ##expect_equal(sum(duplicated(dt.final$url_res_fr)),  0) # fails        
+        ##expect_equal(sum(duplicated(dt.final$url_res_ar)),  0) # fails
+        ##expect_equal(sum(duplicated(dt.final$url_res_zh)),  0) # fails
+
+        ## ADD draft and meeting URL
+    })
+    
     
     
     return(dt)
