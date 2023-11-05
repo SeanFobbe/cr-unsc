@@ -532,10 +532,10 @@ tar_target(url.meeting,
 
 ```{targets tar.download.table.final}
 tar_target(dt.download.final,
-           f.download_table_finalize(dt.download = dt.download,
-                                     dt.record = dt.record.final,
-                                     url.meeting = url.meeting,
-                                     url.draft = url.draft))
+           f.download_manifest(dt.download = dt.download,
+                               dt.record = dt.record.final,
+                               url.meeting = url.meeting,
+                               url.draft = url.draft))
 
 
 ```
