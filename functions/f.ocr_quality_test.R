@@ -116,7 +116,8 @@ f.token.processor <- function(corpus){
     tokens <- tokens_tolower(tokens)
     tokens <- tokens_remove(tokens,
                             pattern = c(stopwords("english"),
-                                        stopwords("french")))
+                                        stopwords("french"),
+                                        stopwords("spanish")))
     return(tokens)
 }
 
