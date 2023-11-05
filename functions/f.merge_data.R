@@ -189,7 +189,7 @@ f.merge_data <- function(dt.extracted.res.all,
 
         expect_length(grep("\\.x", names(dt.final), value = T), 0)
         
-    }
+    })
 
     
 
