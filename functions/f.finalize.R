@@ -167,15 +167,27 @@ f.finalize <- function(dt.intermediate,
 
     
     test_that("URLs are valid", {
-        expect_true(all(grepl("https://digitallibrary.un.org/record/[0-9]+", na.omit(dt.final$record))))
-        expect_true(all(grepl("https://digitallibrary.un.org/record/[0-9]+", na.omit(dt.final$record_meeting))))
-        expect_true(all(grepl("https://digitallibrary.un.org/record/[0-9]+", na.omit(dt.final$record_draft))))
-        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_ar))))
-        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_en))))
-        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_es))))
-        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_fr))))
-        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_ru))))
-        expect_true(all(grepl("https://digitallibrary.un.org/record/.*\\.pdf", na.omit(dt.final$url_res_zh))))
+
+        names.url.record <- grep("url_record", names(dt.final), value = TRUE)
+
+        for(i in names.url.record){
+
+            vec <- na.omit(unlist(dt.final[,..i]))
+            grep <- grepl("https://digitallibrary.un.org/record/[0-9+]", vec)
+            expect_true(all(grep))
+
+        }
+
+        names.url.files <- grep("url_res|url_meeting|url_draft", names(dt.final), value = TRUE)
+
+        for(i in names.url.files){
+
+            vec <- na.omit(unlist(dt.final[,..i]))
+            grep <- grepl("https://digitallibrary.un.org/record/.*\\.pdf", vec)
+            expect_true(all(grep))
+
+        }
+
     })
 
     
@@ -299,7 +311,7 @@ f.finalize <- function(dt.intermediate,
 
 
 
-setdiff(names(dt.final), varnames)
+## setdiff(names(dt.final), varnames)
 
 
 
