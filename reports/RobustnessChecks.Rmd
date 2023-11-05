@@ -133,6 +133,48 @@ ggraph(g,
 
 
 
+# Citation Network
+
+
+
+```{r, CR-UNSC_30_Citations_blue, fig.width = 14, fig.height = 14, fig.pos = "p", fig.cap = "The citation network of the UNSC (Kamada Kawai layout)"}
+
+# Options: kk very nice, lgl, drl, gfr; gem veeeery slow; fr not nice
+
+#index <- which(igraph::V(igraph.citations)$senat == "XI")
+
+#g <- igraph::subgraph(igraph.citations.cleaned, index)
+
+g <- igraph_citations
+
+ggraph(g, "kk", kkconst = vcount(g)/2 ) + 
+    geom_edge_diagonal(colour = "#55c8ff")+
+    geom_node_point(size = 0.5,
+                    color = "white")+
+    theme_void()+
+    labs(
+        title = paste(prefix.figuretitle,
+                      "| The complete UNSC citation network"),
+        caption = caption
+    )+
+    theme(
+        plot.title = element_text(size = 14,
+                                  face = "bold",
+                                  color = "white"),                        
+        plot.background = element_rect(fill = "black"),
+        plot.caption = element_text(color = "white"),
+        plot.margin = margin(10, 20, 10, 10)
+    )
+
+
+
+```
+
+
+
+
+
+
 # Completeness of Download
 
 
@@ -285,45 +327,6 @@ dt.final[nchar(dt.final$text_ru) < 200, .(doc_id, text_ru)]
 dt.final[nchar(dt.final$text_zh) < 200, .N]
 
 ```
-
-
-# Network data
-
-
-
-```{r, CR-UNSC_30_Citations_blue, fig.width = 14, fig.height = 14, fig.pos = "p", fig.cap = "The citation network of the UNSC (Kamada Kawai layout)"}
-
-# Options: kk very nice, lgl, drl, gfr; gem veeeery slow; fr not nice
-
-#index <- which(igraph::V(igraph.citations)$senat == "XI")
-
-#g <- igraph::subgraph(igraph.citations.cleaned, index)
-
-g <- igraph_citations
-
-ggraph(g, "kk") + 
-    geom_edge_diagonal(colour = "#7e0731")+
-    geom_node_point(size = 0.5,
-                    color = "white")+
-    theme_void()+
-    labs(
-        title = paste(prefix.figuretitle,
-                      "| The complete UNSC citation network"),
-        caption = caption
-    )+
-    theme(
-        plot.title = element_text(size = 14,
-                                  face = "bold",
-                                  color = "white"),                        
-        plot.background = element_rect(fill = "black"),
-        plot.caption = element_text(color = "white"),
-        plot.margin = margin(10, 20, 10, 10)
-    )
-
-
-
-```
-
 
 
 
