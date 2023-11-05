@@ -66,6 +66,13 @@ f.finalize <- function(dt.intermediate,
     ## Remove "access" variable (only repeats file name)
     dt.final$access <- NULL
 
+    ## Remove "collections" variable (uninformative)
+    dt.final$collections <- NULL
+
+    ## Remove "authors" variable (uninformative)
+    dt.final$authors <- NULL
+
+    
 
 
     ## Convert Dates
@@ -289,6 +296,10 @@ f.finalize <- function(dt.intermediate,
 ## varnames  <- tar_read(dt.var_codebook)$varname
 ## debug.toggle = FALSE
 ## varnames <- fread("data/CR-UNSC_Variables.csv")$varname
+
+
+
+setdiff(names(dt.final), varnames)
 
 
 
