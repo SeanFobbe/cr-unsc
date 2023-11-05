@@ -185,6 +185,14 @@ f.merge_data <- function(dt.extracted.res.all,
         expect_gte(dt.final[,.N], dt.meeting.all[is.na(docvar7),.N])
     })
 
+    test_that("No disambiguated column names from merge.", {
+
+        expect_length(grep("\\.x", names(dt.final), value = T), 0)
+        
+    }
+
+    
+
     
     return(dt.final)
     
