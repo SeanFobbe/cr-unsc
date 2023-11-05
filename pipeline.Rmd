@@ -1100,6 +1100,14 @@ tar_target(dt.final.meta,
 ```
 
 
+### Language Purity Test
+
+```{targets tar.langtest}
+tar_target(langtest,
+           f.langtest(dt.final = dt.final))
+
+```
+
 
 
 ## Citation Extraction
