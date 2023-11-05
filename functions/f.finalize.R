@@ -179,18 +179,20 @@ f.finalize <- function(dt.intermediate,
 
 
     ## Uniqueness
-    test_that("URLs are unique", {
-        expect_equal(sum(duplicated(dt.final$record)),  0)
-        expect_equal(sum(duplicated(dt.final$record_draft)),  0)
-        expect_equal(sum(duplicated(dt.final$record_meeting)),  0) 
-        expect_equal(sum(duplicated(dt.final$url_res_en)),  0)
-        expect_equal(sum(duplicated(dt.final$url_res_es)),  0)
-        expect_equal(sum(duplicated(dt.final$url_res_ru)),  0)        
-        ##expect_equal(sum(duplicated(dt.final$url_res_fr)),  0) # fails        
-        ##expect_equal(sum(duplicated(dt.final$url_res_ar)),  0) # fails
-        ##expect_equal(sum(duplicated(dt.final$url_res_zh)),  0) # fails
+    test_that("Resolution URLs are unique", {
+        names.url.res <- grep("url_res", names(dt.final), value = TRUE)
+        f.duplicated.NA <- function(x){duplicated(x, incomparables = NA)}
+        
+        for(i in names.url.res){
+            expect_equal(sum(f.duplicated.NA(dt.final[[i]])),  0)            
+        }
+    })
 
-        ## ADD draft and meeting URL
+
+    test_that("Record URLs are unique", {
+        
+        expect_equal(sum(duplicated(dt.final$url_record)),  0)
+
     })
 
     test_that("Identifiers are unique.", {
