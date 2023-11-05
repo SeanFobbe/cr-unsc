@@ -72,6 +72,31 @@ f.finalize <- function(dt.intermediate,
     dt.final$action_note  <- as.IDate(dt.final$action_note)
     dt.final$vote_date  <- as.IDate(dt.final$vote_date)
 
+    ## Correct individual vote counts
+
+##    dt.final[res_no == 610]$vote_abstention <- 0
+##    dt.final[res_no == 790]$vote_abstention <- 0
+    dt.final[res_no == 1999]$vote_nonvote <- 15 # res 1999 adopted without vote
+    dt.final[res_no == 2034]$vote_nonvote <- 15 # res 2034 adopted without objections
+    dt.final[res_no == 2705]$vote_yes  <- 15 # res 2705 adopted unanimously
+
+
+    
+    ## Fix NA votes
+    
+    dt.final[is.na(vote_yes)]$vote_yes <- 0
+    dt.final[is.na(vote_no)]$vote_no <- 0
+    dt.final[is.na(vote_abstention)]$vote_abstention <- 0
+    dt.final[is.na(vote_nonvote)]$vote_nonvote <- 0
+
+    total.na <- is.na(dt.final$vote_total)
+    
+    dt.final[total.na]$vote_total <- dt.final[total.na]$vote_yes + dt.final[total.na]$vote_no + dt.final[total.na]$vote_abstention + dt.final[total.na]$vote_nonvote
+
+
+
+
+
 
     
     ## Order by Resolution Number
@@ -99,7 +124,7 @@ f.finalize <- function(dt.intermediate,
 
     
 
-    ## TESTING ##
+    ## UNIT TESTS ##
 
 
     ## Codebook compliance
@@ -205,12 +230,21 @@ f.finalize <- function(dt.intermediate,
     })
 
     test_that("Vote count maxima are within acceptable bounds", {
-        expect_true(all(dt.final$vote_total <= 15))
+        expect_setequal(unique(dt.final$vote_total), c(11, 15))
         expect_true(all(dt.final$vote_yes <= 15))
         expect_true(all(dt.final$vote_no <= 15))
         expect_true(all(dt.final$vote_abstention <= 15))
         expect_true(all(dt.final$vote_nonvote <= 15))
     })
+
+    test_that("Vote count sums are correct", {
+        vote.sum <- dt.final$vote_yes + dt.final$vote_no + dt.final$vote_abstention + dt.final$vote_nonvote
+        expect_equal(vote.sum, dt.final$vote_total)
+
+    })
+
+## debugging: check problematic votes    
+#dt.final[vote_total != vote.sum, .(res_no, vote_yes, vote_no, vote_abstention, vote_nonvote)]
 
     
     ## Linguistic Variables
