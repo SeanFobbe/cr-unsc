@@ -280,6 +280,8 @@ f.finalize <- function(dt.intermediate,
 
 ## DEBUGGING Code
 
+## library(data.table)
+## library(testthat)
 ## tar_load(dt.intermediate)
 ## vars.additional <- tar_read(vars_additional)
 ## varnames  <- tar_read(dt.var_codebook)$varname
