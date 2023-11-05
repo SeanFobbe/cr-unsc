@@ -57,7 +57,16 @@ f.ocr_quality_test <- function(dt.res.en.gold,
     dfm.es.extracted <- dfm(f.token.processor(corpus(test.es.extracted)))
     dfm.es.ocr <- dfm(f.token.processor(corpus(test.es.ocr)))
 
-    
+
+
+    ocrtest.en <- ocrtest[language == "English"]
+
+## OCR
+ocrtest.en[processing == "OCR"]$features - ocrtest.en[processing == "Extracted"]$features
+
+## GOLD
+ocrtest.en[processing == "Gold"]$features - ocrtest.en[processing == "Extracted"]$features
+
 
 
     
@@ -83,9 +92,23 @@ f.ocr_quality_test <- function(dt.res.en.gold,
                                          nfeat(dfm.fr.extracted),
                                          nfeat(dfm.fr.ocr),
                                          nfeat(dfm.es.extracted),
-                                         nfeat(dfm.es.ocr)))
+                                         nfeat(dfm.es.ocr)),
+                            reduction_abs = c(nfeat(dfm.en.extracted)-nfeat(dfm.en.extracted),
+                                              nfeat(dfm.en.ocr)-nfeat(dfm.en.extracted),
+                                              nfeat(dfm.en.gold)-nfeat(dfm.en.extracted),
+                                              nfeat(dfm.fr.extracted)-nfeat(dfm.fr.extracted),
+                                              nfeat(dfm.fr.ocr)-nfeat(dfm.fr.extracted),
+                                              nfeat(dfm.es.extracted)-nfeat(dfm.es.extracted),
+                                              nfeat(dfm.es.ocr)-nfeat(dfm.es.extracted))
+                            )
 
 
+    dt.final$reduction_rel <- c(dt.final$reduction_abs[1:3] / nfeat(dfm.en.extracted),
+                                dt.final$reduction_abs[4:5] / nfeat(dfm.fr.extracted),
+                                dt.final$reduction_abs[6:7] / nfeat(dfm.es.extracted))
+
+
+    
     return(dt.final)
 
 
