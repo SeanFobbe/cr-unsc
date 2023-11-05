@@ -59,16 +59,6 @@ f.ocr_quality_test <- function(dt.res.en.gold,
 
 
 
-    ocrtest.en <- ocrtest[language == "English"]
-
-## OCR
-ocrtest.en[processing == "OCR"]$features - ocrtest.en[processing == "Extracted"]$features
-
-## GOLD
-ocrtest.en[processing == "Gold"]$features - ocrtest.en[processing == "Extracted"]$features
-
-
-
     
     ## Collate results
     
