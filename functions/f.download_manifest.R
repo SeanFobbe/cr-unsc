@@ -43,17 +43,17 @@ f.download_manifest <- function(dt.download,
     })
     
 
-    ## Remove meeting duplicates (temp fix, must check url creation funcs)
+    ## Remove meeting duplicates and mistaken inclusions (check url creation funcs!)
 
-    remove <- grep("S_PV.3544-EN", url.meeting$url_meeting_en)
+    remove <- grep("S_PV.3544-EN|S_PV.9458-EN", url.meeting$url_meeting_en)
 
     if(length(remove) > 0){
         url.meeting <- url.meeting[-remove]
     }
 
-    ## Remove draft duplicates (temp fix, must check url creation funcs)
+    ## Remove draft duplicates and mistaken inclusions (check url creation funcs!)
     
-    remove <- grep("S_1995_465-EN|S_1995_478-EN|S_1995_486-EN", url.draft$url_draft_en)
+    remove <- grep("S_1995_465-EN|S_1995_478-EN|S_1995_486-EN|S_2023_802-EN|S_2023_808-EN|S_2023_807-EN", url.draft$url_draft_en)
 
     if(length(remove) > 0){
         url.draft <- url.draft[-remove]
@@ -62,10 +62,10 @@ f.download_manifest <- function(dt.download,
 
     ## Unit Test 
     test_that("Arguments do not contain duplicate resolution numbers.", {
-        expect_equal(sum(duplicated(dt.record$res_no)), 0)
-        expect_equal(sum(duplicated(dt.download$res_no)), 0)
-        expect_equal(sum(duplicated(url.meeting$res_no)), 0)
-        expect_equal(sum(duplicated(url.draft$res_no)), 0)
+        expect_equal(dt.record[duplicated(res_no),.N], 0)
+        expect_equal(dt.download[duplicated(res_no),.N], 0)
+        expect_equal(url.meeting[duplicated(res_no),.N], 0)
+        expect_equal(url.draft[duplicated(res_no),.N], 0)
     })
 
 
