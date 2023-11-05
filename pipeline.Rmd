@@ -398,7 +398,7 @@ tar_target(dt.record.voting.final,
 ```{targets tar.download.records.res.main}
 tar_target(html.record.res,
                 f.download(url = dt.record.final$url_record,
-                           filename = paste0(dt.record.final$res_no, ".html"),
+                           filename = paste0(stringi::stri_pad_left(dt.record.final$res_no, width = 4, pad = "0"), ".html"),
                            dir = "files/record_resolution",
                            sleep.min = 0.5,
                            sleep.max = 1,
@@ -412,13 +412,15 @@ tar_target(html.record.res,
 ```
 
 
+
+
 ### Download HTML Voting Records for Resolutions
 
 
 ```{targets tar.download.records.res.voting}
 tar_target(html.record.voting,
                 f.download(url = dt.record.voting.final$url_record,
-                           filename = paste0(dt.record.voting.final$res_no, ".html"),
+                           filename = paste0(stringi::stri_pad_left(dt.record.voting.final$res_no, width = 4, pad = "0"), ".html"),
                            dir = "files/record_voting",
                            sleep.min = 0.5,
                            sleep.max = 1,
@@ -464,7 +466,7 @@ tar_target(dt.voting,
 ```{targets tar.download.records.draft}
 tar_target(html.record.draft,
                 f.download(url = dt.download$url_record_draft,
-                           filename = paste0(dt.download$res_no, ".html"),
+                           filename = paste0(stringi::stri_pad_left(dt.download$res_no, width = 4, pad = "0"), ".html"),
                            dir = "files/record_draft",
                            sleep.min = 0.5,
                            sleep.max = 1,
@@ -486,7 +488,7 @@ tar_target(html.record.draft,
 ```{targets tar.download.records.meeting}
 tar_target(html.record.meeting,
                 f.download(url = dt.download$url_record_meeting,
-                           filename = paste0(dt.download$res_no, ".html"),
+                           filename = paste0(stringi::stri_pad_left(dt.download$res_no, width = 4, pad = "0"), ".html"),
                            dir = "files/record_meeting",
                            sleep.min = 1,
                            sleep.max = 1.5,
