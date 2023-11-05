@@ -93,9 +93,10 @@ f.ocr_quality_test <- function(dt.res.en.gold,
                             )
 
 
-    dt.final$reduction_rel <- c(dt.final$reduction_abs[1:3] / nfeat(dfm.en.extracted),
-                                dt.final$reduction_abs[4:5] / nfeat(dfm.fr.extracted),
-                                dt.final$reduction_abs[6:7] / nfeat(dfm.es.extracted))
+    dt.final$reduction_rel <- round(c(dt.final$reduction_abs[1:3] / nfeat(dfm.en.extracted),
+                                      dt.final$reduction_abs[4:5] / nfeat(dfm.fr.extracted),
+                                      dt.final$reduction_abs[6:7] / nfeat(dfm.es.extracted)),
+                                    2)
 
 
     
