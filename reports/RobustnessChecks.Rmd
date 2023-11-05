@@ -96,7 +96,7 @@ Lorem Ipsum. test
 
 
 
-```{r, CR-UNSC_00_Pipeline_Graph_blue, fig.width = 16, fig.height = 18, fig.pos = "p", fig.cap = "The complete data set compilation process."}
+```{r, CR-UNSC_00_Pipeline_Graph_blue, fig.width = 16, fig.height = 18, fig.pos = "p", fig.cap = "Data set compilation process."}
 
 
 edgelist <- tar_network(targets_only = TRUE)$edges
