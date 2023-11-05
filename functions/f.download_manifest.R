@@ -91,6 +91,8 @@ f.download_manifest <- function(dt.download,
         expect_equal(dt.record[,.N], dt.final[,.N])
     }) 
 
+
+    
     test_that("URLs are valid", {
 
         names.url.record <- grep("url_record", names(dt.final), value = TRUE)
@@ -116,15 +118,27 @@ f.download_manifest <- function(dt.download,
     })
 
 
-
+    names.url.all <- grep("url", names(dt.final), value = TRUE)
     
-    unlist(dt.final[,..i])
+    for(i in names.url.all){
+        
+        vec <- na.omit(unname(unlist(dt.final[,..i])))
+        sum <- sum(duplicated(vec))
 
+        print(i)
+        expect_equal(sum, 0)
+        
+    }
+
+    unname(unlist(dt.final[!is.na(url_record_draft)]))
+    
+
+    dt.final[,..i][duplicated(omiturl_res_fr)]
 
     test_that("URLs are unique", {
-        expect_equal(sum(duplicated(dt.final$record)),  0)
-        expect_equal(sum(duplicated(dt.final$record_draft)),  0)
-        expect_equal(sum(duplicated(dt.final$record_meeting)),  0) 
+        expect_equal(sum(duplicated(dt.final$url_record)),  0)
+        expect_equal(sum(duplicated(dt.final$url_record_draft)),  0)
+        expect_equal(sum(duplicated(dt.final$url_record_meeting)),  0) 
         expect_equal(sum(duplicated(dt.final$url_res_en)),  0)
         expect_equal(sum(duplicated(dt.final$url_res_es)),  0)
         expect_equal(sum(duplicated(dt.final$url_res_ru)),  0)        
@@ -145,6 +159,8 @@ f.download_manifest <- function(dt.download,
 
 ## DEBUGGING CODE
 
+## library(data.table)
+## library(testthat)
 ## dt.record <- tar_read(dt.record.final)
 ## tar_load(dt.download)
 ## tar_load(url.meeting)
