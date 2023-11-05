@@ -1,20 +1,10 @@
 #' Create a download manifest from the record pages in the UN Digital Library.
 
 
-#' @param x String. A vector of filenames to UN Digital Libary record pages for UNSC resolutions.
-
-
-
-## produces duplicates, 2644 instead of 2640 rows. see below
-## url.meeting and url.draft have duplicates
-
-
-# duplicates:
-
-## 1: S_RES_0001_1946
-## 2: S_RES_0100_1953
-## 3: S_RES_1000_1995
-## 4: S_RES_1001_1995
+#' @param dt.download Data.table. The initial download table created from parsing UNDL record pages.
+#' @param dt.record Data.table. The final record table containing URLs to all UN main record pages.
+#' @param url.meeting Data.table. A table of URLs to meeting records for each resolution.
+#' @param url.draft Data.table. A table of URLs to drafts for each resolution.
 
 
 
