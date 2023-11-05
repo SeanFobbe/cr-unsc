@@ -1101,15 +1101,6 @@ tar_target(dt.final.meta,
 ```
 
 
-### Language Purity Test
-
-```{targets tar.langtest}
-tar_target(langtest,
-           f.langtest(dt.final = dt.final))
-
-```
-
-
 
 ## Citation Extraction
 
@@ -1253,6 +1244,31 @@ tar_target(lingstats.summary,
                                     germanvars = FALSE))
 
 ```
+
+
+
+
+### Test: Language Purity
+
+```{targets tar.test.lang}
+tar_target(langtest,
+           f.langtest(dt.final = dt.final))
+
+```
+
+
+### Test: OCR and Gold Quality
+
+```{targets tar.test.ocr}
+
+tar_target(ocrtest,
+           f.ocr_quality_test(dt.res.en.gold = dt_res_en_gold,
+                              dt.ocr.res.all = dt_ocr_res_all,
+                              dt.extracted.res.all = dt_extracted_res_all))
+
+```
+
+
 
 
 ### Write Report: Robustness Checks
