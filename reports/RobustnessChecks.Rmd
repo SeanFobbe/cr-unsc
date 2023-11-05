@@ -136,20 +136,31 @@ ggraph(g,
 # Citation Network
 
 
+```{r, CR-UNSC_30_Citations_blue, fig.width = 20, fig.height = 20, dev = "png" fig.pos = "p", fig.cap = "The citation network of the UNSC (Kamada Kawai layout)"}
 
-```{r, CR-UNSC_30_Citations_blue, fig.width = 14, fig.height = 14, fig.pos = "p", fig.cap = "The citation network of the UNSC (Kamada Kawai layout)"}
+##  kk very nice,
 
-# Options: kk very nice, lgl, drl, gfr; gem veeeery slow; fr not nice
+## stress interesting with bbox = 25, png 20x20, res 300, niter 4000
 
-#index <- which(igraph::V(igraph.citations)$senat == "XI")
+## gem and dh veeeery slow;
 
-#g <- igraph::subgraph(igraph.citations.cleaned, index)
+## fr, lgl not nice
+                                        
+# drl, gfr; 
+
+## index <- which(igraph::V(igraph_citations)$body == "S")
+
+## g <- igraph::subgraph(igraph_citations, index)
 
 g <- igraph_citations
 
-ggraph(g, "kk", kkconst = igraph::vcount(g)/2 ) + 
-    geom_edge_diagonal(colour = "#55c8ff")+
-    geom_node_point(size = 0.5,
+#pdf("test.pdf", width = 20, height = 20)
+
+#png("test-20x20-anon.png", units = "in", width = 25, height = 25, res = 300)
+
+ggraph(g, "stress", niter = 4000, bbox = 25) + 
+    geom_edge_diagonal(colour = "#55c8ff", edge_width = 0.1)+
+    geom_node_point(size = 0.1,
                     color = "white")+
     theme_void()+
     labs(
@@ -166,6 +177,11 @@ ggraph(g, "kk", kkconst = igraph::vcount(g)/2 ) +
         plot.margin = margin(10, 20, 10, 10)
     )
 
+
+#dev.off()
+
+
+    
 
 
 ```
