@@ -166,10 +166,11 @@ f.merge_data <- function(dt.extracted.res.all,
                 all.x = TRUE,
                 sort = FALSE)
 
+    ## Finalize
+    dt.final <- dt
     
 
     ## Rename date variable
-    
     names(dt.final) <- gsub("^date$", "date_undl", names(dt.final))
 
 
@@ -177,14 +178,20 @@ f.merge_data <- function(dt.extracted.res.all,
     
 
     ## Unit test
-    test_that("Results conform to expectations.", {
+
+    test_that("Type is correct.", {
         expect_s3_class(dt.final, "data.table")
+    })
+
+    
+    test_that("Number of rows after merge is reasonable.", {
         expect_equal(dt.final[,.N], dt.extracted.res.all[language == "EN",.N])
         expect_lte(dt.final[,.N], dt.voting[,.N])
         expect_gte(dt.final[,.N], dt.draft.all[is.na(docvar7),.N])
         expect_gte(dt.final[,.N], dt.meeting.all[is.na(docvar7),.N])
     })
-
+    
+    
     test_that("No disambiguated column names from merge.", {
 
         expect_length(grep("\\.x", names(dt.final), value = T), 0)
