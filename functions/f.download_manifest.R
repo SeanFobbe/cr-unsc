@@ -88,11 +88,17 @@ f.download_manifest <- function(dt.download,
 
 
     ## Unit Test 
-    test_that("Result satisfies expectations.", {
+    test_that("Types are correct", {
         expect_s3_class(dt, "data.table")
+    })
+    
+    test_that("Result does not contain duplicate rows", {
         expect_equal(sum(duplicated(dt)), 0)
+    })
+
+    test_that("Result contains same number of rows as input.", {
         expect_equal(dt.record[,.N], dt[,.N])
-    })    
+    }) 
     
     
     return(dt)
