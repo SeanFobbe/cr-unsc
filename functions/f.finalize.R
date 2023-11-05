@@ -74,8 +74,15 @@ f.finalize <- function(dt.intermediate,
 
     ## Correct individual vote counts
 
-##    dt.final[res_no == 610]$vote_abstention <- 0
-##    dt.final[res_no == 790]$vote_abstention <- 0
+    dt.final[res_no == 1248]$vote_nonvote <- 15 # res 1248 adopted without vote
+    dt.final[res_no == 1253]$vote_nonvote <- 15 # res 1253 adopted without vote
+    dt.final[res_no == 1278]$vote_nonvote <- 15 # res 1278 adopted without vote
+    dt.final[res_no == 1326]$vote_nonvote <- 15 # res 1326 adopted without vote
+    dt.final[res_no == 1361]$vote_nonvote <- 15 # res 1361 adopted without vote    
+    dt.final[res_no == 1414]$vote_nonvote <- 15 # res 1414 adopted without vote 
+    dt.final[res_no == 1426]$vote_nonvote <- 15 # res 1426 adopted without vote
+    dt.final[res_no == 1571]$vote_nonvote <- 15 # res 1571 adopted without vote 
+    dt.final[res_no == 1691]$vote_nonvote <- 15 # res 1691 adopted without vote 
     dt.final[res_no == 1999]$vote_nonvote <- 15 # res 1999 adopted without vote
     dt.final[res_no == 2034]$vote_nonvote <- 15 # res 2034 adopted without objections
     dt.final[res_no == 2705]$vote_yes  <- 15 # res 2705 adopted unanimously
@@ -244,7 +251,7 @@ f.finalize <- function(dt.intermediate,
     })
 
 ## debugging: check problematic votes    
-#dt.final[vote_total != vote.sum, .(res_no, vote_yes, vote_no, vote_abstention, vote_nonvote)]
+#dt.final[vote_total != vote.sum, .(res_no, vote_yes, vote_no, vote_abstention, vote_nonvote, topic)]
 
     
     ## Linguistic Variables
@@ -274,11 +281,11 @@ f.finalize <- function(dt.intermediate,
 
 ## DEBUGGING Code
 
-## tar_load(dt.intermediate)
-## vars.additional <- tar_read(vars_additional)
-## varnames  <- tar_read(dt.var_codebook)$varname
-## debug.toggle = FALSE
-## varnames <- fread("data/CR-UNSC_Variables.csv")$varname
+tar_load(dt.intermediate)
+vars.additional <- tar_read(vars_additional)
+varnames  <- tar_read(dt.var_codebook)$varname
+debug.toggle = FALSE
+varnames <- fread("data/CR-UNSC_Variables.csv")$varname
 
 
 
