@@ -236,7 +236,7 @@ langtest[,.N,keyby = "es_langtest"]
 # Visual Language Inspection
 
 
-```{r}
+```{r, results = "asis"}
 
 substr(dt.final$text_ar, 1, 200)
 
