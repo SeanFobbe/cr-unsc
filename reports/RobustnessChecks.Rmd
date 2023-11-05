@@ -147,7 +147,7 @@ ggraph(g,
 
 g <- igraph_citations
 
-ggraph(g, "kk", kkconst = vcount(g)/2 ) + 
+ggraph(g, "kk", kkconst = igraph::vcount(g)/2 ) + 
     geom_edge_diagonal(colour = "#55c8ff")+
     geom_node_point(size = 0.5,
                     color = "white")+
