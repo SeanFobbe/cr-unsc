@@ -196,6 +196,74 @@ print(ocrtest)
 ```
 
 
+# Language Purity Test
+
+This test classifies each element of each text variable with the {textcat} package. While each resolution text should be monolingual, the unprocessed nature of most PDFs (multiple resolutions per PDF, multiple languages per PDF) means that the non-English text variables are likely contaminated with superfluous text. The uses they are put to should be carefully considered.
+
+The test may not work well for non-Western languages and scripts.
+
+
+
+
+
+## English
+
+```{r}
+
+langtest[,.N,keyby = "en_langtest"]
+
+```
+
+## French
+
+```{r}
+
+langtest[,.N,keyby = "fr_langtest"]
+
+```
+
+
+## Spanish
+
+```{r}
+
+langtest[,.N,keyby = "es_langtest"]
+
+```
+
+
+
+
+## Arabic
+
+```{r}
+
+langtest[,.N,keyby = "ar_langtest"]
+
+```
+
+
+
+## Russian
+
+```{r}
+
+langtest[,.N,keyby = "ru_langtest"]
+
+```
+
+
+## Chinese
+
+```{r}
+
+langtest[,.N,keyby = "zh_langtest"]
+
+```
+
+
+
+
 
 
 
