@@ -270,8 +270,7 @@ f.finalize <- function(dt.intermediate,
         expect_identical(vote.sum, dt.final$vote_total)
     })
 
-## debugging: check problematic votes    
-#dt.final[vote_total != vote.sum, .(res_no, vote_yes, vote_no, vote_abstention, vote_nonvote, topic)]
+
 
     
     ## Linguistic Variables
@@ -311,6 +310,10 @@ f.finalize <- function(dt.intermediate,
 
 
 
+## Check problematic votes    
+#dt.final[vote_total != vote.sum, .(res_no, vote_yes, vote_no, vote_abstention, vote_nonvote, topic)]
+
+## Check problematic varnames
 ## setdiff(names(dt.final), varnames)
 
 
