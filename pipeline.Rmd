@@ -996,7 +996,7 @@ tar_target(dt.intermediate,
                         dt.res.en.gold = dt_res_en_gold,
                         dt.draft.all = dt_draft_all,
                         dt.meeting.all = dt_meeting_all,
-                        dt.download = dt.download,
+                        dt.download.final = dt.download.final,
                         dt.record.final = dt.record.final,
 						dt.voting = dt.voting,
 						ocr.limit = 899))
