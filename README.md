@@ -10,7 +10,22 @@ This code in the [R programming language](https://en.wikipedia.org/wiki/R_(progr
 All data sets created with this script will always be hosted permanently open access and freely available at Zenodo, the scientific repository of CERN. Each version is uniquely identified with a persistent Digitial Object Identifier (DOI), the *Version DOI*. The newest version of the data set will always available via the link of the *Concept DOI*: https://doi.org/10.5281/zenodo.7319781
 
 
+## Features
 
+- 75 Variables
+- Full texts of all resolutions in six languages (English, French, Spanish, Arabic, Chinese, Russian)
+- Draft texts of resolutions
+- Meeting record texts
+- Citation network as GraphML (UNSC and UNGA resolutions)
+- Extensive Codebook
+- Wide range of pre-built diagrams for all purposes (PDF for printing, PNG for web)
+- Open and platform independent file formats (CSV, PDF, TXT, GraphML)
+- Publication of full data set (Open Data)
+- Publication of full source code (Open Source)
+- Version-controlled with Docker
+- Public Domain (CC-Zero 1.0)
+- Compilation Report and Robustness Checks Report explain construction and validation of the data set in detail
+- Secure cryptographic signatures
 
 ## Functionality
  
