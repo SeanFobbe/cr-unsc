@@ -57,7 +57,7 @@ Please refer to the Codebook regarding the relative merits of each variant. Unle
 ## System Requirements
 
 - The reference data sets were compiled on a Debian host system. Running the Docker config on an SELinux system like Fedora may require some modifications in the Docker Compose config.
-- 50 GB space on hard drive
+- 40 GB space on hard drive
 - Multi-core CPU recommended. We used 8 cores/16 threads to compile the reference data sets. Standard config will use all cores on a system. This can be fine-tuned in the config file.
 
 
