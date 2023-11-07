@@ -31,7 +31,7 @@ All data sets created with this script will always be hosted permanently open ac
 
 ## Functionality
  
-The pipeline will produce the following results and store them in the folder `output`:
+The pipeline will produce the following results and store them in the folder `output/`:
 
 - Compilation Report
 - Codebook
