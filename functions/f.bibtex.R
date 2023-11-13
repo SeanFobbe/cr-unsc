@@ -2,23 +2,12 @@
 #'
 #' Creata bibtex database for for bl-oscola 1.7.
 #'
-#' @param dt.final Data.table. Final UNSC Data set.
-#' @param filename String. Filename for Bibtex output file.
+#' @param dt.final Data.table. Final UNSC data set.
+#' @param filename String. Filename for bibtex output file.
 #'
 #' @return String. Relative path to bibtex file.
 
 
-
-
-#' to do:
-#' - add date
-
-##tar_load(dt.final)
-##dt.final$date
-##    str(dt.final)
-    
-
-    
 
 
 f.bibtex <- function(dt.final,
@@ -51,21 +40,35 @@ f.bibtex <- function(dt.final,
                            action_note,
                            draft,
                            agenda_information,
-                           vote_summary,
+                           vote_yes,
+                           vote_no,
+                           vote_abstention,
+                           vote_nonvote,
+                           vote_total,
                            vote_detail,
+                           vote_date,
                            chapter6,
                            chapter7,
                            chapter8,
+                           human_rights,
+                           peace_threat,
+                           peace_breach,
+                           aggression,
                            iso_name,
+                           iso_alpha3,
+                           m49_countrycode,
                            m49_region,
                            m49_region_sub,
                            m49_region_intermediate,
                            notes,
                            subjects,
-                           call_number,
+                           meeting_no,
                            related_resource,
                            ntokens,
                            npages,
+                           url_res_en,
+                           url_draft_en,
+                           url_meeting_en,
                            version,
                            doi_concept,
                            doi_version,
@@ -87,3 +90,16 @@ f.bibtex <- function(dt.final,
 
     
 }
+
+
+## DEBUGGING CODE
+
+## tar_load(dt.final)
+## dt.final$date
+
+
+## str(dt.bib)
+## str(dt.final)
+
+## setdiff(names(dt.final), names(dt.bib))
+
