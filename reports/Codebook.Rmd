@@ -109,9 +109,9 @@ unsc <- readtext("txt_res_en/*.txt",
 # Data Set Design
 
 
-## Description of Data Set
+## Overview of Data Set
 
-The \textbf{\datatitle\ (\datashort)} collects and structures in human- and machine-readable form all published resolutions of the United Nations Security Council (UNSC) in all six official UN languages (Arabic, Chinese, English, French, Spanish and Russian). Specialized variants of the data set present citation data and a bibliopgrahic database.
+The \textbf{\datatitle\ (\datashort)} collects and structures in human- and machine-readable form all published resolutions of the United Nations Security Council (UNSC) in all six official UN languages (Arabic, Chinese, English, French, Spanish and Russian). Specialized variants of the data set present citation data and bibliopgrahic database compatible with a wide range of end-user applications.
 
 
 
@@ -138,7 +138,30 @@ The \textbf{\datatitle\ (\datashort)} collects and structures in human- and mach
 
 ## Motivation
 
+Our motivation in creating this dataset is to enhance international legal and political research, increase understanding of the work of the \unsc\ and facilitate creative work on international peace and security. The \datashort\ is a general-purpose dataset that is intended to provide high-quality legal and political data allowing researchers, practitioners, civil society, UN officials, governments and any other interested parties to address a wide range research questions related to the \unsc . It is not limited to a particular line of inquiry or specific discipline. Specialized variants of the data set present citation data and bibliopgrahic database compatible with a wide range of end-user applications.
+
+
+## Funding
+
+The authors did not receive any funding to work on this dataset. All work on the dataset was carried out in addition to their regular academic activities. 
+
+
+
 ## Composition
+
+The dataset is primarily composed of the texts of all resolutions in all official UN languages published by the \unsc . We aim for a complete accounting of all resolutions, up to the most recent resolution that was available through the UN Digital Library on the date of data set creation. We further provide the English texts of the draft resolutions and meeting record associated with each resolutons. Each resolutions is accompanied by as much high-quality metadata as could be acquired and validated from the UN Digital Library, as well as additional metadata extracted from the text of the resolutions. The exact size of the data set is documented and visualized with frequency tables at the end of this Codebook.
+
+The data set is self-contained, but it contains the original URLs to UN Digital Library record pages and URLs to individual PDF files for purposes of reproducibility, data validation and creating digital applications that would benefit from integrating linked open data. We assume these URLs will remain stable over time, but their maintenance is up to the UN Digital Library. In case of link failure, newer version of the data set will contain updated links.
+
+There are no recommended data splis. However, all resolutions are consecutively numbered and timestamped with the date of adoption. Time series analysis should take this into account.
+
+
+
+
+# Sensitive Data
+
+Resolutions of the \unsc\ are publicly available official documents of an international organization. The metadata strictly relates to these public documents. While the text of the resolutions contains references to individuals and organizations, this information has always been published in unredacted form by the \unsc . We have not redacted any of this information to ensure the integrity of these official documents. In any case, the maintenance of international peace and security at the highest international level is a public affair of such magnitude that privacy rights of individuals and organizations cannot prevent their mention and discussion of their activities in official texts of the \unsc .
+
 
 
 
@@ -196,10 +219,20 @@ For results of each test and more information on the construction of the data se
 
 ## Distribution
 
+The datast is cleared for immediate publication and is distributed free of charge. 
 
-## Maintenance
+Versions of record for the data set and source code are distributed on the internet via Zenodo, a non-profit scientific repository managed by CERN. The concept of the data set is uniquely identified by a digital object identififer (DOI), which always resolves to the latest version. In addition to the \enquote{Concept DOI} each version of the data set is further uniquely identified with its own DOI, the \enquote{Version DOI}.
+
+Development versions of the source code are available on GitHub but carry no promise of correctness or functionality.
 
 
+## Maintenance and Updates
+
+Authentic versions of the dataset and source are always hosted on Zenodo. Zenodo guarantees storage CERN's Data Centre and public availability for the lifetime of CERN, which has a defined research program for at least the next 20 years.
+
+Maintenance and further development of the dataset and source code will be carried out by the author(s) for the foreseeable future. Contact details are available on the Zenodo page of the data set.
+
+We intend to update the dataset at least once per year.
 
 
 
