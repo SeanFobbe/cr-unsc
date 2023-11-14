@@ -111,9 +111,7 @@ unsc <- readtext("txt_res_en/*.txt",
 
 ## Description of Data Set
 
-The \textbf{\datatitle\ (\datashort)} collects and structures in human- and machine-readable form all published resolutions of the United Nations Security Council. Complementary data sets provide citation data (to UNSC and UNGA resolutions) and easily importable biblopgrahic data.
-
-
+The \textbf{\datatitle\ (\datashort)} collects and structures in human- and machine-readable form all published resolutions of the United Nations Security Council (UNSC) in all six official UN languages (Arabic, Chinese, English, French, Spanish and Russian). Specialized variants of the data set present citation data and a bibliopgrahic database.
 
 
 
@@ -138,7 +136,13 @@ The \textbf{\datatitle\ (\datashort)} collects and structures in human- and mach
 
 
 
-## Data Collection
+## Motivation
+
+## Composition
+
+
+
+##  Data Collection
 
 Data were collected with the explicit consent of the Secretariat of the \unsc . All documents were downloaded via TLS-encrypted connections and cryptographically signed after data processing was complete. The data set collects all resolutions issued by the \unsc\ that were published on the UN Digital Library on \version .
 
@@ -177,6 +181,26 @@ ggraph(g,
 ```
 
 
+## Processing and Quality Assurance
+
+
+Dozens of automated tests were conducted to ensure the quality of the data and metadata. These include:
+
+- Strict validation of variable types via \emph{regular expressions}.
+- Creation of visualizations for many common descriptive analyses.
+
+For results of each test and more information on the construction of the data set please refer to the Compilation Report or the Robustness Checks report.
+
+
+
+
+## Distribution
+
+
+## Maintenance
+
+
+
 
 
 
@@ -208,18 +232,6 @@ According to written communication between the authors and the Secretariat of th
 To ensure the widest possible distribution and to promote the international rule of law we waive any copyright to the data set under a \textbf{Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication}. 
 
 For details of the waiver please refer to the CC0 copyright notice at the beginning of this Codebook or visit the Creative Commons website for the full terms.\footnote{\url{https://creativecommons.org/publicdomain/zero/1.0/legalcode}}
-
-
-
-## Quality Assurance
-
-Dozens of automated tests were conducted to ensure the quality of the data and metadata. These include:
-
-- Strict validation of variable types via \emph{regular expressions}.
-- Creation of visualizations for many common descriptive analyses.
-
-For results of each test and more information on the construction of the data set please refer to the Compilation Report or the Robustness Checks report.
-
 
 
 
