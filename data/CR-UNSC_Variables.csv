@@ -34,14 +34,14 @@ chapter8,3_thematic,Logical,1,Whether the string “Chapter VIII” is present i
 contains,3_thematic,String,0,"The full name of an instrument annexed to a resolution, otherwise \enquote{NA}. Example: Statute of the International Tribunal for Rwanda (1994). Curated by the UN Digital Library."
 human\_rights,3_thematic,Logical,1,Whether the string “human rights” is present in the English text of the resolution. Either TRUE or FALSE.
 notes,3_thematic,String,0,Additional notes on the resolution. Curated by the UN Digital Library.
-other\_titles,3_thematic,String,0,Further information on the subject of the resolution. Curated by the UN Digital Library.
+other\_titles,3_thematic,String,0,"The number, year, body, meeting number and date of the resolution in narrative text.  Curated by the UN Digital Library."
 peace\_breach,3_thematic,Logical,1,Whether the string “breach of the peace” is present in the English text of the resolution.  Either TRUE or FALSE.
 peace\_threat,3_thematic,Logical,1,Whether the string “threat to the peace” is present in the English text of the resolution.  Either TRUE or FALSE.
 self\_defence,3_thematic,Logical,1,Whether the strings “self-defense” or “self-defence” are present in the English text of the resolution.  Either TRUE or FALSE.
 series,3_thematic,String,1,Indicates whether an Advisory Opinion was requested from the International Court of Justice. Curated by the UN Digital Library.
 subjects,3_thematic,String,0,Various thematic labels. Multiple labels separated by a pipe character. Curated by the UN Digital Library.
 summary,3_thematic,String,0,A human-curated summary. Curated by the UN Digital Library.
-title,3_thematic,String,0,"The number, year, body, meeting number and date of the resolution in narrative text.  Curated by the UN Digital Library."
+title,3_thematic,String,0,"The number, year and topic of the resolution. Curated by the UN Digital Library. "
 topic,3_thematic,String,0,A short description of the resolution’s specific topic. Example: \enquote{on withdrawal of USSR troops from Iran}
 vote\_abstention,4_vote,Integer,1,The number of abstentions. Based on the variable \enquote{vote\_summary}.
 vote\_date,4_vote,Date,0,The date of the vote on the resolution in the format YYYY-MM-DD (ISO 8601). Example: 1948-08-19. Curated by the UN Digital Library.
