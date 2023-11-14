@@ -55,7 +55,7 @@ f.finalize <- function(dt.intermediate,
 
 
 
-
+    
     
     ## Remove "description" variable (contains only page numbers now available in "npages")
     dt.final$description <- NULL
@@ -77,6 +77,8 @@ f.finalize <- function(dt.intermediate,
     dt.final$authors <- NULL
 
 
+    
+
     ## Swap "title" and "other_titles" variables
 
     tvars <- c("title",
@@ -91,6 +93,10 @@ f.finalize <- function(dt.intermediate,
     dt.final$action_note  <- as.IDate(dt.final$action_note)
     dt.final$vote_date  <- as.IDate(dt.final$vote_date)
 
+
+
+
+    
     ## Correct individual vote counts
 
     dt.final[res_no == 1248]$vote_nonvote <- 15 # res 1248 adopted without vote
@@ -106,7 +112,6 @@ f.finalize <- function(dt.intermediate,
     dt.final[res_no == 2034]$vote_nonvote <- 15 # res 2034 adopted without objections
     dt.final[res_no == 2705]$vote_yes  <- 15 # res 2705 adopted unanimously
 
-
     
     ## Fix NA votes
     
@@ -118,8 +123,6 @@ f.finalize <- function(dt.intermediate,
     total.na <- is.na(dt.final$vote_total)
     
     dt.final[total.na]$vote_total <- dt.final[total.na]$vote_yes + dt.final[total.na]$vote_no + dt.final[total.na]$vote_abstention + dt.final[total.na]$vote_nonvote
-
-
 
 
 
