@@ -53,6 +53,10 @@ f.finalize <- function(dt.intermediate,
     ## Create "npage" variable
     dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
 
+
+
+
+    
     ## Remove "description" variable (contains only page numbers now available in "npages")
     dt.final$description <- NULL
 
@@ -72,7 +76,15 @@ f.finalize <- function(dt.intermediate,
     ## Remove "authors" variable (uninformative)
     dt.final$authors <- NULL
 
+
+    ## Swap "title" and "other_titles" variables
+
+    tvars <- c("title",
+               "other_titles")
     
+    setnames(dt.final,
+             old = tvars,
+             new = rev(tvars))
 
 
     ## Convert Dates
