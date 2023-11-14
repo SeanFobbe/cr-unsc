@@ -1136,8 +1136,8 @@ values <- tibble::tibble(
                       input = c(quote(dt.final),
                                 quote(dt.final.meta)),
                       filename = paste0(prefix.files,
-                                        c("_ALL_CSV_Main-Dataset",
-                                          "_ALL_CSV_Metadata"),
+                                        c("_ALL_CSV_FULL",
+                                          "_ALL_CSV_META"),
                                         ".csv")
                   )
 
@@ -1313,8 +1313,8 @@ values <- tibble::tibble(
                                           "ALL_PDF_Resolutions",
                                           "EN_PDF_Drafts",
                                           "EN_PDF_Meeting-Records",
-                                          "ALL_CSV_Main-Dataset",
-                                          "ALL_CSV_Metadata"),
+                                          "ALL_CSV_FULL",
+                                          "ALL_CSV_META"),
                                         ".zip"),
                       mode = c(rep("mirror", 3),
                                rep("cherry-pick", 4))
