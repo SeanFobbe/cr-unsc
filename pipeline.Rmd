@@ -1339,6 +1339,20 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
 ```
 
 
+```{targets tar.zip.analysis}
+tar_target(zip_analysis,
+           f.tar_zip("analysis/",
+                     filename = paste(prefix.files,
+                                      "EN_ANALYSIS.zip",
+                                      sep = "_"),
+                     dir = "output",
+                     mode = "cherry-pick",
+                     report.codebook,    # manually enforced dependency relationship
+                     report.robustness), # manually enforced dependency relationship
+           format = "file")
+```
+
+
 
 
 
@@ -1469,7 +1483,8 @@ tar_target(zip.all,
              zip_txt,
              zip_csv_final,
              zip_csv_meta,
-             zip_source))
+             zip_source,
+			 zip_analysis))
 ```
 
 ### Calculate Cryptographic Hashes
