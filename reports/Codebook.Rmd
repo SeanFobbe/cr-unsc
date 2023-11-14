@@ -225,6 +225,66 @@ For results of each test and more information on the construction of the data se
 
 
 
+# Variants and Target Audiences
+
+The published data set contains all six official UN languages (English, French, Spanish, Arabic, Chinese and Russian) and is published in several different variants intended for specific target audiences. In particular, a CSV variant for general data analysis, a GraphML representation for citation analysis, a PDF variant for traditional research and a BIBTEX variant to assist with efficient citation of UNSC resolutions.
+
+
+
+## ALL\_CSV_FULL
+
+A structured representation of the full data set contained within a single comma-delimited file (CSV). Includes the full complement of metadata described in the Codebook. 
+
+The *FULL* CSV variant includes the full text of the decisions, whereas the *META* CSV variant  only contains the metadata (i.e. all full-text variables are removed).
+
+
+## ALL\_CSV_META
+
+A structured representation of the metadata contained within a single comma-delimited file (CSV).
+
+The *FULL* CSV variant includes the full text of the decisions, whereas the *META* CSV variant  only contains the metadata (i.e. all full-text variables are removed).
+
+
+
+## ALL\_PDF\_RESOLUTIONS
+
+A synthesis of all born-digital resolutions issued by the UNSC combined with older scanned documents which were given a new and enhanced text layer created with an advanced LSTM neural network machine learning engine. Enhancedd OCR documents are provided for resolutions 1 through 899.
+
+Researchers with slow internet connections should consider using the *TXT* variant, as this still provides a reasonable visual approximation of the original documents, but offers the advantage of drastically reduced file size.
+
+
+## ALL\_TXT
+
+
+
+## EN\_BIBTEX_OSCOLA
+
+A selection of variables from the metadata converted to `.bibtex` format compliant with the **bl-oscola** 1.7 standard. This should work with all standard reference managers such as Zotero, EndNote, Citavi and Jabref.
+
+
+
+
+
+## EN\_GraphML\_Citations
+
+## EN\_PDF\_Drafts
+
+
+## EN\_PDF\_Meeting-Records
+
+
+
+
+## ANALYSIS 
+
+This archive contains almost all of the machine-readable analysis output generated during the data set creation process to facilitate further analysis (CSV for tables, PDF and PNG for plots). Minor analysis results are documented only in the Compilation Report.\\
+
+
+
+
+
+
+
 
 # Variable Descriptions
 
