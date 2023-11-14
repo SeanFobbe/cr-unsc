@@ -1136,8 +1136,8 @@ values <- tibble::tibble(
                       input = c(quote(dt.final),
                                 quote(dt.final.meta)),
                       filename = paste0(prefix.files,
-                                        c("_EN_CSV_Main-Dataset",
-                                          "_EN_CSV_Metadata"),
+                                        c("_ALL_CSV_Main-Dataset",
+                                          "_ALL_CSV_Metadata"),
                                         ".csv")
                   )
 
@@ -1170,35 +1170,6 @@ tar_target(graphml_citations,
 ```
 
 
-
-
-<!-- ### Write CSV: Main Data Set -->
-
-<!-- ```{targets tar.write1} -->
-<!-- tar_target(csv.final, -->
-<!--            f.tar_fwrite(x = dt.final, -->
-<!--                         filename = file.path("output", -->
-<!--                                              paste0(prefix.files, -->
-<!--                                                     "_EN_CSV_MainDataset.csv")) -->
-<!--                         ) -->
-<!--            ) -->
-<!-- ``` -->
-
-
-
-<!-- ### Write CSV: Metadata Only -->
-
-
-<!-- ```{targets tar.write2} -->
-<!-- tar_target(csv.meta, -->
-<!--            f.tar_fwrite(x = dt.final.meta, -->
-<!--                         filename = file.path("output", -->
-<!--                                              paste0(prefix.files, -->
-<!--                                                     "_EN_CSV_Metadata.csv")) -->
-<!--                         ) -->
-<!--            ) -->
-
-<!-- ``` -->
 
 
 
@@ -1342,8 +1313,8 @@ values <- tibble::tibble(
                                           "ALL_PDF_Resolutions",
                                           "EN_PDF_Drafts",
                                           "EN_PDF_Meeting-Records",
-                                          "EN_CSV_Main-Dataset",
-                                          "EN_CSV_Metadata"),
+                                          "ALL_CSV_Main-Dataset",
+                                          "ALL_CSV_Metadata"),
                                         ".zip"),
                       mode = c(rep("mirror", 3),
                                rep("cherry-pick", 4))
