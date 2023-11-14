@@ -1244,7 +1244,7 @@ tar_target(ocrtest,
 
 ### Write Report: Robustness Checks
 
-```{targets tar.report3}
+```{targets tar.report.robustness}
 tarchetypes::tar_render(report.robustness,
                         file.path("reports",
                                   "RobustnessChecks.Rmd"),
@@ -1262,7 +1262,7 @@ tarchetypes::tar_render(report.robustness,
 
 
 
-```{targets tar.report4}
+```{targets tar.report.codebook}
 tarchetypes::tar_render(report.codebook,
                         file.path("reports",
                                   "Codebook.Rmd"),
