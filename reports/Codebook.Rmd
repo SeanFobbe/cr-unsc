@@ -951,11 +951,18 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 ### [R1.1] (Meta)data are released with a clear and accessible data usage license
 
+- The CR-UNSC data is published under a Creative Commons license
+- The Cr-UNSC source code is published under an MIT-0 license
+
 ### [R1.2] (Meta)data are associated with detailed provenance
+
+- The CR-UNSC embdes the Concept DOI and Version DOI for the relevant Zenodo record in the CSV dataset and the Codebook
+
 
 ### [R1.3] (Meta)data meet domain-relevant community standards
 
-- The CR-UNSC adapts metadata conventions from the UN Digital Library wherever possible
+- The CR-UNSC adapts all metadata conventions from the UN Digital Library
+- The CR-UNSC complies with ISO and UN M49 standards for country and area codes
 
 
 
