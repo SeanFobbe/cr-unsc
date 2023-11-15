@@ -58,9 +58,14 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 ### I1. (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
 
+- Zenodo metadata is internally stored as JSON and can be exported to MARCXML, Dublin Core XML, CSL, DataCite JSON, DataCite XML, BibTeX, GeoJSON and DCAT
+
 ### I2. (Meta)data use vocabularies that follow FAIR principles
 
+- Zenodo refers to external vocabularies for license (Open Definition), funders (FundRef) and grants (OpenAIRE)
+
 ### I3. (Meta)data include qualified references to other (meta)data
+
 
 
 
