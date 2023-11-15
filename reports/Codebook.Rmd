@@ -841,7 +841,7 @@ ggplot(data = freqtable.nosum) +
     theme_bw() +
     labs(
         title = paste(prefix.figuretitle,
-                      "| Top 50 Subjects"),
+                      "| 50 Most Frequent Subjects"),
         caption = caption,
         x = "Subject",
         y = "Resolutions"
@@ -955,6 +955,7 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 ### [R1.3] (Meta)data meet domain-relevant community standards
 
+- The CR-UNSC adapts metadata conventions from the UN Digital Library wherever possible
 
 
 
