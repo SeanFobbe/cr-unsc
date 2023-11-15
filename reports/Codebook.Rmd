@@ -484,6 +484,37 @@ kable(dt.var_codebook[group == "7_misc", .(varname, type, description)],
 bl-oscola 1.7
 
 
+# Citation Network Data
+
+
+```{r, CR-UNSC_30_Citations_blue, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC (Kamada Kawai layout)"}
+
+g <- igraph_citations
+
+
+ggraph(g, "stress", niter = 4000, bbox = 25) + 
+    geom_edge_diagonal(colour = "#55c8ff", edge_width = 0.1)+
+    geom_node_point(size = 0.1,
+                    color = "white")+
+    theme_void()+
+    labs(
+        title = paste(prefix.figuretitle,
+                      "| The complete UNSC citation network"),
+        caption = caption
+    )+
+    theme(
+        plot.title = element_text(size = 14,
+                                  face = "bold",
+                                  color = "black"),                        
+        plot.background = element_rect(fill = "white"),
+        plot.caption = element_text(color = "black"),
+        plot.margin = margin(10, 20, 10, 10)
+    )
+    
+
+
+```
+
 
 
 
