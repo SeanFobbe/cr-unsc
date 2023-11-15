@@ -884,21 +884,21 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 ## Findable
 
-### F1. (Meta)data are assigned a globally unique and persistent identifier
+### [F1] (Meta)data are assigned a globally unique and persistent identifier
 
 - The dataset and source code are published with Zenodo, a major scientific repository operated by CERN.
 - Zenodo issues a DOI for the dataset as a whole and a DOI for each individual version of the dataset and source code.
 
-### F2. Data are described with rich metadata (defined by R1 below)
+### [F2] Data are described with rich metadata (defined by R1 below)
 
 - Zenodo's metadata is compliant with DataCite's Metadata Schema minimum and recommended terms
 - The author(s) have provided significant metadata to augment the Zenodo record, such as a lengthy description, keywords, publication details, license, related works and contact details for the maintainer(s)
 
-### F3. Metadata clearly and explicitly include the identifier of the data they describe
+### [F3] Metadata clearly and explicitly include the identifier of the data they describe
 
 - With Zenodo the DOI is a top-level and a mandatory field in the metadata of each record
 
-### F4. (Meta)data are registered or indexed in a searchable resource
+### [F4] (Meta)data are registered or indexed in a searchable resource
 
 - Metadata is indexed in and searchable via Zenodo
 - Metadata is indexed in and searchable via DataCite
