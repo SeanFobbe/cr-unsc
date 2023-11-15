@@ -31,7 +31,15 @@ knitr::opts_chunk$set(fig.path = file.path("..", "analysis/"),
 ```
 
 
+
+
 # Overview
+
+This report contains information on all automated tests that are run during the dataset compilation process. Many are hard tests (failure means that an error interrupts compilation), but just as many tests require interpretation and a judgment call to determine whether surprising behavior has occurred.
+
+Hard tests are integrated into the latter part of functions to act as data quality gateways, soft tests are run on the final data and their results reported here.
+
+
 
 ## Load results
 
@@ -85,11 +93,6 @@ sum(stringi::stri_count(regex = "expect_", code))
 
 
 
-# Introduction
-
-Lorem Ipsum. test
-
-
 
 
 # Visualize Pipeline
@@ -136,7 +139,7 @@ ggraph(g,
 # Citation Network
 
 
-```{r, CR-UNSC_30_Citations_blue, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC (Kamada Kawai layout)"}
+```{r, CR-UNSC_30_Citations_blue, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC"}
 
 ##  kk very nice,
 
