@@ -1,6 +1,6 @@
 ---
 title: "Codebook | Corpus of Resolutions: UN Security Council"
-author: "Seán Fobbe, Niccolo Ridi and Lorenzo Gasbarri"
+author: "Seán Fobbe, Lorenzo Gasbarri and Niccoló Ridi"
 geometry: margin=3cm
 papersize: a4
 fontsize: 11pt
