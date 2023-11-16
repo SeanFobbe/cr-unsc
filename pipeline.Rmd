@@ -1243,17 +1243,17 @@ tar_target(ocrtest,
 
 
 
-### Write Report: Robustness Checks
+### Write Report: Test Report
 
-```{targets tar.report.robustness}
-tarchetypes::tar_render(report.robustness,
+```{targets tar.report.test}
+tarchetypes::tar_render(report.test,
                         file.path("reports",
-                                  "RobustnessChecks.Rmd"),
+                                  "TestReport.Rmd"),
                         output_file = file.path("../output",
                                                 paste0(config$project$shortname,
                                                        "_",
                                                        datestamp,
-                                                       "_RobustnessChecks.pdf")))
+                                                       "_TestReport.pdf")))
 
 ```
 
@@ -1350,12 +1350,12 @@ zip.list <- tarchetypes::tar_map(unlist = FALSE,
 tar_target(zip_analysis,
            f.tar_zip("analysis/",
                      filename = paste(prefix.files,
-                                      "EN_ANALYSIS.zip",
+                                      "ANALYSIS.zip",
                                       sep = "_"),
                      dir = "output",
                      mode = "cherry-pick",
                      report.codebook,    # manually enforced dependency relationship
-                     report.robustness), # manually enforced dependency relationship
+                     report.test), # manually enforced dependency relationship
            format = "file")
 ```
 
@@ -1502,7 +1502,7 @@ tar_target(hashes,
            f.tar_multihashes(c(zip.all,
                                graphml_citations,
                                report.codebook[1],
-                               report.robustness[1]),
+                               report.test[1]),
                              multicore = config$parallel$multihashes,
                              cores = fullCores))
 ```
