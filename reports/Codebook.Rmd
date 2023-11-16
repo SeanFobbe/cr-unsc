@@ -487,9 +487,154 @@ bl-oscola 1.7
 # Citation Network Data
 
 
-```{r, CR-UNSC_30_Citations_blackwhite, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC"}
+
+
+
+```{r}
 
 g <- igraph_citations
+
+
+dt.g <- data.table(Metric = c("Number of Nodes",
+                              "Number of Edges",
+                              "Mean Degree",
+                              "Max Degree",
+                              "Min Degree",
+                              "Mean In-Degree",
+                              "Max In-Degree",
+                              "Min In-Degree",
+                              "Diameter",
+                              "Radius",
+                              "Graph Density",
+                              "Assortativity (Degree)",
+                              "Motifs",
+                              "Mean Distance"),
+                   Value = c(vcount(g),
+                                   ecount(g),
+                                   mean(degree(g, mode = "all")),
+                                   max(degree(g, mode = "all")),
+                                   min(degree(g, mode = "all")),
+                                   mean(degree(g, mode = "in")),
+                                   max(degree(g, mode = "in")),
+                                   min(degree(g, mode = "in")),
+                                   diameter(g),
+                                   radius(g),
+                                   edge_density(g, loops = FALSE),
+                                   assortativity_degree(g),              
+                                   count_motifs(g),
+                                   mean_distance(g)
+                                   )
+                   )
+
+
+kable(dt.g,
+      digits = 4,
+      format.args = list(big.mark = ","),
+      format = "latex",
+      booktabs = TRUE,
+      longtable = TRUE)
+
+
+```
+
+
+## Degree Distributions
+
+
+```{r, CR-UNSC_31_Citations_Degree, fig.width = 18, fig.height = 12, fig.pos = "p", fig.cap = "Degree distribution of the UNSC citation network."}
+
+
+degree.all <- data.table(prop = degree_distribution(g, mode = "all"))
+degree.all$degree <- 1:length(degree.all$prop)
+
+
+
+ggplot(data = degree.all) +
+    geom_bar(aes(x = degree,
+                 y = prop),
+             stat = "identity",
+             fill = "black",
+             color = "black",
+             width = 0.5) +
+    theme_bw() +
+    labs(
+        title = paste(prefix.figuretitle,
+                      "| Degree Distribution of Citations"),
+        caption = caption,
+        x = "Degree",
+        y = "Proportion"
+    )+
+    theme(
+        text = element_text(size = 14),
+        plot.title = element_text(size = 14,
+                                  face = "bold"),
+        legend.position = "none",
+        plot.margin = margin(10, 20, 10, 10)
+    )
+
+
+
+
+
+```
+
+
+
+
+
+
+```{r, CR-UNSC_32_Citations_In-Degree, fig.width = 18, fig.height = 12, fig.pos = "p", fig.cap = "In-Degree distribution of the UNSC citation network."}
+
+
+degree.in <- data.table(prop = degree_distribution(g, mode = "in"))
+degree.in$degree <- 1:length(degree.in$prop)
+
+
+
+ggplot(data = degree.in) +
+    geom_bar(aes(x = degree,
+                 y = prop),
+             stat = "identity",
+             fill = "black",
+             color = "black",
+             width = 0.5) +
+    theme_bw() +
+    labs(
+        title = paste(prefix.figuretitle,
+                      "| In-Degree Distribution of Citations"),
+        caption = caption,
+        x = "Degree",
+        y = "Proportion"
+    )+
+    theme(
+        text = element_text(size = 14),
+        plot.title = element_text(size = 14,
+                                  face = "bold"),
+        legend.position = "none",
+        plot.margin = margin(10, 20, 10, 10)
+    )
+
+
+
+
+
+
+
+```
+
+
+
+
+
+
+
+## Citation Network Diagram
+
+
+
+```{r, CR-UNSC_30_Citations_blackwhite, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC"}
+
+
 
 
 ggraph(g, "stress", niter = 4000, bbox = 25) + 
