@@ -1,5 +1,5 @@
 ---
-title: "Robustness Checks | Corpus of Resolutions: UN Security Council"
+title: "Quality Assurance | Corpus of Resolutions: UN Security Council"
 author: "Seán Fobbe, Lorenzo Gasbarri and Niccoló Ridi"
 geometry: margin=3cm
 papersize: a4
@@ -12,7 +12,7 @@ output:
     pandoc_args: --listings
     includes:
       in_header: ../tex/Preamble_EN.tex
-      before_body: [../temp/Definitions.tex,../tex/Titlepage_Robustness.tex]
+      before_body: [../temp/Definitions.tex,../tex/Titlepage_Tests.tex]
 bibliography: ../temp/packages.bib
 nocite: '@*'
 ---

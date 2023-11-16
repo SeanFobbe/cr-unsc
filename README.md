@@ -24,7 +24,7 @@ All data sets created with this script will always be hosted permanently open ac
 - Publication of full source code (Open Source)
 - Version-controlled with Docker
 - Public Domain (CC-Zero 1.0)
-- Compilation Report and Robustness Checks Report explain construction and validation of the data set in detail
+- Compilation Report and Quality Assurance Report explain construction and validation of the data set in detail
 - Secure cryptographic signatures
 
 
@@ -33,9 +33,9 @@ All data sets created with this script will always be hosted permanently open ac
  
 The pipeline will produce the following results and store them in the folder `output/`:
 
-- Compilation Report
 - Codebook
-- Robustness Checks Report
+- Compilation Report
+- Quality Assurance Report
 - ZIP archive containing the main data set as a CSV file
 - ZIP archive containing the just the metadata of the main data set as a CSV file
 - ZIP archive containing all citation data and metadata as a GraphML file

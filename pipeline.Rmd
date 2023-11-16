@@ -1243,17 +1243,17 @@ tar_target(ocrtest,
 
 
 
-### Write Report: Test Report
+### Write Report: QA Test Report
 
 ```{targets tar.report.test}
 tarchetypes::tar_render(report.test,
                         file.path("reports",
-                                  "TestReport.Rmd"),
+                                  "Tests.Rmd"),
                         output_file = file.path("../output",
                                                 paste0(config$project$shortname,
                                                        "_",
                                                        datestamp,
-                                                       "_TestReport.pdf")))
+                                                       "_QualityAssuranceReport.pdf")))
 
 ```
 

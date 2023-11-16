@@ -212,7 +212,7 @@ Dozens of automated tests were conducted to ensure the quality of the data and m
 - Strict validation of variable types via \emph{regular expressions}.
 - Creation of visualizations for many common descriptive analyses.
 
-For results of each test and more information on the construction of the data set please refer to the Compilation Report or the Robustness Checks report.
+For results of each test and more information on the construction of the data set please refer to the Compilation Report or the Quality Assurance Report.
 
 
 
@@ -240,11 +240,11 @@ We intend to update the dataset at least once per year.
 
 ## Source Code and Compilation Report
 
-The full Source Code for the creation of this data set, the resulting Compilation Report, a Robustness Checks report and this Codebook are published open access and permanently archived with Zenodo, the scientific repository of CERN.
+The full Source Code for the creation of this data set, the resulting Compilation Report, a Quality Assurance Report and this Codebook are published open access and permanently archived with Zenodo, the scientific repository of CERN.
 
 With every compilation of the full data set an extensive **Compilation Report** is created in a professionally layouted PDF format. The Compilation Report includes the full data pipeline, comments and explanations of design decisions, relevant computational results, exact timestamps and a table of contents with clickable internal hyperlinks to each section. The Compilation Report is published under the same DOI as the Source Code.
 
-For details of the construction and validation of the data set please refer to the Compilation Report and Robustness Checks report in addition to this Codebook.
+For details of the construction and validation of the data set please refer to the Compilation Report and Quality Assurance Report in addition to this Codebook.
 
 
 
