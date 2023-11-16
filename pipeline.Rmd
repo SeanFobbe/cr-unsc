@@ -1164,7 +1164,7 @@ tar_target(graphml_citations,
            f.tar_write_graph(graph = igraph_citations,
                              file = file.path("output",
                                               paste0(prefix.files, 
-                                                     "_EN_GraphML_Citations.graphml")),
+                                                     "_GraphML_Citations.graphml")),
                              format = "graphml"),
            format = "file")
 
@@ -1182,7 +1182,7 @@ tar_target(bibtex.oscola,
            f.bibtex(dt.final = dt.final,
                         filename = file.path("output",
                                              paste0(prefix.files,
-                                                    "_EN_BIBTEX_OSCOLA.bib"))
+                                                    "_BIBTEX_OSCOLA.bib"))
                         )
            )
 
