@@ -574,7 +574,7 @@ ggplot(data = degree.all) +
     )
 
 
-
+knitr::opts_chunk$set(dev = rev(config$fig$format))
 
 
 ```
