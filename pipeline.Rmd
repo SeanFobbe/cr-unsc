@@ -1299,14 +1299,18 @@ values <- tibble::tibble(
                                "pdf_draft_original",
                                "pdf_meeting_original",
                                "csv_final",
-                               "csv_meta"),
+                               "csv_meta",
+							   "graphml"
+							   "bibtex_oscola"),
                       input = c(quote(files.source),
 								quote(txt_all),
                                 quote(pdf_res_all),
                                 quote(pdf_draft_en),
                                 quote(pdf_meeting_en),
                                 quote(csv_final),
-                                quote(csv_meta)),
+                                quote(csv_meta),
+								quote(graphml_citations),
+								quote(bibtex.oscola)),
                       filename = paste0(prefix.files,
                                         "_",
                                         c("Source_Code",
@@ -1315,10 +1319,12 @@ values <- tibble::tibble(
                                           "EN_PDF_Drafts",
                                           "EN_PDF_Meeting-Records",
                                           "ALL_CSV_FULL",
-                                          "ALL_CSV_META"),
+                                          "ALL_CSV_META",
+										  "BIBTEX_OSCOLA",
+										  "CITATIONS_GRAPHML"),
                                         ".zip"),
                       mode = c(rep("mirror", 3),
-                               rep("cherry-pick", 4))
+                               rep("cherry-pick", 6))
                   )
 
 
