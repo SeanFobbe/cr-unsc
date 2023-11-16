@@ -630,7 +630,7 @@ ggplot(data = degree.in) +
 
 
 
-```{r, CR-UNSC_30_Citations_blackwhite, fig.width = 20, fig.height = 20, fig.path = file.path('..', 'analysis/'), dev = 'png', fig.cap = "The citation network of the UNSC"}
+```{r, CR-UNSC_30_Citations_blackwhite, fig.width = 20, fig.height = 20,  dev = 'png', fig.cap = "The citation network of the UNSC"}
 
 
 
