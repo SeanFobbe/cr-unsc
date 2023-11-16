@@ -148,6 +148,7 @@ tar_option_set(packages = c("tarchetypes",  # Additional targets functions
                             "kableExtra",   # Enhanced kable tables
                             "ggplot2",      # Advanced data vizualization
 							"ggraph",       # Graph visualization
+							"igraph",       # Graph analaysis
                             "scales",       # Scaling of figures
 							"magick",       # Image processing
                             "viridis",      # Viridis palette
