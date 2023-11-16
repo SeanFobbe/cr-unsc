@@ -538,10 +538,10 @@ kable(dt.g,
 ```
 
 
-## Degree Distribution
+## Degree Distributions
 
 
-```{r, CR-UNSC_31_Citations_Degree, fig.width = 18, fig.height = 12, fig.pos = "p", fig.cap = "Degree distribution of the UNSC citation network."}
+```{r, CR-UNSC_31_Citations_Degree, fig.width = 9, fig.height = 6, fig.cap = "Degree distribution of the UNSC citation network."}
 
 
 g <- igraph_citations
@@ -580,11 +580,9 @@ ggplot(data = degree.all) +
 ```
 
 
-## In-Degree Distribution
 
 
-
-```{r, CR-UNSC_32_Citations_In-Degree, fig.width = 18, fig.height = 12, fig.cap = "In-Degree distribution of the UNSC citation network."}
+```{r, CR-UNSC_32_Citations_In-Degree, fig.width = 9, fig.height = 6, fig.cap = "In-Degree distribution of the UNSC citation network."}
 
 
 g <- igraph_citations
