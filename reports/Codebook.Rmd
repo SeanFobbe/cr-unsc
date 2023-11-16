@@ -22,7 +22,7 @@ nocite: '@*'
 
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(fig.path = file.path("..", "analysis/"),
-                      dev = config$fig$format,
+                      dev = rev(config$fig$format),
                       dpi = config$fig$dpi,
                       fig.align = config$fig$align,
                       echo = FALSE,
@@ -573,8 +573,6 @@ ggplot(data = degree.all) +
         plot.margin = margin(10, 20, 10, 10)
     )
 
-
-knitr::opts_chunk$set(dev = rev(config$fig$format))
 
 
 ```
