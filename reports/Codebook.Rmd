@@ -1061,7 +1061,7 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 ### [F3] Metadata clearly and explicitly include the identifier of the data they describe
 
-- With Zenodo the DOI is a top-level and a mandatory field in the metadata of each record
+- Zenodo rquires the DOI as a top-level and mandatory field in the metadata of each record
 
 ### [F4] (Meta)data are registered or indexed in a searchable resource
 
