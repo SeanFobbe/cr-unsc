@@ -158,7 +158,7 @@ There are no recommended data splis. However, all resolutions are consecutively 
 
 
 
-# Sensitive Data
+## Sensitive Data
 
 Resolutions of the \unsc\ are publicly available official documents of an international organization. The metadata strictly relates to these public documents. While the text of the resolutions contains references to individuals and organizations, this information has always been published in unredacted form by the \unsc . We have not redacted any of this information to ensure the integrity of these official documents. In any case, the maintenance of international peace and security at the highest international level is a public affair of such magnitude that privacy rights of individuals and organizations cannot prevent their mention and discussion of their activities in official texts of the \unsc .
 
@@ -538,7 +538,7 @@ kable(dt.g,
 ```
 
 
-## Degree Distributions
+## Degree Distribution
 
 
 ```{r, CR-UNSC_31_Citations_Degree, fig.width = 18, fig.height = 12, fig.pos = "p", fig.cap = "Degree distribution of the UNSC citation network."}
@@ -580,11 +580,11 @@ ggplot(data = degree.all) +
 ```
 
 
+## In-Degree Distribution
 
 
 
-
-```{r, CR-UNSC_32_Citations_In-Degree, fig.width = 18, fig.height = 12, fig.pos = "p", fig.cap = "In-Degree distribution of the UNSC citation network."}
+```{r, CR-UNSC_32_Citations_In-Degree, fig.width = 18, fig.height = 12, fig.cap = "In-Degree distribution of the UNSC citation network."}
 
 
 g <- igraph_citations
