@@ -375,7 +375,7 @@ print(varnames)
 ## Define prefix
 
 prefix <- paste0(config$project$shortname,
-                 "_01_FrequencyTable_var-")
+                 "_FrequencyTable_var-")
 
 ```
 
