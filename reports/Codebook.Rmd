@@ -781,7 +781,7 @@ ggplot(dt.allmetrics.en, aes(x = value,
 
 # Voting
 
-```{r, CR-UNSC_EN_03_Distributions_Voting, fig.height = 10, fig.width = 8.3}
+```{r, CR-UNSC_EN_03_Distributions_Voting, fig.height = 10, fig.width = 10}
 
 ## When plotting a boxplot on a logarithmic scale the standard geom_boxplot() function from ggplot2 incorrectly performs the statistical transformation first before calculating the boxplot statistics. While median and quartiles are based on ordinal position the inter-quartile range differs depending on when statistical transformation is performed.
 
@@ -798,30 +798,21 @@ dt.vote$vote_total <- NULL
 names <- names(dt.vote)
 
 dt.allmetrics <- melt(dt.vote,
-                         measure.vars = rev(names))
+                      measure.vars = rev(names))
 
-
-ggplot(dt.allmetrics, aes(x = value,
-                             y = variable))+
-    geom_violin()+
-    stat_summary(fun.data = f.boxplot.body,
-                 geom = "errorbar",
-                 width = 0.1) +
-    stat_summary(fun.data = f.boxplot.body,
-                 geom = "boxplot",
-                 width = 0.1) +
-    stat_summary(fun.data = f.boxplot.outliers,
-                 geom = "point",
-                 size =  0.5,
-                 alpha = 0.1)+
-    scale_y_discrete(labels = rev(names))+
+ggplot(dt.allmetrics) +
+    geom_bar(aes(x = value),
+             fill = "black",
+             color = "black",
+             width = 0.01)+
+    facet_wrap(~variable)+
     theme_bw() +
     labs(
         title = paste(prefix.figuretitle,
-                      "| Distributions of Voting Proportions"),
+                      "| Voting Data"),
         caption = caption,
-        x = "Value",
-        y = "Voting Proportion"
+        x = "Proportion of Votes Cast",
+        y = "Resolutions"
     )+
     theme(
         text = element_text(size = 14),
@@ -831,7 +822,7 @@ ggplot(dt.allmetrics, aes(x = value,
         plot.margin = margin(10, 20, 10, 10)
     )
 
-        
+
 
 ```
 
