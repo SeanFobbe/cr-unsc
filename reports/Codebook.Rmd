@@ -544,6 +544,7 @@ kable(dt.g,
 ```{r, CR-UNSC_31_Citations_Degree, fig.width = 18, fig.height = 12, fig.pos = "p", fig.cap = "Degree distribution of the UNSC citation network."}
 
 
+g <- igraph_citations
 degree.all <- data.table(prop = degree_distribution(g, mode = "all"))
 degree.all$degree <- 1:length(degree.all$prop)
 
@@ -586,6 +587,7 @@ ggplot(data = degree.all) +
 ```{r, CR-UNSC_32_Citations_In-Degree, fig.width = 18, fig.height = 12, fig.pos = "p", fig.cap = "In-Degree distribution of the UNSC citation network."}
 
 
+g <- igraph_citations
 degree.in <- data.table(prop = degree_distribution(g, mode = "in"))
 degree.in$degree <- 1:length(degree.in$prop)
 
@@ -636,7 +638,7 @@ ggplot(data = degree.in) +
 
 
 
-
+g <- igraph_citations
 ggraph(g, "stress", niter = 4000, bbox = 25) + 
     geom_edge_diagonal(colour = "black", edge_width = 0.1)+
     geom_node_point(size = 0.1,
