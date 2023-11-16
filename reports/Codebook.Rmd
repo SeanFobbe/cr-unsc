@@ -22,7 +22,7 @@ nocite: '@*'
 
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(fig.path = file.path("..", "analysis/"),
-                      dev = rev(config$fig$format),
+                      dev = config$fig$format,
                       dpi = config$fig$dpi,
                       fig.align = config$fig$align,
                       echo = FALSE,
@@ -630,7 +630,7 @@ ggplot(data = degree.in) +
 
 
 
-```{r, CR-UNSC_30_Citations_blackwhite, fig.width = 20, fig.height = 20, fig.pos = "p", dev = "png", fig.cap = "The citation network of the UNSC"}
+```{r, CR-UNSC_30_Citations_blackwhite, fig.width = 20, fig.height = 20, fig.pos = "p", dev = "png", dev.args = list(type = "cairo-png"), fig.cap = "The citation network of the UNSC"}
 
 
 
