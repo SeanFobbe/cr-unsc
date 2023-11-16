@@ -1300,7 +1300,7 @@ values <- tibble::tibble(
                                "pdf_meeting_original",
                                "csv_final",
                                "csv_meta",
-							   "graphml"
+							   "graphml",
 							   "bibtex_oscola"),
                       input = c(quote(files.source),
 								quote(txt_all),
