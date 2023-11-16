@@ -1561,7 +1561,7 @@ zip(paste0("output/",
 
 ## Visualization
 
-```{r, pipeline-graph, fig.width = 10, fig.height = 14}
+```{r, workflow-diagram, fig.width = 10, fig.height = 14}
 
 edgelist <- tar_network(targets_only = TRUE)$edges
 setDT(edgelist)

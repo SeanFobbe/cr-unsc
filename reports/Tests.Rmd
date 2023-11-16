@@ -99,7 +99,7 @@ sum(stringi::stri_count(regex = "expect_", code))
 
 
 
-```{r, CR-UNSC_00_Pipeline_Graph_blue, fig.width = 16, fig.height = 18, fig.pos = "p", fig.cap = "Data set compilation process."}
+```{r, CR-UNSC_Workflow_blue, fig.width = 16, fig.height = 18, fig.pos = "p", fig.cap = "Data set compilation process."}
 
 
 edgelist <- tar_network(targets_only = TRUE)$edges
@@ -139,7 +139,7 @@ ggraph(g,
 # Citation Network
 
 
-```{r, CR-UNSC_30_Citations_blue, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC"}
+```{r, CR-UNSC_Citations_Network_blue, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC"}
 
 ##  kk very nice,
 
