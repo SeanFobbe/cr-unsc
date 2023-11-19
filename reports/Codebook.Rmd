@@ -55,9 +55,11 @@ Under article 24 and 25 of the UN Charter, member states have conferred upon UNS
 
 Under the peace and security mandate, its area of activities covers disarmament, pacific settlement of disputes, enforcement, and, until 1994, strategic areas in a trusteeship agreement. Its functions also pertain to the correct working of the United Nations, covering issues of membership, the appointment of the Segretary General, the elections of judges of the International Court of Justice (ICJ), the calling of special and emergency sessions of the General Assembly, the amendment of the Charter and of the ICJ Statute.
 
-The Corpus of Resolution: UN Security Council (CR-UNSC) collects, for the first time, all resolutions, drafts, and meeting records of the UN Security Council, as published by the UN Digital Library.\footnote{\url{https://digitallibrary.un.org/?ln=en}.}
+The Corpus of Resolution: UN Security Council (CR-UNSC) collects and presents for the first time all resolutions, drafts, and meeting records of the UN Security Council with their associated metadata, as published by the UN Digital Library.\footnote{\url{https://digitallibrary.un.org/?ln=en}.}
 
-
+The quantitative analysis of international legal data is still in its infancy, a situation exacerbated by the lack of high-quality empirical data. Most advanced data sets are held in commercial databases and are therefore not easily available to academic researchers, journalists and the general public. With this data set we hope to contribute to a more systematic and empirical view of the international legal system. In an international community founded on the rule of law the activities of the United Nations must be public, transparent and defensible. In the 21st century this requires quantitative scientific review of decisions and actions. 
+ 
+Design, construction and compilation of this data set are based on the principles of general availability through freedom from copyright (public domain status), strict transparency and full scientific reproducibility. The *FAIR Guiding Principles for Scientific Data Management and Stewardship* (Findable, Accessible, Interoperable and Reusable) inspire both the design and the manner of publication.\footnote{Wilkinson, M., Dumontier, M., Aalbersberg, I. et al. The FAIR Guiding Principles for Scientific Data Management and Stewardship. Sci Data 3, 160018 (2016). <\url{https://doi.org/10.1038/sdata.2016.18}>.}
 
 
 
