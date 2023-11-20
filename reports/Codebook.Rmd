@@ -140,7 +140,11 @@ The \textbf{\datatitle\ (\datashort)} collects and structures in human- and mach
 
 ## Motivation
 
-Our motivation in creating this dataset is to enhance international legal and political research, increase understanding of the work of the \unsc\ and facilitate creative work on international peace and security. The \datashort\ is a general-purpose dataset that is intended to provide high-quality legal and political data allowing researchers, practitioners, civil society, UN officials, governments and any other interested parties to address a wide range research questions related to the \unsc . It is not limited to a particular line of inquiry or specific discipline. Specialized variants of the data set present citation data and bibliopgrahic database compatible with a wide range of end-user applications.
+Our motivation in creating this dataset is to generally enhance international legal and political research, increase understanding of the work of the \unsc\ and facilitate creative work on international peace and security. 
+
+The \datashort\ is a general-purpose dataset that is intended to provide high-quality legal and political data allowing researchers, practitioners, civil society, UN officials, governments and any other interested parties to address a wide range research questions related to the \unsc .
+
+It is not limited to a particular line of inquiry or specific discipline. Specialized variants of the data set present citation data and a bibliographic database compatible with a wide range of end-user applications.
 
 
 ## Funding
@@ -247,12 +251,13 @@ Development versions of the source code are available on GitHub but carry no pro
 
 ## Maintenance and Updates
 
-Authentic versions of the dataset and source are always hosted on Zenodo. Zenodo guarantees storage CERN's Data Centre and public availability for the lifetime of CERN, which has a defined research program for at least the next 20 years.
+Authentic versions of the dataset and source are always published and hosted on Zenodo.\footnote{\url{https://www.zenodo.org}} Zenodo guarantees the professional storage of published records in CERN's Data Centre and public availability for the lifetime of CERN, which has a defined research program for at least 20 years.
 
 Maintenance and further development of the dataset and source code will be carried out by the author(s) for the foreseeable future. Contact details are available on the Zenodo page of the data set.
 
-We intend to update the dataset at least once per year.
+We intend to update the dataset at least once per year. All updates will be published on Zenodo and uniquely identified by date stamps and Version DOIs. Older versions will continue to be available on Zenodo under their original Version DOI.
 
+Contributions to the dataset can be made by reporting issues and suggesting enhancements to the authors, as well as proposing code changes and additions on GitHub.
 
 
 
@@ -284,6 +289,12 @@ According to written communication between the authors and the Secretariat of th
 To ensure the widest possible distribution and to promote the international rule of law we waive any copyright to the data set under a \textbf{Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication}. 
 
 For details of the waiver please refer to the CC0 copyright notice at the beginning of this Codebook or visit the Creative Commons website for the full terms.\footnote{\url{https://creativecommons.org/publicdomain/zero/1.0/legalcode}}
+
+
+
+
+
+
 
 
 
