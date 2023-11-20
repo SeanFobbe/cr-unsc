@@ -218,7 +218,11 @@ Dozens of automated tests were conducted to ensure the quality of the data and m
 - Strict validation of variable types via \emph{regular expressions}.
 - Creation of visualizations for many common descriptive analyses.
 
-For results of each test and more information on the construction of the data set please refer to the Compilation Report or the Quality Assurance Report.
+For results of each test and more information on the construction of the data set please refer to the Compilation Report and the Quality Assurance Report.
+
+The raw data for all stages of the data pipeline (\enquote{targets}) was stored and is published together with the source code. The original files acquired from the UN Digital Library are part of the dataset itself. We exclude only HTML files from this.
+
+
 
 
 ## Uses
@@ -237,7 +241,7 @@ The dataset can potentially be used in the following applications
 
 The dataset should not be used for the following tasks:
 
-- Prediction of voting success (dependent variable) based on the text of a resolution or draft (input variable). The data set contains only successfully adopted resolutions, so there is no comparison data for votes on unsuccessful drafts.
+- Prediction of adoption success or voting behavior (dependent variable) based on the text of a resolution or draft (input variable). The data set contains only successfully adopted resolutions, so there is no comparison data for votes on unsuccessful drafts.
 
 
 ## Distribution
@@ -248,9 +252,20 @@ Authentic copies of the data set and source code will be distributed on the inte
 
 The concept of the data set is uniquely identified by a digital object identififer (DOI), which always resolves to the latest version. In addition to the \enquote{Concept DOI} each version of the data set is further uniquely identified with its own DOI, the \enquote{Version DOI}.
 
-We are not aware of any regulatory restrictions that would limit distribution or re-distribution of the dataset.
+The dataset and source code are distributed under standardized and widely recognized open licenses. We are not aware of any regulatory restrictions that would limit distribution or re-distribution of the dataset.
 
 Development versions of the source code are available on GitHub but carry no promise or expectation of correctness or functionality.
+
+
+## Copyright Status: Public Domain
+ 
+According to written communication between the authors and the Secretariat of the \unsc\ the original documents are not subject to copyright.
+
+To ensure the widest possible distribution and to promote the international rule of law we waive any copyright to the data set under a \textbf{Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication}. 
+
+For details of the waiver please refer to the CC0 copyright notice at the beginning of this Codebook or visit the Creative Commons website for the full terms.\footnote{\url{https://creativecommons.org/publicdomain/zero/1.0/legalcode}}
+
+
 
 
 ## Maintenance and Updates
@@ -284,15 +299,6 @@ Users should bear in mind certain important limitations:
 - While Tesseract yields high-quality OCR results, current OCR technology is not perfect and minor errors must be expected (\emph{OCR bias}). This affects resolutions and associated drafts and meeting records up to resolution 899.
 - The OCR texts for all languages other than English were *not* manually post-processed, so, in addition to OCR errors, may contain superfluous texts from other documents printed on the same page. This affects resolutions and associated drafts and meeting records up to resolution 899.
 
-
-
-## Copyright Status: Public Domain
- 
-According to written communication between the authors and the Secretariat of the \unsc\ the original documents are not subject to copyright.
-
-To ensure the widest possible distribution and to promote the international rule of law we waive any copyright to the data set under a \textbf{Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication}. 
-
-For details of the waiver please refer to the CC0 copyright notice at the beginning of this Codebook or visit the Creative Commons website for the full terms.\footnote{\url{https://creativecommons.org/publicdomain/zero/1.0/legalcode}}
 
 
 
