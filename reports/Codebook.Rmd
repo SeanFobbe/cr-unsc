@@ -242,11 +242,15 @@ The dataset should not be used for the following tasks:
 
 ## Distribution
 
-The datast is cleared for immediate publication and is distributed free of charge. 
+The datast is cleared for immediate use by the general public and professional audiences. It is distributed free of charge. 
 
-Versions of record for the data set and source code are distributed on the internet via Zenodo, a non-profit scientific repository managed by CERN. The concept of the data set is uniquely identified by a digital object identififer (DOI), which always resolves to the latest version. In addition to the \enquote{Concept DOI} each version of the data set is further uniquely identified with its own DOI, the \enquote{Version DOI}.
+Authentic copies of the data set and source code will be distributed on the internet via Zenodo, a non-profit scientific repository managed by CERN. 
 
-Development versions of the source code are available on GitHub but carry no promise of correctness or functionality.
+The concept of the data set is uniquely identified by a digital object identififer (DOI), which always resolves to the latest version. In addition to the \enquote{Concept DOI} each version of the data set is further uniquely identified with its own DOI, the \enquote{Version DOI}.
+
+We are not aware of any regulatory restrictions that would limit distribution or re-distribution of the dataset.
+
+Development versions of the source code are available on GitHub but carry no promise or expectation of correctness or functionality.
 
 
 ## Maintenance and Updates
@@ -282,7 +286,7 @@ Users should bear in mind certain important limitations:
 
 
 
-## Public Domain Status
+## Copyright Status: Public Domain
  
 According to written communication between the authors and the Secretariat of the \unsc\ the original documents are not subject to copyright.
 
