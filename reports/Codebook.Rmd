@@ -374,6 +374,8 @@ This archive contains almost all of the machine-readable analysis output generat
 
 A selection of variables from the metadata converted to `.bibtex` format compliant with the **bl-oscola** 1.7 standard. This file should be importable in all standard reference managers such as Zotero, EndNote, Citavi and Jabref.
 
+Note that the content of the variables \enquote{title} and \enquote{other\_title} are switched in the BIBTEX variant to make for a better experience in bibliography software. The \enquote{other\_title} variable is more informative, but the main data set tries to respect the UN Digital Library naming convention.
+
 
 ## CITATIONS\_GRAPHML
 
