@@ -473,7 +473,12 @@ kable(dt.var_codebook[group == "3_thematic", .(varname, type, description)],
 
 ## Vote Variables
 
-Voting variables document the voting results and patterns of UN Security Council's resolutions. Note that the voting variables contain the geographic distribution of votes.
+Vote variables document the voting results and voting patterns of UNSC resolutions. Includes counts, total and disaggregated, as well as individual votes cast by each State. 
+
+Note that the UNSC was enlarged from 11 to 15 members (from 6 to 10 non-permanent members) in 1965, so comparing absolute vote counts is only appropriate before and after those years. All other analyses should use proportions.
+
+When attempting to build prediction models, please bear in mind that the data set only documents successfuly adopted resolutions and their voting data. Many draft resolutions fail during the negotiation stage or because they cannot secure the necessary number of votes. Any prediction model should inclues these failed drafts, but they are not included as part of this dataset.
+
 
 
 ```{r}
@@ -492,7 +497,7 @@ kable(dt.var_codebook[group == "4_vote", .(varname, type, description)],
 
 ## Geographic Variables
 
-Geographic variables provide insight into the geographic distribution of the UN Security Council's attention. Note that the voting variables contain the geographic distribution of votes.
+Geographic variables provide insight into the geographic distribution of the UNSC's attention. Note that the voting variables contain the geographic distribution of votes.
 
 
 ```{r}
@@ -550,12 +555,6 @@ kable(dt.var_codebook[group == "7_misc", .(varname, type, description)],
 
 ```
 
-
-
-
-# Biliographic Database
-
-bl-oscola 1.7
 
 
 # Citation Network Data
