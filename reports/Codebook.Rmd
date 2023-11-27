@@ -313,7 +313,7 @@ The published data set contains all six official UN languages (English, French, 
 
 
 \begin{centering}
-\begin{longtable}{P{3.5cm}p{10.5cm}}
+\begin{longtable}{ll}
 
 \toprule
 
