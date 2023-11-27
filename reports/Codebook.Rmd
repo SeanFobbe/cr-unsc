@@ -1119,7 +1119,7 @@ For the original publication proposing the FAIR standard, see:
 Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data management and stewardship. Sci. Data 3:160018 doi: 10.1038/sdata.2016.18 (2016).
 
 
-## Findable
+## [F] Findable
 
 ### [F1] (Meta)data are assigned a globally unique and persistent identifier
 
@@ -1142,7 +1142,7 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 
 
-## Accessible
+## [A] Accessible
 
 ### [A1] (Meta)data are retrievable by their identifier using a standardised communications protocol
 
@@ -1166,7 +1166,7 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 
 
-## Interoperable
+## [I] Interoperable
 
 ### [I1] (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
 
@@ -1184,7 +1184,7 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 
 
-## Reusable
+## [R] Reusable
 
 ### [R1] (Meta)data are richly described with a plurality of accurate and relevant attributes
 
