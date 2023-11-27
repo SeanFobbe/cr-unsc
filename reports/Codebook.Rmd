@@ -322,7 +322,7 @@ Target Audience & Variants\\
 \midrule
 
 Quantitative Research & ALL\_CSV\_FULL \\
- & ALL\_CSV_META \\
+ & ALL\_CSV\_META \\
  & ALL\_TXT \\
  & ANALYSIS \\
  & CITATIONS\_GRAPHML \\
