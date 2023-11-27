@@ -724,7 +724,7 @@ tar_target(dt_ocr_res_all,
 ```
 
 
-### Combine Draft  Text Table Targets
+### Combine Draft Text Table Targets
 
 
 ```{targets tar.download.dt.draft}
@@ -1075,7 +1075,7 @@ values <- tibble::tibble(
 							   "bibtex_oscola"),
                       input = c(quote(files.source),
 								quote(txt_all),
-                                quote(pdf_res_all),
+                                quote(c(pdf_res_all, grep("\\.pdf", ocr_res_en, value = TRUE))),
                                 quote(pdf_draft_en),
                                 quote(pdf_meeting_en),
                                 quote(csv_final),
