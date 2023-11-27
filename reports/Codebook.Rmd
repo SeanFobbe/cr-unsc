@@ -331,7 +331,7 @@ Traditional Research & ALL\_PDF\_RESOLUTIONS \\
  & ANALYSIS \\
  & BIBTEX\_OSCOLA \\
  & EN\_PDF\_Drafts \\
- & EN\_PDF\_Meeting-Records
+ & EN\_PDF\_Meeting-Records \\
 \bottomrule
 
 \end{longtable}
