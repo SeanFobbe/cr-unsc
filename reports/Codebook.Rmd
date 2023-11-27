@@ -372,18 +372,28 @@ This archive contains almost all of the machine-readable analysis output generat
 
 ## BIBTEX\_OSCOLA
 
-A selection of variables from the metadata converted to `.bibtex` format compliant with the **bl-oscola** 1.7 standard. This should work with all standard reference managers such as Zotero, EndNote, Citavi and Jabref.
-
+A selection of variables from the metadata converted to `.bibtex` format compliant with the **bl-oscola** 1.7 standard. This file should be importable in all standard reference managers such as Zotero, EndNote, Citavi and Jabref.
 
 
 ## CITATIONS\_GRAPHML
 
+A graph (network) representation of all citations from UNSC resolutions to other UNSC and UNGA resolutions in GraphML format. The format is widely supported, in particular by GUI software such as Gephi. 
+
+The UNSC resolution nodes are associated with as much metadata as makes sense from a network perspective. The file does not include full texts of resolutions. If you wish to select nodes based on the contents of the full text, please run your analysis on the CSV file, export the resolution numbers and use these to select the appropriate nodes in your network analysis software.
+
+
 ## EN\_PDF\_Drafts
+
+All drafts of resolutions texts in English as published by the UN Digital Library, in PDF format. We only include English draft resolutions, as the draft text is primarily negotiated in English. Enhanced OCR versions of the PDF files are produced by the data pipeline, but not included in the published data set to keep file size reasonable.
+
+Please note that the files are named according to the associated final resolution (and not the official document symbol of the draft) to speed up findability.
 
 
 ## EN\_PDF\_Meeting-Records
 
+All meeting records associated with resolutions in English as published by the UN Digital Library, in PDF format. We only include English draft resolutions, as the draft text is primarily negotiated in English. Enhanced OCR versions of the PDF files are produced by the data pipeline, but not included in the published data set to keep file size reasonable.
 
+Please note that the files are named according to the associated final resolution (and not the official document symbol of the meeting record) to speed up findability.
 
 
 
