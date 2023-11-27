@@ -178,7 +178,7 @@ Data were collected with the explicit consent of the Secretariat of the \unsc . 
   
 
 
-```{r, CR-UNSC_Workflow_blackwhite, fig.width = 12, fig.height = 14, fig.pos = "p", fig.cap = "The complete data set compilation process."}
+```{r, CR-UNSC_Workflow_blackwhite, fig.width = 16, fig.height = 18, fig.pos = "p", fig.cap = "The complete data set compilation process."}
 
 
 edgelist <- tar_network(targets_only = TRUE)$edges
@@ -559,7 +559,7 @@ kable(dt.var_codebook[group == "7_misc", .(varname, type, description)],
 
 # Citation Network Data
 
-The CR-UNSC comes with a specialized variant of the dataset that extracts all citations from UNSC resolutions to other UNSC resolutions and UNGA resolutions. This graph (network) representation of citations is available in GraphML format.
+The CR-UNSC comes with a specialized variant of the dataset that contains all citations from UNSC resolutions to other UNSC resolutions and UNGA resolutions. This graph (network) representation of citations is available in GraphML format.
 
 
 \ra{1.1}
