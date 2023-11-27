@@ -559,7 +559,16 @@ kable(dt.var_codebook[group == "7_misc", .(varname, type, description)],
 
 # Citation Network Data
 
+The CR-UNSC comes with a specialized variant of the dataset that extracts all citations from UNSC resolutions to other UNSC resolutions and UNGA resolutions. This graph (network) representation of citations is available in GraphML format.
 
+The UNSC resolution nodes are associated with as much metadata as makes sense from a network perspective. The GraphML file does not include full texts of resolutions. The following meta data variables are included:
+
+```{r}
+vertex_attr_names(g)
+```
+
+
+If you wish to select nodes based on the contents of the full text, please run your analysis on the CSV file, export the resolution numbers and use these to select the appropriate nodes in your network analysis software.
 
 
 
@@ -578,9 +587,7 @@ dt.g <- data.table(Metric = c("Number of Nodes",
                               "Min In-Degree",
                               "Diameter",
                               "Radius",
-                              "Graph Density",
                               "Assortativity (Degree)",
-                              "Motifs",
                               "Mean Distance"),
                    Value = c(vcount(g),
                                    ecount(g),
@@ -592,16 +599,14 @@ dt.g <- data.table(Metric = c("Number of Nodes",
                                    min(degree(g, mode = "in")),
                                    diameter(g),
                                    radius(g),
-                                   edge_density(g, loops = FALSE),
-                                   assortativity_degree(g),              
-                                   count_motifs(g),
+                                   assortativity_degree(g),
                                    mean_distance(g)
                                    )
                    )
 
 
 kable(dt.g,
-      digits = 4,
+      digits = 2,
       format.args = list(big.mark = ","),
       format = "latex",
       booktabs = TRUE,
@@ -609,9 +614,6 @@ kable(dt.g,
 
 
 ```
-
-
-## Degree Distributions
 
 
 ```{r, CR-UNSC_Citations_Degree, fig.width = 9, fig.height = 6, fig.cap = "Degree distribution of the UNSC citation network."}
