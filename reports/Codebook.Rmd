@@ -564,7 +564,7 @@ The CR-UNSC comes with a specialized variant of the dataset that extracts all ci
 The UNSC resolution nodes are associated with as much metadata as makes sense from a network perspective. The GraphML file does not include full texts of resolutions. The following meta data variables are included:
 
 ```{r}
-vertex_attr_names(g)
+vertex_attr_names(igraph_citations)
 ```
 
 
@@ -695,13 +695,6 @@ ggplot(data = degree.in) +
 
 ```
 
-
-
-
-
-
-
-## Citation Network Diagram
 
 
 
