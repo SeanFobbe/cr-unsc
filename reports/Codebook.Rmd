@@ -1062,6 +1062,7 @@ kable(freqtable.nosum,
 ```
 
 
+\newpage
 ## Proportions of Votes Cast
 
 
