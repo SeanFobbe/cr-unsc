@@ -604,8 +604,9 @@ dt.g <- data.table(Metric = c("Number of Nodes",
                                    )
                    )
 
+dt.g.split <- cbind(dt.g[1:6], dt.g[7:12])
 
-kable(dt.g,
+kable(dt.g.split,
       digits = 2,
       format.args = list(big.mark = ","),
       format = "latex",
