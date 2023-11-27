@@ -561,17 +561,8 @@ kable(dt.var_codebook[group == "7_misc", .(varname, type, description)],
 
 The CR-UNSC comes with a specialized variant of the dataset that extracts all citations from UNSC resolutions to other UNSC resolutions and UNGA resolutions. This graph (network) representation of citations is available in GraphML format.
 
-The UNSC resolution nodes are associated with as much metadata as makes sense from a network perspective. The GraphML file does not include full texts of resolutions. The following meta data variables are included:
 
-```{r}
-vertex_attr_names(igraph_citations)
-```
-
-
-If you wish to select nodes based on the contents of the full text, please run your analysis on the CSV file, export the resolution numbers and use these to select the appropriate nodes in your network analysis software.
-
-
-
+\ra{1.1}
 ```{r}
 
 g <- igraph_citations
@@ -615,6 +606,20 @@ kable(dt.g.split,
 
 
 ```
+
+
+The UNSC resolution nodes are associated with as much metadata as makes sense from a network perspective. The GraphML file does not include full texts of resolutions. The following meta data variables are included:
+
+
+```{r}
+vertex_attr_names(igraph_citations)
+```
+
+
+If you wish to select nodes based on the contents of the full text, please run your analysis on the CSV file, export the resolution numbers and use these to select the appropriate nodes in your network analysis software.
+
+
+
 
 
 ```{r, CR-UNSC_Citations_Degree, fig.width = 9, fig.height = 6, fig.cap = "Degree distribution of the UNSC citation network."}
@@ -767,7 +772,7 @@ Sentences & Corresponds approximately to the colloquial definition of a sentence
 ## Summary Statistics
 
 
-
+\ra{1.3}
 ```{r}
 
 
