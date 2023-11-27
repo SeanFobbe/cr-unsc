@@ -850,54 +850,6 @@ ggplot(dt.allmetrics.en, aes(x = value,
 ```
 
 
-# Voting
-
-```{r, CR-UNSC_Distributions_Voting, fig.height = 10, fig.width = 10}
-
-## When plotting a boxplot on a logarithmic scale the standard geom_boxplot() function from ggplot2 incorrectly performs the statistical transformation first before calculating the boxplot statistics. While median and quartiles are based on ordinal position the inter-quartile range differs depending on when statistical transformation is performed.
-
-## Solutions are based on this SO question: https://stackoverflow.com/questions/38753628/ggplot-boxplot-length-of-whiskers-with-logarithmic-axis
-
-
-## Normalize by Total
-
-dt.vote <- dt.final[,.(vote_yes, vote_no, vote_abstention, vote_nonvote, vote_total)]
-dt.vote <- dt.vote / dt.vote$vote_total
-dt.vote$vote_total <- NULL
-
-
-names <- names(dt.vote)
-
-dt.allmetrics <- melt(dt.vote,
-                      measure.vars = rev(names))
-
-ggplot(dt.allmetrics) +
-    geom_bar(aes(x = value),
-             fill = "black",
-             color = "black",
-             width = 0.01)+
-    facet_wrap(~variable)+
-    theme_bw() +
-    labs(
-        title = paste(prefix.figuretitle,
-                      "| Voting Data"),
-        caption = caption,
-        x = "Proportion of Votes Cast",
-        y = "Resolutions"
-    )+
-    theme(
-        text = element_text(size = 14),
-        plot.title = element_text(size = 14,
-                                  face = "bold"),
-        legend.position = "none",
-        plot.margin = margin(10, 20, 10, 10)
-    )
-
-
-
-```
-
-
 
 # Metadata Frequency Tables
  
@@ -1108,6 +1060,51 @@ kable(freqtable.nosum,
                     "% Cumulative"))  %>% kable_styling(latex_options = "repeat_header")
 
 ```
+
+
+## Proportions of Votes Cast
+
+
+```{r, CR-UNSC_Distributions_Voting, fig.height = 10, fig.width = 10}
+
+## Normalize by Total
+
+dt.vote <- dt.final[,.(vote_yes, vote_no, vote_abstention, vote_nonvote, vote_total)]
+dt.vote <- dt.vote / dt.vote$vote_total
+dt.vote$vote_total <- NULL
+
+names <- names(dt.vote)
+
+dt.allmetrics <- melt(dt.vote,
+                      measure.vars = rev(names))
+
+# Plot
+ggplot(dt.allmetrics) +
+    geom_bar(aes(x = value),
+             fill = "black",
+             color = "black",
+             width = 0.01)+
+    facet_wrap(~variable)+
+    theme_bw() +
+    labs(
+        title = paste(prefix.figuretitle,
+                      "| Voting Data"),
+        caption = caption,
+        x = "Proportion of Votes Cast",
+        y = "Resolutions"
+    )+
+    theme(
+        text = element_text(size = 14),
+        plot.title = element_text(size = 14,
+                                  face = "bold"),
+        legend.position = "none",
+        plot.margin = margin(10, 20, 10, 10)
+    )
+
+
+
+```
+
 
 
 
