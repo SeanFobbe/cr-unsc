@@ -45,7 +45,7 @@ title,3_thematic,String,0,"The number, year and topic of the resolution. Curated
 topic,3_thematic,String,0,A short description of the resolution’s specific topic. Example: \enquote{on withdrawal of USSR troops from Iran}
 vote\_abstention,4_vote,Integer,1,The number of abstentions. Based on the variable \enquote{vote\_summary}.
 vote\_date,4_vote,Date,0,The date of the vote on the resolution in the format YYYY-MM-DD (ISO 8601). Example: 1948-08-19. Curated by the UN Digital Library.
-vote\_detail,4_vote,String,0,The exact vote cast by every State. Curated by the UN Digital Library.
+vote\_detail,4_vote,String,0,A breakdown of all votes by State. Curated by the UN Digital Library.
 vote\_no,4_vote,Integer,1,The number of no votes. Based on the variable \enquote{vote\_summary}.
 vote\_nonvote,4_vote,Integer,1,The number of non-voting members. Based on the variable \enquote{vote\_summary}.
 vote\_summary,4_vote,String,0,"A narrative summary of the voting counts (yes, no, abstention, non-voting, total voting membership). Curated by the UN Digital Library."
