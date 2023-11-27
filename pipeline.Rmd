@@ -1151,6 +1151,8 @@ tar_target(zip.all,
              zip_txt,
              zip_csv_final,
              zip_csv_meta,
+			 zip_bibtex_oscola,
+			 zip_graphml,
              zip_source,
 			 zip_analysis))
 ```
