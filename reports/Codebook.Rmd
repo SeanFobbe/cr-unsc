@@ -733,7 +733,7 @@ ggraph(g, "stress", niter = 4000, bbox = 25) +
 
 
 
-
+\newpage
 # Linguistic Metrics
 
 
