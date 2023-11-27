@@ -1103,7 +1103,28 @@ ggplot(dt.allmetrics) +
 
 
 
+
+
 ```
+
+
+
+
+```{r}
+
+freqtable.nosum <- dt.allmetrics[,.N,keyby =c("variable", "value")]
+
+kable(freqtable.nosum,
+      format = "latex",
+      align = 'P{3cm}',
+      booktabs = TRUE,
+      longtable = TRUE,
+      col.names = c("Vareiable",
+                    "Proportion",
+                    "N"))  %>% kable_styling(latex_options = "repeat_header")
+
+```
+
 
 
 
