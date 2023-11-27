@@ -669,7 +669,8 @@ tar_target(pdf_res_all,
 
 ```{targets tar.download.txt}
 tar_target(txt_all,
-           c(txt_res_ar,
+           c(txt_res_en_gold,
+		     txt_res_ar,
              txt_res_en,
              txt_res_es,
              txt_res_fr,
