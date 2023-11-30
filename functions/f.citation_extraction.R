@@ -97,17 +97,34 @@ f.citation_extraction <- function(dt.final){
 
 
 
-    ## Extract outgoing UNGA citations (Roman short): A/RES/1514(XV)
-    ## NONE TO BE FOUND
+    ## Extract outgoing UNGA citations (Roman short), example: A/RES/1514(XV)
     
-    ## target <- stringi::stri_extract_all(dt.final$text,
+    ## NONE TO BE FOUND - DEACTIVATED
+    
+    ## unga.roman.short <- stringi::stri_extract_all(dt.final$text,
     ##                                     regex = "A\\/RES\\/[0-9]+\\s*\\([IVX]+\\)",
     ##                                     case_insensitive = TRUE)
 
+    ## Extract outgoing UNGA citations (Emergency old), example: A/RES/997(ES-I)
+    
+    ## NONE TO BE FOUND - DEACTIVATED
+    
+    ## unga.emergency.old <- stringi::stri_extract_all(dt.final$text,
+    ##                                                 regex = "A\\/RES\\/[0-9]+\\(ES-[IVXLC]+\\)",
+    ##                                                 case_insensitive = TRUE)
+
+
+    ## Extract outgoing UNGA citations (Emergency new), example: A/RES/ES-11/1
+    
+    ## NONE TO BE FOUND - DEACTIVATED
+    
+    ## unga.emergency.new <- stringi::stri_extract_all(dt.final$text,
+    ##                                                 regex = "A\\/RES\\/ES",
+    ##                                                 case_insensitive = TRUE)
 
     
     
-    ## todo: emergency sesions: A/RES/997(ES-I), A/RES/ES-11/1, ", "22 A (I)"
+    ## todo: "22 A (I)", "A/RES/48/13 C and A/RES/48/258 A"
     
 
     unga.roman.long <- "[Gg]eneral\\s*[Aa]ssembly\\s*[Rr]esolution\\s*[0-9]{1,5}\\s*\\([IVXLC]+\\)"
