@@ -469,7 +469,7 @@ tar_target(dt.voting,
 ```{targets tar.download.records.draft}
 tar_target(html.record.draft,
                 f.download(url = dt.download$url_record_draft,
-                           filename = paste0(stringi::stri_pad_left(dt.download$res_no, width = 4, pad = "0"), ".html"),
+                           filename = paste0(stringi::stri_pad_left(dt.download[!is.na(url_record_draft)]$res_no, width = 4, pad = "0"), ".html"),
                            dir = "files/record_draft",
                            sleep.min = 0.5,
                            sleep.max = 1,
@@ -487,11 +487,10 @@ tar_target(html.record.draft,
 ### Download HTML Records for Meeting Records
 
 
-
 ```{targets tar.download.records.meeting}
 tar_target(html.record.meeting,
                 f.download(url = dt.download$url_record_meeting,
-                           filename = paste0(stringi::stri_pad_left(dt.download$res_no, width = 4, pad = "0"), ".html"),
+                           filename = paste0(stringi::stri_pad_left(dt.download[!is.na(url_record_meeting)]$res_no, width = 4, pad = "0"), ".html"),
                            dir = "files/record_meeting",
                            sleep.min = 1,
                            sleep.max = 1.5,
