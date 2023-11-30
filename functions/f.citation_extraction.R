@@ -192,9 +192,11 @@ f.citation_extraction <- function(dt.final){
 
 ## DEBUGGING
 
-##tar_load(dt.final)
-##library(data.table)
+## library(data.table)
 ## library(igraph)
+## tar_load(dt.final)
+
+
 ## data.frame(V(g)$name[1:50], V(g)$symbol[1:50], V(g)$title[1:50])
 
     ## sum(is.na(dt.graphmeta$language))
