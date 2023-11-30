@@ -12,9 +12,7 @@ f.regex_variables <- function(text){
 
 
     dt <- data.table(human_rights = stringi::stri_detect_regex(text, "\\bhuman *rights\\b",
-                                                               case_insensitive = TRUE))
-
-    
+                                                               case_insensitive = TRUE))    
     
     dt$chapter6 <- stringi::stri_detect_regex(text, "\\b[Cc]hapter *VI\\b")
     dt$chapter7 <- stringi::stri_detect_regex(text, "\\b[Cc]hapter *VII\\b")
