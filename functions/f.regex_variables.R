@@ -20,17 +20,17 @@ f.regex_variables <- function(text){
     dt$chapter7 <- stringi::stri_detect_regex(text, "\\b[Cc]hapter *VII\\b")
     dt$chapter8 <- stringi::stri_detect_regex(text, "\\b[Cc]hapter *VIII\\b")
     
-    dt$peace_threat <- stringi::stri_detect_regex(text, "\\bthreat *to *the *peace\\b",
-                                               case_insensitive = TRUE)
-
+    dt$peace_threat <- stringi::stri_detect_regex(text, "\\b(threat *to *(international)? peace)|(threat *to *the *peace)\\b",
+                                                  case_insensitive = TRUE)
+    
     dt$peace_breach <- stringi::stri_detect_regex(text, "\\bbreach *of *the *peace\\b",
-                                               case_insensitive = TRUE)
+                                                  case_insensitive = TRUE)
 
     dt$aggression <- stringi::stri_detect_regex(text, "\\baggression\\b",
-                                             case_insensitive = TRUE)
+                                                case_insensitive = TRUE)
 
     dt$self_defence <- stringi::stri_detect_regex(text, "\\bself-defen[cs]e\\b",
-                                               case_insensitive = TRUE)
+                                                  case_insensitive = TRUE)
 
 
     ## Load M49 codes
