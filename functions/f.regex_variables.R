@@ -82,18 +82,23 @@ f.regex_variables <- function(text){
                                    iso_transform,
                                    output = "un.region.name"))
 
+    dt[m49_region == ""]$m49_region <- NA
+
+
     ## M49 Intermediate Regions
     dt$m49_region_intermediate <- unlist(lapply(dt$iso_alpha3,
                                                iso_transform,
                                                output = "un.regionintermediate.name"))
 
+    dt[m49_region_intermediate == ""]$m49_region_intermediate <- NA
+    
 
     ## M49 Sub-Regions
     dt$m49_region_sub <- unlist(lapply(dt$iso_alpha3,
                                       iso_transform,
                                       output = "un.regionsub.name"))
 
-   
+    dt[m49_region_sub == ""]$m49_region_sub <- NA
 
 
     
@@ -160,7 +165,9 @@ iso_transform <- function(iso.alpha3,
     
 }
 
- 
+ countrycode::countrycode(sourcevar = "BEL",
+                          origin = "iso3c",
+                          destination = "un.regionintermediate.name")
 
 
 
