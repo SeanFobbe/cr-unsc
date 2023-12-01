@@ -21,7 +21,7 @@ f.regex_variables <- function(text){
     dt$peace_threat <- stringi::stri_detect_regex(text, "\\b(threat *to *(international)? peace)|(threat *to *the *peace)\\b",
                                                   case_insensitive = TRUE)
     
-    dt$peace_breach <- stringi::stri_detect_regex(text, "\\bbreach *of *the *peace\\b",
+    dt$peace_breach <- stringi::stri_detect_regex(text, "\\bbreach *of *(the|international) *peace\\b",
                                                   case_insensitive = TRUE)
 
     dt$aggression <- stringi::stri_detect_regex(text, "\\baggression\\b",
