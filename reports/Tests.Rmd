@@ -259,20 +259,6 @@ missingvalues <- f.missingvalues(x = dt.final,
 
 
 
-f.token.processor <- function(corpus){
-    tokens <- tokens(corpus,
-                     remove_numbers = TRUE,
-                     remove_punct = TRUE,
-                     remove_symbols = TRUE,
-                     remove_separators = TRUE)
-    tokens <- tokens_tolower(tokens)
-    tokens <- tokens_remove(tokens,
-                            pattern = c(stopwords("english"),
-                                        stopwords("french"),
-                                        stopwords("spanish")))
-    return(tokens)
-}
-
 
 # Text Quality Comparison
 
