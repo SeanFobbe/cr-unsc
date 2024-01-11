@@ -64,7 +64,7 @@ Please refer to the Codebook regarding the relative merits of each variant. Unle
 ## Instructions
 
 
-### Schritt 1: Prepare Project Folder
+### Step 1: Prepare Project Folder
 
 
 Copy the Github repository into an empty (!) folder, for example by:
