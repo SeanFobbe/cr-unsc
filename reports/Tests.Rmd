@@ -262,7 +262,7 @@ missingvalues <- f.missingvalues(x = dt.final,
 
 # Text Quality Comparison
 
-To compare the text quality of extracted, OCR and gold (expert revised) variants we calculate the number of features (unique tokens) for each language and process following a standard pre-processing workflow. During pre-processing we remove numbers, punctuation, symbols and separators, lowercase all tokens and remove stopwords in English, French and Spanish.
+To compare the text quality of extracted, OCR and gold (expert revised) variants we calculate the number of features (unique tokens) for each language and type of process when run through a standard pre-processing workflow. During pre-processing we remove numbers, punctuation, symbols and separators, lowercase all tokens and remove stopwords in English, French and Spanish.
 
 The resulting number of features determines the quality and speed with which document-feature matrix (or document-term matrix) oriented workflows can proceed. Lower is better.
 
