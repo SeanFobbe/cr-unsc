@@ -390,10 +390,14 @@ dt.final[nchar(dt.final$text_zh) < 200, .N]
 
 # Frequency Tables
 
+Frequency tables are a quick and easy plausibility check for categorical variables. Unexpected values will show up clearly in this test and a sanity check of the distribution of categories can conducted from the results. 
+
+Frequency tables are calculate only for selected variables, since a large number of unique values in a variable make it a chore to scroll through in a PDF file.
+
+
 
 ## Selected Variables
 
- **Note:** Frequency tables are calculate only for these variables.
 
 ```{r}
 varnames <- dt.var_codebook[freqtable == 1]$varname
