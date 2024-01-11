@@ -1221,7 +1221,7 @@ zip(paste0("output/",
 
 
 
-## Visualization
+## Visualize Pipeline
 
 ```{r, workflow-diagram, fig.width = 10, fig.height = 14}
 
