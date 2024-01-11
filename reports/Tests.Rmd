@@ -250,6 +250,7 @@ Reports the number of missing values for each variable in the dataset. Values ca
 - Never collected and therefore neither present in the UN Digital Library database
 - Not contained in UN Digital Library database for any other reason
 - Error during processing
+- Not being applicable to the record in question (e.g. "contains" variable, which is only applicable to resolutions that contain appended texts, such as court statutes).
 
 The results require some interpretation and deep examination of the data to decide whether missingness is a problem that can be solved with amending the data pipeline or needs to be addressed in the source database.
 
