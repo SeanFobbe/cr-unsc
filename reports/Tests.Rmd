@@ -37,7 +37,7 @@ knitr::opts_chunk$set(fig.path = file.path("..", "analysis/"),
 
 This report contains information on all automated tests that are run during the dataset compilation process. Many are hard tests (failure means that an error interrupts compilation), but just as many tests require interpretation and a judgment call to determine whether surprising behavior has occurred.
 
-Hard tests are integrated into the latter part of functions to act as data quality gateways, soft tests are run on the final data and their results reported here.
+Hard tests are integrated into the final part of target creation functions to act as data quality gateways. Soft tests are run on the final data and their results reported here.
 
 
 
