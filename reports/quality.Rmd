@@ -12,7 +12,7 @@ output:
     pandoc_args: --listings
     includes:
       in_header: ../tex/Preamble_EN.tex
-      before_body: [../temp/Definitions.tex,../tex/Titlepage_Tests.tex]
+      before_body: [../temp/Definitions.tex,../tex/Titlepage_Quality.tex]
 bibliography: ../temp/packages.bib
 nocite: '@*'
 ---
