@@ -141,7 +141,7 @@ ggraph(g,
 
 
 
-# Citation Network
+# Visualize Citation Network
 
 Visualize the citation network. This is a glance test. If something is obviously wrong with the citation network data, the visual will look terrible at  a glance.
 
