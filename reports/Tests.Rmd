@@ -200,6 +200,13 @@ ggraph(g, "stress", niter = 4000, bbox = 25) +
 
 ## Completeness of PDF Download
 
+Examines whether all PDF files named in the download manifest have been successfully acquired. If PDF files are missing, it could mean:
+
+- PDF url in manifest is incorrect
+- PDF file is not available in the database
+- PDF download failed for any reason and several retries could not resolve the issue
+
+
 
 ```{r}
 
