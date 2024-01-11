@@ -325,6 +325,16 @@ langtest[,.N,keyby = "es_langtest"]
 
 # Documents with Low Character Count
 
+Documents with low character count indicate potential errors in processing. This could mean:
+
+- Absence of documents in UN Digital Library
+- Empty PDF file
+- Extraction/OCR failure
+- Refining failure
+
+Since the documents in the set are by definition low in character count, they are printed in full to expedite the decision whether they contain unusually low substantive content or indicate data quality issues.
+
+
 
 ## Arabic
 
