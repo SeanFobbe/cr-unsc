@@ -46,7 +46,7 @@ Hard tests are integrated into the latter part of functions to act as data quali
 ```{r}
 tar_load(latexdefs)
 tar_load(dt.var_codebook)
-tar_load(lingstats.summary)
+tar_load(res.no.full)
 tar_load(dt.record.final)
 tar_load(dt.download.final)
 tar_load(pdf_res_ar)
@@ -55,9 +55,10 @@ tar_load(pdf_res_es)
 tar_load(pdf_res_fr)
 tar_load(pdf_res_ru)
 tar_load(pdf_res_zh)
-tar_load(dt.final)
+tar_load(lingstats.summary)
 tar_load(langtest)
 tar_load(ocrtest)
+tar_load(dt.final)
 tar_load(igraph_citations)
 
 ```
@@ -194,10 +195,11 @@ ggraph(g, "stress", niter = 4000, bbox = 25) +
 
 
 
-# Completeness of Download
+# Completeness 
 
 
-## Download: Missing PDF Files
+## Completeness of PDF Download
+
 
 ```{r}
 
@@ -209,6 +211,22 @@ setdiff(paste0(dt.download.final[!is.na(url_res_ar)]$doc_id, "_RU.pdf"), basenam
 setdiff(paste0(dt.download.final[!is.na(url_res_ar)]$doc_id, "_ZH.pdf"), basename(pdf_res_zh))
 
 ```
+
+
+## Completeness of Data Set
+
+Examines whether all resolutions in the manifest have been acquired from at least one language. This is a test of existence, so will not detect missing language versions.
+
+If resolutions are missing in this test, it could mean:
+
+- Something went badly wrong during the download phase
+- The UN Digital Library database does not contain the indicated resolutions
+
+
+```{r}
+setdiff(res.no.full, dt.final$res_no)
+```
+
 
 
 
