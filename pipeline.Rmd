@@ -1487,6 +1487,15 @@ kable(hashes[,.(index,sha3.512)],
 
 
 
+\newpage
+
+```{r, results = "asis", echo = FALSE}
+cat(readLines("CHANGELOG.md"),
+    sep = "\n")
+
+```
+
+
 
 
 
