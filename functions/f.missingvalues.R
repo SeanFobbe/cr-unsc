@@ -51,7 +51,7 @@ f.missingvalues <- function(x,
   if (kable == TRUE){
 
             cat("\n------------------------------------------------\n")
-            cat("\n===== Missing Values ===== \n")
+            cat("\n## Missing Values \n")
             cat("------------------------------------------------\n")
 
             
@@ -62,7 +62,7 @@ f.missingvalues <- function(x,
 
 
             cat("\n------------------------------------------------\n")
-            cat("\n===== Present Values ===== \n")
+            cat("\n## Present Values \n")
             cat("------------------------------------------------\n")
 
             
