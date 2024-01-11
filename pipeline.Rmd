@@ -1426,6 +1426,64 @@ kable(table.size,
 
 
 
+# Cryptographic Signatures
+
+## Load Signatures
+
+```{r}
+tar_load(hashes)
+```
+
+
+## Add Whitespace to Enable Linebreaks in SHA3-512 Signatures
+
+This is an optical necessity only. SHA3-512 signatures are 128 characters long and are otherwise not broken across lines, vanishing beyond the page boundary instead. This variant of the signatures is intended for display purposes in this Compilation Report only.
+
+```{r}
+hashes$sha3.512 <- paste(substr(hashes$sha3.512, 1, 64),
+                         substr(hashes$sha3.512, 65, 128))
+
+```
+
+
+
+## Show Signatures in Report
+
+```{r}
+
+kable(hashes[,.(index,filename)],
+      format = "latex",
+      align = c("p{1cm}",
+                "p{13cm}"),
+      booktabs = TRUE,
+      longtable = TRUE)
+
+
+kable(hashes[,.(index,sha2.256)],
+      format = "latex",
+      align = c("c",
+                "p{13cm}"),
+      booktabs = TRUE,
+      longtable = TRUE)
+
+
+```
+
+\newpage
+
+```{r}
+
+kable(hashes[,.(index,sha3.512)],
+      format = "latex",
+      align = c("c",
+                "p{13cm}"),
+      booktabs = TRUE,
+      longtable = TRUE)
+
+
+```
+
+
 
 
 
