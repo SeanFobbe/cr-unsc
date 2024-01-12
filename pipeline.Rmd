@@ -1246,7 +1246,7 @@ ggraph(g,
 
 
 
-# Target List
+# Full Target List
 
 
 
@@ -1294,7 +1294,7 @@ runtime.sum / 3600
 
 ```
 
-# Runtime of Targets
+# Runtime of Individual Targets
 
 ```{r, pipeline-runtime}
 
