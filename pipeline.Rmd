@@ -785,7 +785,7 @@ tar_target(var_date,
 ```
 
 
-### Create Variables with REGEX from Text
+### Create Variables with REGEX Extraction from Resolution Text
 
 
 ```{targets tar.enhance.regex}
