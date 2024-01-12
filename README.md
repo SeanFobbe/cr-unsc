@@ -12,7 +12,7 @@ All data sets created with this script will always be hosted permanently open ac
 
 ## Features
 
-- 75 Variables
+- 84 Variables
 - Full texts of all resolutions in six languages (English, French, Spanish, Arabic, Chinese, Russian)
 - Draft texts of resolutions
 - Meeting record texts
