@@ -13,51 +13,45 @@ All data sets created with this script will always be hosted permanently open ac
 ## Features
 
 - 84 Variables
-- Full texts of all resolutions in six languages (English, French, Spanish, Arabic, Chinese, Russian)
+- Full texts of all resolutions in all six official UN languages (English, French, Spanish, Arabic, Chinese, Russian)
 - Draft texts of resolutions
 - Meeting record texts
-- Citation network as GraphML (UNSC and UNGA resolutions)
+- Citation network as GraphML (from UNSC to UNSC and UNGA resolutions)
 - Extensive Codebook
-- Wide range of pre-built diagrams for all purposes (PDF for printing, PNG for web)
+- Pre-built diagrams for all purposes (PDF for printing, PNG for web)
 - Open and platform independent file formats (CSV, PDF, TXT, GraphML)
 - Publication of full data set (Open Data)
 - Publication of full source code (Open Source)
 - Version-controlled with Docker
-- Public Domain (CC-Zero 1.0)
 - Compilation Report and Quality Assurance Report explain construction and validation of the data set in detail
 - Secure cryptographic signatures
-
+- Public Domain waiver (CC-Zero 1.0)
 
 
 ## Functionality
  
-The pipeline will produce the following results and store them in the folder `output/`:
+The pipeline will produce the following results and store them in the  `output/` folder:
 
 - Codebook
 - Compilation Report
 - Quality Assurance Report
 - ZIP archive containing the main data set as a CSV file
-- ZIP archive containing the just the metadata of the main data set as a CSV file
-- ZIP archive containing all citation data and metadata as a GraphML file
-- ZIP archive containing all texts of resolutions as TXT files (OCR and extracted)
-- ZIP archive containing all texts of resolutions as PDF files (OCR and extracted)
-- ZIP archive containing all texts of drafts as PDF files (OCR and extracted)
-- ZIP archive containing all texts of meeting records as PDF files (OCR and extracted)
+- ZIP archive containing the only metadata of the main data set as a CSV file
+- ZIP archive containing citation data and metadata as a GraphML file
+- ZIP archive containing all resolution texts as TXT files (OCR and extracted)
+- ZIP archive containing all resolution texts as PDF files (OCR and extracted)
+- ZIP archive containing all draft texts as PDF files (OCR and extracted)
+- ZIP archive containing all meeting record texts as PDF files (OCR and extracted)
 - ZIP archive containing the full source code
 - ZIP archive containing all intermediate pipeline results ("targets")
 
  The integrity and veracity of each ZIP archive is documented with cryptographically secure hash signatures (SHA2-256 and SHA3-512). Hashes are stored in a separate CSV file created during the data set compilation process.
- 
-Please refer to the Codebook regarding the relative merits of each variant. Unless you have very specific needs you should only use the variants denoted 'BEST' for serious work.
- 
-
-
 
 
 ## System Requirements
 
 - The reference data sets were compiled on a Debian host system. Running the Docker config on an SELinux system like Fedora may require some modifications in the Docker Compose config.
-- 40 GB space on hard drive
+- 50 GB space on hard drive
 - Multi-core CPU recommended. We used 8 cores/16 threads to compile the reference data sets. Standard config will use all cores on a system. This can be fine-tuned in the config file.
 
 
