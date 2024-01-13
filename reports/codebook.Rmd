@@ -113,7 +113,7 @@ unsc <- readtext("txt_res_en/*.txt",
 # Data Set Design
 
 
-## Overview of Data Set
+## Overview
 
 The \textbf{\datatitle\ (\datashort)} collects and structures in human- and machine-readable form all published resolutions of the United Nations Security Council (UNSC) in all six official UN languages (Arabic, Chinese, English, French, Spanish and Russian). Specialized variants of the data set present citation data and bibliopgrahic database compatible with a wide range of end-user applications.
 
