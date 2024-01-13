@@ -1133,11 +1133,11 @@ kable(freqtable.nosum,
 
 # FAIR Data Conformity Declaration
 
-The FAIR Principles lay out a leading global set of guiding standards for the management of scientific data. Four principles make up the FAIR standard: [F]indable, [A]ccessible [I]nteroperable and [R]eusable. It is the intention of the author(s) to be fully compliant with the FAIR standard. This conformity declaration is intended to provide further information on what measures have been taken to achieve this compliance.
+The FAIR Principles lay out an influential set of guiding standards for the management of scientific data. Four principles define the FAIR standard: [F]indability, [A]ccessibility [I]nteroperability and [R]eusability. 
 
-For the original publication proposing the FAIR standard, see:
+It is the intention of the author(s) to be fully compliant with the FAIR standard. This conformity declaration is intended to provide further information on what measures have been taken to achieve this compliance.
 
-Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data management and stewardship. Sci. Data 3:160018 doi: 10.1038/sdata.2016.18 (2016).
+For the original publication proposing the FAIR standard, please see: Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data management and stewardship. Sci. Data 3:160018 doi: 10.1038/sdata.2016.18 (2016).
 
 
 ## [F] Findable
