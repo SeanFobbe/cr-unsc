@@ -76,10 +76,11 @@ The data are published in open, interoperable and widely used formats (CSV, TXT,
  Working with the CSV files is recommended. CSV\footnote{The CSV format is defined in RFC 4180: <\url{https://tools.ietf.org/html/rfc4180}>.} is an open and simple machine-readable tabular data format. In this data set values are separated by commas. Each column is a variable and each row is a document. Variables are explained in detail in section \ref{variables}.
 
 
-To read \textbf{CSV} files into R I strongly recommend using the fast file reader **fread()** from the **data.table** package (available on CRAN). The file can be read into \textbf{R} like so: 
+To read \textbf{CSV} files into R we strongly recommend using the fast file reader **fread()** from the **data.table** package (available on CRAN). The file can be read into \textbf{R} like so: 
 
 ```{r, eval = FALSE, echo = TRUE}
 library(data.table)
+
 unsc <- fread("CR-UNSC_2023-08-23_EN_CSV_Main-Dataset.csv")
 ```
 
@@ -91,6 +92,7 @@ The \textbf{TXT} files, including metadata, can be read into \textbf{R} with the
 
 ```{r, eval = FALSE, echo = TRUE}
 library(readtext)
+
 unsc <- readtext("txt_res_en/*.txt",
                  docvarsfrom = "filenames", 
                  docvarnames = c("body",
