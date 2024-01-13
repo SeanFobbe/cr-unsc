@@ -1165,20 +1165,20 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 ## [A] Accessible
 
-### [A1] (Meta)data are retrievable by their identifier using a standardised communications protocol
+**[A1] (Meta)data are retrievable by their identifier using a standardised communications protocol**
 
 - Zenodo provides a public OAI-PMH interface to retrieve metadata of individual records and whole collections
 - Zenodo provides a public REST API to retrieve metadata of individual records
 
-### [A1.1] The protocol is open, free, and universally implementable
+**[A1.1] The protocol is open, free, and universally implementable**
 
-- OAI-PMH and REST are open, free and universally implementable protocols 
+- The OAI-PMH and REST APIs provided by Zenodo are based on open, free and universally implementable protocols 
 
-### [A1.2] The protocol allows for an authentication and authorisation procedure, where necessary
+**[A1.2] The protocol allows for an authentication and authorisation procedure, where necessary**
 
 - Zenodo provides all metadata publicly and without authentication under a public domain license
 
-### [A2] Metadata are accessible, even when the data are no longer available
+**[A2] Metadata are accessible, even when the data are no longer available**
 
 - Zenodo guarantees that metadata remain available for the lifetime of the parent organization CERN, which has a defined experimental program for the next 20 years
 - Metadata are stored in different servers than the data at Zenodo
@@ -1189,15 +1189,15 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 ## [I] Interoperable
 
-### [I1] (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
+**[I1] (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation**
 
 - Zenodo metadata is internally stored as JSON and can be exported to MARCXML, Dublin Core XML, CSL, DataCite JSON, DataCite XML, BibTeX, GeoJSON and DCAT
 
-### [I2] (Meta)data use vocabularies that follow FAIR principles
+**[I2] (Meta)data use vocabularies that follow FAIR principles**
 
 - Zenodo refers to external vocabularies for license (Open Definition), funders (FundRef) and grants (OpenAIRE)
 
-### [I3] (Meta)data include qualified references to other (meta)data
+**[I3] (Meta)data include qualified references to other (meta)data**
 
 - The CR-UNSC embeds the Concept DOI and Version DOI for the relevant Zenodo record in the CSV dataset and the Codebook
 - The CR-UNSC includes the unique URL for the resolution text in all six UN languages, the URL for the draft and meeting record in English and the URL for the UN Digital Library record pages of the resolution, draft and meeting record. UN Digital Library record pages provide machine-readable metadata in a wide range of export formats
@@ -1207,10 +1207,10 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 
 ## [R] Reusable
 
-### [R1] (Meta)data are richly described with a plurality of accurate and relevant attributes
+**[R1] (Meta)data are richly described with a plurality of accurate and relevant attributes**
 
 
-### [R1.1] (Meta)data are released with a clear and accessible data usage license
+**[R1.1] (Meta)data are released with a clear and accessible data usage license**
 
 - Zenodo metadata includes standardized representations of each license compliant with the OpenDefinition standard
 
@@ -1218,18 +1218,19 @@ Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data manageme
 - The CR-UNSC source code is published under a standardized MIT-0 license
 - The CR-UNSC embeds the  data license in the CSV file and in the Codebook
 
-### [R1.2] (Meta)data are associated with detailed provenance
+**[R1.2] (Meta)data are associated with detailed provenance**
 
 - The CR-UNSC embeds the Concept DOI and Version DOI for the relevant Zenodo record in the CSV dataset and the Codebook
 - The CR-UNSC includes the unique URL for the resolution text in all six UN languages, the URL for the draft and meeting record in English and the URL for the UN Digital Library record pages of the resolution, draft and meeting record
 
 
-### [R1.3] (Meta)data meet domain-relevant community standards
+**[R1.3] (Meta)data meet domain-relevant community standards**
 
 - The CR-UNSC was crafted by specialized international lawyers, complies with international law terminology and respects international legal usage wherever possible
 - The CR-UNSC respects United Nations terminology and United Nations document symbols
 - The CR-UNSC adapts all metadata conventions from the UN Digital Library
 - The CR-UNSC complies with ISO and UN M49 standards for country and area codes
+
 
 
 
