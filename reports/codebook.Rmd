@@ -115,9 +115,9 @@ unsc <- readtext("txt_res_en/*.txt",
 
 ## Overview
 
-The \textbf{\datatitle\ (\datashort)} collects and structures in human- and machine-readable form all published resolutions of the United Nations Security Council (UNSC) in all six official UN languages (Arabic, Chinese, English, French, Spanish and Russian). Specialized variants of the data set present citation data and bibliopgrahic database compatible with a wide range of end-user applications.
+The \textbf{\datatitle\ (\datashort)} collects and structures in human- and machine-readable form all published resolutions of the United Nations Security Council (UNSC) in all six official UN languages (Arabic, Chinese, English, French, Spanish and Russian). Specialized variants of the data set provide citation data and a bibliopgrahic database compatible with a wide range of end-user applications.
 
-This section is builds on the suggestions offered in: Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Iii, H. D., & Crawford, K. (2021). Datasheets for datasets. Communications of the ACM, 64(12), 86-92.
+This structure and content of this section build on the suggestions offered in: Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Iii, H. D., & Crawford, K. (2021). Datasheets for datasets. Communications of the ACM, 64(12), 86-92.
 
 
 ## Table of Sources
@@ -143,16 +143,16 @@ This section is builds on the suggestions offered in: Gebru, T., Morgenstern, J.
 
 ## Motivation
 
-Our motivation in creating this dataset is to generally enhance international legal and political research, increase understanding of the work of the \unsc\ and facilitate creative work on international peace and security. 
+Our motivation in creating this dataset is to enhance international legal and political research in general, increase understanding of the work of the \unsc\ and facilitate creative digital work in the area of international peace and security. 
 
-The \datashort\ is a general-purpose dataset that is intended to provide high-quality legal and political data allowing researchers, practitioners, civil society, UN officials, governments and any other interested parties to address a wide range research questions related to the \unsc .
+The \datashort\ is a general-purpose dataset that is intended to provide high-quality legal and political data that enables researchers, practitioners, civil society, UN officials, governments and any other interested parties to address a wide range research questions related to the \unsc .
 
-It is not limited to a particular line of inquiry or specific discipline. Specialized variants of the data set present citation data and a bibliographic database compatible with a wide range of end-user applications.
+The use of the main data set is not limited to a particular line of inquiry or specific discipline. Specialized variants of the data set offer citation data and a bibliographic database compatible with a wide range of end-user applications.
 
 
 ## Funding
 
-The authors did not receive any funding to work on this dataset. All work on the dataset was carried out in addition to their regular academic activities. 
+The authors did not receive any specific funding to work on this dataset. All work on the dataset was carried out in addition to their regular academic activities. 
 
 
 
