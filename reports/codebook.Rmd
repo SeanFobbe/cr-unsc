@@ -47,9 +47,9 @@ tar_load(igraph_citations)
 
 # Introduction
 
-The United Nations Security Council (UNSC) is the most influential of the principal UN organs. Composed of five permanent and 10 non-permanent members, its functioning is subject to the political context in which it operates. During the Cold War, the veto powers and the complex political relationships between the permanent members affected its capacity to address violations of international peace and security, with only 646 resolutions passed from 1946 to 1989. 
+The United Nations Security Council (UNSC) is the most influential of the principal UN organs. Composed of five permanent and ten non-permanent members, its functioning is subject to the political context in which it operates. During the Cold War, the veto powers and the complex political relationships between the permanent members significantly affected its capacity to address violations of international peace and security, with only 646 resolutions passed from 1946 to 1989. 
 
-Since 1990s, the productiveness of the UN Security Council has increased dramatically and produced 2679 resolutions by early 2023. The length and complexity of the resolutions has also increased, with calls to define it a quasi-legislative body.
+Since 1990s, the activity of the UN Security Council has increased dramatically and produced 2721 resolutions up to the end of 2023. The length and complexity of the resolutions has also increased, with calls to define it a quasi-legislative body.
 
 Under article 24 and 25 of the UN Charter, member states have conferred upon UNSC the \enquote{primary responsibility for the maintenance of international peace and security} and have agreed \enquote{to accept and carry out} its decisions. The discharge of this function is carried out through the powers bestowed upon it under Chapter VI of the UN Charter, \enquote{Pacific Settlement of Disputes}, Chapter VII, \enquote{Action with Respect to Threats to the Peace, Breaches of the Peace, and Acts of Aggression}, Chapter VIII, \enquote{Regional Arrangements}, and Chapter XII, \enquote{International Trusteeship System}. 
 
