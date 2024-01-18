@@ -35,17 +35,24 @@ f.parse_records_full <- function(x){
 f.parse_records_url <- function(x,
                                 prefix = ""){
 
+    ## Parse and bind
     list <- lapply(x, f.record_url, prefix = prefix)
-
     dt <- rbindlist(list, fill = TRUE)
 
+    ## Bind res no
     res_no <- as.integer(tools::file_path_sans_ext(basename(x)))
-
     dt.final <- cbind(res_no, dt)[order(res_no)]
 
     return(dt.final)
 
 }
+
+
+## DEBUGGING CODE for detecting duplicate URLs
+#list2 <- unlist(lapply(list, function(x){nrow(x)}))
+#which(list2 > 1)
+
+
 
 
 
