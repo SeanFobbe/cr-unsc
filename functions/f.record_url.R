@@ -25,6 +25,9 @@ f.record_url <- function(x,
 
     pdf.relative <- unique(grep("/record/[0-9]+/files", links, value = TRUE))
 
+    ## Fix for rare bug (3 cases in drafts, 1 in meeting record, where both absolute and relative URL are present)
+    pdf.relative <- grep("https://", pdf.relative, value = TRUE, invert = TRUE)
+
     pdf.absolute <- paste0("https://digitallibrary.un.org",
                            pdf.relative)
 
