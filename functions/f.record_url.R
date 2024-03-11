@@ -21,7 +21,7 @@ f.record_url <- function(x,
     ## Read HTML
     html <- rvest::read_html(x)
     
-    links <- rvest::html_nodes(html, "a") %>% html_attr('href')
+    links <- rvest::html_nodes(html, "a") %>% rvest::html_attr('href')
 
     pdf.relative <- unique(grep("/record/[0-9]+/files", links, value = TRUE))
 
