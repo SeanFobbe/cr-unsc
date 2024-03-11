@@ -86,11 +86,13 @@ f.download_manifest <- function(dt.download,
 
     ## Correct faulty URLs
 
-    dt$url_meeting_en <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_en)
-    dt$url_meeting_es <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_es)
-    dt$url_meeting_fr <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_fr)
-    dt$url_meeting_ru <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_ru)
-    dt$url_meeting_zh <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_zh)
+    ## pending review, may have been problem with UNDL
+    
+    ## dt$url_meeting_en <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_en)
+    ## dt$url_meeting_es <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_es)
+    ## dt$url_meeting_fr <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_fr)
+    ## dt$url_meeting_ru <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_ru)
+    ## dt$url_meeting_zh <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_zh)
     
     
 
