@@ -84,7 +84,7 @@ f.download_manifest <- function(dt.download,
     dt[1312]$url_res_zh <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-ZH.pdf"
 
 
-    ## Correct faulty links
+    ## Correct faulty URLs
 
     dt$url_meeting_en <- gsub("S_PV-", "S_PV.", dt$url_meeting_en)
     dt$url_meeting_es <- gsub("S_PV-", "S_PV.", dt$url_meeting_es)
