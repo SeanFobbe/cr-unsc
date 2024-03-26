@@ -165,9 +165,6 @@ iso_transform <- function(iso.alpha3,
     
 }
 
- countrycode::countrycode(sourcevar = "BEL",
-                          origin = "iso3c",
-                          destination = "un.regionintermediate.name")
 
 
 
