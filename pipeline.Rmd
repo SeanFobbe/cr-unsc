@@ -310,7 +310,7 @@ This file contains a stable and checked list of resolutions numbers and the corr
 ```{targets tar.file.recordpages.voting}
 list(
     tar_target(csv.record.voting,
-               "data/UNSC_Record_Voting_2636.csv",
+               "data/UNSC_Record_Voting_2722.csv",
                format = "file"),
     tar_target(record.voting.stable,
                fread(csv.record.voting))
