@@ -35,19 +35,19 @@ f.download_manifest <- function(dt.download,
 
     ## Remove meeting duplicates and mistaken inclusions (problem solved elsewhere)
 
-    remove <- grep("S_PV.3544-EN|S_PV.9458-EN", url.meeting$url_meeting_en)
+    ## remove <- grep("S_PV.3544-EN|S_PV.9458-EN", url.meeting$url_meeting_en)
 
-    if(length(remove) > 0){
-        url.meeting <- url.meeting[-remove]
-    }
+    ## if(length(remove) > 0){
+    ##     url.meeting <- url.meeting[-remove]
+    ## }
 
     ## Remove draft duplicates and mistaken inclusions (problem solved elsewhere)
     
-    remove <- grep("S_1995_465-EN|S_1995_478-EN|S_1995_486-EN|S_2023_802-EN|S_2023_808-EN|S_2023_807-EN", url.draft$url_draft_en)
+    ## remove <- grep("S_1995_465-EN|S_1995_478-EN|S_1995_486-EN|S_2023_802-EN|S_2023_808-EN|S_2023_807-EN", url.draft$url_draft_en)
 
-    if(length(remove) > 0){
-        url.draft <- url.draft[-remove]
-    }
+    ## if(length(remove) > 0){
+    ##     url.draft <- url.draft[-remove]
+    ## }
 
 
     ## Unit Test 
@@ -74,6 +74,8 @@ f.download_manifest <- function(dt.download,
                        dt$year,
                        sep = "_")
 
+
+    
     ## Add missing PDF URLs: 1312
 
     dt[1312]$url_res_ar <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-AR.pdf"
