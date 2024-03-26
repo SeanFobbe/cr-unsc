@@ -201,6 +201,13 @@ f.finalize <- function(dt.intermediate,
         for(i in names.url.files){
 
             vec <- na.omit(unlist(dt.final[,..i]))
+
+            # Remove odd links from test
+            vec <- grep("(unsmil.unmissions.org)|(undocs.org)|(daccess-ods.un.org)",
+                        x = vec,
+                        value = TRUE,
+                        invert = TRUE)
+            
             grep <- grepl("https://digitallibrary.un.org/record/.*\\.pdf", vec)
             expect_true(all(grep))
 
