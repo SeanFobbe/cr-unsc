@@ -181,7 +181,7 @@ Data were collected with the explicit consent of the Secretariat of the \unsc . 
   
 
 
-```{r, CR-UNSC_Workflow_blackwhite, fig.width = 16, fig.height = 18, fig.pos = "p", fig.cap = "Dataset Compilation Process."}
+```{r, CR-UNSC_Workflow_blackwhite, fig.width = 16, fig.height = 18, fig.pos = "p", fig.cap = "Dataset Compilation Process"}
 
 
 edgelist <- tar_network(targets_only = TRUE)$edges
@@ -1125,7 +1125,7 @@ kable(freqtable.nosum,
       align = 'P{3cm}',
       booktabs = TRUE,
       longtable = TRUE,
-      col.names = c("Vareiable",
+      col.names = c("Variable",
                     "Proportion",
                     "N"))  %>% kable_styling(latex_options = "repeat_header")
 
