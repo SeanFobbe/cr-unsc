@@ -146,9 +146,9 @@ ggraph(g,
 Visualize the citation network. This is a glance test. If something is obviously wrong with the citation network data, the visual will look terrible at  a glance.
 
 
-```{r, CR-UNSC_Citations_Network_blue, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC"}
+<!-- 
 
-##  kk very nice,
+##  kk very nice
 
 ## stress interesting with bbox = 25, png 20x20, res 300, niter 4000
 
@@ -162,11 +162,18 @@ Visualize the citation network. This is a glance test. If something is obviously
 
 ## g <- igraph::subgraph(igraph_citations, index)
 
-g <- igraph_citations
-
 #pdf("test.pdf", width = 20, height = 20)
 
 #png("test-20x20-anon.png", units = "in", width = 25, height = 25, res = 300)
+
+#dev.off()
+
+-->
+
+
+```{r, CR-UNSC_Citations_Network_blue, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC"}
+
+g <- igraph_citations
 
 ggraph(g, "stress", niter = 4000, bbox = 25) + 
     geom_edge_diagonal(colour = "#55c8ff", edge_width = 0.1)+
@@ -186,12 +193,6 @@ ggraph(g, "stress", niter = 4000, bbox = 25) +
         plot.caption = element_text(color = "white"),
         plot.margin = margin(10, 20, 10, 10)
     )
-
-
-#dev.off()
-
-
-    
 
 
 ```
