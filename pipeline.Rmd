@@ -376,7 +376,7 @@ This step builds the final table of UN Digital Library main records containing t
 
 ```{targets tar.download.recordtable.main}
 tar_target(dt.record.final,
-           f.record_main(recordtable.stable = record.table.stable,
+           f.record_main(record.table.stable = record.table.stable,
                          res.no.full = res.no.full))
 ```
 

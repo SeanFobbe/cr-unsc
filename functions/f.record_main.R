@@ -1,6 +1,6 @@
 #' Build a table of record pages for UN Security Council resolutions sourced from the UN Digital Library.
 
-#' @param recordtable.stable Data.Table. A stable download table of UN Digital Library pages for UNSC resolutions included in the source code.
+#' @param record.table.stable Data.Table. A stable download table of UN Digital Library pages for UNSC resolutions included in the source code.
 #' @param res.no.full Integer. The complete set of resolution numbers to be queried. Reducing this set for debugging purposes must take place in an upstream target.
 #' 
 #' 
@@ -8,14 +8,14 @@
 
 
 
-f.record_main <- function(recordtable.stable = NA,
+f.record_main <- function(record.table.stable = NA,
                           res.no.full){
 
     
-    if (any(class(recordtable.stable) %in% "data.frame")){
+    if (any(class(record.table.stable) %in% "data.frame")){
 
         res_no_work <- setdiff(res.no.full,
-                               recordtable.stable$res_no)
+                               record.table.stable$res_no)
         
     }else{
 
@@ -44,9 +44,9 @@ f.record_main <- function(recordtable.stable = NA,
 
         ## Finalize
 
-        if (any(class(recordtable.stable) %in% "data.frame")){
+        if (any(class(record.table.stable) %in% "data.frame")){
             
-            recordtable.final <- rbind(recordtable.stable, recordtable.new)[order(res_no)]
+            recordtable.final <- rbind(record.table.stable, recordtable.new)[order(res_no)]
 
         }else{
 
@@ -57,7 +57,7 @@ f.record_main <- function(recordtable.stable = NA,
 
     }else{
 
-        recordtable.final <- recordtable.stable
+        recordtable.final <- record.table.stable
         
     }
 
