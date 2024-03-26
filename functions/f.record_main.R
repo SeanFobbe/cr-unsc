@@ -133,3 +133,7 @@ f.extract_record_main <- function(resno){
 }
 
 
+## DEBUGGING CODE
+
+## tar_load(record.table.stable)
+## tar_load(res.no.full)
