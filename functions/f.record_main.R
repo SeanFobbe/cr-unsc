@@ -107,7 +107,7 @@ f.extract_record_main <- function(resno){
     
 
 
-    Sys.sleep(runif(1, 2, 3))
+    Sys.sleep(runif(1, 4, 6))
     
     message(resno)
 
