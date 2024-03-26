@@ -33,7 +33,7 @@ f.download_manifest <- function(dt.download,
     })
     
 
-    ## Remove meeting duplicates and mistaken inclusions (check url creation funcs!)
+    ## Remove meeting duplicates and mistaken inclusions (problem solved elsewhere)
 
     remove <- grep("S_PV.3544-EN|S_PV.9458-EN", url.meeting$url_meeting_en)
 
@@ -41,7 +41,7 @@ f.download_manifest <- function(dt.download,
         url.meeting <- url.meeting[-remove]
     }
 
-    ## Remove draft duplicates and mistaken inclusions (check url creation funcs!)
+    ## Remove draft duplicates and mistaken inclusions (problem solved elsewhere)
     
     remove <- grep("S_1995_465-EN|S_1995_478-EN|S_1995_486-EN|S_2023_802-EN|S_2023_808-EN|S_2023_807-EN", url.draft$url_draft_en)
 
@@ -74,7 +74,7 @@ f.download_manifest <- function(dt.download,
                        dt$year,
                        sep = "_")
 
-    ## Add missing PDF URLs
+    ## Add missing PDF URLs: 1312
 
     dt[1312]$url_res_ar <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-AR.pdf"
     dt[1312]$url_res_en <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-EN.pdf"
@@ -83,6 +83,15 @@ f.download_manifest <- function(dt.download,
     dt[1312]$url_res_ru <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-RU.pdf"
     dt[1312]$url_res_zh <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-ZH.pdf"
 
+
+    ## Add missing PDF URLs: 1984, AR not available
+    
+    dt[1984]$url_res_en <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-EN.pdf"
+    dt[1984]$url_res_es <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-ES.pdf"
+    dt[1984]$url_res_fr <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-FR.pdf"
+    dt[1984]$url_res_ru <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-RU.pdf"
+    dt[1984]$url_res_zh <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-ZH.pdf"
+    
 
     ## Correct faulty URLs
 
