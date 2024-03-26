@@ -293,7 +293,7 @@ This file contains a stable and checked list of resolutions numbers and the corr
 ```{targets tar.file.recordpages.main}
 list(
     tar_target(csv.record.table,
-               "data/UNSC_Record-Table_2636.csv",
+               "data/UNSC_Record-Table_2722.csv",
                format = "file"),
     tar_target(record.table.stable,
                fread(csv.record.table))
