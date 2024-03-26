@@ -78,21 +78,21 @@ f.download_manifest <- function(dt.download,
     
     ## Add missing PDF URLs: 1312
 
-    dt[1312]$url_res_ar <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-AR.pdf"
-    dt[1312]$url_res_en <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-EN.pdf"
-    dt[1312]$url_res_es <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-ES.pdf"
-    dt[1312]$url_res_fr <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-FR.pdf"
-    dt[1312]$url_res_ru <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-RU.pdf"
-    dt[1312]$url_res_zh <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-ZH.pdf"
+    dt[res_no == 1312]$url_res_ar <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-AR.pdf"
+    dt[res_no == 1312]$url_res_en <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-EN.pdf"
+    dt[res_no == 1312]$url_res_es <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-ES.pdf"
+    dt[res_no == 1312]$url_res_fr <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-FR.pdf"
+    dt[res_no == 1312]$url_res_ru <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-RU.pdf"
+    dt[res_no == 1312]$url_res_zh <- "https://digitallibrary.un.org/record/419692/files/S_RES_1312%282000%29-ZH.pdf"
 
 
     ## Add missing PDF URLs: 1984, AR not available
     
-    dt[1984]$url_res_en <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-EN.pdf"
-    dt[1984]$url_res_es <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-ES.pdf"
-    dt[1984]$url_res_fr <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-FR.pdf"
-    dt[1984]$url_res_ru <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-RU.pdf"
-    dt[1984]$url_res_zh <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-ZH.pdf"
+    dt[res_no == 1984]$url_res_en <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-EN.pdf"
+    dt[res_no == 1984]$url_res_es <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-ES.pdf"
+    dt[res_no == 1984]$url_res_fr <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-FR.pdf"
+    dt[res_no == 1984]$url_res_ru <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-RU.pdf"
+    dt[res_no == 1984]$url_res_zh <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-ZH.pdf"
     
 
     ## Correct faulty URLs
