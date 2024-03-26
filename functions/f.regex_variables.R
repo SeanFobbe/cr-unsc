@@ -86,9 +86,13 @@ f.regex_variables <- function(text){
 
 
     ## M49 Intermediate Regions
+    ## Note: not all countries have intermediate regions; this produces the warning "Some values were not matched unambiguously"; this is known non-issue, hence the warnings are suppressed
+    
+    suppressWarnings(
     dt$m49_region_intermediate <- unlist(lapply(dt$iso_alpha3,
                                                iso_transform,
                                                output = "un.regionintermediate.name"))
+    ) 
 
     dt[m49_region_intermediate == ""]$m49_region_intermediate <- NA
     
