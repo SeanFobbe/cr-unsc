@@ -51,8 +51,11 @@ f.finalize <- function(dt.intermediate,
 
     
     ## Create "npage" variable
-    dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *p\\.?", "\\1", dt.final$description))
-
+    ## Note: Original variable contains a date and NAs, this is a known non-issue so warnings are suppressed
+    
+    suppressWarnings(
+    dt.final$npages <- as.integer(gsub("\\[?([0-9]+)\\]? *[pP]\\.?.*", "\\1", dt.final$description))
+    )
 
 
     
