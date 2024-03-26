@@ -75,6 +75,11 @@ f.download_manifest <- function(dt.download,
                        sep = "_")
 
 
+    ## Add missing PDF URLs: 1173
+
+    dt[res_no == 1173]$url_res_en <- "https://daccess-ods.un.org/access.nsf/Get?OpenAgent&DS=S/RES/1173(1998)&Lang=E"
+    
+
     
     ## Add missing PDF URLs: 1312
 
@@ -93,18 +98,17 @@ f.download_manifest <- function(dt.download,
     dt[res_no == 1984]$url_res_fr <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-FR.pdf"
     dt[res_no == 1984]$url_res_ru <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-RU.pdf"
     dt[res_no == 1984]$url_res_zh <- "https://digitallibrary.un.org/record/704920/files/S_RES_1984%282011%29-ZH.pdf"
+
+
+    ## Add missing PDF URLs: 2680
+
+    dt[res_no == 2680]$url_res_en <- "http://undocs.org/en/S/RES/2680(2023)"
+    
+    ## Add missing PDF URLs: 2702
+   
+    dt[res_no == 2702]$url_res_en <- "https://unsmil.unmissions.org/sites/default/files/s-res-2702_english.pdf"
     
 
-    ## Correct faulty URLs
-
-    ## pending review, may have been problem with UNDL
-    
-    ## dt$url_meeting_en <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_en)
-    ## dt$url_meeting_es <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_es)
-    ## dt$url_meeting_fr <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_fr)
-    ## dt$url_meeting_ru <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_ru)
-    ## dt$url_meeting_zh <- gsub("S_PV-137", "S_PV.137", dt$url_meeting_zh)
-    
     
 
     ## Finalize
