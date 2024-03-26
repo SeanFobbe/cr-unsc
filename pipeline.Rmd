@@ -847,7 +847,7 @@ tar_target(vars_additional,
 
 
 ```{targets tar.enhance.finalize}
-tar_target(dt.final,           
+tar_target(dt.final,
            f.finalize(dt.intermediate = dt.intermediate,
                       vars.additional = vars_additional,
                       varnames = dt.var_codebook$varname,
