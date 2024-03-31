@@ -93,11 +93,18 @@ f.finalize <- function(dt.intermediate,
 
 
     ## Convert Dates
+    dt.final$date  <- as.IDate(dt.final$date)
     dt.final$action_note  <- as.IDate(dt.final$action_note)
     dt.final$vote_date  <- as.IDate(dt.final$vote_date)
 
 
+    ## Supplement date variable with action_note
 
+    dt.final[is.na(date)]$date <- dt.final[is.na(date)]$action_note
+    dt.final$action_note <- NULL
+
+    ## Recreate "year" variable based on "date" variable
+    dt.final$year <- year(dt.final$date)
 
     
     ## Correct individual vote counts
@@ -218,7 +225,7 @@ f.finalize <- function(dt.intermediate,
     
     test_that("Dates are in ISO format.", {
         expect_true(all(grepl("[0-9]{4}-[0-9]{2}-[0-9]{2}", na.omit(dt.final$date))))
-        expect_true(all(grepl("[0-9]{4}-[0-9]{2}-[0-9]{2}", na.omit(dt.final$action_note))))
+        expect_true(all(grepl("[0-9]{4}-[0-9]{2}-[0-9]{2}", na.omit(dt.final$vote_date))))
     })
 
 
@@ -264,10 +271,9 @@ f.finalize <- function(dt.intermediate,
     test_that("Dates are within acceptable bounds", {
         expect_true(all(na.omit(dt.final$date) >= "1946-01-25"))
         expect_true(all(na.omit(dt.final$vote_date) >= "1946-01-25"))
-        expect_true(all(na.omit(dt.final$action_note) >= "1946-01-25"))
         expect_true(all(na.omit(dt.final$date) <= Sys.Date()))
         expect_true(all(na.omit(dt.final$vote_date) <= Sys.Date()))
-        expect_true(all(na.omit(dt.final$action_note) <= Sys.Date()))
+
     })
 
     
