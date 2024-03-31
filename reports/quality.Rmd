@@ -171,7 +171,7 @@ Visualize the citation network. This is a glance test. If something is obviously
 -->
 
 
-```{r, CR-UNSC_Citations_Network_blue, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC"}
+```{r, CR-UNSC_Citations_Network_blue, fig.width = 20, fig.height = 20, fig.pos = "p", fig.cap = "The citation network of the UNSC", dev = "png"}
 
 g <- igraph_citations
 
