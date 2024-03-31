@@ -261,10 +261,19 @@ Development versions of the source code are available on GitHub but carry no pro
 
 
 ## Copyright Status: Public Domain
- 
-According to written communication between the authors and the Secretariat of the \unsc\ the original documents are not subject to copyright.
 
-To ensure the widest possible distribution and to promote the international rule of law we waive any copyright to the data set under a \textbf{Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication}. 
+The copyright status of UN documents, resolutions, drafts and meeting records is governed by UN Administrative Instruction ST/AI/189/Add.9/Rev.2 of 17 September 1987.\footnote{url{https://en.wikisource.org/wiki/Administrative_Instruction_ST/AI/189/Add.9/Rev.2}} UN Administrative Instruction ST/AI/189/Add.9/Rev.2/Add.2 extended the temporal scope of the former until \enquote{further revision to that instruction}.\footnote{\url{https://en.wikisource.org/wiki/Administrative_Instruction_ST/AI/189/Add.9/Rev.2/Add.2}} As no revision has been published to this day, the rules remain in force. The most recent Index to Administrative Issuances ST/IC/2019/1 lists Administrative Instruction ST/AI/189/Add.9/Rev.2 as active.
+
+UN Administrative Instruction ST/AI/189/Add.9/Rev.2 of 17 September 1987 clearly states:
+
+> 2. The following categories of material will, as at present, be left in the public domain, i.e., the United Nations will not seek copyright therefor unless, prior to issue and in exceptional circumstances, the Publications Board decides otherwise, in consultation with the Office of Legal Affairs.
+>
+>​ (a) Official Records: a series of printed publications relating to the proceedings of organs or conferences of the United Nations. 2/ They include verbatim or summary records, documents or check-lists of documents, issued in the form of annexes to those records, including periodic supplements, such as the quarterly ones of the Security Council; and reports to those organs of their subordinate or affiliated bodies, compilations of resolutions, certain reports of the Secretary-General and other selected publications, which are issued in the form of supplements;
+>
+> (b) United Nations documents: written material officially issued under a United Nations document symbol, regardless of the form of production, although, in practice, the term is applied mainly to material offset from typescript and issued under a masthead. The term also applies to written material issued simultaneously or sequentially in the form of documents and publications; 
+
+
+We wish to honor the spirit and letter of this UN policy. To ensure the widest possible distribution of official UN documents and to promote the international rule of law we waive any copyright that might have accrued by creating the dataset under a \textbf{Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication}. 
 
 For details of the waiver please refer to the CC0 copyright notice at the beginning of this Codebook or visit the Creative Commons website for the full terms.\footnote{\url{https://creativecommons.org/publicdomain/zero/1.0/legalcode}}
 
