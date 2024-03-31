@@ -1,5 +1,4 @@
 varname,group,type,freqtable,description
-action\_note,1_id,String,0,The date of the action note in the format YYYY-MM-DD (ISO 8601). Example: \enquote{1946-06-26}. Curated by the UN Digital Library.
 body,1_id,String,1,"The body issuing the document. In the main data set this is always the UN Security Council (\enquote{S}), in the network data this may also be the UN General Assembly (\enquote{A})."
 call\_number,1_id,String,1,The call number of the resolution. Example: \enquote{UNS(01)/R3}.
 committee\_report,1_id,String,0,The official UN symbol of the committee report. Example: \enquote{S/2006/58}. Curated by the UN Digital Library.
