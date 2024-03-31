@@ -79,7 +79,8 @@ f.finalize <- function(dt.intermediate,
     ## Remove "authors" variable (uninformative)
     dt.final$authors <- NULL
 
-
+    ## Remove "resolution/decision" variable (unclear; revise later)
+    dt.final$"resolution_/_decision" <- NULL
     
 
     ## Swap "title" and "other_titles" variables
