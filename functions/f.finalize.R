@@ -98,13 +98,15 @@ f.finalize <- function(dt.intermediate,
     dt.final$vote_date  <- as.IDate(dt.final$vote_date)
 
 
-    ## Supplement date variable with action_note
+    ## Correct date variable
 
     dt.final[is.na(date)]$date <- dt.final[is.na(date)]$action_note
     dt.final$action_note <- NULL
 
-    ## Recreate "year" variable based on "date" variable
-    dt.final$year <- year(dt.final$date)
+    dt.final[res_no == 769]$date <- as.IDate("1992-08-07")
+    dt.final[res_no == 1758]$date <- as.IDate("2007-06-15")
+    dt.final[res_no == 2667]$date <- as.IDate("2022-12-20")
+                                             
 
     
     ## Correct individual vote counts
@@ -276,6 +278,11 @@ f.finalize <- function(dt.intermediate,
 
     })
 
+    test_that("Dates and years match.", {
+        ## The year is taken from the document symbol, the date from the UNDL database. This test ensures a sanity check between the two data sources.
+        expect_true(all(dt.final$year == year(dt.final$date)))
+
+    })
     
 
     ## Voting Boundaries
