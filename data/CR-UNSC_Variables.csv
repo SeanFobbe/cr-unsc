@@ -1,30 +1,30 @@
 varname,group,type,freqtable,description
 body,1_id,String,1,"The body issuing the document. In the main data set this is always the UN Security Council (\enquote{S}), in the network data this may also be the UN General Assembly (\enquote{A})."
-call\_number,1_id,String,1,The call number of the resolution. Example: \enquote{UNS(01)/R3}.
+call\_number,1_id,String,1,The call number of the resolution. This is either \enquote{UNS(01)/R3} or NA. Curated by the UN Digital Library.
 committee\_report,1_id,String,0,The official UN symbol of the committee report. Example: \enquote{S/2006/58}. Curated by the UN Digital Library.
-date,1_id,Date,0,The adoption date of the resolution in the format YYYY-MM-DD (ISO 8601). Example: \enquote{2016-11-09}.
-doc\_id,1_id,String,0,The filename of the extracted TXT file.
+date,1_id,Date,0,The adoption date of the resolution in the format YYYY-MM-DD (ISO 8601). Example: \enquote{2016-11-09}. Extracted with REGEX from the \enquote{other\_titles} variable and corrected by the authors.
+doc\_id,1_id,String,0,The filename of the extracted English language TXT file.
 doctype,1_id,String,1,The type of the main document. In this data set always \enquote{RES}.
 draft,1_id,String,0,The official UN symbol of the draft. Example: \enquote{S/2023/102}. Curated by the UN Digital Library.
 meeting\_no,1_id,Integer,0,The number of the UN Security Council meeting in which the resolution was adopted.
 meeting\_record,1_id,String,0,The official UN symbol of the meeting record. Example: \enquote{S/PV.8891}. Curated by the UN Digital Library.
 related\_resource,1_id,String,0,The official UN symbol of related resources. Example: \enquote{S/1234}. Curated by the UN Digital Library.
-res\_no,1_id,Integer,0,The number of the resolution. Example: \enquote{156}.
+res\_no,1_id,Integer,0,The number of the resolution. Example: \enquote{156}. Extracted with REGEX from the \enquote{other\_titles} variable.
 symbol,1_id,String,0,The official UN symbol of the resolution. Example: \enquote{S/RES/2316} (2016)
 year,1_id,Integer,1,The adoption year of the resolution in the format YYYY (ISO 8601). Example: \enquote{2016}
 nchars,2_text,Integer,0,The number of characters in the English text of the resolution. Calculated with the nchar() function in R.
 npages,2_text,Integer,0,Number of pages of the English PDF version of the document. Curated by the UN Digital Library.
-nsentences,2_text,Integer,0,"The number of sentences in a given document computed with the quanteda package. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied. The rules for detecting sentence boundaries are very complex and are described in \enquote{Unicode Standard Annex No 29}."
-ntokens,2_text,Integer,0,"The number of tokens (an arbitrary character sequence bounded by whitespace) in a given document computed with the quanteda package. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied."
-ntypes,2_text,Integer,0,"The number of types (unique tokens) in a given document computed with the quanteda package. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied."
-text,2_text,String,0,"The English text of the resolution. Up to resolution 899 this is revised OCR text, later resolutions are assumed to be born-digital and the text is extracted from the PDF file as-is."
-text\_ar,2_text,String,0,"The Arabic text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text\_draft,2_text,String,0,"The English text of the draft resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text\_es,2_text,String,0,"The Spanish text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text\_fr,2_text,String,0,"The French text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text\_meeting,2_text,String,0,"The English text of the meeting record. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text\_ru,2_text,String,0,"The Russian text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
-text\_zh,2_text,String,0,"The Chinese text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. Warning: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+nsentences,2_text,Integer,0,"The number of sentences in a given document. Computed with the quanteda package for R. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied. The rules for detecting sentence boundaries are very complex and are described in \enquote{Unicode Standard Annex No 29}."
+ntokens,2_text,Integer,0,"The number of tokens (an arbitrary character sequence bounded by whitespace) in a given document. Computed with the quanteda package for R. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied."
+ntypes,2_text,Integer,0,"The number of types (unique tokens) in a given document. Computed with the quanteda package for R. This count was generated based on plain tokenization with no further pre-processing (e.g. stopword removal, removal of numbers, lowercasing) applied."
+text,2_text,String,0,"The English full text of the resolution. Up to resolution 899 this is OCR text revised by international lawyers (gold standard), later resolutions are assumed to be born-digital and the text is extracted from the PDF file as-is."
+text\_ar,2_text,String,0,"The Arabic full text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. WARNING: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text\_draft,2_text,String,0,"The English full text of the draft resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. WARNING: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text\_es,2_text,String,0,"The Spanish full text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. WARNING: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text\_fr,2_text,String,0,"The French full text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. WARNING: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text\_meeting,2_text,String,0,"The English full text of the meeting record. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. WARNING: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text\_ru,2_text,String,0,"The Russian full text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. WARNING: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
+text\_zh,2_text,String,0,"The Chinese full text of the resolution. Up to resolution 899 this is non-revised OCR text, later texts are assumed to be born-digital and the text is extracted from the PDF file as-is. WARNING: non-revised OCR text may contain errors and superfluous text from other documents if they were printed on the same page."
 agenda\_information,3_thematic,String,0,Information on the agenda. Curated by the UN Digital Library.
 aggression,3_thematic,Logical,1,Whether the string “aggression” is present in the English text of the resolution.  Either TRUE or FALSE.
 chapter6,3_thematic,Logical,1,Whether the string “Chapter VI” is present in the English text of the resolution. Either TRUE or FALSE.
@@ -38,47 +38,46 @@ peace\_breach,3_thematic,Logical,1,Whether the string “breach of the peace” 
 peace\_threat,3_thematic,Logical,1,Whether the string “threat to the peace” is present in the English text of the resolution.  Either TRUE or FALSE.
 self\_defence,3_thematic,Logical,1,Whether the strings “self-defense” or “self-defence” are present in the English text of the resolution.  Either TRUE or FALSE.
 series,3_thematic,String,1,Indicates whether an Advisory Opinion was requested from the International Court of Justice. Curated by the UN Digital Library.
-subjects,3_thematic,String,0,Various thematic labels. Multiple labels separated by a pipe character. Curated by the UN Digital Library.
-summary,3_thematic,String,0,A human-curated summary. Curated by the UN Digital Library.
+subjects,3_thematic,String,0,One or more thematic labels. Multiple labels are separated by vertical bars. Curated by the UN Digital Library.
+summary,3_thematic,String,0,"A summary of the resolution, presumably human-created. Curated by the UN Digital Library."
 title,3_thematic,String,0,"The number, year and topic of the resolution. Curated by the UN Digital Library. "
-topic,3_thematic,String,0,A short description of the resolution’s specific topic. Example: \enquote{on withdrawal of USSR troops from Iran}
+topic,3_thematic,String,0,A short description of the resolution’s specific topic. Example: \enquote{on withdrawal of USSR troops from Iran}. Extracted with REGEX from the \enquote{other\_titles} variable.
 vote\_abstention,4_vote,Integer,1,The number of abstentions. Based on the variable \enquote{vote\_summary}.
 vote\_date,4_vote,Date,0,The date of the vote on the resolution in the format YYYY-MM-DD (ISO 8601). Example: 1948-08-19. Curated by the UN Digital Library.
 vote\_detail,4_vote,String,0,A breakdown of all votes by State. Curated by the UN Digital Library.
-vote\_no,4_vote,Integer,1,The number of no votes. Based on the variable \enquote{vote\_summary}.
-vote\_nonvote,4_vote,Integer,1,The number of non-voting members. Based on the variable \enquote{vote\_summary}.
+vote\_no,4_vote,Integer,1,The number of \enquote{no} votes. Extracted with REGEX from the variable \enquote{vote\_summary}.
+vote\_nonvote,4_vote,Integer,1,The number of non-voting members. Extracted with REGEX from the variable \enquote{vote\_summary}.
 vote\_summary,4_vote,String,0,"A narrative summary of the voting counts (yes, no, abstention, non-voting, total voting membership). Curated by the UN Digital Library."
-vote\_total,4_vote,Integer,1,The total voting membership of the UN Security Council at the time of the vote. Based on the variable \enquote{vote\_summary}.
-vote\_yes,4_vote,Integer,1,The number of yes votes. Based on the variable \enquote{vote\_summary}.
-iso\_alpha3,5_geo,String,0,"The ISO 3166-1 Alpha-3 codes of all countries mentioned in the text of the resolution. Example: GBR. If more than one, separated by a pipe character. Extracted by searching for short names listed in the UN M49 standard (slightly modified for better accuracy, for example by adding \enquote{DPRK} for North Korea). Warning: a hit for the Congo will always show up when the Democratic Republic of the Congo (DRC) is mentioned. Further disambiguation is not possible because both the short name (Congo) and the fll name (Republic of the Congo) are perfect subsets of the official name of the DRC."
-iso\_name,5_geo,String,0,"The ISO 3166-1 Alpha-3 names of all countries mentioned in the resolution. Example: Afghanistan. If more than one, separated by a pipe character. Based on the variable \enquote{iso\_alpha3}."
-m49\_countrycode,5_geo,String,0,"The UN M49 country codes of all countries mentioned in the resolution. Example: 818. If more than one, separated by a pipe character. Based on the variable \enquote{iso\_alpha3}."
-m49\_region,5_geo,String,1,"The UN M49 regions of all countries mentioned in the resolution. Example: Americas. If more than one, separated by a pipe character. Based on the variable \enquote{iso\_alpha3}."
-m49\_region\_intermediate,5_geo,String,1,"The UN M49 intermediate regions of all countries mentioned in the resolution. Example: South America. If more than one, separated by a pipe character. Note that not all countries have intermediate regions assigned. Based on the variable \enquote{iso\_alpha3}."
-m49\_region\_sub,5_geo,String,1,"The UN M49 sub-regions of all countries mentioned in the resolution. Example: Latin America and the Caribbean. If more than one, separated by a pipe character. Based on the variable \enquote{iso\_alpha3}."
+vote\_total,4_vote,Integer,1,The total voting membership of the UN Security Council at the time of the vote. Extracted with REGEX from the variable \enquote{vote\_summary}.
+vote\_yes,4_vote,Integer,1,The number of \enquote{yes} votes. Extracted with REGEX from the variable \enquote{vote\_summary}.
+iso\_alpha3,5_geo,String,0,"The ISO 3166-1 Alpha-3 codes of all countries mentioned in the text of the resolution. Example: GBR. If more than one, separated by a pipe character. Extracted with REGEX from the English resolution text by searching for short names listed in the UN M49 standard (slightly modified for better accuracy, for example by adding \enquote{DPRK} for North Korea). Warning: a hit for the Congo will always show up when the Democratic Republic of the Congo (DRC) is mentioned. Further disambiguation is not possible because both the short name (Congo) and the fll name (Republic of the Congo) are perfect subsets of the official name of the DRC."
+iso\_name,5_geo,String,0,"The ISO 3166-1 Alpha-3 names of all countries mentioned in the resolution. Example: Afghanistan. If more than one, separated by a pipe character. Transformation of the variable \enquote{iso\_alpha3}."
+m49\_countrycode,5_geo,String,0,"The UN M49 country codes of all countries mentioned in the resolution. Example: 818. If more than one, separated by a pipe character. Transformation of the variable \enquote{iso\_alpha3}."
+m49\_region,5_geo,String,1,"The UN M49 regions of all countries mentioned in the resolution. Example: Americas. If more than one, separated by a pipe character. Transformation of the variable \enquote{iso\_alpha3}."
+m49\_region\_intermediate,5_geo,String,1,"The UN M49 intermediate regions of all countries mentioned in the resolution. Example: South America. If more than one, separated by a pipe character. Note that not all countries have intermediate regions assigned. Transformation of the variable \enquote{iso\_alpha3}."
+m49\_region\_sub,5_geo,String,1,"The UN M49 sub-regions of all countries mentioned in the resolution. Example: Latin America and the Caribbean. If more than one, separated by a pipe character. Transformation of the variable \enquote{iso\_alpha3}."
 url\_record,6_url,String,0,The URL of the UN Digital Library record for the main resolution.
 url\_record\_draft,6_url,String,0,The URL of the UN Digital Library record for the draft resolution.
 url\_record\_meeting,6_url,String,0,The URL of the UN Digital Library record for the meeting transcript.
-url\_res\_ar,6_url,String,0,The URL of the PDF file containing the Arabic resolution text hosted by the UN Digital Library.
-url\_res\_en,6_url,String,0,The URL of the PDF file containing the English resolution text hosted by the UN Digital Library.
-url\_res\_es,6_url,String,0,The URL of the PDF file containing the Spanish resolution text hosted by the UN Digital Library.
-url\_res\_fr,6_url,String,0,The URL of the PDF file containing the French resolution text hosted by the UN Digital Library.
-url\_res\_ru,6_url,String,0,The URL of the PDF file containing the Russian resolution text hosted by the UN Digital Library.
-url\_res\_zh,6_url,String,0,The URL of the PDF file containing the Chinese resolution text hosted by the UN Digital Library.
-url\_draft\_ar,6_url,String,0,The URL of the PDF file containing the Arabic draft text hosted by the UN Digital Library.
-url\_draft\_en,6_url,String,0,The URL of the PDF file containing the English draft text hosted by the UN Digital Library.
-url\_draft\_es,6_url,String,0,The URL of the PDF file containing the Spanish draft text hosted by the UN Digital Library.
-url\_draft\_fr,6_url,String,0,The URL of the PDF file containing the French draft text hosted by the UN Digital Library.
-url\_draft\_ru,6_url,String,0,The URL of the PDF file containing the Russian draft text hosted by the UN Digital Library.
-url\_draft\_zh,6_url,String,0,The URL of the PDF file containing the Chinese draft text hosted by the UN Digital Library.
-url\_meeting\_ar,6_url,String,0,The URL of the PDF file containing the Arabic meeting record text hosted by the UN Digital Library.
-url\_meeting\_en,6_url,String,0,The URL of the PDF file containing the English meeting record text hosted by the UN Digital Library.
-url\_meeting\_es,6_url,String,0,The URL of the PDF file containing the Spanish meeting record text hosted by the UN Digital Library.
-url\_meeting\_fr,6_url,String,0,The URL of the PDF file containing the French meeting record text hosted by the UN Digital Library.
-url\_meeting\_ru,6_url,String,0,The URL of the PDF file containing the Russian meeting record text hosted by the UN Digital Library.
-url\_meeting\_zh,6_url,String,0,The URL of the PDF file containing the Chinese meeting record text hosted by the UN Digital Library.
-doi\_concept,7_misc,String,1,The Digital Object Identifier (DOI) for the \emph{concept} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire the \emph{latest version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data.
-doi\_version,7_misc,String,1,The Digital Object Identifier (DOI) for the \emph{specific version} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire this \emph{specific version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data.
-license,7_misc,String,1,The license for the data set. In this data set it is always Creative Commons Zero 1.0 Universal. Useful when merging individual rows with other data sets.
-version,7_misc,Date,0,The version of the data set as a date in the form YYYY-MM-DD (ISO-8601). The version represents the date on which the data set creation process was begun.
-resolution\_/\_decision,DEL,String,0,TBD
+url\_res\_ar,6_url,String,0,The URL of the PDF file containing the Arabic resolution text. Hosted by the UN Digital Library.
+url\_res\_en,6_url,String,0,The URL of the PDF file containing the English resolution text. Hosted by the UN Digital Library.
+url\_res\_es,6_url,String,0,The URL of the PDF file containing the Spanish resolution text. Hosted by the UN Digital Library.
+url\_res\_fr,6_url,String,0,The URL of the PDF file containing the French resolution text. Hosted by the UN Digital Library.
+url\_res\_ru,6_url,String,0,The URL of the PDF file containing the Russian resolution text. Hosted by the UN Digital Library.
+url\_res\_zh,6_url,String,0,The URL of the PDF file containing the Chinese resolution text. Hosted by the UN Digital Library.
+url\_draft\_ar,6_url,String,0,The URL of the PDF file containing the Arabic draft text. Hosted by the UN Digital Library.
+url\_draft\_en,6_url,String,0,The URL of the PDF file containing the English draft text. Hosted by the UN Digital Library.
+url\_draft\_es,6_url,String,0,The URL of the PDF file containing the Spanish draft text. Hosted by the UN Digital Library.
+url\_draft\_fr,6_url,String,0,The URL of the PDF file containing the French draft text. Hosted by the UN Digital Library.
+url\_draft\_ru,6_url,String,0,The URL of the PDF file containing the Russian draft text. Hosted by the UN Digital Library.
+url\_draft\_zh,6_url,String,0,The URL of the PDF file containing the Chinese draft text. Hosted by the UN Digital Library.
+url\_meeting\_ar,6_url,String,0,The URL of the PDF file containing the Arabic meeting record text. Hosted by the UN Digital Library.
+url\_meeting\_en,6_url,String,0,The URL of the PDF file containing the English meeting record text. Hosted by the UN Digital Library.
+url\_meeting\_es,6_url,String,0,The URL of the PDF file containing the Spanish meeting record text. Hosted by the UN Digital Library.
+url\_meeting\_fr,6_url,String,0,The URL of the PDF file containing the French meeting record text. Hosted by the UN Digital Library.
+url\_meeting\_ru,6_url,String,0,The URL of the PDF file containing the Russian meeting record text. Hosted by the UN Digital Library.
+url\_meeting\_zh,6_url,String,0,The URL of the PDF file containing the Chinese meeting record text. Hosted by the UN Digital Library.
+doi\_concept,7_misc,String,1,The Digital Object Identifier (DOI) for the \emph{concept} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire the \emph{latest version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data. Added by the dataset authors.
+doi\_version,7_misc,String,1,The Digital Object Identifier (DOI) for the \emph{specific version} of the data set. Resolving this DOI via www.doi.org allows researchers to always acquire this \emph{specific version} of the data set. The DOI is a persistent identifier suitable for stable long-term citation. Principle F1 of the FAIR Data Principles (\enquote{data are assigned globally unique and persistent identifiers}) recommends the documentation of each data set with a persistent identifier and Principle F3 its inclusion with the metadata. Even if the CSV data set is transmitted without the accompanying Codebook this allows researchers to establish provenance of the data.  Added by the dataset authors.
+license,7_misc,String,1,The license for the data set. In this data set it is always Creative Commons Zero 1.0 Universal. Useful when merging individual rows with other data sets.  Added by the dataset authors.
+version,7_misc,Date,0,The version of the data set as a date in the form YYYY-MM-DD (ISO-8601). The version represents the date on which the data set creation process was begun.  Added by the dataset authors.
