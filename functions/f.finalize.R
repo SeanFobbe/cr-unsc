@@ -64,7 +64,6 @@ f.finalize <- function(dt.intermediate,
     dt.final$description <- NULL
 
     ## Remove "date_undl" variable (contains only date, "New York" and "UN"; date is separate variable now)
-
     dt.final$date_undl <- NULL
 
     ## Remove "language" variable (text language is encoded in var names)
