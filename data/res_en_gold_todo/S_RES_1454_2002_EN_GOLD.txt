@@ -182,7 +182,7 @@ Biological Section:
 exceed the established consumption rates.
 
 (2) 2.5: Sterilizing equipment designed to sterilize infectious material, with an
-internal volume equal to.1.0 m' or greater and the following components:
+internal volume equal to 1.0 m³ or greater and the following components:
 
 Doors
 Door Seals
@@ -208,7 +208,7 @@ material capable of continuous operation at a flow rate of 20 litres per hour or
 greater and specially designed rotors therefor.
 
 (6) 4.2: Batch centrifuges with a rotor capacity of 10 litres or greater, designed for
-use with biological agents..
+use with biological agents.
 
 (7) 11: Equipment for the microencapsulation of live microorganisms and toxins in
 the range of 1-15 micron particle size, to include interfacial polycondensors and
@@ -230,7 +230,7 @@ dispersing aerosols with an ultimate mean size of 15 microns or less at a flow r
 exceeding 1 litre of liquid suspension per minute or 10 grams of dry material per
 minute and the following components:
 
-Spray tanks .
+Spray tanks
 Certified pumps Spray nozzles
 
 Note: This entry excludes dry powder fire extinguishers.
@@ -256,11 +256,11 @@ Hammer/Anvils
 
 (b) Equipment capable of sizing the resulting particles to below 400 microns.
 
-(4) 5.2,5.3.1.a and 5.4.a: Modify missile entries to delete the phrase “designed for
-use in inertial navigation systems or in guidance systems of all types”.
+(4) 5.2,5.3.1.a and 5.4.a: Modify missile entries to delete the phrase "designed for
+use in inertial navigation systems or in guidance systems of all types".
 
 (5) 9.1.3: Test benches/stands capable of handling solid or liquid propellant
-rockets or rocket motors of more than 10 kN (2,248 Ibs) of thrust, or capable of
+rockets or rocket motors of more than 10 kN (2,248 lbs) of thrust, or capable of
 measuring one or more of the three axial thrust components along with spare parts,
 equipment and associated components (e.g. load cells, test sensors).
 
@@ -280,47 +280,47 @@ vehicles with any extenders fully deployed; kingpin of 2.5 inches or greater; 3 
 more axles; and tyre size of 1,200 x 20 or greater. Tractor or cab may or may not be
 attached.
 
-(3) 5.A.Lb.7: b. Telecommunications transmission equipment and systems, and
+(3) 5.A.1.b.7: b. Telecommunications transmission equipment and systems, and
 specially designed components and accessories therefor, having any of the following
 characteristics, functions or features:
 
-7. Being radio equipment employing “time modulated ultra-wideband”
+7. Being radio equipment employing "time modulated ultra-wideband"
 techniques, having user programmable channelizing or scrambling codes.
 
-5.A.2.a.: Systems, equipment, application specific “electronic assemblies”, modules
+5.A.2.a.: Systems, equipment, application specific "electronic assemblies", modules
 and integrated circuits for information security, as follows, and other specially
 designed computer components therefor:
 
 5.A.2.a.9: Designed or modified to use cryptographic techniques to generate
-channelizing or scrambling codes for “time modulated ultra-wideband” systems.
+channelizing or scrambling codes for "time modulated ultra-wideband" systems.
 
 (4) 7.A.3: Inertial Navigation Systems and inertial equipment and components
 designed therefor:
 
 a. Inertial navigation systems (gimballed or strapdown) and in inertial
-equipment designed for “aircraft”, land vehicle or “spacecraft” for attitude,
+equipment designed for "aircraft", land vehicle or "spacecraft" for attitude,
 guidance or control, having any of the following characteristics, and
 components designed therefor:
 
-a.l. (Renumbering of current GRL entry 7.A.3.a.)
+a.1. (Renumbering of current GRL entry 7.A.3.a.)
 a.2. (Renumbering of current GRL entry 7.A.3.b.)
 S/RES/1454 (2002)
 
 b. Hybrid Inertial Navigation Systems embedded with Global Navigation
-Satellite System(s) (GNSS) or with “Data-based referenced Navigation”
-(“DBRN”) System(s) for attitude, guidance or control, subsequent to normal
+Satellite System(s) (GNSS) or with "Data-based referenced Navigation"
+("DBRN") System(s) for attitude, guidance or control, subsequent to normal
 alignment, having an INS navigation position accuracy, after loss of GNSS or
-“DBRN” for a period of up to 4 minutes, of less (better) than 10 metres
+"DBRN" for a period of up to 4 minutes, of less (better) than 10 metres
 Circular Error Probable (CEP).
 
-(5) 5.A.Lb.8: Radio Intercept/Direction Finding (DF) Equipment/Systems.
+(5) 5.A.1.b.8: Radio Intercept/Direction Finding (DF) Equipment/Systems.
 
-(6) 5.A.Lb.7: Being broadcast transmitter (e.g. for radio or television) equipment
+(6) 5.A.1.b.7: Being broadcast transmitter (e.g. for radio or television) equipment
 operating in the .5-500 MHz (MF to UHF broadcast bands) with output power levels
 above 1 kW (Root-Mean-Square (RMS)).
 
 (7) 1.A.6: Carbon Nanotube Materials; 1.B.4: Scanning Probe Microscope
-equipment or systems; [.LE.3: Carbon Nanotube Technology.
+equipment or systems; I.LE.3: Carbon Nanotube Technology.
 
 (8) 7.A.8: Full-Motion Flight Simulators/Training Systems for civilian transport
 aircraft.
@@ -338,11 +338,12 @@ capabilities would be covered as items for review.
 (9) A.13.c: Tyres with equal to or greater than 16 ply rating or 10.00 x 20 tyres
 with non-directional, cross-country (NDCC) tread.
 
-(9) B.I1: Moulds designed for the production of the tyres identified in 9.A.13.c.
-(10) 3.E.3.g: Other “technology” for the “development” or “production” of:
+(9) B.11: Moulds designed for the production of the tyres identified in 9.A.13.c.
+(10) 3.E.3.g: Other "technology" for the "development" or "production" of:
+
 g. Electronic vacuum tubes operating at frequencies of 31 GHz or higher.
 
-(11) 8.A.lLj: Fast/Workboats, of any construction, with length overall (LOA) in
+(11) 8.A.1.j: Fast/Workboats, of any construction, with length overall (LOA) in
 excess of 15 metres capable of speed in excess of 20 knots when laden with rated
 payload in excess of 1.5 tons or,
 
@@ -359,34 +360,34 @@ more metric tons.
 (12) 6.A.8: RADAR: ... Note: ... 6.A.8 does not require review of: ... d. Meteorological
 (weather) Radar.
 
-Delete sub-item “d” from the above-referenced exclusion note.
+Delete sub-item "d" from the above-referenced exclusion note.
 S/RES/1454 (2002)
 
 6.A.8.a: All airborne radar equipment and specially designed components
-therefor, not including radars specially designed for meteorological use ...”.
+therefor, not including radars specially designed for meteorological use ...".
 
-Delete “... radars specially designed for meteorological use ...”.
+Delete "... radars specially designed for meteorological use ...".
 
 Note: 6.4.8.k does not require review of LIDAR equipment specially designed
-Jor surveying or meteorological observation.
+for surveying or meteorological observation.
 
-Delete “... or meteorological observation”.
+Delete "... or meteorological observation".
 
 6.A.9: Equipment or systems, and components designed or adapted therefor,
 for meteorological observation, modelling and simulation, and/or forecasting.
 
-6.B.9: Test, inspection, and “production” equipment for equipment, systems,
+6.B.9: Test, inspection, and "production" equipment for equipment, systems,
 and components adapted therefor, for which review is required under 6.A.9.
 
-6.D.4 “Software” for meteorological use.
+6.D.4 "Software" for meteorological use.
 
-6.D.4.a: “Software” for the “development”, “production”, or “use” of
+6.D.4.a: "Software" for the "development", "production", or "use" of
 equipment or systems requiring review under 6.A.9 or 6.B.9.
 
-6.D.4.b: “Software” designed or adapted for meteorological modelling or
+6.D.4.b: "Software" designed or adapted for meteorological modelling or
 simulation.
 
-6.E.4: “Technology” according to the General Technology Note for the “use”
+6.E.4: "Technology" according to the General Technology Note for the "use"
 of items for which review is required by 6.A.9, 6.B.9 or 6.D.4.
 S/RES/1454 (2002)
 
@@ -399,8 +400,8 @@ relevant provisions of paragraphs 17, 18, and 25 of resolution 1284 (1999) relat
 the processing of applications to be financed from the escrow account established
 pursuant to paragraph 7 of resolution 986 (1995).
 
-2. Each application (the “Notification or Request to Ship Goods to Iraq,” as
-attached to these procedures, hereafter referred to as “the application,”) for the sale
+2. Each application (the "Notification or Request to Ship Goods to Iraq," as
+attached to these procedures, hereafter referred to as "the application,") for the sale
 or supply of commodities or products to include services ancillary to the supply of
 such commodities and products, to Iraq to be financed from the escrow account
 established pursuant to paragraph 7 of resolution 986 (1995) must be forwarded to
@@ -427,7 +428,7 @@ writing of any change in the status of the application. The OIP will identify an
 official to act as a contact point on each application.
 
 4. After OIP registration of the application, each application will be evaluated by
-technical experts from UNMOVIC and TAEA in order to determine whether the
+technical experts from UNMOVIC and IAEA in order to determine whether the
 application contains any item referred to in paragraph 24 of resolution 687 (1991) as
 it relates to military commodities and products, or military-related commodities or
 products covered by the GRL (GRL item(s)). At their discretion and subject to the
@@ -440,7 +441,7 @@ whereby OIP may evaluate and approve applications that, based on this guidance,
 fall within these categories.
 
 UNMOVIC and IAEA should put into their records the information about the
-applications mentioned in subparagraphs a, b, ¢c and d below, without prejudice to
+applications mentioned in subparagraphs a, b, c and d below, without prejudice to
 the review of these applications under the current procedures, and this information
 S/RES/1454 (2002)
 
@@ -457,7 +458,7 @@ missiles systems, or increase conventional military capabilities; or,
 ambiguity as to whether the technical specifications of any item included in such
 application are items covered by the GRL; or,
 
-(¢) The technical evaluation of any application conducted by UNMOVIC or
+(c) The technical evaluation of any application conducted by UNMOVIC or
 IAEA determines that the amount of any item included in an application exceeds
 requirements typically associated with the civilian end use and the item is deemed to
 have potential military applications;
@@ -480,10 +481,10 @@ resolution 687 (1991), UNMOVIC and IAEA should process these goods and
 services pursuant to paragraph 9 of these procedures.
 
 6. Upon receipt of a registered application from OIP, UNMOVIC and/or IAEA
-will have ten working ddys to evaluate an application as set forth in paragraphs 4
+will have ten working days to evaluate an application as set forth in paragraphs 4
 and 5. Absent action by UNMOVIC and/or IAEA within the ten working day period,
 the application will be considered approved. In the course of conducting the
-technical evaluation as set out in paragraphs 4 and § above, UNMOVIC and/or
+technical evaluation as set out in paragraphs 4 and 5 above, UNMOVIC and/or
 IAEA may request additional information from the submitting missions or United
 Nations agency. The submitting mission or United Nations agency should provide
 the additional information requested within a period of 90 days. Once UNMOVIC
@@ -625,8 +626,8 @@ Council resolution 1051 lists. Category A will also contain contracts that were 
 processed before the Security Council adopted United Nations Security Council
 resolution 1284 and assessed by one or more members of the 661 Committee as
 containing item(s) on one or more of the United Nations Security Council resolution
-1051 lists. OIP will consider contracts in category A to be “returned to the
-submitting mission or United Nations agency” and will notify the submitting
+1051 lists. OIP will consider contracts in category A to be "returned to the
+submitting mission or United Nations agency" and will notify the submitting
 mission or United Nations agency accordingly, including national comments if
 possible. The submitting mission or United Nations agency may submit a contract in
 category A as a new application under the GRL procedures. In category B will be all
@@ -667,38 +668,38 @@ For further guidance regarding completion of application please consult OIP webs
 (TO BE COMPLETED BY THE UN SECRETARIAT)
 
 COMM. No. REGISTRATION DATE DATE RECEIVED BY UNMOVIC DATE SENT TO THE COMMITTEE
-(if applicable, for 986) (if applicable) '
+(if applicable, for 986) (if applicable)
 DEADLINE DATE (for 661)
 
 (TO BE COMPLETED BY PROSPECTIVE EXPORTING COUNTRY or INTERNATIONAL ORGANIZATION)
-I. MISSION OR INTERNATIONAL ORGANIZATION 2. CERTIFYING SIGNATURE AND OFFICIAL SEAL
+1. MISSION OR INTERNATIONAL ORGANIZATION 2. CERTIFYING SIGNATURE AND OFFICIAL SEAL
 3. DATE OF SUBMISSION 4. MISSION REFERENCE No.
 
-. NUMBER OF LINE ITEMS ON THE| 7. TOTAL VALUE {8. CURRENCY
-EXCEL FORM ATTACHMENT ISO CODE
+6. NUMBER OF LINE ITEMS ON THE EXCEL FORM ATTACHMENT 7. TOTAL VALUE 8. CURRENCY
+ ISO CODE
 
-L_ I
+
 9. EXPORTER
 Name:
 
 Address:
-i| Country:
+Country:
 
-{| Phone/Fax/E-mail:
+Phone/Fax/E-mail:
 11. RECEIVING COMPANY / ORG 12. SHIPPING ARRANGEMENTS:
 Name Select ONE Point of Entry into Iraq
 
-| Address 0 Trebil O Al Waleed 0 Zakho OI Umm Qasr OJ Ar'ar
+Address 0 Trebil O Al Waleed 0 Zakho OI Umm Qasr OJ Ar'ar
 
 Phone/Fax/E-mail
 
--{ 13. END USER entity (if different from receiving company / org.) 14. END USE
-| Name: Provide details of intended end-use.
-‘| Address:
+ 13. END USER entity (if different from receiving company / org.) 14. END USE
+Name: Provide details of intended end-use.
+Address:
 
 Phone/Fax/E-mail:
 
-_ (attach additional sheets if necessary)
+ (attach additional sheets if necessary)
 
 15. METHOD OF PAYMENT
 
@@ -715,18 +716,18 @@ PAGE 1 of 3
 15
 S/RES/1454 (2002)
 
-- IF THIS NOTIFICATION OR REQUEST TO SHIP GOODS TO IRAQ
+IF THIS NOTIFICATION OR REQUEST TO SHIP GOODS TO IRAQ
 IS TO BE PAID FROM THE IRAQ ACCOUNT
 IN ACCORDANCE WITH SC RESOLUTION 986 (1995)
 PLEASE FILL OUT THESE ADDITIONAL BOXES
 (see box 15 on Page 1)
 
-| MISSION REFERENCE No.
+MISSION REFERENCE No.
 
 17. IDENTICAL GOODS PREVIOUSLY SUBMITTED:
 
 Indicate whether or not you have previously submitted an application(s) for IDENTICAL goods.
-0 YES OO No [J UNABLE TO DETERMINE
+ YES  No  UNABLE TO DETERMINE
 
 If YES provide Comm. number reference(s) with respective item number(s).
 
@@ -739,22 +740,22 @@ O YES Ono
 If YES indicate whether or not all components of the spare parts, accessories, sets, kits, tool boxes, tools, equipment, special tools, lots or
 consumables have been listed as separate line items with the relevant description, quantity and price on the attached Excel form application.
 
-[OO YES [J NO (in this case, the document will not be registered by the Secretariat)
+ YES  NO (in this case, the document will not be registered by the Secretariat)
 
 19. TECHNICAL INFORMATION:
 
 Indicate whether or not the scope of supply includes (separately or as part of larger item) any of the goods and/or technology specified on
 the OIP web site (www.un.org/Depts/oip)
-0 YES O No
+ YES  No
 
 If YES indicate whether or not the relevant technical specification form for each item has been completed and attached to the application.
-O YES [J NO (in this case, the document will not be registered by the Secretariat)
+ YES  NO (in this case, the document will not be registered by the Secretariat)
 
 20. GRL RELATED ITEM(S) AND/OR TECHNOLOGY:
 
 Indicate whether or not the scope of supply includes any item included in the Goods Review List (GRL). The GRL may be accessed via
 the OIP website (www.un.org/Depts/oip).
-O YEs 0 No [J UNABLE TO DETERMINE
+ YEs  No  UNABLE TO DETERMINE
 
 IF YES indicate below the line item number and description as in the Excel sheet of these goods considered to be included on the GRL.
 
@@ -771,30 +772,30 @@ IF THIS NOTIFICATION OR REQUEST TO SHIP GOODS TO IRAQ IS TO BE PAID FROM
 THE IRAQ ACCOUNT IN ACCORDANCE WITH SC RESOLUTION 986 (1995) PLEASE FILL
 OUT THESE ADDITIONAL BOXES (see box 15 on Page 1)
 
-| MISSION REFERENCE No. : |
+MISSION REFERENCE No. :
 
 NOTE : Boxes 21 to 24 refer to questions frequently asked by U.N. experts during the review of applications. To avoid processing
 delays, you are strongly advised to complete the following boxes and, if applicable, provide the relevant information when submitting the
-application. If these questions do not appear to relate to any of the goods in your application, please select “Not Applicable” box.
+application. If these questions do not appear to relate to any of the goods in your application, please select "Not Applicable" box.
 
 21.
 
 "Are any goods originally designed for military use?
-0 YES 0 No [1 Not Applicable
+ YES  No  Not Applicable
 
 If YES please attach the relevant information.
 
 22.
 
 Are any goods designed or modified to withstand the effects of electromagnetic pulse?
-.O YES Ono [1 Not Applicable
+ YES NO  Not Applicable
 
 If YES please attach the relevant information.
 
 23.
 
 Are fiber optic cable or optical terminals to be supplied?
-J YES Ono [J Not Applicable
+ YES NO  Not Applicable
 
 If YES please attach the relevant information.
 
@@ -803,12 +804,12 @@ If YES please attach the relevant information.
 If the goods contain any bearings (as spare parts or as included in the equipment), are the bearings manufacture to a tolerance of ABEC 7
 
 or 9 (or national equivalent).
-0 ves a No CJ Not Applicable
+ Yes  NO Not Applicable
 
 If YES please attach the relevant information.
 
 IMPORTANT NOTICE
-The following attachments are corapulsory
+The following attachments are compulsory
 
 1) Excel form application listing IN DETAIL all goods (including all spare parts, accessories ...) + diskette
 2) Contract signed by both parties with all attachments, enclosures and annexes -
