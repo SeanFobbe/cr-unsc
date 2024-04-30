@@ -14,10 +14,6 @@ RUN apt-get update && apt-get -y install $(cat requirements-system.txt)
 COPY etc/requirements-tesseract.sh .
 RUN sh requirements-tesseract.sh
 
-# Python layer
-COPY etc/requirements-python.txt .
-RUN pip install -r requirements-python.txt
-
 # R layer
 COPY etc/requirements-R.R .
 RUN Rscript requirements-R.R
