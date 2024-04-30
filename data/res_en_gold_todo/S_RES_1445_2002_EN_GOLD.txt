@@ -1,8 +1,8 @@
 United Nations S/RES/1445 (2002)
 
-{ \) Security Council Distr.: General
-\ ) 4 December 2002
-SZ
+Security Council Distr.: General
+4 December 2002
+
 
 Resolution 1445 (2002)
 
@@ -33,14 +33,14 @@ operations, in accordance with Security Council resolution 1325 (2000), and the
 importance of the protection of children in armed conflict, in accordance with its
 resolution 1379 (2001),
 
-Taking note of the Secretary-General’s special report of 10 September 2002
+Taking note of the Secretary-General's special report of 10 September 2002
 (5/2002/1005) and its recommendations,
 
 Determining that the situation in the Democratic Republic of the Congo
 continues to pose a threat to international peace and security in the region,
 
 1. Welcomes the signature by the Democratic Republic of the Congo and
-Rwanda of the Pretoria Agreement on 30 July 2002 (5/2002/914), as well as the
+Rwanda of the Pretoria Agreement on 30 July 2002 (S/2002/914), as well as the
 signature by the Democratic Republic of the Congo and Uganda of the Luanda
 Agreement on 6 September 2002 and welcomes also the efforts of the Republic of
 South Africa, Angola, and of the Secretary-General, in facilitating the adoption of
@@ -49,10 +49,8 @@ these agreements;
 2. Welcomes the decision taken by all the foreign parties to withdraw fully
 their troops from the territory of the Democratic Republic of the Congo, as well as
 
-02-72318 (E
+02-72318 (E)
 
-)
-EE V0 OO
 S/RES/1445 (2002)
 
 progress in the implementation of these processes, in particular the withdrawal of
@@ -76,7 +74,7 @@ demobilization, repatriation, reintegration or resettlement (DDRRR) of the armed
 groups referred to in annex A. Chapter 9.1 of the Lusaka Ceasefire Agreement
 (S/1999/815), calls on the leaders and members of the armed groups to enter the
 DDRRR process, also calls on all concerned to work to this end, emphasizes the
-need to intensify MONUC’s public information efforts in this regard and calls on all
+need to intensify MONUC's public information efforts in this regard and calls on all
 parties to support these efforts;
 
 5. Stresses the importance of further early and substantial progress on the
@@ -118,8 +116,8 @@ full support for the efforts of the Special Envoy of the Secretary-General;
 
 10. Takes note of the encouraging developments on the ground, endorses the
 recommendations of the Secretary-General in his special report, including those
-relating to MONUC’s support for the TPVM as well as the proposal to extend the
-funding of MONUC’s quick impact projects, endorses in particular, the new concept
+relating to MONUC's support for the TPVM as well as the proposal to extend the
+funding of MONUC's quick impact projects, endorses in particular, the new concept
 of operation outlined in paragraphs 48 to 54 of this report and authorizes the
 expansion of MONUC to consist of up to 8,700 military personnel, principally
 comprised of two task-forces, to be deployed in a phased basis as follows: the
@@ -182,7 +180,7 @@ presence of MONUC stationed in the area, if he determines that the security
 condition allows it, in order to provide support to this process as well as to
 humanitarian efforts, and report back to the Council;
 
-16. Takes note of Uganda’s commitment under the Luanda Agreement to
+16. Takes note of Uganda's commitment under the Luanda Agreement to
 complete the withdrawal of its forces no later than 15 December 2002, welcomes the
 positive interaction between the Governments of the Democratic Republic of the
 Congo and of Uganda since the signing of the Luanda Agreement and calls on both
