@@ -5,7 +5,7 @@
 
 ## Overview
 
-This code in the [R programming language](https://en.wikipedia.org/wiki/R_(programming_language)) downloads and processes the full set of resolutions, drafts and meeting records rendered by the United Nations Security Council (UNSC) as published by the UN Digital Library under <https://digitallibrary.un.org/> into a rich and structured human- and machine-readable data set. It is the basis for the **Corpus of Resolutions: UN Security Council (CR-UNSC)**.
+This code in the [R programming language](https://en.wikipedia.org/wiki/R_(programming_language)) downloads and processes the full set of resolutions, drafts and meeting records rendered by the United Nations Security Council (UNSC) as published by the [UN Digital Library](https://digitallibrary.un.org/) into a rich and structured human- and machine-readable dataset. It is the basis for the **Corpus of Resolutions: UN Security Council (CR-UNSC)**.
 
 All data sets created with this script will always be hosted permanently open access and freely available at Zenodo, the scientific repository of CERN. Each version is uniquely identified with a persistent Digitial Object Identifier (DOI), the *Version DOI*. The newest version of the data set will always available via the link of the *Concept DOI*: https://doi.org/10.5281/zenodo.7319781
 
@@ -13,19 +13,21 @@ All data sets created with this script will always be hosted permanently open ac
 ## Features
 
 - 84 Variables
-- Full texts of all resolutions in all six official UN languages (English, French, Spanish, Arabic, Chinese, Russian)
-- Draft texts of resolutions
-- Meeting record texts
-- Citation network as GraphML (from UNSC to UNSC and UNGA resolutions)
-- Extensive Codebook
+- Resolution texts in all six official UN languages (English, French, Spanish, Arabic, Chinese, Russian)
+- Draft texts of resolutions in English
+- Meeting record texts in English
+- Citation data as GraphML (UNSC-to-UNSC and UNSC-to-UNGA resolutions)
+- Bibliographic database in BibTeX/OSCOLA format for e.g. Zotero, Endnote and Jabref
+- Extensive Codebook to explain the uses of the dataset
+- Compilation Report and Quality Assurance Report explain construction and validation of the data set
 - Pre-built diagrams for all purposes (PDF for printing, PNG for web)
 - Open and platform independent file formats (CSV, PDF, TXT, GraphML)
+- Software is version controlled with Docker
 - Publication of full data set (Open Data)
 - Publication of full source code (Open Source)
-- Version-controlled with Docker
-- Compilation Report and Quality Assurance Report explain construction and validation of the data set in detail
-- Secure cryptographic signatures
-- Public Domain waiver (CC-Zero 1.0)
+- Data published under Public Domain waiver (CC Zero 1.0)
+- Software published under GNU General Public License Version 3 (GNU GPL v3)
+- Secure cryptographic signatures for release files
 
 
 ## Functionality
