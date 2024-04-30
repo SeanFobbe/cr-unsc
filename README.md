@@ -154,10 +154,9 @@ This structural analysis of the project describes its most important and version
 ├── functions                  # Key pipeline components
 ├── gpg                        # Personal Public GPG-Key for Seán Fobbe
 ├── instructions               # Instructions on how to manually handle data
+├── LICENSE                    # License for the software
 ├── pipeline.Rmd               # Master file for data pipeline
 ├── README.md                  # Usage instructions
-├── renv                       # Version control, executables
-├── renv.lock                  # Version control, version info
 ├── reports                    # Report templates
 ├── run_project.R              # Run entire pipeline
 └── tex                        # LaTeX templates
