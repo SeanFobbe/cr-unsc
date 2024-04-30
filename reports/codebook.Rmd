@@ -1228,7 +1228,7 @@ For the original publication proposing the FAIR standard, please see: Wilkinson,
 - Zenodo metadata includes standardized representations of each license compliant with the OpenDefinition standard
 
 - The CR-UNSC data is published under a standardized Creative Commons CC0 1.0 waiver
-- The CR-UNSC source code is published under a standardized MIT-0 license
+- The CR-UNSC source code is published under a standardized GNU GPL v3 license
 - The CR-UNSC embeds the  data license in the CSV file and in the Codebook
 
 **[R1.2] (Meta)data are associated with detailed provenance**
