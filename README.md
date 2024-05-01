@@ -42,10 +42,10 @@ The pipeline will produce the following results and store them in the  `output/`
 - ZIP archive containing citation data and metadata as a GraphML file
 - ZIP archive containing bibliographic data as a BIBTEX file
 - ZIP archive containing all resolution texts as TXT files (OCR and extracted)
-- ZIP archive containing all resolution texts as PDF files (OCR and extracted)
-- ZIP archive containing all draft texts as PDF files (OCR and extracted)
-- ZIP archive containing all meeting record texts as PDF files (OCR and extracted)
-- ZIP archive containing the full source code
+- ZIP archive containing all resolution texts as PDF files (original and English with OCR)
+- ZIP archive containing all draft texts as PDF files (original)
+- ZIP archive containing all meeting record texts as PDF files (original)
+- ZIP archive containing the full Source Code
 - ZIP archive containing all intermediate pipeline results ("targets")
 
  The integrity and veracity of each ZIP archive is documented with cryptographically secure hash signatures (SHA2-256 and SHA3-512). Hashes are stored in a separate CSV file created during the data set compilation process.
