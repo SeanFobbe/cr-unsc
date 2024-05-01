@@ -34,12 +34,13 @@ All data sets created with this script will always be hosted permanently open ac
  
 The pipeline will produce the following results and store them in the  `output/` folder:
 
-- Codebook
-- Compilation Report
-- Quality Assurance Report
+- Codebook as PDF
+- Compilation Report as PDF
+- Quality Assurance Report as PDF
 - ZIP archive containing the main data set as a CSV file
-- ZIP archive containing the only metadata of the main data set as a CSV file
+- ZIP archive containing only the metadata of the main data set as a CSV file
 - ZIP archive containing citation data and metadata as a GraphML file
+- ZIP archive containing bibliographic data as a BIBTEX file
 - ZIP archive containing all resolution texts as TXT files (OCR and extracted)
 - ZIP archive containing all resolution texts as PDF files (OCR and extracted)
 - ZIP archive containing all draft texts as PDF files (OCR and extracted)
