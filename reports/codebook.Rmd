@@ -217,15 +217,17 @@ ggraph(g,
 
 ## Processing and Quality Assurance
 
-
 Dozens of automated tests were conducted to ensure the quality of the data and metadata. These include:
 
-- Strict validation of variable types via \emph{regular expressions}.
-- Creation of visualizations for many common descriptive analyses.
+- Validation of variable types
+- Plausibility checks on expected values for many variables (e.g. minima, maxima, plausible values)
+- Completeness checks on download and full dataset
+- Text quality and language purity checks
+- Creation of visualizations for many common descriptive analyses
 
 For results of each test and more information on the construction of the data set please refer to the Compilation Report and the Quality Assurance Report.
 
-The raw data for all stages of the data pipeline (\enquote{targets}) was stored and is published together with the source code. The original files acquired from the UN Digital Library are part of the dataset itself. We exclude only HTML files from this.
+The raw data for all stages of the data pipeline (\enquote{targets}) was stored and is published together with the source code. The original files acquired from the UN Digital Library are part of the dataset itself, insofar as we consider them useful to other users. 
 
 
 
