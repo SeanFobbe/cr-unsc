@@ -16,18 +16,21 @@ All data sets created with this script will always be hosted permanently open ac
 - Resolution texts in all six official UN languages (English, French, Spanish, Arabic, Chinese, Russian)
 - Draft texts of resolutions in English
 - Meeting record texts in English
-- Citation data as GraphML (UNSC-to-UNSC and UNSC-to-UNGA resolutions)
+- URLs to draft texts in all other languages (French, Spanish, Arabic, Chinese, Russian)
+- URLs to meeting record texts in all other languages (French, Spanish, Arabic, Chinese, Russian)
+- Citation data as GraphML (UNSC-to-UNSC resolutions and UNSC-to-UNGA resolutions)
 - Bibliographic database in BibTeX/OSCOLA format for e.g. Zotero, Endnote and Jabref
 - Extensive Codebook to explain the uses of the dataset
 - Compilation Report and Quality Assurance Report explain construction and validation of the data set
-- Pre-built diagrams for all purposes (PDF for printing, PNG for web)
+- Publication quality diagrams for teaching, research and all other purposes (PDF for printing, PNG for web)
 - Open and platform independent file formats (CSV, PDF, TXT, GraphML)
-- Software is version controlled with Docker
+- Software version controlled with Docker
 - Publication of full data set (Open Data)
 - Publication of full source code (Open Source)
+- Free Software published under the GNU General Public License Version 3 (GNU GPL v3)
 - Data published under Public Domain waiver (CC Zero 1.0)
-- Software published under GNU General Public License Version 3 (GNU GPL v3)
-- Secure cryptographic signatures for release files
+- Secure cryptographic signatures for all files in version of record (SHA2-256 and SHA3-512)
+
 
 
 ## Functionality
@@ -42,7 +45,7 @@ The pipeline will produce the following results and store them in the  `output/`
 - ZIP archive containing citation data and metadata as a GraphML file
 - ZIP archive containing bibliographic data as a BIBTEX file
 - ZIP archive containing all resolution texts as TXT files (OCR and extracted)
-- ZIP archive containing all resolution texts as PDF files (original and English with OCR)
+- ZIP archive containing all resolution texts as PDF files (original and English OCR)
 - ZIP archive containing all draft texts as PDF files (original)
 - ZIP archive containing all meeting record texts as PDF files (original)
 - ZIP archive containing the full Source Code
@@ -53,9 +56,10 @@ The pipeline will produce the following results and store them in the  `output/`
 
 ## System Requirements
 
-- The reference data sets were compiled on a Debian host system. Running the Docker config on an SELinux system like Fedora may require some modifications in the Docker Compose config.
-- 50 GB space on hard drive
+- The reference data sets were compiled on a Debian host system. Running the Docker config on an SELinux system like Fedora will require modifications of the Docker Compose config file.
+- 40 GB space on hard drive
 - Multi-core CPU recommended. We used 8 cores/16 threads to compile the reference data sets. Standard config will use all cores on a system. This can be fine-tuned in the config file.
+
 
 
 ## Instructions
