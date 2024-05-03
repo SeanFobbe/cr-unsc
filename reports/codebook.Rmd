@@ -345,8 +345,6 @@ The published data set contains all six official UN languages (English, French, 
 
 
 
-\newpage
-
 ## ALL\_CSV\_FULL
 
 A structured tabular representation of the full data set, stored within a single comma-delimited file (CSV). Includes the full texts of the decisions in all languages and the full complement of metadata described in the Codebook. 
