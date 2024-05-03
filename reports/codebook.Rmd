@@ -544,7 +544,7 @@ kable(dt.var_codebook[group == "6_url", .(varname, type, description)],
 
 ```
 
-
+\newpage
 ## Meta Variables
 
 Meta variables provide further information on the data set, including version, DOIs and licensing information. These document provenance and ensure compliance with FAIR Data Principles F1, F3 and R1.1.
