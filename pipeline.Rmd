@@ -373,7 +373,7 @@ list(
 
 ### Define Scope of Resolution Numbers
 
-Here the full set of resolution numbers that makes up the data set is defined. The scope() function supports selecting resolution numbers from 1 through a defined limit (full scope) and a random subset (debugging mode). You can replace the output of the function with any arbitrary set of resolution numbers and it should work as well. 
+The full set of resolution numbers that makes up the data set is defined. The scope() function supports selecting resolution numbers from 1 through a defined limit (full scope) and a random subset (debugging mode). You can replace the output of the function with any arbitrary set of resolution numbers and it should work as well. 
 
 
 ```{targets tar.download.resno}
