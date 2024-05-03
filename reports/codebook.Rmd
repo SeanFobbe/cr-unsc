@@ -178,7 +178,7 @@ Resolutions of the \unsc\ are publicly available official documents of an intern
 
 ##  Data Collection
 
-Data were collected with the explicit consent of the Secretariat of the \unsc . All documents were downloaded via TLS-encrypted connections and cryptographically signed after data processing was complete. The data set collects all resolutions issued by the \unsc\ that were published on the UN Digital Library on \version .
+Data were collected with the explicit consent of the United Nations. All documents were downloaded via TLS-encrypted connections and cryptographically signed after data processing was complete. The data set collects all resolutions issued by the \unsc\ that were published by the UN Digital Library up tp `r max(dt.final$res_no)`.
 
   
 
