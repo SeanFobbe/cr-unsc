@@ -169,3 +169,20 @@ This structural analysis of the project describes its most important and version
 
 ``` 
 
+
+
+## Open Access Publications (Fobbe)
+
+Website --- https://www.seanfobbe.com
+
+Open Data --- https://zenodo.org/communities/sean-fobbe-data
+
+Code Repository --- https://zenodo.org/communities/sean-fobbe-code
+
+Regular Publications --- https://zenodo.org/communities/sean-fobbe-publications
+
+ 
+
+## Contact
+
+Did you discover any errors? Do you have suggestions on how to improve the data set? You can either post these to the Issue Tracker on GitHub or write me an e-mail at [fobbe-data@posteo.de](mailto:fobbe-data@posteo.de)
