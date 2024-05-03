@@ -203,7 +203,7 @@ ggraph(g,
     theme_void()+
     labs(
         title = paste(prefix.figuretitle,
-                      "| Data set compilation process."),
+                      "| Data set compilation process"),
         caption = caption
     )+
     theme(
