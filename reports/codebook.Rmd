@@ -234,7 +234,7 @@ The raw data for all stages of the data pipeline (\enquote{targets}) was stored 
 
 ## Uses
 
-The dataset has been designed to be useful for any and all purposes related to the quantiative analysis of international law. It is identified by a unique Digital Object Identifier (DOI) and, if correctly cited, all public applications should be searchable on the internet.
+The dataset has been designed to be useful for any and all purposes related to the quantitative analysis of international law and to traditional researchers who seek a complete collection of \unsc resolutions. The dataset is identified by a unique Digital Object Identifier (DOI) and, if correctly cited, all public applications should be searchable on the internet.
 
 The dataset can potentially be used in the following applications
 
@@ -242,13 +242,12 @@ The dataset can potentially be used in the following applications
 - Automatic summarization (full text and brief summaries and titles available)
 - Topic analysis (full-text available)
 - Citation analysis (UNSC and UNGA citation data is included)
-- Machine translation (all six UN languages available, but note quality constraints on non-English texts)
+- Machine translation (all six UN languages available, but note quality and completeness constraints on non-English texts)
 - Argument mining
-
 
 The dataset should not be used for the following tasks:
 
-- Prediction of adoption success or voting behavior (dependent variable) based on the text of a resolution or draft (input variable). The data set contains only successfully adopted resolutions, so there is no comparison data for votes on unsuccessful drafts.
+- Prediction of adoption success or voting behavior (dependent variable) based on the text of a resolution or draft (input variable). The data set contains only successfully adopted resolutions, so there is no control group of unsuccessful drafts.
 
 
 ## Distribution
