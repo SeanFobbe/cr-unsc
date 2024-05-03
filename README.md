@@ -80,7 +80,7 @@ Please always use an *empty* folder for creating the data set. The code will del
 
 ### Step 2: Create Docker Image
 
-The Dockerfile contains automated instructions to create a full operation system with all necessary dependencies. To create the image from the Dockerfile, please execute: 
+The Dockerfile contains automated instructions to create a full operating system with all necessary dependencies. To create the image from the Dockerfile, please execute: 
 
 ```
 $ bash docker-build-image.sh
@@ -95,8 +95,8 @@ If you have previously compiled the data set, whether successfuly or not, you ca
 $ Rscript delete_all_data.R
 ```
 
-You can compile the full data set by executing:
 
+You can compile the full data set by executing:
 
 ```
 $ bash docker-run-project.sh
