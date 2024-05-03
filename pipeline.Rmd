@@ -98,7 +98,7 @@ dir.analysis <- paste0(getwd(),
 
 ## Clean Up
 
-Deletes files in the output folder that do not match the datestamp.
+Deletes temporary files and files in the output folder that do not match the datestamp.
 
 
 ```{r}
