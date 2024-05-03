@@ -12,7 +12,7 @@ All data sets created with this script will always be hosted permanently open ac
 
 ## Features
 
-- 84 Variables
+- 82 Variables
 - Resolution texts in all six official UN languages (English, French, Spanish, Arabic, Chinese, Russian)
 - Draft texts of resolutions in English
 - Meeting record texts in English
