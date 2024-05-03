@@ -59,7 +59,7 @@ The pipeline will produce the following results and store them in the  `output/`
 - The reference data sets were compiled on a Debian host system. Running the Docker config on an SELinux system like Fedora will require modifications of the Docker Compose config file.
 - 40 GB space on hard drive
 - Multi-core CPU recommended. We used 8 cores/16 threads to compile the reference data sets. Standard config will use all cores on a system. This can be fine-tuned in the config file.
-
+- Given these requirements the runtime of the pipeline is approximately 40 hours.
 
 
 ## Instructions
