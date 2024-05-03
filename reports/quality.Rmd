@@ -94,6 +94,51 @@ sum(stringi::stri_count(regex = "expect_", code))
 
 
 
+# Variables
+
+## Number of Variables in Main Dataset
+
+```{r}
+
+length(names(dt.final))
+
+```
+
+## Number of Variables in Graph Metadata
+
+```{r}
+
+length(igraph::vertex_attr_names(igraph_citations))
+
+```
+
+
+## Names of Variables in Main Dataset
+
+```{r}
+
+names(dt.final)
+
+```
+
+
+## Names of Variables in Graph Metadata
+
+```{r}
+
+igraph::vertex_attr_names(igraph_citations)
+
+```
+
+
+## Names of Variables in Maindataset, but NOT in Graph Metadata
+
+```{r}
+
+setdiff(names(dt.final), igraph::vertex_attr_names(igraph_citations))
+
+```
+
 
 
 # Visualize Pipeline
