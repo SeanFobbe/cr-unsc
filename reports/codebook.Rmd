@@ -47,7 +47,7 @@ tar_load(igraph_citations)
 
 # Introduction
 
-The United Nations Security Council (UNSC) is the most influential of the principal UN organs. Composed of five permanent and ten non-permanent members, its functioning is constrained by the political context in which it operates. During the Cold War, the the complex political relationships between the permanent members and their veto powers significantly affected the capacity of the UNSC to address violations of international peace and security, with only 646 resolutions passed from 1946 to 1989. 
+The **United Nations Security Council (UNSC)** is the most influential of the principal UN organs. Composed of five permanent and ten non-permanent members, its functioning is constrained by the political context in which it operates. During the Cold War, the complex political relationships between the permanent members and their veto powers significantly affected the capacity of the UNSC to address violations of international peace and security, with only 646 resolutions passed from 1946 to 1989. 
 
 Since 1990s, the activity of the UN Security Council has increased dramatically and produced 2721 resolutions up to the end of 2023. The length, complexity and thematic breadth of the resolutions has also increased, prompting calls to redefine it as a quasi-legislative body.
 
