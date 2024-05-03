@@ -66,7 +66,7 @@ Design, construction and compilation of this data set are based on the principle
 
 # Reading Files
 
-The data are published in open, interoperable and widely used formats (CSV, TXT, PDF). They can be used with all modern programming languages (e.g. Python or R) and graphical interfaces. The PDF collections are intended to facilitate traditional legal research.
+The data are published in open, interoperable and widely used formats (CSV, TXT, PDF, GraphML). They can be used with all modern programming languages (e.g. Python or R) and graphical interfaces. The PDF collections are intended to facilitate traditional legal research.
 
 **Important:** Missing values are always coded as \enquote{NA}.
 
@@ -145,7 +145,7 @@ This structure and content of this section build on the suggestions offered in: 
 
 Our motivation in creating this dataset is to enhance international legal and political research in general, increase understanding of the work of the \unsc\ and facilitate creative digital work in the area of international peace and security. 
 
-The \datashort\ is a general-purpose dataset that is intended to provide high-quality legal and political data that enables researchers, practitioners, civil society, UN officials, governments and any other interested parties to address a wide range research questions related to the \unsc .
+The \datashort\ is a general-purpose dataset  intended to provide high-quality legal and political data that enables researchers, practitioners, civil society, UN officials, governments and any other interested parties to address a wide range research questions related to the \unsc .
 
 The use of the main data set is not limited to a particular line of inquiry or specific discipline. Specialized variants of the data set offer citation data and a bibliographic database compatible with a wide range of end-user applications.
 
@@ -158,11 +158,13 @@ The authors did not receive any specific funding to work on this dataset. All wo
 
 ## Composition
 
-The dataset is primarily composed of the texts of all resolutions in all official UN languages published by the \unsc . We aim for a complete accounting of all resolutions, up to the most recent resolution that was available through the UN Digital Library on the date of data set creation. We further provide the English texts of the draft resolutions and meeting record associated with each resolutons. Each resolutions is accompanied by as much high-quality metadata as could be acquired and validated from the UN Digital Library, as well as additional metadata extracted from the text of the resolutions. The exact size of the data set is documented and visualized with frequency tables at the end of this Codebook.
+The dataset is primarily composed of the texts of all resolutions in all official UN languages published by the \unsc . We aim for a complete accounting of all resolutions, up to the most recent resolution that was available through the UN Digital Library on the date of data set creation. We further provide the English texts of the draft resolutions and meeting records associated with each resolutons. 
 
-The data set is self-contained, but it contains the original URLs to UN Digital Library record pages and URLs to individual PDF files for purposes of reproducibility, data validation and creating digital applications that would benefit from integrating linked open data. We assume these URLs will remain stable over time, but their maintenance is up to the UN Digital Library. In case of link failure, newer version of the data set will contain updated links.
+Each resolution is accompanied by as much high-quality metadata as could be acquired and validated, as well as additional metadata extracted from the text of the resolutions. The exact composition and scope of the data set is documented and visualized with frequency tables at the end of this Codebook.
 
-There are no recommended data splis. However, all resolutions are consecutively numbered and timestamped with the date of adoption. Time series analysis should take this into account.
+The data set is self-contained, but it contains the original URLs to UN Digital Library record pages and URLs to individual PDF files for purposes of reproducibility, data validation and creating digital applications that would benefit from integrating linked open data. We assume these URLs will remain stable over time, but their maintenance depends on the actions of the UN Digital Library. In case of link failure, newer version of the data set will contain updated links.
+
+There are no recommended data splits. However, all resolutions are consecutively numbered and timestamped with the date of adoption. Time series analyses should take this into account.
 
 
 
