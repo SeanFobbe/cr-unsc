@@ -108,14 +108,6 @@ f.ocr_quality_test <- function(dt.res.en.gold,
 
 
 
-## DEBUGING CODE
-
-## dt.res.en.gold <- tar_read(dt_res_en_gold)
-## dt.ocr.res.all <- tar_read(dt_ocr_res_all)
-## dt.extracted.res.all <- tar_read(dt_extracted_res_all)
-
-
-
 
 #'# Process Corpus to Tokens
 #' This function tokenizes a corpus, removes irrelevant characters, converts to lowercase and removes common stopwords for both English and French. It is intended to simulate a generic and widespread pre-processing workflow in natural language processing.
@@ -134,4 +126,15 @@ f.token.processor <- function(corpus){
                                         stopwords("spanish")))
     return(tokens)
 }
+
+
+
+
+
+
+## DEBUGING CODE
+
+## dt.res.en.gold <- tar_read(dt_res_en_gold)
+## dt.ocr.res.all <- tar_read(dt_ocr_res_all)
+## dt.extracted.res.all <- tar_read(dt_extracted_res_all)
 
