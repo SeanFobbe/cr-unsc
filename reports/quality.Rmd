@@ -156,17 +156,7 @@ Visualize the citation network. This is a glance test. If something is obviously
 
 ## fr, lgl not nice
                                         
-# drl, gfr; 
-
-## index <- which(igraph::V(igraph_citations)$body == "S")
-
-## g <- igraph::subgraph(igraph_citations, index)
-
-#pdf("test.pdf", width = 20, height = 20)
-
-#png("test-20x20-anon.png", units = "in", width = 25, height = 25, res = 300)
-
-#dev.off()
+# drl, gfr; maybe
 
 -->
 
