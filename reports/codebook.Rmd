@@ -1210,7 +1210,7 @@ For the original publication proposing the FAIR standard, please see: Wilkinson,
 **[I3] (Meta)data include qualified references to other (meta)data**
 
 - The CR-UNSC embeds the Concept DOI and Version DOI for the relevant Zenodo record in the CSV dataset and the Codebook
-- The CR-UNSC includes the unique URL for the resolution text in all six UN languages, the URL for the draft and meeting record in English and the URL for the UN Digital Library record pages of the resolution, draft and meeting record. UN Digital Library record pages provide machine-readable metadata in a wide range of export formats
+- The CR-UNSC includes the unique URL for the resolution text in all six UN languages, the URL for the draft and meeting record in English and the URL for the UN Digital Library record pages of the resolution, draft and meeting record. UN Digital Library record pages provide machine-readable metadata in a wide range of export formats.
 
 
 
