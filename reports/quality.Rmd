@@ -283,12 +283,12 @@ setdiff(res.no.full, dt.final$res_no)
 
 Reports the number of missing values for each variable in the dataset. Values can be missing for many reasons:
 
-- Never collected and therefore neither present in the UN Digital Library database
-- Not contained in UN Digital Library database for any other reason
-- Error during processing
+- Never collected and therefore cannot be present in the UN Digital Library database
+- Not added to the UN Digital Library database for any other reason
+- Error during pipeline processing
 - Not being applicable to the record in question (e.g. "contains" variable, which is only applicable to resolutions that contain appended texts, such as court statutes).
 
-The results require some interpretation and deep examination of the data to decide whether missingness is a problem that can be solved with amending the data pipeline or needs to be addressed in the source database.
+The results require some interpretation and deep examination of the data to decide whether missingness is a problem that can be solved with fixing/enhancing the data pipeline or if this needs to be addressed in the UNDL source database.
 
 
 
