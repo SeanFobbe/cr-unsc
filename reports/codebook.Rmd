@@ -321,7 +321,11 @@ Users should bear in mind certain important limitations:
 
 # Variants and Target Audiences
 
+## Overview of Variants
+
 The published data set contains all six official UN languages (English, French, Spanish, Arabic, Chinese and Russian) and is published in several different variants intended for specific target audiences. In particular, a tabular CSV variant for general data analysis, a GraphML network representation for citation analysis, a PDF variant for traditional research and a BIBTEX variant to assist with efficient citation of UNSC resolutions.
+
+\bigskip
 
 
 \begin{centering}
@@ -350,7 +354,7 @@ Traditional Research & ALL\_PDF\_RESOLUTIONS \\
 \end{centering}
 
 
-
+\newpage
 
 ## ALL\_CSV\_FULL
 
