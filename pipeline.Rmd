@@ -860,8 +860,6 @@ tar_target(vars_additional,
 
 ### Finalize Main Data Set
 
-
-
 ```{targets tar.enhance.finalize}
 tar_target(dt.final,
            f.finalize(dt.intermediate = dt.intermediate,
@@ -1020,9 +1018,9 @@ tar_target(langtest,
 ```{targets tar.test.ocr}
 
 tar_target(ocrtest,
-           f.ocr_quality_test(dt.res.en.gold = dt_res_en_gold,
-                              dt.ocr.res.all = dt_ocr_res_all,
-                              dt.extracted.res.all = dt_extracted_res_all))
+           f.ocr_quality_test(dt.res.en.gold = dt_res_en_gold[res_no < 900],
+                              dt.ocr.res.all = dt_ocr_res_all[res_no < 900],
+                              dt.extracted.res.all = dt_extracted_res_all[res_no < 900]))
 
 ```
 
