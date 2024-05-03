@@ -265,7 +265,7 @@ Development versions of the source code are available on GitHub but carry no pro
 
 ## Copyright Status: Public Domain
 
-The copyright status of UN documents, resolutions, drafts and meeting records is governed by UN Administrative Instruction ST/AI/189/Add.9/Rev.2 of 17 September 1987.\footnote{url{https://en.wikisource.org/wiki/Administrative_Instruction_ST/AI/189/Add.9/Rev.2}} UN Administrative Instruction ST/AI/189/Add.9/Rev.2/Add.2 extended the temporal scope of the former until \enquote{further revision to that instruction}.\footnote{\url{https://en.wikisource.org/wiki/Administrative_Instruction_ST/AI/189/Add.9/Rev.2/Add.2}} As no revision has been published to this day, the rules remain in force. The most recent Index to Administrative Issuances ST/IC/2019/1 lists Administrative Instruction ST/AI/189/Add.9/Rev.2 as active.
+The copyright status of UN documents, resolutions, drafts and meeting records is governed by UN Administrative Instruction ST/AI/189/Add.9/Rev.2 of 17 September 1987.\footnote{\url{https://en.wikisource.org/wiki/Administrative_Instruction_ST/AI/189/Add.9/Rev.2}} UN Administrative Instruction ST/AI/189/Add.9/Rev.2/Add.2 extended the temporal scope of the former until \enquote{further revision to that instruction}.\footnote{\url{https://en.wikisource.org/wiki/Administrative_Instruction_ST/AI/189/Add.9/Rev.2/Add.2}} As no revision has been published to this day, the rules remain in force. The most recent Index to Administrative Issuances ST/IC/2019/1 lists Administrative Instruction ST/AI/189/Add.9/Rev.2 as active.
 
 UN Administrative Instruction ST/AI/189/Add.9/Rev.2 of 17 September 1987 clearly states:
 
