@@ -1104,8 +1104,8 @@ values <- tibble::tibble(
                                           "EN_PDF_Meeting-Records",
                                           "ALL_CSV_FULL",
                                           "ALL_CSV_META",
-										  "BIBTEX_OSCOLA",
-										  "CITATIONS_GRAPHML"),
+										  "CITATIONS_GRAPHML",
+										  "BIBTEX_OSCOLA"),
                                         ".zip"),
                       mode = c(rep("mirror", 3),
                                rep("cherry-pick", 6))
