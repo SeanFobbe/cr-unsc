@@ -1078,7 +1078,7 @@ kable(freqtable,
 ## By Sub-Region of Countries Mentioned
 
 
-```{r, CR-UNSC_Barplot_Resolutions-by-SubRegion, fig.height = 10, fig.width = 8}
+```{r, CR-UNSC_Barplot_Resolutions-by-SubRegion, fig.height = 6, fig.width = 9}
 split <- unlist(stringi::stri_split(dt.final$m49_region_sub, regex = "\\|"))
 subregion <- split[split != ""]
 
