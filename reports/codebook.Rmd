@@ -1110,7 +1110,7 @@ ggplot(data = freqtable.nosum) +
     theme_bw() +
     labs(
         title = paste(prefix.figuretitle,
-                      "| Top Sub-Regions of Countries Mentioned"),
+                      "| Top Sub-Regions Mentioned"),
         caption = caption,
         x = "Sub-Region",
         y = "Resolutions"
