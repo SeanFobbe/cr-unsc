@@ -16,7 +16,7 @@ f.tar_write_txt <- function(text,
                             dir = "txt",
                             cleandir = FALSE){
 
-    if (cleandir = TRUE){
+    if (cleandir == TRUE){
 
         unlink(dir, recursive = TRUE)
         
