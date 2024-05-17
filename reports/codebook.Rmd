@@ -569,7 +569,9 @@ kable(dt.var_codebook[group == "7_misc", .(varname, type, description)],
 
 # Citation Network Data
 
-The CR-UNSC comes with a specialized variant of the dataset that contains all citations from UNSC resolutions to other UNSC resolutions and UNGA resolutions. This graph (network) representation of citations is available in GraphML format.
+The CR-UNSC comes with a specialized variant of the dataset that contains all citations from UNSC resolutions to other UNSC resolutions and UNGA resolutions. This weighted, directed graph (network) representation of citations is available in GraphML format. 
+
+The number of nodes gives a count of resolutions with in- or outgoing citations. The number of edges gives a count of resolution-pairs that are connected by at least one citations. The individual weights for directed edges give the number of citations for the bilateral links. The out-strength gives the total count of citations between all resolutions (excluding self-citations). 
 
 
 \ra{1.1}
