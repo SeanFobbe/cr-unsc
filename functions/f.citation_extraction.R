@@ -200,6 +200,18 @@ f.citation_extraction <- function(dt.final){
                                                      "A",
                                                      "S"))
 
+    ## Merge Weights
+
+    E(g.all)$weight_1[is.na(E(g.all)$weight_1)] <- 0
+    E(g.all)$weight_2[is.na(E(g.all)$weight_2)] <- 0
+
+    E(g.all)$weight <- E(g.all)$weight_1 + E(g.all)$weight_2
+
+    g.all <- remove.edge.attribute(g.all, "weight_1")
+    g.all <- remove.edge.attribute(g.all, "weight_2")
+
+    
+    
     ## Retrofill Symbols
 
     index.na <- which(is.na(igraph::vertex_attr(g.all, "symbol")))
