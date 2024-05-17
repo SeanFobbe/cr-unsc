@@ -10,7 +10,7 @@
 - Fix whitespace character detection in citation extraction
 - Fix improper merging of weights in citation network
 - Fix "cannot xtfrm data frames" warning
-- Shorten some headings in Codebook
+- Improve Codebook (headings, citation network docs)
 
 
 ## Version 2024-05-03
