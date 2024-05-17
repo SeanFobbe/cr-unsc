@@ -334,7 +334,8 @@ The published data set contains all six official UN languages (English, French, 
 - ALL\_CSV\_META 
 - ALL\_TXT 
 - ANALYSIS 
-- CITATIONS\_GRAPHML 
+- CITATIONS\_GRAPHML
+- EN\_TXT\_BEST
 
 ### Recommended for Traditional Research
 
@@ -344,7 +345,7 @@ The published data set contains all six official UN languages (English, French, 
 - BIBTEX\_OSCOLA 
 - EN\_PDF\_Drafts 
 - EN\_PDF\_Meeting-Records 
-
+- EN\_TXT\_BEST
 
 
 ## ALL\_CSV\_FULL
@@ -406,7 +407,11 @@ All meeting records associated with resolutions in English as published by the U
 
 Please note that the files are named according to the associated final resolution (and not the official document symbol of the meeting record) to speed up findability.
 
+## EN\_TXT\_BEST
 
+All resolutions issued by the UNSC in English, in the best quality available to the dataset authors. This is a merged set of gold-standard, expert-revised OCR text for resolutions 1 through 899 (and some others) and extracted born-digital text for resolutions 900 and higher. 
+
+This TXT version is equivalent to the "text" variable in the main CSV dataset. We strongly recommend using this variant for all serious work on the English texts, if use of the CSV file is not feasible.
 
 
 
