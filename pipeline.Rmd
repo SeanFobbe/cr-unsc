@@ -889,7 +889,7 @@ tar_target(dt.final.meta,
 ### Create Variant: Best TXT Files Only
 
 ```{targets tar.variant.txt.best}
-tar_target(dt.txt.en.best,
+tar_target(txt_en_best,
            f.tar_write_txt(text = dt.final$text,
                            doc_id = dt.final$doc_id,
                            dir = "files/txt_res_en_best",
@@ -1095,6 +1095,7 @@ values <- tibble::tibble(
                                "pdf_meeting_original",
                                "csv_final",
                                "csv_meta",
+							   "txt_en_best",
 							   "graphml",
 							   "bibtex_oscola"),
                       input = c(quote(files.source),
@@ -1104,6 +1105,7 @@ values <- tibble::tibble(
                                 quote(pdf_meeting_en),
                                 quote(csv_final),
                                 quote(csv_meta),
+								quote(txt_en_best),
 								quote(graphml_citations),
 								quote(bibtex.oscola)),
                       filename = paste0(prefix.files,
@@ -1115,11 +1117,12 @@ values <- tibble::tibble(
                                           "EN_PDF_Meeting-Records",
                                           "ALL_CSV_FULL",
                                           "ALL_CSV_META",
+										  "EN_TXT_BEST",
 										  "CITATIONS_GRAPHML",
 										  "BIBTEX_OSCOLA"),
                                         ".zip"),
                       mode = c(rep("mirror", 3),
-                               rep("cherry-pick", 6))
+                               rep("cherry-pick", 7))
                   )
 
 
