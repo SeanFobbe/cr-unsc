@@ -1002,7 +1002,7 @@ kable(freqtable,
 
 
 
-
+\newpage
 ## By Region of Countries Mentioned
 
 
@@ -1074,7 +1074,7 @@ kable(freqtable,
 
 
 
-
+\newpage
 ## By Sub-Region of Countries Mentioned
 
 
@@ -1150,7 +1150,7 @@ kable(freqtable,
 
 
 
-
+\newpage
 ## By Subject
 
 
