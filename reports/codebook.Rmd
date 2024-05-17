@@ -867,7 +867,7 @@ ggplot(dt.allmetrics.en, aes(x = value,
 \ra{1.3}
  
 
-## Resolutions By Year
+## By Year
 
 
 ```{r, CR-UNSC_Barplot_Resolutions-by-Year, fig.height = 6, fig.width = 9}
@@ -931,7 +931,7 @@ kable(freqtable,
 
 
 
-## Resolutions by Country Mentioned
+## By Country Mentioned
 
 
 ```{r, CR-UNSC_Barplot_Resolutions-by-Country, fig.height = 14, fig.width = 10}
@@ -1003,7 +1003,7 @@ kable(freqtable,
 
 
 
-## Resolutions by Region of Countries Mentioned
+## By Region of Countries Mentioned
 
 
 ```{r, CR-UNSC_Barplot_Resolutions-by-Region, fig.height = 6, fig.width = 9}
@@ -1075,7 +1075,7 @@ kable(freqtable,
 
 
 
-## Resolutions by Sub-Region of Countries Mentioned
+## By Sub-Region of Countries Mentioned
 
 
 ```{r, CR-UNSC_Barplot_Resolutions-by-SubRegion, fig.height = 14, fig.width = 8}
@@ -1151,7 +1151,7 @@ kable(freqtable,
 
 
 
-## Resolutions By Subject
+## By Subject
 
 
 
