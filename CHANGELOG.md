@@ -9,6 +9,7 @@
 - Fixed naming mix-up of BIBTEX and GRAPHML zip archives
 - Enhance whitespace character detection in citation extraction
 - Fix "cannot xtfrm data frames" warning
+- Shorten some headings in Codebook
 
 
 ## Version 2024-05-03
