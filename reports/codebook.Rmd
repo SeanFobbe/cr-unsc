@@ -1075,6 +1075,76 @@ kable(freqtable,
 
 
 
+## Resolutions by Sub-Region of Countries Mentioned
+
+
+```{r, CR-UNSC_Barplot_Resolutions-by-SubRegion, fig.height = 14, fig.width = 8}
+split <- unlist(stringi::stri_split(dt.final$m49_region_sub, regex = "\\|"))
+subregion <- split[split != ""]
+
+
+freqtable <- f.fast.freqtable(data.table(subregion),
+                              sumrow = TRUE,
+                              output.list = TRUE,
+                              output.kable = FALSE,
+                              output.csv = FALSE,
+                              align = c("p{5cm}"))[[1]]
+
+
+
+freqtable.nosum <- freqtable[-.N][order(-N)]
+
+
+
+
+
+ggplot(data = freqtable.nosum) +
+    geom_bar(aes(x = reorder(subregion,
+                             N),
+                 y = N),
+             stat = "identity",
+             fill = "black",
+             color = "black",
+             width = 0.5) +
+    coord_flip()+
+    theme_bw() +
+    labs(
+        title = paste(prefix.figuretitle,
+                      "| Top Sub-Regions of Countries Mentioned"),
+        caption = caption,
+        x = "Sub-Region",
+        y = "Resolutions"
+    )+
+    theme(
+        text = element_text(size = 14),
+        plot.title = element_text(size = 14,
+                                  face = "bold"),
+        legend.position = "none",
+        plot.margin = margin(10, 20, 10, 10)
+    )
+
+```
+
+
+
+\vspace{0.5cm}
+
+
+```{r}
+
+kable(freqtable,
+      format = "latex",
+      align = 'P{3cm}',
+      booktabs = TRUE,
+      longtable = TRUE,
+      col.names = c("Sub-Region",
+                    "Resolutions",
+                    "% Total",
+                    "% Cumulative"))  %>% kable_styling(latex_options = "repeat_header")
+
+```
+
+
 
 
 
