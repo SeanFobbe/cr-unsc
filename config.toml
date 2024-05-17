@@ -16,10 +16,10 @@ code = "GNU GPL v3"
 [doi] # Digital Object Identifier
 
 data.concept = "10.5281/zenodo.7319780"
-data.version = "10.5281/zenodo.7319781" 
+data.version = "10.5281/zenodo.11212056" 
 
 software.concept = "10.5281/zenodo.7319783"
-software.version = "10.5281/zenodo.7319784" 
+software.version = "10.5281/zenodo.11212057" 
 
 
 
