@@ -21,22 +21,23 @@ f.tar_write_txt <- function(text,
         unlink(dir, recursive = TRUE)
         
     }
-    
 
+    dir.create(dir, showWarnings = FALSE)
 
-    mapply(utils::write.table,
-           text, doc_id,
-           quote = FALSE,
-           row.names = FALSE,
-           col.names = FALSE)
+    file <- file.path(dir, doc_id)
+
+    result <- mapply(utils::write.table,
+                     x = text,
+                     file = file,
+                     quote = FALSE,
+                     row.names = FALSE,
+                     col.names = FALSE)
 
 
     files <- list.files(dir, full.names = TRUE)
 
 
     invisible(files)
-
-
     
 
 }
