@@ -14,7 +14,7 @@ f.citation_extraction <- function(dt.final){
     ## Extract outgoing UNSC citations, example: "S/RES/2672 (2023)"
     
     target <- stringi::stri_extract_all(dt.final$text,
-                                        regex = "[0-9]{1,4} \\([0-9]{4}\\)")
+                                        regex = "[0-9]{1,4}[[:space:]]*\\([0-9]{4}\\)")
 
     ## Define source resolutions
     source <- paste0(dt.final$res_no, " (", dt.final$year, ")")
