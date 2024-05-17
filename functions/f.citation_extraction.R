@@ -27,6 +27,13 @@ f.citation_extraction <- function(dt.final){
     dt <- rbindlist(bind2)
     setnames(dt, new = c("source", "target"))
 
+    ## Clean whitespace
+    dt$source <- gsub("[[:space:]]+", " ", dt$source)
+    dt$target <- gsub("[[:space:]]+", " ", dt$target)
+
+    dt$source <- trimws(dt$source)
+    dt$target <- trimws(dt$target)
+    
     ## Remove resolutions without citations
     dt <- dt[!is.na(target)]
 
@@ -34,8 +41,8 @@ f.citation_extraction <- function(dt.final){
     dt <- dt[!(dt$source == dt$target)]
 
     ## Reduce to numeric value
-    dt$source <- as.integer(sub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$source))
-    dt$target <- as.integer(gsub("([0-9]{1,5}) \\([0-9]{4}\\)", "\\1", dt$target))
+    dt$source <- as.integer(sub("([0-9]{1,5})[[:space:]]*\\([0-9]{4}\\)", "\\1", dt$source))
+    dt$target <- as.integer(gsub("([0-9]{1,5})[[:space:]]*\\([0-9]{4}\\)", "\\1", dt$target))
     
     ## Remove implausible citations (res cannot cite later resolutions!)
     dt <- dt[source >= target]
