@@ -886,6 +886,21 @@ tar_target(dt.final.meta,
 ```
 
 
+### Create Variant: Best TXT Files Only
+
+
+
+```{targets tar.variant.txt.best}
+tar_target(dt.txt.en.best,
+           f.tar_write_txt(text = dt.final$text,
+                           doc_id = dt.final$doc_id,
+                           dir = "files/txt_res_en_best",
+                           cleandir = TRUE))
+
+```
+
+
+
 
 ## Citation Extraction
 
