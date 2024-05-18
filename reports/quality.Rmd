@@ -131,7 +131,7 @@ igraph::vertex_attr_names(igraph_citations)
 ```
 
 
-## Names of Variables in Maindataset, but NOT in Graph Metadata
+## Names of Variables in Main Dataset, but NOT in Graph Metadata
 
 ```{r}
 
