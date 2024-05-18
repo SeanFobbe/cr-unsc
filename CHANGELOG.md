@@ -10,6 +10,7 @@
 - Fixed whitespace character detection in citation extraction (adds ca. 10% more citations)
 - Fixed improper merging of weights in citation network
 - Fixed "cannot xtfrm data frames" warning
+- Improve REGEX detection for certain geographic entities
 - Improve Codebook (headings, citation network docs)
 
 
