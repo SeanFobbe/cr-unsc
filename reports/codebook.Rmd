@@ -633,12 +633,12 @@ kable(dt.g.split,
 ```
 
 
-The UNSC resolution nodes are associated with as much metadata as makes sense from a network perspective. The GraphML file does not include full texts of resolutions. The following meta data variables are included:
+The UNSC resolution nodes are associated with as much metadata as makes sense from a network perspective. The following meta data variables are included:
 
 `r vertex_attr_names(igraph_citations)`
 
 
-If you wish to select nodes based on the contents of the full text, please run your analysis on the CSV file, export the resolution numbers and use these to select the appropriate nodes in your network analysis software.
+The GraphML file does not include full texts of resolutions. If you wish to select nodes based on the contents of the full text, please run your analysis on the CSV file, export the resolution numbers and use these to select the appropriate nodes in your network analysis software.
 
 
 
