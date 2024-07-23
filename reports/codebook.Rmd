@@ -704,7 +704,7 @@ ggplot(data = degree.in) +
         title = paste(prefix.figuretitle,
                       "| In-Degree Distribution of Citations"),
         caption = caption,
-        x = "Degree",
+        x = "In-Degree",
         y = "Proportion"
     )+
     theme(
