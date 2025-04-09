@@ -1,3 +1,11 @@
+# ATTENTION: Project moved to Codeberg
+
+Development of this project continues on Codeberg: https://codeberg.org/seanfobbe/cr-unsc
+
+The GitHub repository will remain available as a read-only version.
+
+
+
 # Corpus of Resolutions: UN Security Council
 
 
